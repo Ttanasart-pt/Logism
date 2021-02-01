@@ -1,0 +1,17 @@
+
+G
+java:S1172",Remove this unused method parameter "model".(°Èõûþÿÿÿÿ
+p
+java:S3038"U"children" is defined in the "TreeNode" interface and can be removed from this class.(òº‘ïûÿÿÿÿ
+y
+java:S3038"^"getAllowsChildren" is defined in the "TreeNode" interface and can be removed from this class.(òº‘ïûÿÿÿÿ
+r
+java:S3038"W"getChildAt" is defined in the "TreeNode" interface and can be removed from this class.(òº‘ïûÿÿÿÿ
+u
+java:S3038"Z"getChildCount" is defined in the "TreeNode" interface and can be removed from this class.(òº‘ïûÿÿÿÿ
+p
+java:S3038"U"getIndex" is defined in the "TreeNode" interface and can be removed from this class.(òº‘ïûÿÿÿÿ
+q
+java:S3038"V"getParent" is defined in the "TreeNode" interface and can be removed from this class.(òº‘ïûÿÿÿÿ
+n
+java:S3038"S"isLeaf" is defined in the "TreeNode" interface and can be removed from this class.(òº‘ïûÿÿÿÿ

@@ -1,0 +1,28 @@
+
+I
+java:S1199’"-Extract this nested code block into a method.(ñŞ‡ùüÿÿÿÿ
+I
+java:S1199©"-Extract this nested code block into a method.(ñŞ‡ùüÿÿÿÿ
+K
+java:S1066±"/Merge this if statement with the enclosing one.(¡‹¥Õüÿÿÿÿ
+R	java:S110Ê"<This class has 6 parents which is greater than 5 authorized.(½ŠÌÊ
+Z
+java:S1155¢">Use isEmpty() to check whether the collection is empty or not.(½Ó¡…ùÿÿÿÿ
+A
+java:S1948Ş"*Make "logModel" transient or serializable.(ÛºÈ¦
+o
+java:S22930"YReplace the type specification in this constructor call with the diamond operator ("<>").(„ñ¡Ö
+h
+java:S3776h"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(óÃÿ
+n
+java:S3776„"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(ªèõÿÿÿÿÿ
+p
+java:S2293…"YReplace the type specification in this constructor call with the diamond operator ("<>").(°àÎ¼
+p
+java:S2293†"YReplace the type specification in this constructor call with the diamond operator ("<>").(¤”™×
+P
+java:S1117×"9Rename "opts" which hides the field declared at line 206.(‘Áè¤
+i
+java:S3776ü"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¦›¾ñ
+p
+java:S2293ƒ"YReplace the type specification in this constructor call with the diamond operator ("<>").(‰Úœ„
