@@ -1,74 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="16"
-   height="16"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="hexdig.svg">
-  <defs
-     id="defs4" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="31.1959"
-     inkscape:cx="7.7016049"
-     inkscape:cy="7.8312166"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="784"
-     inkscape:window-height="821"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-1036.3622)">
-    <rect
-       style="fill:#333232;fill-opacity:1;stroke:#FFF6E9;stroke-opacity:1"
-       id="rect4408"
-       width="13.463307"
-       height="12.950419"
-       x="1.2181088"
-       y="1037.9052" />
-    <text
-       xml:space="preserve"
-       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#FFF6E9;fill-opacity:1;stroke:none;font-family:Sans"
-       x="2.1797736"
-       y="1047.9386"
-       id="text4410"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4412"
-         x="2.1797736"
-         y="1047.9386">JK</tspan></text>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="svg2" sodipodi:docname="hexdig.svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
+	 viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFF6E9;}
+</style>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="7.7016049" inkscape:cy="7.8312166" inkscape:document-units="px" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="821" inkscape:window-maximized="0" inkscape:window-width="784" inkscape:window-x="0" inkscape:window-y="0" inkscape:zoom="31.1959" pagecolor="#ffffff" showgrid="false">
+	</sodipodi:namedview>
+<g>
+	<path class="st0" d="M0,0v16l4.4,0l3.5-2.3l3.5,2.3H16V0H0z M6.1,8.1c0,2.2-1.1,2.9-2.6,2.9c-0.4,0-0.9-0.1-1.2-0.2l0.2-1.2
+		C2.7,9.7,3,9.8,3.4,9.8c0.8,0,1.3-0.4,1.3-1.7V2.9h1.4V8.1z M12.1,10.8L9.9,7.2L9.1,8.1v2.8H7.7V2.9h1.4v3.6h0
+		C9.4,6.3,9.6,6,9.8,5.7l2.1-2.8h1.8l-2.7,3.4l2.9,4.5H12.1z"/>
+</g>
 </svg>

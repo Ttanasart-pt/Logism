@@ -21,7 +21,7 @@ public class KeyboardToolSelection extends AbstractAction {
         InputMap imap = toolbar.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         int mask = toolbar.getToolkit().getMenuShortcutKeyMaskEx();
         for (int i = 0; i < 10; i++) {
-            KeyStroke keyStroke = KeyStroke.getKeyStroke((char) ('0' + i), mask);
+            KeyStroke keyStroke = KeyStroke.getKeyStroke((char) ('0' + i));
             int j = (i == 0 ? 10 : i - 1);
             KeyboardToolSelection action = new KeyboardToolSelection(toolbar, j);
             String key = "ToolSelect" + i;

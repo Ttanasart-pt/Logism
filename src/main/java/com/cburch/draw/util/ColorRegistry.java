@@ -21,7 +21,7 @@ public class ColorRegistry {
     public static Color Red_dark = new Color(196, 0, 29);
     public static Color Orange = new Color(255, 172, 84);
     public static Color Lime = new Color(174, 255, 105);
-    public static Color Lime_dark = new Color(12, 92, 12);
+    public static Color Lime_dark = new Color(50, 130, 20);
 
     public static Color BaseGateBorderColor;
     public static Color BaseGateBorderAccent;
@@ -36,7 +36,7 @@ public class ColorRegistry {
         WireIdle = Black;
 
         Value.NIL_COLOR = Black;
-        Value.FALSE_COLOR = Red;
+        Value.FALSE_COLOR = Lime_dark;
         Value.TRUE_COLOR = Lime;
         Value.UNKNOWN_COLOR = Black;
         Value.ERROR_COLOR = Red_dark;

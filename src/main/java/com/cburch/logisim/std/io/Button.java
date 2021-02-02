@@ -144,8 +144,7 @@ public class Button extends InstanceFactory {
             x += DEPTH;
             y += DEPTH;
             Object labelLoc = painter.getAttributeValue(Io.ATTR_LABEL_LOC);
-            if (labelLoc == Io.LABEL_CENTER || labelLoc == Direction.NORTH
-                    || labelLoc == Direction.WEST) {
+            if (labelLoc == Io.LABEL_CENTER || labelLoc == Direction.NORTH || labelLoc == Direction.WEST) {
                 depress = DEPTH;
             } else {
                 depress = 0;
@@ -160,10 +159,8 @@ public class Button extends InstanceFactory {
                 g.setColor(Value.TRUE_COLOR);
                 if (facing == Direction.NORTH) {
                     g.drawLine(px, py, px, py + 10);
-                }
-
-                else {
-                                             g.drawLine(px, py, px + 10, py);
+                } else {
+                    g.drawLine(px, py, px + 10, py);
                 }
 
                 GraphicsUtil.switchToWidth(g, 1);

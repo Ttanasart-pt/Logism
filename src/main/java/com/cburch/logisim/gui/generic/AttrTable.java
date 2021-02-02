@@ -35,14 +35,12 @@ import com.cburch.logisim.util.JDialogOk;
 import com.cburch.logisim.util.JInputComponent;
 import com.cburch.logisim.util.LocaleListener;
 import com.cburch.logisim.util.LocaleManager;
-import com.formdev.flatlaf.FlatDarkLaf;
 
 import java.util.ArrayList;
 import java.util.EventObject;
 import java.util.LinkedList;
 import static com.cburch.logisim.util.LocaleString.*;
 
-@SuppressWarnings("serial")
 public class AttrTable extends JPanel implements LocaleListener {
     private static final AttrTableModel NULL_ATTR_MODEL = new NullAttrModel();
 
@@ -114,7 +112,7 @@ public class AttrTable extends JPanel implements LocaleListener {
 
         TableModelAdapter(Window parent, AttrTableModel attrModel) {
             this.parent = parent;
-            this.listeners = new LinkedList<TableModelListener>();
+            this.listeners = new LinkedList<>();
             this.attrModel = attrModel;
         }
 
@@ -143,7 +141,7 @@ public class AttrTable extends JPanel implements LocaleListener {
 
         void fireTableChanged() {
             TableModelEvent e = new TableModelEvent(this);
-            for (TableModelListener l : new ArrayList<TableModelListener>(listeners)) {
+            for (TableModelListener l : new ArrayList<>(listeners)) {
                 l.tableChanged(e);
             }
         }
@@ -243,7 +241,7 @@ public class AttrTable extends JPanel implements LocaleListener {
     }
 
     private class CellEditor implements TableCellEditor, FocusListener, ActionListener {
-        LinkedList<CellEditorListener> listeners = new LinkedList<CellEditorListener>();
+        LinkedList<CellEditorListener> listeners = new LinkedList<>();
         AttrTableModelRow currentRow;
         Component currentEditor;
 
@@ -265,14 +263,14 @@ public class AttrTable extends JPanel implements LocaleListener {
 
         public void fireEditingCanceled() {
             ChangeEvent e = new ChangeEvent(AttrTable.this);
-            for (CellEditorListener l : new ArrayList<CellEditorListener>(listeners)) {
+            for (CellEditorListener l : new ArrayList<>(listeners)) {
                 l.editingCanceled(e);
             }
         }
 
         public void fireEditingStopped() {
             ChangeEvent e = new ChangeEvent(AttrTable.this);
-            for (CellEditorListener l : new ArrayList<CellEditorListener>(listeners)) {
+            for (CellEditorListener l : new ArrayList<>(listeners)) {
                 l.editingStopped(e);
             }
         }
@@ -396,12 +394,12 @@ public class AttrTable extends JPanel implements LocaleListener {
         }
     }
 
-    private Window parent;
+    private final Window parent;
     private boolean titleEnabled;
-    private JLabel title;
-    private JTable table;
-    private TableModelAdapter tableModel;
-    private CellEditor editor = new CellEditor();
+    private final JLabel title;
+    private final JTable table;
+    private final TableModelAdapter tableModel;
+    private final CellEditor editor = new CellEditor();
 
     public AttrTable(Window parent) {
         super(new BorderLayout());

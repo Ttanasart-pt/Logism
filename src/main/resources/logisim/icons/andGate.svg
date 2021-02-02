@@ -1,104 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1"
-	 id="svg2" sodipodi:docname="andGate.svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 id="svg2" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
-	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-<metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
-<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 6.0-c004 79.164570, 2020/11/18-15:51:46        ">
-   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-      <rdf:Description rdf:about=""
-            xmlns:xmp="http://ns.adobe.com/xap/1.0/"
-            xmlns:xmpGImg="http://ns.adobe.com/xap/1.0/g/img/"
-            xmlns:xmpTPg="http://ns.adobe.com/xap/1.0/t/pg/"
-            xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#"
-            xmlns:xmpG="http://ns.adobe.com/xap/1.0/g/"
-            xmlns:dc="http://purl.org/dc/elements/1.1/"
-            xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
-            xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#">
-         <xmp:CreatorTool>Adobe Illustrator 25.1 (Windows)</xmp:CreatorTool>
-         <xmp:CreateDate>2021-02-02T11:32:02+07:00</xmp:CreateDate>
-         <xmp:Thumbnails>
-            <rdf:Alt>
-               <rdf:li rdf:parseType="Resource">
-                  <xmpGImg:width>232</xmpGImg:width>
-                  <xmpGImg:height>256</xmpGImg:height>
-                  <xmpGImg:format>JPEG</xmpGImg:format>
-                  <xmpGImg:image>/9j/4AAQSkZJRgABAgEASABIAAD/7QAsUGhvdG9zaG9wIDMuMAA4QklNA+0AAAAAABAASAAAAAEA&#xA;AQBIAAAAAQAB/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoK&#xA;DBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8f&#xA;Hx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgBAADoAwER&#xA;AAIRAQMRAf/EAaIAAAAHAQEBAQEAAAAAAAAAAAQFAwIGAQAHCAkKCwEAAgIDAQEBAQEAAAAAAAAA&#xA;AQACAwQFBgcICQoLEAACAQMDAgQCBgcDBAIGAnMBAgMRBAAFIRIxQVEGE2EicYEUMpGhBxWxQiPB&#xA;UtHhMxZi8CRygvElQzRTkqKyY3PCNUQnk6OzNhdUZHTD0uIIJoMJChgZhJRFRqS0VtNVKBry4/PE&#xA;1OT0ZXWFlaW1xdXl9WZ2hpamtsbW5vY3R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo+Ck5SVlpeYmZ&#xA;qbnJ2en5KjpKWmp6ipqqusra6voRAAICAQIDBQUEBQYECAMDbQEAAhEDBCESMUEFURNhIgZxgZEy&#xA;obHwFMHR4SNCFVJicvEzJDRDghaSUyWiY7LCB3PSNeJEgxdUkwgJChgZJjZFGidkdFU38qOzwygp&#xA;0+PzhJSktMTU5PRldYWVpbXF1eX1RlZmdoaWprbG1ub2R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo&#xA;+DlJWWl5iZmpucnZ6fkqOkpaanqKmqq6ytrq+v/aAAwDAQACEQMRAD8A9P5jNzsVdirsVdirsVdi&#xA;rsVdirsVdirsVdirsVdirsVbDMO5w2VpcJXHeuETKOELhP4j7smMjEwVFdW6HJiQLEhvCh2KuxV2&#xA;KuxV2KuxV2KuxVC5jNzsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVXrKw9xkhMh&#xA;BiFVZFb5+GWiQLWY0uySHYq7FXYq7FXYq7FULmM3OxVVjjVlqcsjEEMJSpd6KZLgCOIu9FMeALxF&#xA;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&#xA;7FXYq7FXYq7FXYq7FX//2Q==</xmpGImg:image>
-               </rdf:li>
-            </rdf:Alt>
-         </xmp:Thumbnails>
-         <xmp:MetadataDate>2021-02-02T11:32:02+07:00</xmp:MetadataDate>
-         <xmp:ModifyDate>2021-02-02T11:32:02+07:00</xmp:ModifyDate>
-         <xmpTPg:MaxPageSize rdf:parseType="Resource">
-            <stDim:w>16.000000</stDim:w>
-            <stDim:h>16.000000</stDim:h>
-            <stDim:unit>Points</stDim:unit>
-         </xmpTPg:MaxPageSize>
-         <xmpTPg:NPages>1</xmpTPg:NPages>
-         <xmpTPg:HasVisibleTransparency>False</xmpTPg:HasVisibleTransparency>
-         <xmpTPg:HasVisibleOverprint>False</xmpTPg:HasVisibleOverprint>
-         <xmpTPg:PlateNames>
-            <rdf:Seq>
-               <rdf:li>Magenta</rdf:li>
-               <rdf:li>Yellow</rdf:li>
-            </rdf:Seq>
-         </xmpTPg:PlateNames>
-         <xmpTPg:SwatchGroups>
-            <rdf:Seq>
-               <rdf:li rdf:parseType="Resource">
-                  <xmpG:groupName>Default Swatch Group</xmpG:groupName>
-                  <xmpG:groupType>0</xmpG:groupType>
-               </rdf:li>
-            </rdf:Seq>
-         </xmpTPg:SwatchGroups>
-         <dc:format>image/svg+xml</dc:format>
-         <xmpMM:DerivedFrom rdf:parseType="Resource"/>
-         <xmpMM:DocumentID>xmp.did:e8695fce-8099-db44-9c4d-74ea0a748626</xmpMM:DocumentID>
-         <xmpMM:InstanceID>xmp.iid:e8695fce-8099-db44-9c4d-74ea0a748626</xmpMM:InstanceID>
-         <xmpMM:OriginalDocumentID>xmp.did:e8695fce-8099-db44-9c4d-74ea0a748626</xmpMM:OriginalDocumentID>
-         <xmpMM:History>
-            <rdf:Seq>
-               <rdf:li rdf:parseType="Resource">
-                  <stEvt:action>saved</stEvt:action>
-                  <stEvt:instanceID>xmp.iid:e8695fce-8099-db44-9c4d-74ea0a748626</stEvt:instanceID>
-                  <stEvt:when>2021-02-02T11:32:02+07:00</stEvt:when>
-                  <stEvt:softwareAgent>Adobe Illustrator 25.1 (Windows)</stEvt:softwareAgent>
-                  <stEvt:changed>/</stEvt:changed>
-               </rdf:li>
-            </rdf:Seq>
-         </xmpMM:History>
-      </rdf:Description>
-   </rdf:RDF>
-</x:xmpmeta>
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                           
-<?xpacket end="w"?>
-	</metadata>
-<sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="8.4233916" inkscape:cy="7.8328391" inkscape:document-units="px" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="837" inkscape:window-maximized="1" inkscape:window-width="1600" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:zoom="33.439332" pagecolor="#ffffff" showgrid="false">
-	</sodipodi:namedview>
-<g id="layer1" transform="translate(0,-1036.3622)" inkscape:groupmode="layer" inkscape:label="Layer 1">
-	
-		<path id="path4032" inkscape:connector-curvature="0" sodipodi:nodetypes="cccccc" fill="none" stroke="#FFF6E9" stroke-width="0.9675" d="
-		M0.5,1038.3v12.4h6c2.5,0,5.2-2.4,5.1-6.6c-0.1-3.5-2.6-5.8-5.4-5.8H0.5z"/>
-</g>
+	 viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFF6E9;}
+</style>
+<path class="st0" d="M8,16H0V0h8c4.4,0,8,3.6,8,8v0C16,12.4,12.4,16,8,16z"/>
 </svg>

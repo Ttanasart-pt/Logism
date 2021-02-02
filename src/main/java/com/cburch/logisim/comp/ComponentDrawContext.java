@@ -175,8 +175,7 @@ public class ComponentDrawContext {
         g.drawOval(x - 4, y - 4, 9, 9);
     }
 
-    public void drawPin(Component comp, int i,
-            String label, Direction dir) {
+    public void drawPin(Component comp, int i, String label, Direction dir) {
         Color curColor = g.getColor();
         if (i < 0 || i >= comp.getEnds().size()) {
             return;
@@ -196,17 +195,13 @@ public class ComponentDrawContext {
         g.fillOval(x - PIN_OFFS, y - PIN_OFFS, PIN_RAD, PIN_RAD);
         g.setColor(curColor);
         if (dir == Direction.EAST) {
-            GraphicsUtil.drawText(g, label, x + 3, y,
-                    GraphicsUtil.H_LEFT, GraphicsUtil.V_CENTER);
+            GraphicsUtil.drawText(g, label, x + 3, y, GraphicsUtil.H_LEFT, GraphicsUtil.V_CENTER);
         } else if (dir == Direction.WEST) {
-            GraphicsUtil.drawText(g, label, x - 3, y,
-                    GraphicsUtil.H_RIGHT, GraphicsUtil.V_CENTER);
+            GraphicsUtil.drawText(g, label, x - 3, y, GraphicsUtil.H_RIGHT, GraphicsUtil.V_CENTER);
         } else if (dir == Direction.SOUTH) {
-            GraphicsUtil.drawText(g, label, x, y - 3,
-                    GraphicsUtil.H_CENTER, GraphicsUtil.V_BASELINE);
+            GraphicsUtil.drawText(g, label, x, y - 3, GraphicsUtil.H_CENTER, GraphicsUtil.V_BASELINE);
         } else if (dir == Direction.NORTH) {
-            GraphicsUtil.drawText(g, label, x, y + 3,
-                    GraphicsUtil.H_CENTER, GraphicsUtil.V_TOP);
+            GraphicsUtil.drawText(g, label, x, y + 3, GraphicsUtil.H_CENTER, GraphicsUtil.V_TOP);
         }
     }
 

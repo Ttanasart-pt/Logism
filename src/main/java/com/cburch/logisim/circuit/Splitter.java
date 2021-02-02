@@ -27,8 +27,7 @@ import com.cburch.logisim.tools.WireRepair;
 import com.cburch.logisim.tools.WireRepairData;
 import static com.cburch.logisim.util.LocaleString.*;
 
-public class Splitter extends ManagedComponent
-        implements WireRepair, ToolTipMaker, MenuExtender, AttributeListener {
+public class Splitter extends ManagedComponent implements WireRepair, ToolTipMaker, MenuExtender, AttributeListener {
     // basic data
     // how each bit maps to thread within end
     byte[] bit_thread;
@@ -62,11 +61,9 @@ public class Splitter extends ManagedComponent
             Location myLoc = getLocation();
             Direction facing = getAttributeSet().getValue(StdAttr.FACING);
             if (facing == Direction.EAST || facing == Direction.WEST) {
-                return Math.abs(loc.getX() - myLoc.getX()) > 5
-                    || loc.manhattanDistanceTo(myLoc) <= 5;
+                return Math.abs(loc.getX() - myLoc.getX()) > 5 || loc.manhattanDistanceTo(myLoc) <= 5;
             } else {
-                return Math.abs(loc.getY() - myLoc.getY()) > 5
-                    || loc.manhattanDistanceTo(myLoc) <= 5;
+                return Math.abs(loc.getY() - myLoc.getY()) > 5 || loc.manhattanDistanceTo(myLoc) <= 5;
             }
         } else {
             return false;
@@ -103,8 +100,7 @@ public class Splitter extends ManagedComponent
         EndData[] ends = new EndData[fanout + 1];
         ends[0] = new EndData(origin, BitWidth.create(bit_end.length), EndData.INPUT_OUTPUT);
         for (int i = 0; i < fanout; i++) {
-            ends[i + 1] = new EndData(Location.create(x, y),
-                    BitWidth.create(end_width[i + 1]), EndData.INPUT_OUTPUT);
+            ends[i + 1] = new EndData(Location.create(x, y), BitWidth.create(end_width[i + 1]), EndData.INPUT_OUTPUT);
             x += dx;
             y += dy;
         }
@@ -192,12 +188,11 @@ public class Splitter extends ManagedComponent
                 appendBuf(buf, beginString, bit_end.length - 1);
             }
 
-            String base;
-            switch (bits) {
-            case 0:  base = "splitterSplit0Tip"; break;
-            case 1:  base = "splitterSplit1Tip"; break;
-            default: base = "splitterSplitManyTip"; break;
-            }
+            String base = switch (bits) {
+                case 0 -> "splitterSplit0Tip";
+                case 1 -> "splitterSplit1Tip";
+                default -> "splitterSplitManyTip";
+            };
             return getFromLocale(base, buf.toString());
         } else {
             return null;

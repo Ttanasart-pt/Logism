@@ -27,23 +27,17 @@ import com.cburch.logisim.util.Cache;
 import com.cburch.logisim.util.GraphicsUtil;
 import static com.cburch.logisim.util.LocaleString.*;
 
-public final class Wire implements Component, AttributeSet, CustomHandles,
-        Iterable<Location> {
+public final class Wire implements Component, AttributeSet, CustomHandles, Iterable<Location> {
     /** Stroke width when drawing wires. */
     public static final int WIDTH = 3;
 
-    public static final AttributeOption VALUE_HORZ
-        = new AttributeOption("horz", getFromLocale("wireDirectionHorzOption"));
-    public static final AttributeOption VALUE_VERT
-        = new AttributeOption("vert", getFromLocale("wireDirectionVertOption"));
-    public static final Attribute<AttributeOption> dir_attr
-        = Attributes.forOption("direction", getFromLocale("wireDirectionAttr"),
+    public static final AttributeOption VALUE_HORZ = new AttributeOption("horz", getFromLocale("wireDirectionHorzOption"));
+    public static final AttributeOption VALUE_VERT = new AttributeOption("vert", getFromLocale("wireDirectionVertOption"));
+    public static final Attribute<AttributeOption> dir_attr = Attributes.forOption("direction", getFromLocale("wireDirectionAttr"),
             new AttributeOption[] { VALUE_HORZ, VALUE_VERT });
-    public static final Attribute<Integer> len_attr
-        = Attributes.forInteger("length", getFromLocale("wireLengthAttr"));
+    public static final Attribute<Integer> len_attr = Attributes.forInteger("length", getFromLocale("wireLengthAttr"));
 
-    private static final List<Attribute<?>> ATTRIBUTES
-        = Arrays.asList(new Attribute<?>[] { dir_attr, len_attr });
+    private static final List<Attribute<?>> ATTRIBUTES = Arrays.asList(dir_attr, len_attr);
     private static final Cache cache = new Cache();
 
     public static Wire create(Location e0, Location e1) {
@@ -177,8 +171,7 @@ public final class Wire implements Component, AttributeSet, CustomHandles,
     @Override
     public EndData getEnd(int index) {
         Location loc = getEndLocation(index);
-        return new EndData(loc, BitWidth.UNKNOWN,
-                EndData.INPUT_OUTPUT);
+        return new EndData(loc, BitWidth.UNKNOWN, EndData.INPUT_OUTPUT);
     }
 
     @Override
@@ -202,8 +195,7 @@ public final class Wire implements Component, AttributeSet, CustomHandles,
         java.awt.Component dest = context.getDestination();
         int x0 = e0.getX();
         int y0 = e0.getY();
-        dest.repaint(x0 - 5, y0 - 5,
-                e1.getX() - x0 + 10, e1.getY() - y0 + 10);
+        dest.repaint(x0 - 5, y0 - 5, e1.getX() - x0 + 10, e1.getY() - y0 + 10);
     }
 
     @Override
@@ -248,7 +240,6 @@ public final class Wire implements Component, AttributeSet, CustomHandles,
             if (name.equals(attr.getName())) {
                 return attr;
             }
-
         }
         return null;
     }
@@ -296,8 +287,7 @@ public final class Wire implements Component, AttributeSet, CustomHandles,
     }
 
     public boolean sharesEnd(Wire other) {
-        return this.e0.equals(other.e0) || this.e1.equals(other.e0)
-            || this.e0.equals(other.e1) || this.e1.equals(other.e1);
+        return this.e0.equals(other.e0) || this.e1.equals(other.e0) || this.e0.equals(other.e1) || this.e1.equals(other.e1);
     }
 
     public boolean overlaps(Wire other, boolean includeEnds) {

@@ -34,7 +34,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 public class PokeTool extends Tool {
     private static final Icon toolIcon = Icons.getIcon("poke.svg");
-    private static final Color caretColor = new Color(255, 255, 150);
+    private static final Color caretColor = ColorRegistry.Grey;
 
     private static class WireCaret extends AbstractCaret {
         AttributeSet opts;
@@ -68,9 +68,10 @@ public class PokeTool extends Tool {
             FontMetrics fm = g.getFontMetrics();
             g.setColor(caretColor);
             g.fillRect(x + 2, y + 2, fm.stringWidth(vStr) + 4, fm.getAscent() + fm.getDescent() + 4);
-            g.setColor(ColorRegistry.BaseGateBorderColor);
+            g.setColor(ColorRegistry.GreyLight);
             g.drawRect(x + 2, y + 2, fm.stringWidth(vStr) + 4, fm.getAscent() + fm.getDescent() + 4);
             g.fillOval(x - 2, y - 2, 3, 3);
+            g.setColor(ColorRegistry.TextColor);
             g.drawString(vStr, x + 4, y + 4 + fm.getAscent());
         }
     }
@@ -81,17 +82,16 @@ public class PokeTool extends Tool {
             Circuit circ = pokedCircuit;
             if (event.getCircuit() == circ && circ != null
                     && (event.getAction() == CircuitEvent.ACTION_REMOVE
-                            || event.getAction() == CircuitEvent.ACTION_CLEAR)
+                    || event.getAction() == CircuitEvent.ACTION_CLEAR)
                     && !circ.contains(pokedComponent)) {
                 removeCaret(false);
             }
         }
     }
 
-    private static Cursor cursor
-        = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+    private static final Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
 
-    private Listener listener;
+    private final Listener listener;
     private Circuit pokedCircuit;
     private Component pokedComponent;
     private Caret pokeCaret;

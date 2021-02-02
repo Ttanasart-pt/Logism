@@ -39,8 +39,7 @@ public class SimulationTreeRenderer extends DefaultTreeCellRenderer {
 
         @Override
         public void paintIcon(Component c, Graphics g, int x, int y) {
-            ComponentDrawContext context = new ComponentDrawContext(c,
-                    null, null, g, g);
+            ComponentDrawContext context = new ComponentDrawContext(c, null, null, g, g);
             factory.paintIcon(context, x, y, factory.createAttributeSet());
 
             // draw magnifying glass if appropriate

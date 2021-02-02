@@ -57,8 +57,7 @@ abstract class AbstractGate extends InstanceFactory {
         this.isXor = isXor;
         setFacingAttribute(StdAttr.FACING);
         setKeyConfigurator(JoinedConfigurator.create(
-            new IntegerConfigurator(GateAttributes.ATTR_INPUTS, 2,
-                    GateAttributes.MAX_INPUTS, 0),
+            new IntegerConfigurator(GateAttributes.ATTR_INPUTS, 2, GateAttributes.MAX_INPUTS, 0),
             new BitWidthConfigurator(StdAttr.WIDTH)));
     }
 

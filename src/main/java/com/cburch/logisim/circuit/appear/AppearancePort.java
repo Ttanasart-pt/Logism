@@ -19,8 +19,8 @@ import com.cburch.logisim.std.wiring.Pin;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class AppearancePort extends AppearanceElement {
-    private static final int INPUT_RADIUS = 4;
-    private static final int OUTPUT_RADIUS = 5;
+    private static final int INPUT_RADIUS = 3;
+    private static final int OUTPUT_RADIUS = 4;
     private static final int MINOR_RADIUS = 2;
     public static final Color COLOR = Color.BLUE;
 

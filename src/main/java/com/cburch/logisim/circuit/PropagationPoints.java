@@ -74,7 +74,7 @@ class PropagationPoints {
         for (Entry e : data) {
             if (e.state == state) {
                 Location p = e.loc;
-                g.drawOval(p.getX() - 4, p.getY() - 4, 8, 8);
+                g.drawOval(p.getX() - 2, p.getY() - 2, 5, 5);
             } else if (stateMap.containsKey(e.state)) {
                 CircuitState substate = stateMap.get(e.state);
                 Component subcirc = substate.getSubcircuit();

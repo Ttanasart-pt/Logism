@@ -35,12 +35,11 @@ public class Circuit {
     private static final PrintStream DEBUG_STREAM = null;
 
     private class EndChangedTransaction extends CircuitTransaction {
-        private Component comp;
-        private Map<Location,EndData> toRemove;
-        private Map<Location,EndData> toAdd;
+        private final Component comp;
+        private final Map<Location,EndData> toRemove;
+        private final Map<Location,EndData> toAdd;
 
-        EndChangedTransaction(Component comp, Map<Location,EndData> toRemove,
-                Map<Location,EndData> toAdd) {
+        EndChangedTransaction(Component comp, Map<Location,EndData> toRemove, Map<Location,EndData> toAdd) {
             this.comp = comp;
             this.toRemove = toRemove;
             this.toAdd = toAdd;
@@ -82,7 +81,7 @@ public class Circuit {
         }
 
         private HashMap<Location,EndData> toMap(Object val) {
-            HashMap<Location,EndData> map = new HashMap<Location,EndData>();
+            HashMap<Location,EndData> map = new HashMap<>();
             if (val instanceof List) {
                 @SuppressWarnings("unchecked")
                 List<EndData> valList = (List<EndData>) val;
@@ -104,26 +103,25 @@ public class Circuit {
         }
     }
 
-    private MyComponentListener myComponentListener = new MyComponentListener();
-    private CircuitAppearance appearance;
-    private AttributeSet staticAttrs;
-    private SubcircuitFactory subcircuitFactory;
-    private EventSourceWeakSupport<CircuitListener> listeners
-        = new EventSourceWeakSupport<CircuitListener>();
+    private final MyComponentListener myComponentListener = new MyComponentListener();
+    private final CircuitAppearance appearance;
+    private final AttributeSet staticAttrs;
+    private final SubcircuitFactory subcircuitFactory;
+    private final EventSourceWeakSupport<CircuitListener> listeners = new EventSourceWeakSupport<>();
     // doesn't include wires
-    private HashSet<Component> comps = new HashSet<Component>();
+    private HashSet<Component> comps = new HashSet<>();
     CircuitWires wires = new CircuitWires();
         // wires is package-protected for CircuitState and Analyze only.
-    private ArrayList<Component> clocks = new ArrayList<Component>();
-    private CircuitLocker locker;
-    private WeakHashMap<Component, Circuit> circuitsUsingThis;
+    private final ArrayList<Component> clocks = new ArrayList<>();
+    private final CircuitLocker locker;
+    private final WeakHashMap<Component, Circuit> circuitsUsingThis;
 
     public Circuit(String name) {
         appearance = new CircuitAppearance(this);
         staticAttrs = CircuitAttributes.createBaseAttrs(this, name);
         subcircuitFactory = new SubcircuitFactory(this);
         locker = new CircuitLocker();
-        circuitsUsingThis = new WeakHashMap<Component, Circuit>();
+        circuitsUsingThis = new WeakHashMap<>();
     }
 
     CircuitLocker getLocker() {
@@ -138,7 +136,7 @@ public class Circuit {
         locker.checkForWritePermission("clear");
 
         Set<Component> oldComps = comps;
-        comps = new HashSet<Component>();
+        comps = new HashSet<>();
         wires = new CircuitWires();
         clocks.clear();
         for (Component comp : oldComps) {
@@ -262,7 +260,7 @@ public class Circuit {
     }
 
     public Collection<Component> getAllContaining(Location pt) {
-        HashSet<Component> ret = new HashSet<Component>();
+        HashSet<Component> ret = new HashSet<>();
         for (Component comp : getComponents()) {
             if (comp.contains(pt)) {
                 ret.add(comp);
@@ -273,7 +271,7 @@ public class Circuit {
     }
 
     public Collection<Component> getAllContaining(Location pt, Graphics g) {
-        HashSet<Component> ret = new HashSet<Component>();
+        HashSet<Component> ret = new HashSet<>();
         for (Component comp : getComponents()) {
             if (comp.contains(pt, g)) {
                 ret.add(comp);
@@ -284,7 +282,7 @@ public class Circuit {
     }
 
     public Collection<Component> getAllWithin(Bounds bds) {
-        HashSet<Component> ret = new HashSet<Component>();
+        HashSet<Component> ret = new HashSet<>();
         for (Component comp : getComponents()) {
             if (bds.contains(comp.getBounds())) {
                 ret.add(comp);
@@ -295,7 +293,7 @@ public class Circuit {
     }
 
     public Collection<Component> getAllWithin(Bounds bds, Graphics g) {
-        HashSet<Component> ret = new HashSet<Component>();
+        HashSet<Component> ret = new HashSet<>();
         for (Component comp : getComponents()) {
             if (bds.contains(comp.getBounds(g))) {
                 ret.add(comp);

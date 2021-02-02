@@ -64,12 +64,11 @@ public class SVGIcon implements Icon {
     }
 
     private void paintSvgIcon(Graphics2D g, int x, int y, double scaleX, double scaleY) {
-            AffineTransform transform = new AffineTransform(scaleX, 0.0, 0.0, scaleY, x, y);
-            svgIcon.setTransform(transform);
-            Graphics2D g2d = (Graphics2D) g;
-            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            svgIcon.paint(g);
-        }	
+        AffineTransform transform = new AffineTransform(1, 0.0, 0.0, scaleY, x, y);
+        svgIcon.setTransform(transform);
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        svgIcon.paint(g);
+    }
 
     @Override
     public void paintIcon(Component arg0, Graphics g, int x, int y) {

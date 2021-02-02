@@ -11,9 +11,10 @@ import java.awt.*;
 import static com.cburch.logisim.util.LocaleString.getFromLocale;
 
 public class FrameToolbar extends JPanel {
-    public Toolbar tools;
     public ExplorerToolbarModel toolExplorer;
+    public Toolbar tools;
     public SimulationToolbarModel toolSimulation;
+    public SettingToolbarModel toolSetting;
 
     public FrameToolbar(ToolbarModel model, Frame frame, MenuListener menu, Project project) {
         super(new CardLayout(8, 0));
@@ -22,7 +23,8 @@ public class FrameToolbar extends JPanel {
         JPanel content = new JPanel(new BorderLayout());
         JPanel leftPanel = new JPanel(new GridBagLayout());
         JPanel centerPanel = new JPanel(new GridBagLayout());
-        JPanel rightPanel = new JPanel();
+        JPanel rightPanel = new JPanel(new BorderLayout());
+        JPanel rightRightPanel = new JPanel(new GridBagLayout());
 
         toolExplorer = new ExplorerToolbarModel(frame, menu);
         leftPanel.add(new Toolbar(toolExplorer));
@@ -30,10 +32,14 @@ public class FrameToolbar extends JPanel {
         tools = new Toolbar(model);
         leftPanel.add(new JPanel());
         leftPanel.add(tools);
-        rightPanel.setPreferredSize(leftPanel.getPreferredSize());
 
         toolSimulation = new SimulationToolbarModel(project, menu, true);
         centerPanel.add(new Toolbar(toolSimulation));
+
+        toolSetting = new SettingToolbarModel(menu);
+        rightPanel.setPreferredSize(leftPanel.getPreferredSize());
+        rightRightPanel.add(new Toolbar(toolSetting));
+        rightPanel.add(rightRightPanel, BorderLayout.EAST);
 
         content.add(leftPanel, BorderLayout.WEST);
         content.add(centerPanel, BorderLayout.CENTER);

@@ -1,12 +1,9 @@
-<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-
- <metadata id="metadata7">image/svg+xml</metadata>
- <g>
-  <title>Layer 1</title>
-  <g id="layer1">
-   <rect fill="#ffffff" stroke="#000000" stroke-width="0.989913" y="1.496317" x="1.769472" height="13.026289" width="12.463122" id="rect4026"/>
-  </g>
-  <text xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="8" id="svg_1" y="12.349227" x="6.002575" style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#FFF6E9;fill-opacity:1;stroke:none;font-family:Sans">X</text>
-  <text xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="6" id="svg_5" y="6.679124" x="9.868555" style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#FFF6E9;fill-opacity:1;stroke:none;font-family:Sans">n</text>
- </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="16px" height="16px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FFF6E9;stroke-width:3;stroke-miterlimit:10;}
+</style>
+<polyline class="st0" points="13.2,10.6 8,5.4 2.8,10.6 "/>
 </svg>

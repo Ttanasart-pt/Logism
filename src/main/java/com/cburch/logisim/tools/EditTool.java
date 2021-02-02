@@ -40,8 +40,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 public class EditTool extends Tool {
     private static final int CACHE_MAX_SIZE = 32;
-    private static final Location NULL_LOCATION
-        = Location.create(Integer.MIN_VALUE, Integer.MIN_VALUE);
+    private static final Location NULL_LOCATION = Location.create(Integer.MIN_VALUE, Integer.MIN_VALUE);
 
     private class Listener implements CircuitListener, Selection.Listener {
         @Override

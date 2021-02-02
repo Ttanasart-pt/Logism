@@ -49,13 +49,11 @@ class SplitterDistributeItem extends JMenuItem implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         SplitterAttributes attrs = (SplitterAttributes) splitter.getAttributeSet();
         byte[] actual = attrs.bit_end;
-        byte[] desired = SplitterAttributes.computeDistribution(attrs.fanout,
-                actual.length, order);
+        byte[] desired = SplitterAttributes.computeDistribution(attrs.fanout, actual.length, order);
         CircuitMutation xn = new CircuitMutation(proj.getCircuitState().getCircuit());
         for (int i = 0, n = Math.min(actual.length, desired.length); i < n; i++) {
             if (actual[i] != desired[i]) {
-                xn.set(splitter, attrs.getBitOutAttribute(i),
-                        Integer.valueOf(desired[i]));
+                xn.set(splitter, attrs.getBitOutAttribute(i), Integer.valueOf(desired[i]));
             }
         }
         proj.doAction(xn.toAction(toGetter()));

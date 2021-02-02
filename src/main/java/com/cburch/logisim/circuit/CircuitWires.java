@@ -5,13 +5,7 @@ package com.cburch.logisim.circuit;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import com.cburch.draw.util.ColorRegistry;
@@ -54,7 +48,7 @@ class CircuitWires {
 
     static class State {
         BundleMap bundleMap;
-        HashMap<WireThread,Value> thr_values = new HashMap<WireThread,Value>();
+        HashMap<WireThread,Value> thr_values = new HashMap<>();
 
         State(BundleMap bundleMap) {
             this.bundleMap = bundleMap;
@@ -83,8 +77,8 @@ class CircuitWires {
 
     static class BundleMap {
         boolean computed = false;
-        HashMap<Location,WireBundle> pointBundles = new HashMap<Location,WireBundle>();
-        HashSet<WireBundle> bundles = new HashSet<WireBundle>();
+        HashMap<Location,WireBundle> pointBundles = new HashMap<>();
+        HashSet<WireBundle> bundles = new HashSet<>();
         boolean isValid = true;
         // NOTE: It would make things more efficient if we also had
         // a set of just the first bundle in each tree.
@@ -96,7 +90,7 @@ class CircuitWires {
 
         void addWidthIncompatibilityData(WidthIncompatibilityData e) {
             if (incompatibilityData == null) {
-                incompatibilityData = new HashSet<WidthIncompatibilityData>();
+                incompatibilityData = new HashSet<>();
             }
             incompatibilityData.add(e);
         }
@@ -143,19 +137,19 @@ class CircuitWires {
 
         synchronized void waitUntilComputed() {
             while (!computed) {
-                try { wait(); } catch (InterruptedException e) { }
+                try { wait(); } catch (InterruptedException ignored) { }
             }
         }
     }
 
     // user-given data
-    private HashSet<Wire> wires = new HashSet<Wire>();
-    private HashSet<Splitter> splitters = new HashSet<Splitter>();
+    private final HashSet<Wire> wires = new HashSet<>();
+    private final HashSet<Splitter> splitters = new HashSet<>();
     // of Components with Tunnel factory
-    private HashSet<Component> tunnels = new HashSet<Component>();
-    private TunnelListener tunnelListener = new TunnelListener();
+    private final HashSet<Component> tunnels = new HashSet<>();
+    private final TunnelListener tunnelListener = new TunnelListener();
     // of Components with PullResistor factory
-    private HashSet<Component> pulls = new HashSet<Component>();
+    private final HashSet<Component> pulls = new HashSet<>();
     final CircuitPoints points = new CircuitPoints();
 
     // derived data
@@ -185,7 +179,6 @@ class CircuitWires {
             return det;
         }
 
-
         BundleMap bmap = getBundleMap();
         if (!bmap.isValid()) {
             return BitWidth.UNKNOWN;
@@ -196,7 +189,6 @@ class CircuitWires {
             return qb.getWidth();
         }
 
-
         return BitWidth.UNKNOWN;
     }
 
@@ -206,19 +198,16 @@ class CircuitWires {
             return q;
         }
 
-
         WireBundle qb = getBundleMap().getBundleAt(q);
         if (qb != null && qb.isValid()) {
             return qb.getWidthDeterminant();
         }
 
-
         return q;
     }
 
     Iterator<? extends Component> getComponents() {
-        return new IteratorChain<Component>(splitters.iterator(),
-                wires.iterator());
+        return new IteratorChain<>(splitters.iterator(), wires.iterator());
     }
 
     Set<Wire> getWires() {
@@ -244,7 +233,7 @@ class CircuitWires {
             return WireSet.EMPTY;
         }
 
-        HashSet<Wire> wires = new HashSet<Wire>();
+        HashSet<Wire> wires = new HashSet<>();
         for (Location loc : bundle.points) {
             wires.addAll(points.getWires(loc));
         }
@@ -350,7 +339,7 @@ class CircuitWires {
     void propagate(CircuitState circState, Set<Location> points) {
         BundleMap map = getBundleMap();
         // affected threads
-        CopyOnWriteArraySet<WireThread> dirtyThreads = new CopyOnWriteArraySet<WireThread>();
+        CopyOnWriteArraySet<WireThread> dirtyThreads = new CopyOnWriteArraySet<>();
 
         // get state, or create a new one if current state is outdated
         State s = circState.getWireData();
@@ -360,9 +349,7 @@ class CircuitWires {
             for (WireBundle b : map.getBundles()) {
                 WireThread[] th = b.threads;
                 if (b.isValid() && th != null) {
-                    for (WireThread t : th) {
-                        dirtyThreads.add(t);
-                    }
+                    dirtyThreads.addAll(Arrays.asList(th));
                 }
             }
             circState.setWireData(s);
@@ -387,9 +374,7 @@ class CircuitWires {
                         }
                     }
                 } else {
-                    for (WireThread t : th) {
-                        dirtyThreads.add(t);
-                    }
+                    dirtyThreads.addAll(Arrays.asList(th));
                 }
             }
         }
@@ -400,7 +385,7 @@ class CircuitWires {
 
 
         // determine values of affected threads
-        HashSet<ThreadBundle> bundles = new HashSet<ThreadBundle>();
+        HashSet<ThreadBundle> bundles = new HashSet<>();
         for (WireThread t : dirtyThreads) {
             Value v = getThreadValue(circState, t);
             s.thr_values.put(t, v);
@@ -414,7 +399,6 @@ class CircuitWires {
             Value bv = null;
             if (!b.isValid() || b.threads == null) {
                 // do nothing
-                ;
             } else if (b.threads.length == 1) {
                 bv = s.thr_values.get(b.threads[0]);
             } else {
@@ -423,15 +407,14 @@ class CircuitWires {
                 for (int i = 0; i < tvs.length; i++) {
                     Value tv = s.thr_values.get(b.threads[i]);
                     if (tv == null) {
-                        { tvs_valid = false;
+                        { tvs_valid = false;}
+                        break;
                     }
- break; }
                     tvs[i] = tv;
                 }
                 if (tvs_valid) {
                     bv = Value.create(tvs);
                 }
-
             }
 
             if (bv != null) {
@@ -493,11 +476,7 @@ class CircuitWires {
                             g.setColor(ColorRegistry.WireIdle);
                         }
 
-                        if (highlighted.containsLocation(loc)) {
-                            g.fillOval(loc.getX() - 5, loc.getY() - 5, 10, 10);
-                        } else {
-                            g.fillOval(loc.getX() - 4, loc.getY() - 4, 8, 8);
-                        }
+                        g.fillOval(loc.getX() - 2, loc.getY() - 2, 4, 4);
                     }
                 }
             }
@@ -554,11 +533,7 @@ class CircuitWires {
                             } else {
                                 g.setColor(ColorRegistry.WireIdle);
                             }
-                            if (highlighted.containsLocation(loc)) {
-                                g.fillOval(loc.getX() - 5, loc.getY() - 5, 10, 10);
-                            } else {
-                                g.fillOval(loc.getX() - 4, loc.getY() - 4, 8, 8);
-                            }
+                            g.fillOval(loc.getX() - 2, loc.getY() - 2, 4, 4);
                         }
                     }
                 }
@@ -632,7 +607,7 @@ class CircuitWires {
 
         // make a WireBundle object for each end of a splitter
         for (Splitter spl : splitters) {
-            List<EndData> ends = new ArrayList<EndData>(spl.getEnds());
+            List<EndData> ends = new ArrayList<>(spl.getEnds());
             for (EndData end : ends) {
                 Location p = end.getLocation();
                 WireBundle pb = ret.createBundleAt(p);
@@ -652,7 +627,7 @@ class CircuitWires {
 
         // determine the bundles at the end of each splitter
         for (Splitter spl : splitters) {
-            List<EndData> ends = new ArrayList<EndData>(spl.getEnds());
+            List<EndData> ends = new ArrayList<>(spl.getEnds());
             int index = -1;
             for (EndData end : ends) {
                 index++;
@@ -747,14 +722,14 @@ class CircuitWires {
 
     private void connectTunnels(BundleMap ret) {
         // determine the sets of tunnels
-        HashMap<String,ArrayList<Location>> tunnelSets = new HashMap<String,ArrayList<Location>>();
+        HashMap<String,ArrayList<Location>> tunnelSets = new HashMap<>();
         for (Component comp : tunnels) {
             String label = comp.getAttributeSet().getValue(StdAttr.LABEL);
             label = label.trim();
             if (!label.equals("")) {
                 ArrayList<Location> tunnelSet = tunnelSets.get(label);
                 if (tunnelSet == null) {
-                    tunnelSet = new ArrayList<Location>(3);
+                    tunnelSet = new ArrayList<>(3);
                     tunnelSets.put(label, tunnelSet);
                 }
                 tunnelSet.add(comp.getLocation());

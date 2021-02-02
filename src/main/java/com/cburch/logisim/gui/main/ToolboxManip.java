@@ -33,16 +33,14 @@ import com.cburch.logisim.tools.Library;
 import com.cburch.logisim.tools.Tool;
 
 class ToolboxManip implements ProjectExplorerListener {
-    private class MyListener
-            implements ProjectListener, LibraryListener, AttributeListener {
+    private class MyListener implements ProjectListener, LibraryListener, AttributeListener {
         private LogisimFile curFile = null;
 
         @Override
         public void projectChanged(ProjectEvent event) {
             int action = event.getAction();
             if (action == ProjectEvent.ACTION_SET_FILE) {
-                setFile((LogisimFile) event.getOldData(),
-                        (LogisimFile) event.getData());
+                setFile((LogisimFile) event.getOldData(), (LogisimFile) event.getData());
                 explorer.repaint();
             }
         }
@@ -118,7 +116,6 @@ class ToolboxManip implements ProjectExplorerListener {
             }
         }
 
-
         @Override
         public void attributeListChanged(AttributeEvent e) { }
 
@@ -129,14 +126,14 @@ class ToolboxManip implements ProjectExplorerListener {
 
     }
 
-    private Project proj;
-    private ProjectExplorer explorer;
-    private MyListener myListener = new MyListener();
+    private final Project proj;
+    private final ProjectExplorer explorer;
     private Tool lastSelected = null;
 
     ToolboxManip(Project proj, ProjectExplorer explorer) {
         this.proj = proj;
         this.explorer = explorer;
+        MyListener myListener = new MyListener();
         proj.addProjectListener(myListener);
         myListener.setFile(null, proj.getLogisimFile());
     }

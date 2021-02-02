@@ -20,12 +20,10 @@ import com.cburch.logisim.data.Location;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class AppearanceAnchor extends AppearanceElement {
-    public static final Attribute<Direction> FACING
-        = Attributes.forDirection("facing", getFromLocale("appearanceFacingAttr"));
-    static final List<Attribute<?>> ATTRIBUTES
-        = UnmodifiableList.decorate(Arrays.asList(new Attribute<?>[] { FACING }));
+    public static final Attribute<Direction> FACING = Attributes.forDirection("facing", getFromLocale("appearanceFacingAttr"));
+    static final List<Attribute<?>> ATTRIBUTES = UnmodifiableList.decorate(Arrays.asList(new Attribute<?>[] { FACING }));
 
-    private static final int RADIUS = 3;
+    private static final int RADIUS = 2;
     private static final int INDICATOR_LENGTH = 8;
     private static final Color SYMBOL_COLOR = new Color(0, 128, 0);
 

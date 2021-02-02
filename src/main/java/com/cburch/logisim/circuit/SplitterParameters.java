@@ -8,28 +8,29 @@ import com.cburch.logisim.util.GraphicsUtil;
 
 class SplitterParameters {
     // location of split end 0 relative to origin
-    private int dxEnd0;
-    private int dyEnd0;
+    private final int dxEnd0;
+    private final int dyEnd0;
     // distance from split end i to split end (i + 1)
-    private int ddxEnd;
-    private int ddyEnd;
+    private final int ddxEnd;
+    private final int ddyEnd;
     // distance from split end to spine
-    private int dxEndSpine;
-    private int dyEndSpine;
+    private final int dxEndSpine;
+    private final int dyEndSpine;
     // distance from origin to far end of spine
-    private int dxSpine0;
-    private int dySpine0;
+    private final int dxSpine0;
+    private final int dySpine0;
     // distance from origin to near end of spine
-    private int dxSpine1;
-    private int dySpine1;
+    private final int dxSpine1;
+    private final int dySpine1;
     // angle to rotate text
-    private int textAngle;
+    private final int textAngle;
     // justification of text
-    private int halign;
-    private int valign;
+    private final int halign;
+    private final int valign;
+
+    private static final int spacing = 10;
 
     SplitterParameters(SplitterAttributes attrs) {
-
         Object appear = attrs.appear;
         int fanout = attrs.fanout;
         Direction facing = attrs.facing;
@@ -48,7 +49,7 @@ class SplitterParameters {
         // ^ or V
         if (facing == Direction.NORTH || facing == Direction.SOUTH) {
             int m = facing == Direction.NORTH ? 1 : -1;
-            dxEnd0 = justify == 0 ? 10 * ((fanout + 1) / 2 - 1) : m * justify < 0 ? -10 : 10 * fanout;
+            dxEnd0 = justify == 0 ? spacing * ((fanout + 1) / 2 - 1) : m * justify < 0 ? -spacing : spacing * fanout;
             dyEnd0 = -m * width;
             ddxEnd = -10;
             ddyEnd = 0;
@@ -65,7 +66,7 @@ class SplitterParameters {
         } else {
             int m = facing == Direction.WEST ? -1 : 1;
             dxEnd0 = m * width;
-            dyEnd0 = justify == 0 ? -10 * (fanout / 2) : m * justify > 0 ? 10 : -10 * fanout;
+            dyEnd0 = justify == 0 ? -10 * (fanout / 2) : m * justify > 0 ? spacing : -spacing * fanout;
             ddxEnd = 0;
             ddyEnd = 10;
             dxEndSpine = -m * (width - offs);

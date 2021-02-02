@@ -14,9 +14,7 @@ import com.cburch.logisim.file.LibraryEvent;
 import com.cburch.logisim.file.LibraryListener;
 import com.cburch.logisim.tools.Library;
 
-@SuppressWarnings("serial")
-public class ProjectExplorerLibraryNode extends ProjectExplorerModel.Node<Library>
-        implements LibraryListener {
+public class ProjectExplorerLibraryNode extends ProjectExplorerModel.Node<Library> implements LibraryListener {
     private LogisimFile file;
 
     ProjectExplorerLibraryNode(ProjectExplorerModel model, Library lib) {
@@ -52,11 +50,10 @@ public class ProjectExplorerLibraryNode extends ProjectExplorerModel.Node<Librar
         }
     }
 
-    private <T> void buildChildren(ProjectExplorerModel.Node<T> factory, List<? extends T> items,
-            int startIndex) {
+    private <T> void buildChildren(ProjectExplorerModel.Node<T> factory, List<? extends T> items, int startIndex) {
         // go through previously built children
-        Map<T, ProjectExplorerModel.Node<T>> nodeMap = new HashMap<T, ProjectExplorerModel.Node<T>>();
-        List<ProjectExplorerModel.Node<T>> nodeList = new ArrayList<ProjectExplorerModel.Node<T>>();
+        Map<T, ProjectExplorerModel.Node<T>> nodeMap = new HashMap<>();
+        List<ProjectExplorerModel.Node<T>> nodeList = new ArrayList<>();
         int oldPos = startIndex;
         for (Enumeration<?> en = children(); en.hasMoreElements(); ) {
             Object baseNode = en.nextElement();
