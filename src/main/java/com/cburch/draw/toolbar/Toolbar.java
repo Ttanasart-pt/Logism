@@ -3,7 +3,7 @@
 
 package com.cburch.draw.toolbar;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -27,27 +27,21 @@ public class Toolbar extends JPanel {
     }
 
     private ToolbarModel model;
-    private JPanel subpanel;
     private Object orientation;
-    private MyListener myListener;
+    public final MyListener myListener;
     private ToolbarButton curPressed;
 
     public Toolbar(ToolbarModel model) {
-        super(new BorderLayout());
-        this.subpanel = new JPanel();
+        super(new FlowLayout());
         this.model = model;
         this.orientation = HORIZONTAL;
         this.myListener = new MyListener();
         this.curPressed = null;
 
-        this.add(new JPanel(), BorderLayout.CENTER);
-        setOrientation(HORIZONTAL);
-
         computeContents();
         if (model != null) {
             model.addToolbarModelListener(myListener);
         }
-
     }
 
     public ToolbarModel getToolbarModel() {
@@ -70,32 +64,13 @@ public class Toolbar extends JPanel {
         }
     }
 
-    public void setOrientation(Object value) {
-        int axis;
-        String position;
-        if (value.equals(HORIZONTAL)) {
-            axis = BoxLayout.X_AXIS;
-            position = BorderLayout.LINE_START;
-        } else if (value.equals(VERTICAL)) {
-            axis = BoxLayout.Y_AXIS;
-            position = BorderLayout.NORTH;
-        } else {
-            throw new IllegalArgumentException();
-        }
-        this.remove(subpanel);
-        subpanel.setLayout(new BoxLayout(subpanel, axis));
-        this.add(subpanel, position);
-        this.orientation = value;
-    }
-
     private void computeContents() {
-        subpanel.removeAll();
+        removeAll();
         ToolbarModel m = model;
         if (m != null) {
             for (ToolbarItem item : m.getItems()) {
-                subpanel.add(new ToolbarButton(this, item));
+                add(new ToolbarButton(this, item));
             }
-            //subpanel.add(Box.createGlue());
         }
         revalidate();
     }

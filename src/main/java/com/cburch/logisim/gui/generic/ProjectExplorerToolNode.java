@@ -11,9 +11,9 @@ import com.cburch.logisim.tools.AddTool;
 import com.cburch.logisim.tools.Tool;
 
 @SuppressWarnings("serial")
-public class ProjectExplorerToolNode extends ProjectExplorerModel.Node<Tool>
-        implements CircuitListener {
+public class ProjectExplorerToolNode extends ProjectExplorerModel.Node<Tool> implements CircuitListener {
     private Circuit circuit;
+    public boolean isShowing;
 
     public ProjectExplorerToolNode(ProjectExplorerModel model, Tool tool) {
         super(model, tool);

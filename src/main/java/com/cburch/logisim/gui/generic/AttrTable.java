@@ -11,10 +11,7 @@ import java.awt.Font;
 import java.awt.Window;
 import java.awt.Dialog;
 import java.awt.Frame;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.FocusEvent;
+import java.awt.event.*;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -245,8 +242,7 @@ public class AttrTable extends JPanel implements LocaleListener {
         }
     }
 
-    private class CellEditor
-            implements TableCellEditor, FocusListener, ActionListener {
+    private class CellEditor implements TableCellEditor, FocusListener, ActionListener {
         LinkedList<CellEditorListener> listeners = new LinkedList<CellEditorListener>();
         AttrTableModelRow currentRow;
         Component currentEditor;
@@ -326,8 +322,7 @@ public class AttrTable extends JPanel implements LocaleListener {
         }
 
         @Override
-        public Component getTableCellEditorComponent(JTable table, Object value,
-                boolean isSelected, int rowIndex, int columnIndex) {
+        public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int rowIndex, int columnIndex) {
             AttrTableModel attrModel = tableModel.attrModel;
             AttrTableModelRow row = attrModel.getRow(rowIndex);
 
@@ -337,7 +332,6 @@ public class AttrTable extends JPanel implements LocaleListener {
                 if (currentEditor != null) {
                     currentEditor.transferFocus();
                 }
-
 
                 Component editor = row.getEditor(parent);
                 if (editor instanceof JComboBox) {
@@ -357,9 +351,7 @@ public class AttrTable extends JPanel implements LocaleListener {
                     try {
                         row.setValue(retval);
                     } catch (AttrTableSetException e) {
-                        JOptionPane.showMessageDialog(parent, e.getMessage(),
-                                getFromLocale("attributeChangeInvalidTitle"),
-                                JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(parent, e.getMessage(), getFromLocale("attributeChangeInvalidTitle"), JOptionPane.WARNING_MESSAGE);
                     }
                     editor = new JLabel(row.getValue());
                 } else {
@@ -376,9 +368,9 @@ public class AttrTable extends JPanel implements LocaleListener {
         //
         @Override
         public void focusLost(FocusEvent e) {
-            Object dst = e.getOppositeComponent();
-            if (dst instanceof Component) {
-                Component p = (Component) dst;
+            Component dst = e.getOppositeComponent();
+            if (dst != null) {
+                Component p = dst;
                 while (p != null && !(p instanceof Window)) {
                     if (p == AttrTable.this) {
                         // switch to another place in this table,
@@ -393,7 +385,7 @@ public class AttrTable extends JPanel implements LocaleListener {
         }
 
         @Override
-        public void focusGained(FocusEvent e) { }
+        public void focusGained(FocusEvent e) {}
 
         //
         // ActionListener methods
@@ -402,7 +394,6 @@ public class AttrTable extends JPanel implements LocaleListener {
         public void actionPerformed(ActionEvent e) {
             stopCellEditing();
         }
-
     }
 
     private Window parent;

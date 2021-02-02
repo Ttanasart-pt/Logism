@@ -44,12 +44,6 @@ class LayoutToolbarModel extends AbstractToolbarModel {
 
         @Override
         public void paintIcon(Component destination, Graphics g) {
-            // draw halo
-            if (tool == haloedTool && AppPreferences.ATTRIBUTE_HALO.getBoolean()) {
-                g.setColor(Canvas.HALO_COLOR);
-                g.fillRect(1, 1, 22, 22);
-            }
-
             // draw tool icon
             g.setColor(Color.BLACK);
             Graphics g_copy = g.create();
@@ -88,6 +82,11 @@ class LayoutToolbarModel extends AbstractToolbarModel {
         @Override
         public Dimension getDimension(Object orientation) {
             return new Dimension(24, 24);
+        }
+
+        @Override
+        public boolean isSeperator() {
+            return false;
         }
     }
 

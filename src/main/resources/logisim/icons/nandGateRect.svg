@@ -54,7 +54,7 @@
      transform="translate(0,-1036.3622)">
     <path
        sodipodi:type="arc"
-       style="fill:#999999;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:#FFF6E9;stroke-opacity:1"
        id="path3237"
        sodipodi:cx="13.942821"
        sodipodi:cy="8.0217142"
@@ -63,7 +63,7 @@
        d="m 15.534642,8.0217142 a 1.5918213,1.5726428 0 1 1 -3.183643,0 1.5918213,1.5726428 0 1 1 3.183643,0 z"
        transform="matrix(0.68727711,0,0,0.69565854,5.0123106,1039.283)" />
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.99577802;stroke-opacity:1"
+       style="fill:#333232;fill-opacity:1;stroke:#FFF6E9;stroke-width:0.99577802;stroke-opacity:1"
        id="rect3239"
        width="11.204507"
        height="15.193649"
@@ -71,7 +71,7 @@
        y="1036.8638" />
     <text
        xml:space="preserve"
-       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#FFF6E9;fill-opacity:1;stroke:none;font-family:Sans"
        x="4.5261421"
        y="1044.1538"
        id="text3241"

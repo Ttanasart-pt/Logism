@@ -1,143 +1,111 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="16"
-   height="16"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 1">
-  <defs
-     id="defs4" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="17.537457"
-     inkscape:cx="5.7409883"
-     inkscape:cy="7.8312166"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="784"
-     inkscape:window-height="821"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-1036.3622)">
-    <rect
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.97282904000000003;stroke-opacity:1"
-       id="rect2985"
-       width="10.714671"
-       height="14.058421"
-       x="2.0489144"
-       y="1037.8486" />
-    <path
-       style="fill:none;stroke:#00a100;stroke-width:0.96420491px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 5.6145183,1037.8426 0.9445327,0 z"
-       id="path2999"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#00ff00;stroke:#00cd00;stroke-width:0.97876948px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 3.4072517,1037.8444 0.9445327,0 z"
-       id="path2999-1"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#00ff00;stroke:#00cd00;stroke-width:0.97876948px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 7.6807834,1037.8444 0.9445326,0 z"
-       id="path2999-1-4"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#00ff00;stroke:#00cd00;stroke-width:0.97876948px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 10.014556,1037.8443 0.944533,0 z"
-       id="path2999-1-0"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#00a100;stroke-width:0.96420491px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 3.4981779,1051.9076 0.9445328,0 z"
-       id="path2999-9"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#00ff00;stroke:#00cd00;stroke-width:0.97876948px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 5.5894807,1051.9075 0.9445326,0 z"
-       id="path2999-1-4-4"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#00ff00;stroke:#00cd00;stroke-width:0.97876948px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 10.044865,1051.9076 0.944532,0 z"
-       id="path2999-1-4-8"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#00ff00;stroke:#00cd00;stroke-width:0.97876948px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 7.9232533,1051.9076 0.9445325,0 z"
-       id="path2999-1-4-82"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#000000;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 4.5463103,1039.9053 5.5464987,0 z"
-       id="path3880"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#000000;stroke:#ff0000;stroke-width:0.92704839px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 10.509006,1040.3856 0,4.0228 z"
-       id="path3880-4"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#000000;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 4.5463101,1044.8957 5.5464989,0 z"
-       id="path3880-5"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#000000;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 4.5463102,1049.8048 5.5464978,0 z"
-       id="path3880-5-1"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#000000;stroke:#ff0000;stroke-width:0.92704839px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 10.494308,1045.3535 0,4.0228 z"
-       id="path3880-4-7"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#b3b3b3;stroke:#969696;stroke-width:0.92704839000000006px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 4.1154154,1045.2947 0,4.0228 z"
-       id="path3880-4-7-1"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#b3b3b3;stroke:#969696;stroke-width:0.92704839px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 4.1054984,1040.3721 0,4.0228 z"
-       id="path3880-4-7-1-1"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#000000;stroke:#ff0000;stroke-width:0.84591764px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 11.432672,1049.3722 0,0.8478 z"
-       id="path3880-4-5"
-       inkscape:connector-curvature="0" />
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="svg2" sodipodi:docname="New document 1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
+	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+<metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 6.0-c004 79.164570, 2020/11/18-15:51:46        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""
+            xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+            xmlns:xmpGImg="http://ns.adobe.com/xap/1.0/g/img/"
+            xmlns:xmpTPg="http://ns.adobe.com/xap/1.0/t/pg/"
+            xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#"
+            xmlns:xmpG="http://ns.adobe.com/xap/1.0/g/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/">
+         <xmp:CreatorTool>Adobe Illustrator 25.1 (Windows)</xmp:CreatorTool>
+         <xmp:CreateDate>2021-02-02T11:33:09+07:00</xmp:CreateDate>
+         <xmp:Thumbnails>
+            <rdf:Alt>
+               <rdf:li rdf:parseType="Resource">
+                  <xmpGImg:width>200</xmpGImg:width>
+                  <xmpGImg:height>256</xmpGImg:height>
+                  <xmpGImg:format>JPEG</xmpGImg:format>
+                  <xmpGImg:image>/9j/4AAQSkZJRgABAgEASABIAAD/7QAsUGhvdG9zaG9wIDMuMAA4QklNA+0AAAAAABAASAAAAAEA&#xA;AQBIAAAAAQAB/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoK&#xA;DBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8f&#xA;Hx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgBAADIAwER&#xA;AAIRAQMRAf/EAaIAAAAHAQEBAQEAAAAAAAAAAAQFAwIGAQAHCAkKCwEAAgIDAQEBAQEAAAAAAAAA&#xA;AQACAwQFBgcICQoLEAACAQMDAgQCBgcDBAIGAnMBAgMRBAAFIRIxQVEGE2EicYEUMpGhBxWxQiPB&#xA;UtHhMxZi8CRygvElQzRTkqKyY3PCNUQnk6OzNhdUZHTD0uIIJoMJChgZhJRFRqS0VtNVKBry4/PE&#xA;1OT0ZXWFlaW1xdXl9WZ2hpamtsbW5vY3R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo+Ck5SVlpeYmZ&#xA;qbnJ2en5KjpKWmp6ipqqusra6voRAAICAQIDBQUEBQYECAMDbQEAAhEDBCESMUEFURNhIgZxgZEy&#xA;obHwFMHR4SNCFVJicvEzJDRDghaSUyWiY7LCB3PSNeJEgxdUkwgJChgZJjZFGidkdFU38qOzwygp&#xA;0+PzhJSktMTU5PRldYWVpbXF1eX1RlZmdoaWprbG1ub2R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo&#xA;+DlJWWl5iZmpucnZ6fkqOkpaanqKmqq6ytrq+v/aAAwDAQACEQMRAD8A9P5jNzsVdirsVfK2edPi&#xA;6K0n/jq2f/GeP/iYy3D9Y94btN/ex/rD730/noD7E7FXnf56yyR+So2jco31yIVUkH7D+Ga7tQ1i&#xA;+LpPaAkafb+cP0vn767ef7/k/wCDb+uc9xHveK8SXeXqH5A3E8nmTURJIzgWdQGYn/dqeObTsokz&#xA;Pueg9nJE5ZWf4f0h7rm+ewdir5r82f8AKU6z/wAx1z/yebOD1n99P+tL73yTtL/Gcn/DJf7opVmM&#xA;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&#xA;xj/JUv5wX/R/h/1KXzDv0vH/AL7P3jH+Spfzgv8Ao/w/6lL5hTXS2dQ/qAchWlPHfxy6XaYieHh5&#xA;ebrsXsPPPAZRlA4wJVw9+/e3+iG/36Pu/twfysP5v2tn/Jvp/wCrD/S/8eS9hxYr4GmbWJsW+f5s&#xA;fBMx/mkj5NZJrelf847/APk1NN/4xXX/ACYfIT5JjzfXuUti6P7YyUOaJcluRS7FXwT5i/5SDU/+&#xA;Yuf/AJONmQGpLsKvQ/yl/wClr/0b/wDMzFD0LFXnP5s/70ab/qS/rXFWAYpdirsVdirsVdirsVdi&#xA;rsVdirsVZBB/cx/6o/VnJZvrl7y/QfZn+K4v+Fx/3IX5W5zH5P7x/mf1512P6R7n531v99P+tL71&#xA;mTcZ6V/zjv8A+TU03/jFdf8AJh8hPkmPN9e5S2Lo/tjJQ5olyW5FLsVfBPmL/lINT/5i5/8Ak42Z&#xA;Aakuwq9D/KX/AKWv/Rv/AMzMUPQsVec/mz/vRpv+pL+tcVYBil2KuxV2KuxV2KuxV2KuxV2KuxVk&#xA;EH9zH/qj9Wclm+uXvL9B9mf4ri/4XH/chflbnMfk/vH+Z/XnXY/pHufnfW/30/60vvWZNxnpX/OO&#xA;/wD5NTTf+MV1/wAmHyE+SY8317lLYuj+2MlDmiXJbkUuxV8E+Yv+Ug1P/mLn/wCTjZkBqS7Cr0P8&#xA;pf8Apa/9G/8AzMxQ9CxV5z+bP+9Gm/6kv61xVgGKXYq7FXYq7FXYq7FXYq7FXYq7FWQQf3Mf+qP1&#xA;ZyWb65e8v0H2Z/iuL/hcf9yF+Vucx+T+8f5n9eddj+ke5+d9b/fT/rS+9Zk3Gelf847/APk1NN/4&#xA;xXX/ACYfIT5JjzfXuUti6P7YyUOaJcluRS7FXwT5i/5SDU/+Yuf/AJONmQGpLsKvQ/yl/wClr/0b&#xA;/wDMzFD0LFXnP5s/70ab/qS/rXFWAYpdirsVdirsVdirsVdirsVdirsVZBB/cx/6o/VnJZvrl7y/&#xA;QfZn+K4v+Fx/3IX5W5zH5P7x/mf1512P6R7n531v99P+tL71mTcZ6V/zjv8A+TU03/jFdf8AJh8h&#xA;PkmPN9e5S2Lo/tjJQ5olyW5FLsVfBPmL/lINT/5i5/8Ak42ZAakuwq9D/KX/AKWv/Rv/AMzMUPQs&#xA;Vec/mz/vRpv+pL+tcVYBil2KuxV2KuxV2KuxV2KuxV2KuxVkEH9zH/qj9Wclm+uXvL9B9mf4ri/4&#xA;XH/chflbnMfk/vH+Z/XnXY/pHufnfW/30/60vvWZNxnpX/OO/wD5NTTf+MV1/wAmHyE+SY8317lL&#xA;Yuj+2MlDmiXJbkUuxV8E+Yv+Ug1P/mLn/wCTjZkBqS7Cr0P8pf8Apa/9G/8AzMxQ9CxV5z+bP+9G&#xA;m/6kv61xVgGKXYq7FXYq7FXYq7FXYq7FXYq7FWQQf3Mf+qP1ZyWb65e8v0H2Z/iuL/hcf9yF+Vuc&#xA;x+T+8f5n9eddj+ke5+d9b/fT/rS+9Zk3Gelf847/APk1NN/4xXX/ACYfIT5JjzfXuUti6P7YyUOa&#xA;JcluRS7FXwT5i/5SDU/+Yuf/AJONmQGpLsKvQ/yl/wClr/0b/wDMzFD0LFXnP5s/70ab/qS/rXFW&#xA;AYpdirsVdirsVdirsVdirsVdirsVZBB/cx/6o/VnJZvrl7y/QfZn+K4v+Fx/3IX5W5zH5P7x/mf1&#xA;512P6R7n531v99P+tL71mTcZ6V/zjv8A+TU03/jFdf8AJh8hPkmPN9e5S2Lo/tjJQ5olyW5FLsVf&#xA;BPmL/lINT/5i5/8Ak42ZAakuwq9D/KX/AKWv/Rv/AMzMUPQsVec/mz/vRpv+pL+tcVYBil2KuxV2&#xA;KuxV2KuxV2KuxV2KuxVkEH9zH/qj9Wclm+uXvL9B9mf4ri/4XH/chflbnMfk/vH+Z/XnXY/pHufn&#xA;fW/30/60vvWZNxnpX/OO/wD5NTTf+MV1/wAmHyE+SY8317lLYuj+2MlDmiXJbkUuxV8E+Yv+Ug1P&#xA;/mLn/wCTjZkBqS7CqrDc3ENfRlePl9rgxWtPGmKqn6S1H/lqm/5GN/XFUysppp7ZTM7SkE0LktT7&#xA;85/tKR8X4Pr/ALFYYHQgkC+KXRX4r4DNfxHvet8GH80fJ3FfAY8R718GH80fJ3FfAY8R718GH80f&#xA;J3FfAY8R718GH80fJ3FfAY8R718GH80fJ3FfAY8R718GH80fJ3FfAY8R718GH80fJ3FfAY8R718G&#xA;H80fJ3FfAY8R718GH80fJ3FfAY8R718GH80fJ3FfAY8R718GH80fJIGkkDH4j18TnWRxxrkH5/y6&#xA;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&#xA;UOaJcn//2Q==</xmpGImg:image>
+               </rdf:li>
+            </rdf:Alt>
+         </xmp:Thumbnails>
+         <xmpTPg:MaxPageSize rdf:parseType="Resource">
+            <stDim:w>16.000000</stDim:w>
+            <stDim:h>16.000000</stDim:h>
+            <stDim:unit>Points</stDim:unit>
+         </xmpTPg:MaxPageSize>
+         <xmpTPg:NPages>1</xmpTPg:NPages>
+         <xmpTPg:HasVisibleTransparency>False</xmpTPg:HasVisibleTransparency>
+         <xmpTPg:HasVisibleOverprint>False</xmpTPg:HasVisibleOverprint>
+         <xmpTPg:PlateNames>
+            <rdf:Seq>
+               <rdf:li>Cyan</rdf:li>
+               <rdf:li>Magenta</rdf:li>
+               <rdf:li>Yellow</rdf:li>
+               <rdf:li>Black</rdf:li>
+            </rdf:Seq>
+         </xmpTPg:PlateNames>
+         <xmpTPg:SwatchGroups>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <xmpG:groupName>Default Swatch Group</xmpG:groupName>
+                  <xmpG:groupType>0</xmpG:groupType>
+               </rdf:li>
+            </rdf:Seq>
+         </xmpTPg:SwatchGroups>
+         <dc:format>image/svg+xml</dc:format>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?>
+	</metadata>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="5.7409883" inkscape:cy="7.8312166" inkscape:document-units="px" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="821" inkscape:window-maximized="0" inkscape:window-width="784" inkscape:window-x="0" inkscape:window-y="0" inkscape:zoom="17.537457" pagecolor="#ffffff" showgrid="false">
+	</sodipodi:namedview>
+<g id="layer1" transform="translate(0,-1036.3622)" inkscape:groupmode="layer" inkscape:label="Layer 1">
+	<rect id="rect2985" x="2" y="1037.8" fill="#333232" stroke="#FFF6E9" stroke-width="0.9728" width="10.7" height="14.1"/>
+	<path id="path2999" inkscape:connector-curvature="0" fill="none" stroke="#00A100" stroke-width="0.9642" d="M5.6,1037.8h0.9H5.6z
+		"/>
+	<path id="path2999-1" inkscape:connector-curvature="0" fill="#00FF00" stroke="#00CD00" stroke-width="0.9788" d="M3.4,1037.8h0.9
+		H3.4z"/>
+	<path id="path2999-1-4" inkscape:connector-curvature="0" fill="#00FF00" stroke="#00CD00" stroke-width="0.9788" d="M7.7,1037.8
+		h0.9H7.7z"/>
+	<path id="path2999-1-0" inkscape:connector-curvature="0" fill="#00FF00" stroke="#00CD00" stroke-width="0.9788" d="M10,1037.8h1
+		H10z"/>
+	<path id="path2999-9" inkscape:connector-curvature="0" fill="none" stroke="#00A100" stroke-width="0.9642" d="M3.5,1051.9h0.9
+		H3.5z"/>
+	<path id="path2999-1-4-4" inkscape:connector-curvature="0" fill="#00FF00" stroke="#00CD00" stroke-width="0.9788" d="M5.6,1051.9
+		h0.9H5.6z"/>
+	<path id="path2999-1-4-8" inkscape:connector-curvature="0" fill="#00FF00" stroke="#00CD00" stroke-width="0.9788" d="M10,1051.9
+		h1H10z"/>
+	<path id="path2999-1-4-82" inkscape:connector-curvature="0" fill="#00FF00" stroke="#00CD00" stroke-width="0.9788" d="
+		M7.9,1051.9h0.9H7.9z"/>
+	<path id="path3880" inkscape:connector-curvature="0" stroke="#FF0000" d="M4.5,1039.9H10H4.5z"/>
+	<path id="path3880-4" inkscape:connector-curvature="0" stroke="#FF0000" stroke-width="0.927" d="M10.5,1040.4v4V1040.4z"/>
+	<path id="path3880-5" inkscape:connector-curvature="0" stroke="#FF0000" d="M4.5,1044.9H10H4.5z"/>
+	<path id="path3880-5-1" inkscape:connector-curvature="0" stroke="#FF0000" d="M4.5,1049.8H10H4.5z"/>
+	<path id="path3880-4-7" inkscape:connector-curvature="0" stroke="#FF0000" stroke-width="0.927" d="M10.5,1045.4v4V1045.4z"/>
+	<path id="path3880-4-7-1" inkscape:connector-curvature="0" fill="#B3B3B3" stroke="#969696" stroke-width="0.927" d="M4.1,1045.3
+		v4V1045.3z"/>
+	<path id="path3880-4-7-1-1" inkscape:connector-curvature="0" fill="#B3B3B3" stroke="#969696" stroke-width="0.927" d="
+		M4.1,1040.4v4V1040.4z"/>
+	<path id="path3880-4-5" inkscape:connector-curvature="0" stroke="#FF0000" stroke-width="0.8459" d="M11.4,1049.4v0.8V1049.4z"/>
+</g>
 </svg>

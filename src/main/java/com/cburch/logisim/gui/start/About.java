@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import com.cburch.draw.util.ColorRegistry;
 import org.apache.batik.swing.JSVGCanvas;
 import org.apache.batik.swing.gvt.GVTTreeRendererAdapter;
 import org.apache.batik.swing.svg.GVTTreeBuilderAdapter;
@@ -27,8 +28,9 @@ public class About {
 	
 	public static JComponent createComponents() {
 		final JPanel panel = new JPanel();
+		panel.setPreferredSize(DIMENSION);
 		panel.add(svgCanvas);
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(new Color(0,0,0,0));
 		svgCanvas.setURI(About.class.getResource("/logisim/drawing.svg").toString());
 		svgCanvas.addSVGDocumentLoaderListener(new SVGDocumentLoaderAdapter() {});
 		svgCanvas.addGVTTreeBuilderListener(new GVTTreeBuilderAdapter() {});
@@ -37,7 +39,6 @@ public class About {
 	}
 
 	public static void showAboutDialog(JFrame owner) {
-		JOptionPane.showMessageDialog(owner, createComponents(),
-				"Logisim " + Main.VERSION_NAME, JOptionPane.PLAIN_MESSAGE);
+		JOptionPane.showMessageDialog(owner, createComponents(), "Logisim " + Main.VERSION_NAME, JOptionPane.PLAIN_MESSAGE);
 	}
 }

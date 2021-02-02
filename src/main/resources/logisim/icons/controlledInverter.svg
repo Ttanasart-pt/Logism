@@ -58,7 +58,7 @@
        id="path4318"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#FFF6E9;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 2.6726296,3.141682 2.6132378,13.297675 10.631154,7.9683777 z"
        id="path4314"
        inkscape:connector-curvature="0"
@@ -66,7 +66,7 @@
        sodipodi:nodetypes="cccc" />
     <path
        sodipodi:type="arc"
-       style="fill:#4d4d4d;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       style="fill:#4d4d4d;fill-opacity:1;stroke:#FFF6E9;stroke-opacity:1"
        id="path4320"
        sodipodi:cx="11.997137"
        sodipodi:cy="7.7296963"

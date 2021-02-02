@@ -62,6 +62,7 @@ public class SplashScreen extends JWindow implements ActionListener {
     long startTime = System.currentTimeMillis();
 
     public SplashScreen() {
+        setPreferredSize(new Dimension(200,200));
         JPanel imagePanel = new JPanel();
         imagePanel.add(About.createComponents());
 

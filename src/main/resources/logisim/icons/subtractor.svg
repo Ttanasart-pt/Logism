@@ -55,7 +55,7 @@
      id="layer1"
      transform="translate(0,-1036.3622)">
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.95831937;stroke-opacity:1"
+       style="fill:#333232;fill-opacity:1;stroke:#FFF6E9;stroke-width:0.95831937;stroke-opacity:1"
        id="rect3472"
        width="12.807157"
        height="13.022791"
@@ -63,7 +63,7 @@
        y="1037.8079" />
     <text
        xml:space="preserve"
-       style="font-size:21.32538795px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       style="font-size:21.32538795px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#FFF6E9;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        x="2.9888973"
        y="1266.7441"
        id="text3583"

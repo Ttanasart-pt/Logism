@@ -20,17 +20,16 @@ import com.cburch.logisim.proj.ProjectEvent;
 import com.cburch.logisim.proj.ProjectListener;
 
 @SuppressWarnings("serial")
-class SimulationExplorer extends JPanel
-        implements ProjectListener, MouseListener {
-    private Project project;
+class SimulationExplorer extends JPanel implements ProjectListener, MouseListener {
+    private final Project project;
     private SimulationTreeModel model;
-    private JTree tree;
+    private final JTree tree;
 
     SimulationExplorer(Project proj, MenuListener menu) {
         super(new BorderLayout());
         this.project = proj;
 
-        SimulationToolbarModel toolbarModel = new SimulationToolbarModel(proj, menu);
+        SimulationToolbarModel toolbarModel = new SimulationToolbarModel(proj, menu, false);
         Toolbar toolbar = new Toolbar(toolbarModel);
         add(toolbar, BorderLayout.NORTH);
 

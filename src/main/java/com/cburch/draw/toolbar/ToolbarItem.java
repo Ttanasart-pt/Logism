@@ -12,4 +12,5 @@ public interface ToolbarItem {
     public void paintIcon(Component destination, Graphics g);
     public String getToolTip();
     public Dimension getDimension(Object orientation);
+    public boolean isSeperator();
 }

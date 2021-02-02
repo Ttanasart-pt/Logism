@@ -28,8 +28,7 @@ import com.cburch.logisim.std.wiring.Pin;
 public class CircuitBuilder {
     private CircuitBuilder() { }
 
-    public static CircuitMutation build(Circuit destCirc, AnalyzerModel model,
-            boolean twoInputs, boolean useNands) {
+    public static CircuitMutation build(Circuit destCirc, AnalyzerModel model, boolean twoInputs, boolean useNands) {
         CircuitMutation result = new CircuitMutation(destCirc);
         result.clear();
 
@@ -223,7 +222,7 @@ public class CircuitBuilder {
             attrs.setValue(GateAttributes.ATTR_SIZE, GateAttributes.SIZE_NARROW);
 
             int ins = sub.length;
-            attrs.setValue(GateAttributes.ATTR_INPUTS, Integer.valueOf(ins));
+            attrs.setValue(GateAttributes.ATTR_INPUTS, ins);
         }
 
         // determine layout's width

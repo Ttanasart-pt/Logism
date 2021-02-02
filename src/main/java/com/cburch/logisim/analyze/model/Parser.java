@@ -136,7 +136,32 @@ public class Parser {
         // Guarantee that we will stop just after reading whitespace,
         // not in the middle of a token.
         in = in + " ";
+
         int pos = 0;
+        while(pos < in.length()) {
+            if(in.charAt(pos) == '\'') {
+                int frontIndex = pos - 1;
+                String front = "";
+
+                if(frontIndex > 1) {
+                    int brack = 0;
+                    do {
+                        char ch = in.charAt(frontIndex);
+                        if(ch == ')')
+                            brack++;
+                        else if(ch == '(')
+                            brack--;
+                        if(--frontIndex < 0) break;
+                    } while(brack > 0);
+                    front = in.substring(0, frontIndex);
+                }
+
+                String back = in.substring(frontIndex).replaceFirst("'", "");
+                in = front + "~" + back;
+            }
+            pos++;
+        }
+        pos = 0;
         while (true) {
             int whiteStart = pos;
             while (pos < in.length() && Character.isWhitespace(in.charAt(pos))) pos++;
@@ -147,7 +172,6 @@ public class Parser {
                 return tokens;
             }
 
-
             int start = pos;
             char startChar = in.charAt(pos);
             pos++;
@@ -156,32 +180,50 @@ public class Parser {
                 tokens.add(new Token(TOKEN_IDENT, start, in.substring(start, pos)));
             } else {
                 switch (startChar) {
-                case '(': tokens.add(new Token(TOKEN_LPAREN, start, "(")); break;
-                case ')': tokens.add(new Token(TOKEN_RPAREN, start, ")")); break;
-                case '0': case '1': tokens.add(new Token(TOKEN_CONST, start, "" + startChar)); break;
-                case '~': tokens.add(new Token(TOKEN_NOT, start, "~")); break;
-                case '\'': tokens.add(new Token(TOKEN_NOT_POSTFIX, start, "'")); break;
-                case '^': tokens.add(new Token(TOKEN_XOR, start, "^")); break;
-                case '+': tokens.add(new Token(TOKEN_OR, start, "+")); break;
-                case '!': tokens.add(new Token(TOKEN_NOT, start, "!")); break;
-                case '&':   if (in.charAt(pos) == '&') pos++;
-                            tokens.add(new Token(TOKEN_AND, start, in.substring(start, pos)));
-                            break;
-                case '|':   if (in.charAt(pos) == '|') pos++;
-                            tokens.add(new Token(TOKEN_OR, start, in.substring(start, pos)));
-                            break;
-                default:
-                    while (!okCharacter(in.charAt(pos))) pos++;
-                    String errorText = in.substring(start, pos);
-                    tokens.add(new Token(TOKEN_ERROR, start, errorText));
+                    case '(':
+                        tokens.add(new Token(TOKEN_LPAREN, start, "("));
+                        break;
+                    case ')':
+                        tokens.add(new Token(TOKEN_RPAREN, start, ")"));
+                        break;
+                    case '0':
+                    case '1':
+                        tokens.add(new Token(TOKEN_CONST, start, "" + startChar));
+                        break;
+                    case '~':
+                        tokens.add(new Token(TOKEN_NOT, start, "~"));
+                        break;
+                    case '\'':
+                        tokens.add(new Token(TOKEN_NOT_POSTFIX, start, "'"));
+                        break;
+                    case '^':
+                        tokens.add(new Token(TOKEN_XOR, start, "^"));
+                        break;
+                    case '+':
+                        tokens.add(new Token(TOKEN_OR, start, "+"));
+                        break;
+                    case '!':
+                        tokens.add(new Token(TOKEN_NOT, start, "!"));
+                        break;
+                    case '&':
+                        if (in.charAt(pos) == '&') pos++;
+                        tokens.add(new Token(TOKEN_AND, start, in.substring(start, pos)));
+                        break;
+                    case '|':
+                        if (in.charAt(pos) == '|') pos++;
+                        tokens.add(new Token(TOKEN_OR, start, in.substring(start, pos)));
+                        break;
+                    default:
+                        while (!okCharacter(in.charAt(pos))) pos++;
+                        String errorText = in.substring(start, pos);
+                        tokens.add(new Token(TOKEN_ERROR, start, errorText));
                 }
             }
         }
     }
 
     private static boolean okCharacter(char c) {
-        return Character.isWhitespace(c) || Character.isJavaIdentifierStart(c)
-            || "()01~^+!&|".indexOf(c) >= 0;
+        return Character.isWhitespace(c) || Character.isJavaIdentifierStart(c) || "()01~^+!&|".indexOf(c) >= 0;
     }
 
     //

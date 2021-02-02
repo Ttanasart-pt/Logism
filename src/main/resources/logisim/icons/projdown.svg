@@ -1,62 +1,84 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="16"
-   height="16"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="projdel.svg">
-  <defs
-     id="defs4" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="23.18754"
-     inkscape:cx="5.8265472"
-     inkscape:cy="7.5809893"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="784"
-     inkscape:window-height="821"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-1036.3622)">
-    <path
-       style="fill:#000080;stroke:#0000ff;stroke-width:0.98953497px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 6.9811906,1037.9959 0,7.0442 -2.1993695,0 3.3486384,4.8236 3.3863145,-4.878 -2.1022385,0 0,-6.9898 z"
-       id="path2996"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccccc" />
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="svg2" inkscape:version="0.48.4 r9939" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
+	 viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#6EA9FF;}
+</style>
+<metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 6.0-c004 79.164570, 2020/11/18-15:51:46        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""
+            xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+            xmlns:xmpGImg="http://ns.adobe.com/xap/1.0/g/img/"
+            xmlns:xmpTPg="http://ns.adobe.com/xap/1.0/t/pg/"
+            xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#"
+            xmlns:xmpG="http://ns.adobe.com/xap/1.0/g/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/">
+         <xmp:CreatorTool>Adobe Illustrator 25.1 (Windows)</xmp:CreatorTool>
+         <xmp:CreateDate>2021-02-02T15:46:12+07:00</xmp:CreateDate>
+         <xmp:Thumbnails>
+            <rdf:Alt>
+               <rdf:li rdf:parseType="Resource">
+                  <xmpGImg:width>256</xmpGImg:width>
+                  <xmpGImg:height>224</xmpGImg:height>
+                  <xmpGImg:format>JPEG</xmpGImg:format>
+                  <xmpGImg:image>/9j/4AAQSkZJRgABAgEASABIAAD/7QAsUGhvdG9zaG9wIDMuMAA4QklNA+0AAAAAABAASAAAAAEA&#xA;AQBIAAAAAQAB/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoK&#xA;DBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8f&#xA;Hx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgA4AEAAwER&#xA;AAIRAQMRAf/EAaIAAAAHAQEBAQEAAAAAAAAAAAQFAwIGAQAHCAkKCwEAAgIDAQEBAQEAAAAAAAAA&#xA;AQACAwQFBgcICQoLEAACAQMDAgQCBgcDBAIGAnMBAgMRBAAFIRIxQVEGE2EicYEUMpGhBxWxQiPB&#xA;UtHhMxZi8CRygvElQzRTkqKyY3PCNUQnk6OzNhdUZHTD0uIIJoMJChgZhJRFRqS0VtNVKBry4/PE&#xA;1OT0ZXWFlaW1xdXl9WZ2hpamtsbW5vY3R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo+Ck5SVlpeYmZ&#xA;qbnJ2en5KjpKWmp6ipqqusra6voRAAICAQIDBQUEBQYECAMDbQEAAhEDBCESMUEFURNhIgZxgZEy&#xA;obHwFMHR4SNCFVJicvEzJDRDghaSUyWiY7LCB3PSNeJEgxdUkwgJChgZJjZFGidkdFU38qOzwygp&#xA;0+PzhJSktMTU5PRldYWVpbXF1eX1RlZmdoaWprbG1ub2R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo&#xA;+DlJWWl5iZmpucnZ6fkqOkpaanqKmqq6ytrq+v/aAAwDAQACEQMRAD8A6b520D9E6szRLSzuqyQU&#xA;6Kf2k+gn7s63s7VeLj3+qPN0GswcE9uRY9mwcR2KuxV2KuxV2KuxV2KuxV2KuxV2KuxV2KuxV2Ku&#xA;xV2KuxV2KuxV2KuxV2KuxV2KuxV2KuxV2Ksh8k6B+ltWVpVrZ2tJJ69GP7KfSfwzX9o6rwse31S5&#xA;OXo8HiT35B6P5n0RNY0mW12E6/vLZz2kXp9B6HOc0epOHIJdOvudxqcPiQrq8ZkjeORo5FKuhKsp&#xA;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&#xA;sVdirsVdirsVdirsVdirsVdirsVf/9k=</xmpGImg:image>
+               </rdf:li>
+            </rdf:Alt>
+         </xmp:Thumbnails>
+         <xmpTPg:MaxPageSize rdf:parseType="Resource">
+            <stDim:w>16.000000</stDim:w>
+            <stDim:h>16.000000</stDim:h>
+            <stDim:unit>Points</stDim:unit>
+         </xmpTPg:MaxPageSize>
+         <xmpTPg:NPages>1</xmpTPg:NPages>
+         <xmpTPg:HasVisibleTransparency>False</xmpTPg:HasVisibleTransparency>
+         <xmpTPg:HasVisibleOverprint>False</xmpTPg:HasVisibleOverprint>
+         <xmpTPg:PlateNames>
+            <rdf:Seq>
+               <rdf:li>Cyan</rdf:li>
+               <rdf:li>Magenta</rdf:li>
+            </rdf:Seq>
+         </xmpTPg:PlateNames>
+         <xmpTPg:SwatchGroups>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <xmpG:groupName>Default Swatch Group</xmpG:groupName>
+                  <xmpG:groupType>0</xmpG:groupType>
+               </rdf:li>
+            </rdf:Seq>
+         </xmpTPg:SwatchGroups>
+         <dc:format>image/svg+xml</dc:format>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?>
+	</metadata>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="5.8265472" inkscape:cy="7.5809893" inkscape:document-units="px" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="821" inkscape:window-maximized="0" inkscape:window-width="784" inkscape:window-x="0" inkscape:window-y="0" inkscape:zoom="23.18754" pagecolor="#ffffff" showgrid="false">
+	</sodipodi:namedview>
+<polygon class="st0" points="8,13.2 2.4,3.4 13.6,3.4 "/>
 </svg>

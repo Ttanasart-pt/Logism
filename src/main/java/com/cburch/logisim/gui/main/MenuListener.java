@@ -28,7 +28,7 @@ import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.proj.ProjectEvent;
 import com.cburch.logisim.proj.ProjectListener;
 
-class MenuListener {
+public class MenuListener {
     interface EnabledListener {
         public void menuEnableChanged(MenuListener source);
     }
@@ -236,10 +236,6 @@ class MenuListener {
                 frame.setEditorView(Frame.EDIT_LAYOUT);
             } else if (src == LogisimMenuBar.EDIT_APPEARANCE) {
                 frame.setEditorView(Frame.EDIT_APPEARANCE);
-            } else if (src == LogisimMenuBar.VIEW_TOOLBOX) {
-                frame.setExplorerView(Frame.VIEW_TOOLBOX);
-            } else if (src == LogisimMenuBar.VIEW_SIMULATION) {
-                frame.setExplorerView(Frame.VIEW_SIMULATION);
             } else if (src == LogisimMenuBar.REVERT_APPEARANCE) {
                 proj.doAction(new RevertAppearanceAction(cur));
             } else if (src == LogisimMenuBar.ANALYZE_CIRCUIT) {
@@ -256,7 +252,6 @@ class MenuListener {
             int curIndex = file.getCircuits().indexOf(cur);
             boolean isProjectCircuit = curIndex >= 0;
             String editorView = frame.getEditorView();
-            String explorerView = frame.getExplorerView();
             boolean canSetMain = false;
             boolean canMoveUp = false;
             boolean canMoveDown = false;
@@ -264,8 +259,7 @@ class MenuListener {
             boolean canRevert = false;
             boolean viewAppearance = editorView.equals(Frame.EDIT_APPEARANCE);
             boolean viewLayout = editorView.equals(Frame.EDIT_LAYOUT);
-            boolean viewToolbox = explorerView.equals(Frame.VIEW_TOOLBOX);
-            boolean viewSimulation = explorerView.equals(Frame.VIEW_SIMULATION);
+
             if (isProjectCircuit) {
                 List<?> tools = proj.getLogisimFile().getTools();
 
@@ -282,8 +276,6 @@ class MenuListener {
             menubar.setEnabled(LogisimMenuBar.MOVE_CIRCUIT_DOWN, canMoveDown);
             menubar.setEnabled(LogisimMenuBar.SET_MAIN_CIRCUIT, canSetMain);
             menubar.setEnabled(LogisimMenuBar.REMOVE_CIRCUIT, canRemove);
-            menubar.setEnabled(LogisimMenuBar.VIEW_TOOLBOX, !viewToolbox);
-            menubar.setEnabled(LogisimMenuBar.VIEW_SIMULATION, !viewSimulation);
             menubar.setEnabled(LogisimMenuBar.EDIT_LAYOUT, !viewLayout);
             menubar.setEnabled(LogisimMenuBar.EDIT_APPEARANCE, !viewAppearance);
             menubar.setEnabled(LogisimMenuBar.REVERT_APPEARANCE, canRevert);

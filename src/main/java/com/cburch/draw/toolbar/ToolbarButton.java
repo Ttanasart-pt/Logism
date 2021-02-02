@@ -17,8 +17,8 @@ import com.cburch.logisim.std.io.Keyboard;
 import com.cburch.logisim.util.GraphicsUtil;
 
 @SuppressWarnings("serial")
-class ToolbarButton extends JComponent implements MouseListener {
-    private static final int BORDER = 6;
+class ToolbarButton extends JButton implements MouseListener {
+    private static final int BORDER = 4;
 
     private Toolbar toolbar;
     private ToolbarItem item;
@@ -40,7 +40,6 @@ class ToolbarButton extends JComponent implements MouseListener {
         Dimension dim = item.getDimension(toolbar.getOrientation());
         dim.width += 2 * BORDER;
         dim.height += 2 * BORDER;
-
         return dim;
     }
 
@@ -51,34 +50,23 @@ class ToolbarButton extends JComponent implements MouseListener {
 
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
+        if(item.isSeperator()) {
+            setBackground(ColorRegistry.Grey);
+            setBorder(null);
+        } else {
+            super.paintComponent(g);
 
-        Dimension dim = item.getDimension(toolbar.getOrientation());
-        GraphicsUtil.switchToWidth(g, 2);
-        g.setColor(ColorRegistry.GreyLight.brighter());
-        g.fillRect(0, 0, dim.width + BORDER * 2, dim.height + BORDER * 2);
-        GraphicsUtil.switchToWidth(g, 1);
+            if (toolbar.getToolbarModel().isSelected(item)) {
+                setBackground(ColorRegistry.GreyBright.darker());
+            } else {
+                setBackground(ColorRegistry.Grey);
+            }
 
-        if (toolbar.getToolbarModel().isSelected(item)) {
-            GraphicsUtil.switchToWidth(g, 2);
-            g.setColor(ColorRegistry.GreyLight.brighter());
-            g.fillRect(0, 0, dim.width + BORDER * 2, dim.height + BORDER * 2);
-            GraphicsUtil.switchToWidth(g, 1);
+            Graphics g2 = g.create();
+            g2.translate(BORDER, BORDER);
+            item.paintIcon(this, g2);
+            g2.dispose();
         }
-
-        if (toolbar.getPressed() == this) {
-            Color defaultColor = g.getColor();
-            GraphicsUtil.switchToWidth(g, 2);
-            g.setColor(ColorRegistry.GreyBright);
-            g.fillRect(0, 0, dim.width + BORDER * 2, dim.height + BORDER * 2);
-            GraphicsUtil.switchToWidth(g, 1);
-            g.setColor(defaultColor);
-        }
-
-        Graphics g2 = g.create();
-        g2.translate(BORDER, BORDER);
-        item.paintIcon(this, g2);
-        g2.dispose();
     }
 
     @Override

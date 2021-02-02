@@ -14,6 +14,7 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.analyze.model.AnalyzerModel;
 import com.cburch.logisim.analyze.model.OutputExpressionsEvent;
 import com.cburch.logisim.analyze.model.OutputExpressionsListener;
@@ -31,10 +32,10 @@ class KarnaughMapPanel extends JPanel implements TruthTablePanel {
     private static final Font HEAD_FONT = new Font("Serif", Font.BOLD, 14);
     private static final Font BODY_FONT = new Font("Serif", Font.PLAIN, 14);
     private static final Color[] IMP_COLORS = new Color[] {
-        new Color(255, 0, 0, 128),
-        new Color(0, 150, 0, 128),
-        new Color(0, 0, 255, 128),
-        new Color(255, 0, 255, 128),
+            ColorRegistry.Red.darker(),
+            ColorRegistry.Lime.darker(),
+            ColorRegistry.Blue.darker(),
+            ColorRegistry.Purple.darker(),
     };
 
     private static final int MAX_VARS = 4;
@@ -220,6 +221,7 @@ class KarnaughMapPanel extends JPanel implements TruthTablePanel {
         }
         if (message != null) {
             g.setFont(BODY_FONT);
+            g.setColor(ColorRegistry.TextColor);
             GraphicsUtil.drawCenteredText(g, message, sz.width / 2, sz.height / 2);
             return;
         }
@@ -233,6 +235,7 @@ class KarnaughMapPanel extends JPanel implements TruthTablePanel {
         int rows = 1 << rowVars;
         int cols = 1 << colVars;
 
+        g.setColor(ColorRegistry.GreyBright);
         g.setFont(HEAD_FONT);
         FontMetrics headFm = g.getFontMetrics();
         String rowHeader = header(0, rowVars);
@@ -256,6 +259,7 @@ class KarnaughMapPanel extends JPanel implements TruthTablePanel {
 
         x += headHeight;
         y += headHeight;
+        g.setColor(ColorRegistry.GreyBright);
         g.setFont(BODY_FONT);
         FontMetrics fm = g.getFontMetrics();
         int dy = (cellHeight + fm.getAscent()) / 2;
@@ -312,7 +316,7 @@ class KarnaughMapPanel extends JPanel implements TruthTablePanel {
         }
 
 
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.TextColor);
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 int row = getTableRow(i, j, rows, cols);

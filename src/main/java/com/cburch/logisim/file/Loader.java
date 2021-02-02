@@ -3,8 +3,7 @@
 
 package com.cburch.logisim.file;
 
-import java.awt.Component;
-import java.awt.Dimension;
+import java.awt.*;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.File;
@@ -35,8 +34,7 @@ import org.slf4j.*;
  * of files or library objects
  */
 public class Loader implements LibraryLoader {
-    private static final Logger logger = 
-        LoggerFactory.getLogger( Loader.class );
+    private static final Logger logger = LoggerFactory.getLogger( Loader.class );
 
     public static final String LOGISIM_EXTENSION = ".circ";
     public static final FileFilter LOGISIM_FILTER = new LogisimFileFilter();
@@ -158,8 +156,7 @@ public class Loader implements LibraryLoader {
      * @return A functioning LogisimFile
      * @throws LoadFailedException if there was an error loading the file
      */
-    public LogisimFile openLogisimFile(File file, Map<File,File> substitutions)
-            throws LoadFailedException {
+    public LogisimFile openLogisimFile(File file, Map<File,File> substitutions) throws LoadFailedException {
         this.substitutions = substitutions;
         // FIXME allevaton: What's up with this? Try finally with no catch?
         try {
@@ -407,12 +404,6 @@ public class Loader implements LibraryLoader {
         return ret;
     }
 
-    /**
-     * Loads a Java jar file as a library
-     * @param request the requested jar file
-     * @param string the class name specified in the file
-     * @return the loaded library
-     */
     Library loadJarFile(File request, String className) throws LoadFailedException {
         File actual = getSubstitution(request);
         // Up until 2.1.8, this was written to use a URLClassLoader, which
@@ -568,9 +559,7 @@ public class Loader implements LibraryLoader {
         }
         while (!file.canRead()) {
             // It doesn't exist. Figure it out from the user.
-            JOptionPane.showMessageDialog(parent,
-                getFromLocale("fileLibraryMissingError",
-                    file.getName()));
+            JOptionPane.showMessageDialog(parent, getFromLocale("fileLibraryMissingError", file.getName()));
             JFileChooser chooser = createChooser();
             chooser.setFileFilter(filter);
             chooser.setDialogTitle(getFromLocale("fileLibraryMissingTitle", file.getName()));

@@ -53,14 +53,14 @@
      id="layer1"
      transform="translate(0,-1036.3622)">
     <rect
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.0049932;stroke-opacity:1"
+       style="fill:#FFF6E9;fill-opacity:1;stroke:#FFF6E9;stroke-width:1.0049932;stroke-opacity:1"
        id="rect4322"
        width="5.0640583"
        height="10.363523"
        x="2.2490082"
        y="1039.0583" />
     <rect
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.97463274;stroke-opacity:1"
+       style="fill:#FFF6E9;fill-opacity:1;stroke:#FFF6E9;stroke-width:0.97463274;stroke-opacity:1"
        id="rect4322-7"
        width="4.7488017"
        height="10.393883"
@@ -68,7 +68,7 @@
        y="1039.1008" />
     <text
        xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333232;fill-opacity:1;stroke:none;font-family:Sans"
        x="2.8801429"
        y="1040.4961"
        id="text4342"
@@ -79,7 +79,7 @@
          y="1040.4961">9</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333232;fill-opacity:1;stroke:none;font-family:Sans"
        x="2.9953487"
        y="1046.0835"
        id="text4346"
@@ -90,7 +90,7 @@
          y="1046.0835">0</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333232;fill-opacity:1;stroke:none;font-family:Sans"
        x="3.1105545"
        y="1051.3253"
        id="text4350"
@@ -101,7 +101,7 @@
          y="1051.3253">1</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333232;fill-opacity:1;stroke:none;font-family:Sans"
        x="10.191442"
        y="1046.0509"
        id="text4350-6"
@@ -112,7 +112,7 @@
          y="1046.0509">1</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333232;fill-opacity:1;stroke:none;font-family:Sans"
        x="10.216775"
        y="1040.542"
        id="text4346-8"
@@ -123,7 +123,7 @@
          y="1040.542">0</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#333232;fill-opacity:1;stroke:none;font-family:Sans"
        x="10.598926"
        y="1051.7285"
        id="text4396"

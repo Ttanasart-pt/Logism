@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Main entry point into Logisim.
  *
- * @version 2.7.2
+ * @version 3.0
  * @author Carl Burch
  */
 public class Main {

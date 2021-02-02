@@ -1,100 +1,106 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="16"
-   height="16"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="simtstep.svg">
-  <defs
-     id="defs4" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="23.18754"
-     inkscape:cx="9.1384582"
-     inkscape:cy="6.0033364"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="784"
-     inkscape:window-height="821"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
-     showguides="true"
-     inkscape:guide-bbox="true" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-1036.3622)">
-    <path
-       sodipodi:type="arc"
-       style="fill:#ffffff;fill-opacity:1;stroke:#4d4d4d;stroke-opacity:1"
-       id="path3385"
-       sodipodi:cx="7.7843528"
-       sodipodi:cy="7.9137607"
-       sodipodi:rx="5.0673766"
-       sodipodi:ry="5.4555159"
-       d="m 12.851729,7.9137607 a 5.0673766,5.4555159 0 1 1 -10.1347528,0 5.0673766,5.4555159 0 1 1 10.1347528,0 z"
-       transform="translate(0,1036.3622)" />
-    <path
-       style="fill:#ff0000;stroke:#ff0000;stroke-width:1.0544076px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 5.0730172,1040.2708 2.8350752,3.482"
-       id="path3409"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1.04663861px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 7.6136025,1044.1448 3.5077955,-3.3522"
-       id="path3413"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
-    <path
-       sodipodi:type="arc"
-       style="fill:#ffffff;fill-opacity:1;stroke:#4d4d4d;stroke-opacity:1"
-       id="path3415"
-       sodipodi:cx="2.9541728"
-       sodipodi:cy="2.6738777"
-       sodipodi:rx="1.1859818"
-       sodipodi:ry="1.2506716"
-       d="m 4.1401546,2.6738777 a 1.1859818,1.2506716 0 1 1 -2.3719635,0 1.1859818,1.2506716 0 1 1 2.3719635,0 z"
-       transform="translate(0,1036.3622)" />
-    <path
-       style="fill:#3737c8;stroke:#c83737;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 11.989197,1044.2975 0,6.5984"
-       id="path3419"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#c83737;stroke:#c83737;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 10.005373,1044.276 0,6.5984"
-       id="path3419-1"
-       inkscape:connector-curvature="0" />
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="svg2" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
+	 viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FF4848;}
+</style>
+<metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 6.0-c004 79.164570, 2020/11/18-15:51:46        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""
+            xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+            xmlns:xmpGImg="http://ns.adobe.com/xap/1.0/g/img/"
+            xmlns:xmpTPg="http://ns.adobe.com/xap/1.0/t/pg/"
+            xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#"
+            xmlns:xmpG="http://ns.adobe.com/xap/1.0/g/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
+            xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#">
+         <xmp:CreatorTool>Adobe Illustrator 25.1 (Windows)</xmp:CreatorTool>
+         <xmp:CreateDate>2021-02-02T15:35:59+07:00</xmp:CreateDate>
+         <xmp:Thumbnails>
+            <rdf:Alt>
+               <rdf:li rdf:parseType="Resource">
+                  <xmpGImg:width>216</xmpGImg:width>
+                  <xmpGImg:height>256</xmpGImg:height>
+                  <xmpGImg:format>JPEG</xmpGImg:format>
+                  <xmpGImg:image>/9j/4AAQSkZJRgABAgEASABIAAD/7QAsUGhvdG9zaG9wIDMuMAA4QklNA+0AAAAAABAASAAAAAEA&#xA;AQBIAAAAAQAB/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoK&#xA;DBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8f&#xA;Hx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgBAADYAwER&#xA;AAIRAQMRAf/EAaIAAAAHAQEBAQEAAAAAAAAAAAQFAwIGAQAHCAkKCwEAAgIDAQEBAQEAAAAAAAAA&#xA;AQACAwQFBgcICQoLEAACAQMDAgQCBgcDBAIGAnMBAgMRBAAFIRIxQVEGE2EicYEUMpGhBxWxQiPB&#xA;UtHhMxZi8CRygvElQzRTkqKyY3PCNUQnk6OzNhdUZHTD0uIIJoMJChgZhJRFRqS0VtNVKBry4/PE&#xA;1OT0ZXWFlaW1xdXl9WZ2hpamtsbW5vY3R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo+Ck5SVlpeYmZ&#xA;qbnJ2en5KjpKWmp6ipqqusra6voRAAICAQIDBQUEBQYECAMDbQEAAhEDBCESMUEFURNhIgZxgZEy&#xA;obHwFMHR4SNCFVJicvEzJDRDghaSUyWiY7LCB3PSNeJEgxdUkwgJChgZJjZFGidkdFU38qOzwygp&#xA;0+PzhJSktMTU5PRldYWVpbXF1eX1RlZmdoaWprbG1ub2R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo&#xA;+DlJWWl5iZmpucnZ6fkqOkpaanqKmqq6ytrq+v/aAAwDAQACEQMRAD8AbnOPtLsVdirsVdirsVdi&#xA;rsVdirO/ya/5S5/+YSX/AIkmZmh+v4PN+1P+Kj+uP0vcM27507FXYq7FXYq7FXYq8a/O7/lILD/m&#xA;E/5mPmq1/wBQ9z33sl/cT/r/AKA85zBerdirsVdirsVdirsVdirsVdirsVdirsVdirsVdirsVdir&#xA;O/ya/wCUuf8A5hJf+JJmZofr+DzftT/io/rj9L3DNu+dOxV2KuxV2KuxV2KvGvzu/wCUgsP+YT/m&#xA;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</xmpGImg:image>
+               </rdf:li>
+            </rdf:Alt>
+         </xmp:Thumbnails>
+         <xmp:MetadataDate>2021-02-02T15:36+07:00</xmp:MetadataDate>
+         <xmp:ModifyDate>2021-02-02T15:36+07:00</xmp:ModifyDate>
+         <xmpTPg:MaxPageSize rdf:parseType="Resource">
+            <stDim:w>16.000000</stDim:w>
+            <stDim:h>16.000000</stDim:h>
+            <stDim:unit>Points</stDim:unit>
+         </xmpTPg:MaxPageSize>
+         <xmpTPg:NPages>1</xmpTPg:NPages>
+         <xmpTPg:HasVisibleTransparency>False</xmpTPg:HasVisibleTransparency>
+         <xmpTPg:HasVisibleOverprint>False</xmpTPg:HasVisibleOverprint>
+         <xmpTPg:PlateNames>
+            <rdf:Seq>
+               <rdf:li>Magenta</rdf:li>
+               <rdf:li>Yellow</rdf:li>
+            </rdf:Seq>
+         </xmpTPg:PlateNames>
+         <xmpTPg:SwatchGroups>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <xmpG:groupName>Default Swatch Group</xmpG:groupName>
+                  <xmpG:groupType>0</xmpG:groupType>
+               </rdf:li>
+            </rdf:Seq>
+         </xmpTPg:SwatchGroups>
+         <dc:format>image/svg+xml</dc:format>
+         <xmpMM:DerivedFrom rdf:parseType="Resource"/>
+         <xmpMM:DocumentID>xmp.did:ee47bff3-5364-8a4b-a0e5-9344dd495e9d</xmpMM:DocumentID>
+         <xmpMM:InstanceID>xmp.iid:ee47bff3-5364-8a4b-a0e5-9344dd495e9d</xmpMM:InstanceID>
+         <xmpMM:OriginalDocumentID>xmp.did:ee47bff3-5364-8a4b-a0e5-9344dd495e9d</xmpMM:OriginalDocumentID>
+         <xmpMM:History>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:ee47bff3-5364-8a4b-a0e5-9344dd495e9d</stEvt:instanceID>
+                  <stEvt:when>2021-02-02T15:36+07:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Illustrator 25.1 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/</stEvt:changed>
+               </rdf:li>
+            </rdf:Seq>
+         </xmpMM:History>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?>
+	</metadata>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="9.1384582" inkscape:cy="6.0033364" inkscape:document-units="px" inkscape:guide-bbox="true" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="821" inkscape:window-maximized="0" inkscape:window-width="784" inkscape:window-x="0" inkscape:window-y="0" inkscape:zoom="23.18754" pagecolor="#ffffff" showgrid="false" showguides="true">
+	</sodipodi:namedview>
+<rect x="2.8" y="1.8" class="st0" width="3.7" height="12.3"/>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="9.1384582" inkscape:cy="6.0033364" inkscape:document-units="px" inkscape:guide-bbox="true" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="821" inkscape:window-maximized="0" inkscape:window-width="784" inkscape:window-x="0" inkscape:window-y="0" inkscape:zoom="23.18754" pagecolor="#ffffff" showgrid="false" showguides="true">
+	</sodipodi:namedview>
+<rect x="9.5" y="1.8" class="st0" width="3.7" height="12.3"/>
 </svg>

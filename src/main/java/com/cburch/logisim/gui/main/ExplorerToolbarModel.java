@@ -14,28 +14,19 @@ import com.cburch.draw.toolbar.ToolbarSeparator;
 import com.cburch.logisim.gui.menu.LogisimMenuBar;
 import static com.cburch.logisim.util.LocaleString.*;
 
-class ExplorerToolbarModel extends AbstractToolbarModel
-        implements MenuListener.EnabledListener {
-    private Frame frame;
-    private LogisimToolbarItem itemToolbox;
-    private LogisimToolbarItem itemSimulation;
-    private LogisimToolbarItem itemLayout;
-    private LogisimToolbarItem itemAppearance;
-    private List<ToolbarItem> items;
+public class ExplorerToolbarModel extends AbstractToolbarModel implements MenuListener.EnabledListener {
+    private final Frame frame;
+    private final LogisimToolbarItem itemLayout;
+    private final LogisimToolbarItem itemAppearance;
+    private final List<ToolbarItem> items;
 
     public ExplorerToolbarModel(Frame frame, MenuListener menu) {
         this.frame = frame;
 
-        itemToolbox = new LogisimToolbarItem(menu, "projtool.svg",
-                LogisimMenuBar.VIEW_TOOLBOX, getFromLocale("projectViewToolboxTip"));
-        itemSimulation = new LogisimToolbarItem(menu, "projsim.svg",
-                LogisimMenuBar.VIEW_SIMULATION, getFromLocale("projectViewSimulationTip"));
-        itemLayout = new LogisimToolbarItem(menu, "projlayo.svg",
-                LogisimMenuBar.EDIT_LAYOUT, getFromLocale("projectEditLayoutTip"));
-        itemAppearance = new LogisimToolbarItem(menu, "projapp.svg",
-                LogisimMenuBar.EDIT_APPEARANCE, getFromLocale("projectEditAppearanceTip"));
+        itemLayout = new LogisimToolbarItem(menu, "projlayo.svg", LogisimMenuBar.EDIT_LAYOUT, getFromLocale("projectEditLayoutTip"));
+        itemAppearance = new LogisimToolbarItem(menu, "projapp.svg", LogisimMenuBar.EDIT_APPEARANCE, getFromLocale("projectEditAppearanceTip"));
 
-        items = UnmodifiableList.decorate(Arrays.asList(itemToolbox, itemSimulation, new ToolbarSeparator(2), itemLayout, itemAppearance));
+        items = UnmodifiableList.decorate(Arrays.asList(itemLayout, itemAppearance));
 
         menu.addEnabledListener(this);
     }
@@ -51,10 +42,6 @@ class ExplorerToolbarModel extends AbstractToolbarModel
             return frame.getEditorView().equals(Frame.EDIT_LAYOUT);
         } else if (item == itemAppearance) {
             return frame.getEditorView().equals(Frame.EDIT_APPEARANCE);
-        } else if (item == itemToolbox) {
-            return frame.getExplorerView().equals(Frame.VIEW_TOOLBOX);
-        } else if (item == itemSimulation) {
-            return frame.getExplorerView().equals(Frame.VIEW_SIMULATION);
         } else {
             return false;
         }

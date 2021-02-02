@@ -171,8 +171,7 @@ public class Implicant implements Comparable<Implicant> {
         }
     }
 
-    static List<Implicant> computeMinimal(int format, AnalyzerModel model,
-            String variable) {
+    static List<Implicant> computeMinimal(int format, AnalyzerModel model, String variable) {
         TruthTable table = model.getTruthTable();
         int column = model.getOutputs().indexOf(variable);
         if (column < 0) {
@@ -180,8 +179,7 @@ public class Implicant implements Comparable<Implicant> {
         }
 
 
-        Entry desired = format == AnalyzerModel.FORMAT_SUM_OF_PRODUCTS
-            ? Entry.ONE : Entry.ZERO;
+        Entry desired = format == AnalyzerModel.FORMAT_SUM_OF_PRODUCTS ? Entry.ONE : Entry.ZERO;
         Entry undesired = desired == Entry.ONE ? Entry.ZERO : Entry.ONE;
 
         // determine the first-cut implicants, as well as the rows
@@ -206,7 +204,6 @@ public class Implicant implements Comparable<Implicant> {
         if (!knownFound) {
             return null;
         }
-
 
         // work up to more general implicants, discovering
         // any prime implicants.

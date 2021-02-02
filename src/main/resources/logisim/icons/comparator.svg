@@ -53,20 +53,20 @@
      id="layer1"
      transform="translate(0,-1036.3622)">
     <rect
-       style="fill:#ffffff;stroke:#000000;stroke-width:1.12999654000000000;stroke-opacity:1"
+       style="fill:#333232;stroke:#FFF6E9;stroke-width:1.12999654000000000;stroke-opacity:1"
        id="rect4134"
        width="12.814615"
        height="12.556197"
        x="1.402162"
        y="1038.0165" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#FFF6E9;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 5.5112611,1043.0236 2.8168667,0 -2.617849,-2.6178"
        id="path4284"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#FFF6E9;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 9.491616,1045.3889 -2.8168664,0 2.617849,2.6178"
        id="path4284-5"
        inkscape:connector-curvature="0"

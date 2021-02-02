@@ -84,9 +84,9 @@ class BuildCircuitButton extends JButton {
                 String output = outputs.get(i);
                 Expression expr = model.getOutputExpressions().getExpression(output);
                 if (expr != null && expr.containsXor()) {
-                    { enableNands = false;
+                    { enableNands = false; }
+                    break;
                 }
- break; }
             }
             nands.setEnabled(enableNands);
 
@@ -186,8 +186,7 @@ class BuildCircuitButton extends JButton {
         setText(getFromLocale("buildCircuitButton"));
     }
 
-    private void performAction(Project dest, String name, boolean replace,
-            final boolean twoInputs, final boolean useNands) {
+    private void performAction(Project dest, String name, boolean replace, final boolean twoInputs, final boolean useNands) {
         if (replace) {
             final Circuit circuit = dest.getLogisimFile().getCircuit(name);
             if (circuit == null) {
@@ -197,14 +196,12 @@ class BuildCircuitButton extends JButton {
                 return;
             }
 
-            CircuitMutation xn = CircuitBuilder.build(circuit, model, twoInputs,
-                    useNands);
+            CircuitMutation xn = CircuitBuilder.build(circuit, model, twoInputs, useNands);
             dest.doAction(xn.toAction(getFromLocale("replaceCircuitAction")));
         } else {
             // add the circuit
             Circuit circuit = new Circuit(name);
-            CircuitMutation xn = CircuitBuilder.build(circuit, model, twoInputs,
-                    useNands);
+            CircuitMutation xn = CircuitBuilder.build(circuit, model, twoInputs, useNands);
             xn.execute();
             dest.doAction(LogisimFileActions.addCircuit(circuit));
             dest.setCurrentCircuit(circuit);

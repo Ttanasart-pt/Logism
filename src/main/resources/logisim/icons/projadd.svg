@@ -1,73 +1,85 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="16"
-   height="16"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="probe.svg">
-  <defs
-     id="defs4" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="26.070765"
-     inkscape:cx="8.6661589"
-     inkscape:cy="7.4847381"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="784"
-     inkscape:window-height="821"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-1036.3622)">
-    <path
-       style="fill:#008000;stroke:#00ff00;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 7.9015711,2.6517149 0,10.5865711"
-       id="path3017"
-       inkscape:connector-curvature="0"
-       transform="translate(0,1036.3622)" />
-    <path
-       style="fill:#008000;stroke:#00ff00;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 2.6466283,1044.3456 10.5865997,0"
-       id="path3017-1"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#008000;fill-opacity:1;stroke:#00ff00;stroke-width:0.03835714;stroke-opacity:1"
-       d="m 7.431059,10.847376 0,-2.3781426 -2.3781428,0 -2.3781427,0 0,-0.4794643 0,-0.4794643 2.3781427,0 2.3781428,0 0,-2.4164999 0,-2.4164999 0.4794643,0 0.4794642,0 0,2.4164999 0,2.4164999 2.4164995,0 2.4165,0 0,0.4794643 0,0.4794643 -2.4165,0 -2.4164995,0 0,2.3781426 0,2.378143 -0.4794642,0 -0.4794643,0 0,-2.378143 z"
-       id="path3037"
-       inkscape:connector-curvature="0"
-       transform="translate(0,1036.3622)" />
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="svg2" inkscape:version="0.48.4 r9939" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
+	 viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#96FF43;}
+</style>
+<metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 6.0-c004 79.164570, 2020/11/18-15:51:46        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""
+            xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+            xmlns:xmpGImg="http://ns.adobe.com/xap/1.0/g/img/"
+            xmlns:xmpTPg="http://ns.adobe.com/xap/1.0/t/pg/"
+            xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#"
+            xmlns:xmpG="http://ns.adobe.com/xap/1.0/g/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/">
+         <xmp:CreatorTool>Adobe Illustrator 25.1 (Windows)</xmp:CreatorTool>
+         <xmp:CreateDate>2021-02-02T15:46:25+07:00</xmp:CreateDate>
+         <xmp:Thumbnails>
+            <rdf:Alt>
+               <rdf:li rdf:parseType="Resource">
+                  <xmpGImg:width>256</xmpGImg:width>
+                  <xmpGImg:height>256</xmpGImg:height>
+                  <xmpGImg:format>JPEG</xmpGImg:format>
+                  <xmpGImg:image>/9j/4AAQSkZJRgABAgEASABIAAD/7QAsUGhvdG9zaG9wIDMuMAA4QklNA+0AAAAAABAASAAAAAEA&#xA;AQBIAAAAAQAB/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoK&#xA;DBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8f&#xA;Hx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgBAAEAAwER&#xA;AAIRAQMRAf/EAaIAAAAHAQEBAQEAAAAAAAAAAAQFAwIGAQAHCAkKCwEAAgIDAQEBAQEAAAAAAAAA&#xA;AQACAwQFBgcICQoLEAACAQMDAgQCBgcDBAIGAnMBAgMRBAAFIRIxQVEGE2EicYEUMpGhBxWxQiPB&#xA;UtHhMxZi8CRygvElQzRTkqKyY3PCNUQnk6OzNhdUZHTD0uIIJoMJChgZhJRFRqS0VtNVKBry4/PE&#xA;1OT0ZXWFlaW1xdXl9WZ2hpamtsbW5vY3R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo+Ck5SVlpeYmZ&#xA;qbnJ2en5KjpKWmp6ipqqusra6voRAAICAQIDBQUEBQYECAMDbQEAAhEDBCESMUEFURNhIgZxgZEy&#xA;obHwFMHR4SNCFVJicvEzJDRDghaSUyWiY7LCB3PSNeJEgxdUkwgJChgZJjZFGidkdFU38qOzwygp&#xA;0+PzhJSktMTU5PRldYWVpbXF1eX1RlZmdoaWprbG1ub2R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo&#xA;+DlJWWl5iZmpucnZ6fkqOkpaanqKmqq6ytrq+v/aAAwDAQACEQMRAD8A9U4q7FXYq7FXYq7FXYq7&#xA;FXYq7FXYq7FWOecP+PT/AJ6f8a5yftP/AJP/ADv966rtP+H4/oY5nKOpdirsVdirsVdirI/J/wDx&#xA;9/8APP8A42zq/Zj/ACn+b/vnbdmfxfD9LI86x2rsVdirsVdirsVdirsVdirsVdirsVdirsVdirsV&#xA;dirsVdirsVdirsVdirsVY55w/wCPT/np/wAa5yftP/k/87/euq7T/h+P6GOZyjqXYq7FXYq7FXYq&#xA;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</xmpGImg:image>
+               </rdf:li>
+            </rdf:Alt>
+         </xmp:Thumbnails>
+         <xmpTPg:MaxPageSize rdf:parseType="Resource">
+            <stDim:w>16.000000</stDim:w>
+            <stDim:h>16.000000</stDim:h>
+            <stDim:unit>Points</stDim:unit>
+         </xmpTPg:MaxPageSize>
+         <xmpTPg:NPages>1</xmpTPg:NPages>
+         <xmpTPg:HasVisibleTransparency>False</xmpTPg:HasVisibleTransparency>
+         <xmpTPg:HasVisibleOverprint>False</xmpTPg:HasVisibleOverprint>
+         <xmpTPg:PlateNames>
+            <rdf:Seq>
+               <rdf:li>Cyan</rdf:li>
+               <rdf:li>Yellow</rdf:li>
+            </rdf:Seq>
+         </xmpTPg:PlateNames>
+         <xmpTPg:SwatchGroups>
+            <rdf:Seq>
+               <rdf:li rdf:parseType="Resource">
+                  <xmpG:groupName>Default Swatch Group</xmpG:groupName>
+                  <xmpG:groupType>0</xmpG:groupType>
+               </rdf:li>
+            </rdf:Seq>
+         </xmpTPg:SwatchGroups>
+         <dc:format>image/svg+xml</dc:format>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?>
+	</metadata>
+<sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="8.6661589" inkscape:cy="7.4847381" inkscape:document-units="px" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="821" inkscape:window-maximized="0" inkscape:window-width="784" inkscape:window-x="0" inkscape:window-y="0" inkscape:zoom="26.070765" pagecolor="#ffffff" showgrid="false">
+	</sodipodi:namedview>
+<polygon class="st0" points="14.5,6.5 9.3,6.5 9.3,1.3 6.5,1.3 6.5,6.5 1.3,6.5 1.3,9.4 6.5,9.4 6.5,14.6 9.3,14.6 9.3,9.4 
+	14.5,9.4 "/>
 </svg>

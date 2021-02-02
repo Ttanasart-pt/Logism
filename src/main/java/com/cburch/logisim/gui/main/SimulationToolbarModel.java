@@ -18,8 +18,7 @@ import com.cburch.logisim.gui.menu.LogisimMenuBar;
 import com.cburch.logisim.proj.Project;
 import static com.cburch.logisim.util.LocaleString.*;
 
-class SimulationToolbarModel extends AbstractToolbarModel
-        implements ChangeListener {
+public class SimulationToolbarModel extends AbstractToolbarModel implements ChangeListener {
     private Project project;
     private LogisimToolbarItem simEnable;
     private LogisimToolbarItem simStep;
@@ -27,24 +26,18 @@ class SimulationToolbarModel extends AbstractToolbarModel
     private LogisimToolbarItem tickStep;
     private List<ToolbarItem> items;
 
-    public SimulationToolbarModel(Project project, MenuListener menu) {
+    public SimulationToolbarModel(Project project, MenuListener menu, boolean isSmall) {
         this.project = project;
 
-        simEnable = new LogisimToolbarItem(menu, "simplay.svg", LogisimMenuBar.SIMULATE_ENABLE,
-                getFromLocale("simulateEnableStepsTip"));
-        simStep = new LogisimToolbarItem(menu, "simstep.svg", LogisimMenuBar.SIMULATE_STEP,
-                getFromLocale("simulateStepTip"));
-        tickEnable = new LogisimToolbarItem(menu, "simtplay.svg", LogisimMenuBar.TICK_ENABLE,
-                getFromLocale("simulateEnableTicksTip"));
-        tickStep = new LogisimToolbarItem(menu, "simtstep.svg", LogisimMenuBar.TICK_STEP,
-                getFromLocale("simulateTickTip"));
+        simEnable = new LogisimToolbarItem(menu, "simplay.svg", LogisimMenuBar.SIMULATE_ENABLE, getFromLocale("simulateEnableStepsTip"));
+        simStep = new LogisimToolbarItem(menu, "simstep.svg", LogisimMenuBar.SIMULATE_STEP, getFromLocale("simulateStepTip"));
+        tickEnable = new LogisimToolbarItem(menu, "simtplay.svg", LogisimMenuBar.TICK_ENABLE, getFromLocale("simulateEnableTicksTip"));
+        tickStep = new LogisimToolbarItem(menu, "simtstep.svg", LogisimMenuBar.TICK_STEP, getFromLocale("simulateTickTip"));
 
-        items = UnmodifiableList.decorate(Arrays.asList(new ToolbarItem[] {
-                simEnable,
-                simStep,
-                tickEnable,
-                tickStep,
-            }));
+        if(isSmall)
+            items = UnmodifiableList.decorate(Arrays.asList(new ToolbarItem[] { tickEnable, tickStep }));
+        else
+            items = UnmodifiableList.decorate(Arrays.asList(new ToolbarItem[] { simEnable, simStep, tickEnable, tickStep }));
 
         menu.getMenuBar().addEnableListener(this);
         stateChanged(null);

@@ -57,4 +57,9 @@ public class ToolbarToolItem implements ToolbarItem {
             return new Dimension(icon.getIconWidth() + 8, icon.getIconHeight() + 8);
         }
     }
+
+    @Override
+    public boolean isSeperator() {
+        return false;
+    }
 }

@@ -36,8 +36,7 @@ abstract class CircuitDetermination {
     //
     static class Gate extends CircuitDetermination {
         private ComponentFactory factory;
-        private ArrayList<CircuitDetermination> inputs
-            = new ArrayList<CircuitDetermination>();
+        private ArrayList<CircuitDetermination> inputs = new ArrayList<CircuitDetermination>();
 
         private Gate(ComponentFactory factory) { this.factory = factory; }
 
@@ -235,8 +234,7 @@ abstract class CircuitDetermination {
             return binary(a.visit(this), b.visit(this), XorGate.FACTORY);
         }
 
-        private Gate binary(CircuitDetermination aret,
-                CircuitDetermination bret, ComponentFactory factory) {
+        private Gate binary(CircuitDetermination aret, CircuitDetermination bret, ComponentFactory factory) {
             if (aret instanceof Gate) {
                 Gate a = (Gate) aret;
                 if (a.factory == factory) {

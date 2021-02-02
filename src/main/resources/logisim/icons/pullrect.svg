@@ -53,7 +53,7 @@
      id="layer1"
      transform="translate(0,-1036.3622)">
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       style="fill:#333232;fill-opacity:1;stroke:#FFF6E9;stroke-opacity:1"
        id="rect3198"
        width="4.6145473"
        height="9.9622469"
@@ -61,18 +61,18 @@
        y="2.5013711"
        transform="translate(0,1036.3622)" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#FFF6E9;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 7.8921695,12.506745 0,2.41509"
        id="path3200"
        inkscape:connector-curvature="0"
        transform="translate(0,1036.3622)" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#FFF6E9;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 8.064676,1038.5617 0,-2.1563"
        id="path3202"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.8980009px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#FFF6E9;stroke-width:0.8980009px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 4.9790399,1036.8151 6.0850191,0"
        id="path3204"
        inkscape:connector-curvature="0" />

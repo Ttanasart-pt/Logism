@@ -16,6 +16,7 @@ public class ColorRegistry {
     public static Color Creme = new Color(255, 251, 222);
     public static Color Creme_sat = new Color(255, 248, 194);
     public static Color Blue = new Color(79, 161, 255);
+    public static Color Purple = new Color(204, 52, 235);
     public static Color Red = new Color(255, 31, 87);
     public static Color Red_dark = new Color(196, 0, 29);
     public static Color Orange = new Color(255, 172, 84);

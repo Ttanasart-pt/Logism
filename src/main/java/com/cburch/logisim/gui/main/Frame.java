@@ -31,6 +31,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.plaf.SplitPaneUI;
 
+import com.cburch.draw.toolbar.FrameToolbar;
 import com.cburch.logisim.file.FileStatistics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,8 +76,8 @@ public class Frame extends LFrame implements LocaleListener {
     public static final String EXPLORER_VIEW = "explorerView";
     public static final String EDIT_LAYOUT = "layout";
     public static final String EDIT_APPEARANCE = "appearance";
-    public static final String VIEW_TOOLBOX = "toolbox";
-    public static final String VIEW_SIMULATION = "simulation";
+    public static final String VIEW_TOOLBOX = "Circuit";
+    public static final String VIEW_SIMULATION = "Simulation";
 
     private static final double[] ZOOM_OPTIONS = { 20, 30, 50, 75, 100, 125, 150, 200, 250, 300, 400 };
 
@@ -146,9 +147,7 @@ public class Frame extends LFrame implements LocaleListener {
         @Override
         public void stateChanged(ChangeEvent event) {
             Object source = event.getSource();
-            if (source == explorerPane) {
-                firePropertyChange(EXPLORER_VIEW, "???", getExplorerView());
-            } else if (source == mainPanel) {
+            if (source == mainPanel) {
                 firePropertyChange(EDITOR_VIEW, "???", getEditorView());
             }
         }
@@ -173,10 +172,10 @@ public class Frame extends LFrame implements LocaleListener {
     private final MyProjectListener myProjectListener = new MyProjectListener();
 
     private final MenuListener        menuListener;
-    private final Toolbar             toolbar;
+    private final FrameToolbar        toolbar;
     private final CardPanel           mainPanel;
 
-    private final CardPanel           explorerPane;
+    private final JTabbedPane         explorerPane;
     private final Toolbox             toolbox;
     private final AttrTable           attrTable;
     private final ZoomControl         zoom;
@@ -234,18 +233,14 @@ public class Frame extends LFrame implements LocaleListener {
         menuListener = new MenuListener(this, menubar);
         menuListener.setEditHandler(layoutEditHandler);
         setJMenuBar(menubar);
-        toolbar = new Toolbar(layoutToolbarModel);
+        toolbar = new FrameToolbar(layoutToolbarModel, this, menuListener, proj);
 
-        // set up the left-side components
-        ToolbarModel projectToolbarModel = new ExplorerToolbarModel(this, menuListener);
-        // left-side elements
-        Toolbar projectToolbar = new Toolbar(projectToolbarModel);
         toolbox = new Toolbox(proj, menuListener);
         SimulationExplorer simExplorer = new SimulationExplorer(proj, menuListener);
-        explorerPane = new CardPanel();
-        explorerPane.addView(VIEW_TOOLBOX, toolbox);
-        explorerPane.addView(VIEW_SIMULATION, simExplorer);
-        explorerPane.setView(VIEW_TOOLBOX);
+        explorerPane = new JTabbedPane();
+        explorerPane.addTab(VIEW_TOOLBOX, toolbox);
+        explorerPane.addTab(VIEW_SIMULATION, simExplorer);
+
         attrTable = new AttrTable(this);
         zoom = new ZoomControl(layoutZoomModel);
 
@@ -268,7 +263,6 @@ public class Frame extends LFrame implements LocaleListener {
         // on the right and a split pane on the left containing the
         // explorer and attribute values.
         JPanel explPanel = new JPanel(new BorderLayout());
-        explPanel.add(projectToolbar, BorderLayout.NORTH);
         explPanel.add(explorerPane, BorderLayout.CENTER);
         JPanel attrPanel = new JPanel(new BorderLayout());
         attrPanel.add(attrTable, BorderLayout.CENTER);
@@ -300,7 +294,7 @@ public class Frame extends LFrame implements LocaleListener {
         this.setExtendedState(AppPreferences.WINDOW_STATE.get());
 
         menuListener.register(mainPanel);
-        KeyboardToolSelection.register(toolbar);
+        KeyboardToolSelection.register(toolbar.tools);
 
         proj.setFrame(this);
         if (proj.getTool() == null) {
@@ -310,45 +304,14 @@ public class Frame extends LFrame implements LocaleListener {
         explorerPane.addChangeListener(myProjectListener);
         AppPreferences.TOOLBAR_PLACEMENT.addPropertyChangeListener(myProjectListener);
         placeToolbar();
-        ((MenuListener.EnabledListener) projectToolbarModel).menuEnableChanged(menuListener);
+        ((MenuListener.EnabledListener) toolbar.toolExplorer).menuEnableChanged(menuListener);
 
         LocaleManager.addLocaleListener(this);
     }
 
     private void placeToolbar() {
-        String loc = AppPreferences.TOOLBAR_PLACEMENT.get();
         Container contents = getContentPane();
-        contents.remove(toolbar);
-        mainPanelSuper.remove(toolbar);
-        if (AppPreferences.TOOLBAR_HIDDEN.equals(loc)) {
-            // don't place value anywhere
-        } else if (AppPreferences.TOOLBAR_DOWN_MIDDLE.equals(loc)) {
-            toolbar.setOrientation(Toolbar.VERTICAL);
-            mainPanelSuper.add(toolbar, BorderLayout.WEST);
-        // it is a BorderLayout constant
-        } else {
-            Object value = BorderLayout.NORTH;
-            for (Direction dir : Direction.cardinals) {
-                if (dir.toString().equals(loc)) {
-                    if (dir == Direction.EAST) {
-                        value = BorderLayout.EAST;
-                    }
-                    else if (dir == Direction.SOUTH) {
-                        value = BorderLayout.SOUTH;
-                    }
-                    else if (dir == Direction.WEST) {
-                        value = BorderLayout.WEST;
-                    }
-                    else {
-                        value = BorderLayout.NORTH;
-                    }
-                }
-            }
-
-            contents.add(toolbar, value);
-            boolean vertical = value == BorderLayout.WEST || value == BorderLayout.EAST;
-            toolbar.setOrientation(vertical ? Toolbar.VERTICAL : Toolbar.HORIZONTAL);
-        }
+        contents.add(toolbar, BorderLayout.NORTH);
         contents.validate();
     }
 
@@ -383,14 +346,6 @@ public class Frame extends LFrame implements LocaleListener {
         }
     }
 
-    public void setExplorerView(String view) {
-        explorerPane.setView(view);
-    }
-
-    public String getExplorerView() {
-        return explorerPane.getView();
-    }
-
     public void setEditorView(String view) {
         String curView = mainPanel.getView();
         if (curView.equals(view)) {
@@ -406,7 +361,7 @@ public class Frame extends LFrame implements LocaleListener {
                 mainPanel.addView(EDIT_APPEARANCE, app.getCanvasPane());
                 appearance = app;
             }
-            toolbar.setToolbarModel(app.getToolbarModel());
+            toolbar.tools.setToolbarModel(app.getToolbarModel());
             app.getAttrTableDrawManager(attrTable).attributesSelected();
             zoom.setZoomModel(app.getZoomModel());
             menuListener.setEditHandler(app.getEditHandler());
@@ -414,7 +369,7 @@ public class Frame extends LFrame implements LocaleListener {
             app.getCanvas().requestFocus();
         // layout view
         } else {
-            toolbar.setToolbarModel(layoutToolbarModel);
+            toolbar.tools.setToolbarModel(layoutToolbarModel);
             zoom.setZoomModel(layoutZoomModel);
             menuListener.setEditHandler(layoutEditHandler);
             viewAttributes(proj.getTool(), true);

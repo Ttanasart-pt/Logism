@@ -3,7 +3,7 @@
 
 package com.cburch.logisim.proj;
 
-import java.awt.Component;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -160,8 +160,7 @@ public class ProjectActions {
         return newProj;
     }
 
-    public static Project doOpen(SplashScreen monitor, File source,
-            Map<File,File> substitutions) throws LoadFailedException {
+    public static Project doOpen(SplashScreen monitor, File source, Map<File,File> substitutions) throws LoadFailedException {
         if (monitor != null) {
             monitor.setProgress(SplashScreen.FILE_LOAD);
         }
@@ -192,13 +191,13 @@ public class ProjectActions {
         }
 
         File selected = chooser.getSelectedFile();
+
         if (selected != null) {
             doOpen(parent, baseProject, selected);
         }
     }
 
-    public static Project doOpen(Component parent,
-            Project baseProject, File f) {
+    public static Project doOpen(Component parent, Project baseProject, File f) {
         Project proj = Projects.findProjectFor(f);
         Loader loader = null;
         if (proj != null) {

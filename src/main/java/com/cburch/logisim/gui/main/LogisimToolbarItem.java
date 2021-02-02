@@ -17,14 +17,14 @@ import com.cburch.draw.toolbar.ToolbarItem;
 import com.cburch.logisim.gui.menu.LogisimMenuItem;
 import com.cburch.logisim.util.Icons;
 
-class LogisimToolbarItem implements ToolbarItem {
+public class LogisimToolbarItem implements ToolbarItem {
+    private static final int BORDER = 4;
     private MenuListener menu;
     private Icon icon;
     private LogisimMenuItem action;
     private String toolTip;
 
-    public LogisimToolbarItem(MenuListener menu, String iconName,
-            LogisimMenuItem action, String toolTip) {
+    public LogisimToolbarItem(MenuListener menu, String iconName, LogisimMenuItem action, String toolTip) {
         this.menu = menu;
         this.icon = Icons.getIcon(iconName);
         this.action = action;
@@ -65,7 +65,7 @@ class LogisimToolbarItem implements ToolbarItem {
             g.drawLine(4, 12, 12, 4);
             g.drawRect(4, 4, 8, 8);
         } else {
-            icon.paintIcon(destination, g, 0, 1);
+            icon.paintIcon(destination, g, BORDER, BORDER);
         }
     }
 
@@ -85,7 +85,12 @@ class LogisimToolbarItem implements ToolbarItem {
         } else {
             int w = icon.getIconWidth();
             int h = icon.getIconHeight();
-            return new Dimension(w, h + 2);
+            return new Dimension(w + BORDER * 2, h + BORDER * 2);
         }
+    }
+
+    @Override
+    public boolean isSeperator() {
+        return false;
     }
 }

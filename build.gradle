@@ -13,7 +13,7 @@ if (System.properties['os.name'].toLowerCase().contains('mac')) {
 }
 
 mainClassName = "com.cburch.logisim.Main"
-version = '2.7.2'
+version = '3.0'
 applicationName = 'Logisim MakhamDev edition'
 description = 'Logisim: Logic Simulator'
 
@@ -24,7 +24,7 @@ wrapper {
 jar {
     manifest {
         attributes 'Implementation-Title': applicationName,
-                   'Implementation-Version': '2.7.2',
+                   'Implementation-Version': '3.0',
          		   'Main-Class': mainClassName
     }
     // create a fat jar

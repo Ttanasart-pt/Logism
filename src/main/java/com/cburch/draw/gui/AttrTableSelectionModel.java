@@ -56,8 +56,7 @@ class AttrTableSelectionModel extends AttributeSetTableModel implements Selectio
         } else if (commonCount == 1) {
             return getFromLocale("selectionOne", firstObject.getDisplayName());
         } else {
-            return getFromLocale("selectionMultiple", firstObject.getDisplayName(),
-                    "" + commonCount);
+            return getFromLocale("selectionMultiple", firstObject.getDisplayName(), "" + commonCount);
         }
     }
 

@@ -53,7 +53,7 @@
      id="layer1"
      transform="translate(0,-1036.3622)">
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#FFF6E9;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 7.1908762,13.924363 c -2.2342113,0.324609 -6.76894765,0.234494 -6.76894765,0.234494 l 0,-12.6194992 c 0,0 4.79453525,-0.2577072 7.11633745,0.2344938 0.6477117,0.137309 1.2928014,0.3744518 1.8410229,0.7457165 0.6510691,0.4409145 1.2048751,1.0425311 1.6338531,1.7015256 0.369341,0.5673806 0.617282,1.2197891 0.770262,1.8792821 0.155729,0.6713419 0.182967,1.3751685 0.138179,2.0628788 -0.05515,0.8467496 -0.190404,1.7056394 -0.498134,2.4964164 -0.215379,0.553466 -0.532739,1.076591 -0.924085,1.523313 -0.456863,0.52151 -1.0014061,0.992134 -1.6209304,1.303399 -0.5192966,0.260908 -1.1124402,0.354421 -1.6875574,0.43798 z"
        id="path3235"
        inkscape:connector-curvature="0"
@@ -61,7 +61,7 @@
        sodipodi:nodetypes="accaaaaaaaaa" />
     <path
        sodipodi:type="arc"
-       style="fill:#999999;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:#FFF6E9;stroke-opacity:1"
        id="path3237"
        sodipodi:cx="13.942821"
        sodipodi:cy="8.0217142"
