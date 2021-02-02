@@ -7,6 +7,7 @@ package com.cburch.logisim.std.arith;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.BitWidth;
 import com.cburch.logisim.data.Bounds;
@@ -79,7 +80,7 @@ public class Pow extends InstanceFactory {
         int x = loc.getX();
         int y = loc.getY();
         GraphicsUtil.switchToWidth(g, 2);
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         g.drawLine(x - 25, y, x - 35, y + 10 );
         g.drawLine(x - 25, y + 10, x - 35, y);
         g.drawLine(x - 20, y - 10, x - 15, y - 5);

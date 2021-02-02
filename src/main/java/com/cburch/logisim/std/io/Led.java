@@ -6,6 +6,7 @@ package com.cburch.logisim.std.io;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeSet;
 import com.cburch.logisim.data.Bounds;
@@ -34,7 +35,7 @@ public class Led extends InstanceFactory {
                 Direction.WEST, new Color(240, 0, 0), Color.DARK_GRAY,
                 Boolean.TRUE,
                 "", Io.LABEL_CENTER,
-                StdAttr.DEFAULT_LABEL_FONT, Color.BLACK
+                StdAttr.DEFAULT_LABEL_FONT, ColorRegistry.BaseGateBorderColor
             });
         setFacingAttribute(StdAttr.FACING);
         setIconName("led.svg");
@@ -135,7 +136,7 @@ public class Led extends InstanceFactory {
             g.setColor(val == desired ? onColor : offColor);
             g.fillOval(bds.getX(), bds.getY(), bds.getWidth(), bds.getHeight());
         }
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         GraphicsUtil.switchToWidth(g, 2);
         g.drawOval(bds.getX(), bds.getY(), bds.getWidth(), bds.getHeight());
         GraphicsUtil.switchToWidth(g, 1);

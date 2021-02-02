@@ -25,21 +25,16 @@ import org.apache.commons.collections15.list.UnmodifiableList;
 
 public class DrawingAttributeSet implements AttributeSet, Cloneable {
     static final List<Attribute<?>> ATTRS_ALL
-        = UnmodifiableList.decorate(Arrays.asList(new Attribute<?>[] {
-                DrawAttr.FONT, DrawAttr.ALIGNMENT,
-                DrawAttr.PAINT_TYPE,
-                DrawAttr.STROKE_WIDTH, DrawAttr.STROKE_COLOR,
-                DrawAttr.FILL_COLOR, DrawAttr.TEXT_DEFAULT_FILL,
-                DrawAttr.CORNER_RADIUS }));
+        = UnmodifiableList.decorate(Arrays.asList(DrawAttr.FONT, DrawAttr.ALIGNMENT,
+            DrawAttr.PAINT_TYPE,
+            DrawAttr.STROKE_WIDTH, DrawAttr.STROKE_COLOR,
+            DrawAttr.FILL_COLOR, DrawAttr.TEXT_DEFAULT_FILL,
+            DrawAttr.CORNER_RADIUS));
     static final List<Object> DEFAULTS_ALL
-        = Arrays.asList(new Object[] {
-                DrawAttr.DEFAULT_FONT, DrawAttr.ALIGN_CENTER,
-                DrawAttr.PAINT_STROKE,
-                Integer.valueOf(1), Color.BLACK,
-                Color.WHITE, Color.BLACK, Integer.valueOf(10) });
+        = Arrays.asList(DrawAttr.DEFAULT_FONT, DrawAttr.ALIGN_CENTER,
+            DrawAttr.PAINT_STROKE, 1, Color.BLACK, Color.WHITE, Color.BLACK, 10);
 
-    private class Restriction extends AbstractAttributeSet
-            implements AttributeListener {
+    private class Restriction extends AbstractAttributeSet implements AttributeListener {
         private AbstractTool tool;
         private List<Attribute<?>> selectedAttrs;
         private List<Attribute<?>> selectedView;

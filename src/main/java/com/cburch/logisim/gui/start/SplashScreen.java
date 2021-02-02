@@ -64,27 +64,8 @@ public class SplashScreen extends JWindow implements ActionListener {
     public SplashScreen() {
         JPanel imagePanel = new JPanel();
         imagePanel.add(About.createComponents());
-        imagePanel.setBorder(null);
 
-        progress.setStringPainted(true);
-
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.add(close);
-        close.addActionListener(this);
-        buttonPanel.add(cancel);
-        cancel.addActionListener(this);
-
-        JPanel contents = new JPanel(new BorderLayout());
-        contents.add(imagePanel, BorderLayout.NORTH);
-        contents.add(progress, BorderLayout.CENTER);
-        contents.add(buttonPanel, BorderLayout.SOUTH);
-        contents.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-
-        Color bg = imagePanel.getBackground();
-        contents.setBackground(bg);
-        buttonPanel.setBackground(bg);
-        setBackground(bg);
-        setContentPane(contents);
+        setContentPane(imagePanel);
     }
 
     public void setProgress(int markerId) {

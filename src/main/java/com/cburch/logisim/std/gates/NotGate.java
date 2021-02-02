@@ -10,6 +10,7 @@ import java.util.Map;
 
 import javax.swing.Icon;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.analyze.model.Expression;
 import com.cburch.logisim.analyze.model.Expressions;
 import com.cburch.logisim.circuit.ExpressionComputer;
@@ -165,7 +166,7 @@ class NotGate extends InstanceFactory {
     @Override
     public void paintIcon(InstancePainter painter) {
         Graphics g = painter.getGraphics();
-        g.setColor(Color.black);
+        g.setColor(ColorRegistry.Creme);
         if (painter.getGateShape() == AppPreferences.SHAPE_RECTANGULAR) {
             if (toolIconRect != null) {
                 toolIconRect.paintIcon(painter.getDestination(), g, 2, 2);
@@ -205,7 +206,7 @@ class NotGate extends InstanceFactory {
 
     @Override
     public void paintInstance(InstancePainter painter) {
-        painter.getGraphics().setColor(Color.BLACK);
+        painter.getGraphics().setColor(ColorRegistry.BaseGateBorderColor);
         paintBase(painter);
         painter.drawPorts();
         painter.drawLabel();

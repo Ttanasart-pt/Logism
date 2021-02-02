@@ -9,6 +9,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.Icon;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.comp.ComponentFactory;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeOption;
@@ -112,7 +113,7 @@ class ControlledBuffer extends InstanceFactory {
             icon.paintIcon(painter.getDestination(), g, 2, 2);
         } else {
             int x = isInverter ? 0 : 2;
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
             int[] xp = new int[] { x + 15, x + 1, x + 1, x + 15 };
             int[] yp = new int[] { 10,     3,     17,    10 };
             g.drawPolyline(xp, yp, 4);
@@ -146,7 +147,7 @@ class ControlledBuffer extends InstanceFactory {
         g.drawLine(pt0.getX(), pt0.getY(), pt1.getX(), pt1.getY());
 
         // draw triangle
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         paintShape(painter);
 
         // draw input and output pins

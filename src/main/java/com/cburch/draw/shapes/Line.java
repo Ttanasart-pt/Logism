@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import com.cburch.draw.util.ColorRegistry;
 import org.apache.commons.collections15.list.UnmodifiableList;
 import com.cburch.draw.model.CanvasObject;
 import com.cburch.draw.model.AbstractCanvasObject;
@@ -37,7 +38,7 @@ public class Line extends AbstractCanvasObject {
         this.y1 = y1;
         bounds = Bounds.create(x0, y0, 0, 0).add(x1, y1);
         strokeWidth = 1;
-        strokeColor = Color.BLACK;
+        strokeColor = ColorRegistry.BaseGateBorderColor;
     }
 
     @Override

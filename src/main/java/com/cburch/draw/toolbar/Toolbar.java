@@ -95,7 +95,7 @@ public class Toolbar extends JPanel {
             for (ToolbarItem item : m.getItems()) {
                 subpanel.add(new ToolbarButton(this, item));
             }
-            subpanel.add(Box.createGlue());
+            //subpanel.add(Box.createGlue());
         }
         revalidate();
     }

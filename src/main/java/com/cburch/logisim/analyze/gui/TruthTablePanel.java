@@ -6,11 +6,12 @@ package com.cburch.logisim.analyze.gui;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.analyze.model.Entry;
 import com.cburch.logisim.analyze.model.TruthTable;
 
 interface TruthTablePanel {
-    public static final Color ERROR_COLOR = new Color(255, 128, 128);
+    public static final Color ERROR_COLOR = ColorRegistry.Red;
 
     public TruthTable getTruthTable();
     public int getOutputColumn(MouseEvent event);

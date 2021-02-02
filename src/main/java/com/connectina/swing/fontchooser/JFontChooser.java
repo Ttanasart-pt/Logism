@@ -58,7 +58,7 @@ public class JFontChooser extends JPanel {
 		Locale loc = Locale.getDefault();
 		ResourceBundle ret = bundles.get(loc);
 		if (ret == null) {
-			ret = ResourceBundle.getBundle("resources/connectina/JFontChooser");
+			ret = ResourceBundle.getBundle("connectina/JFontChooser");
 			bundles.put(loc, ret);
 		}
 		return ret;
@@ -501,7 +501,7 @@ public class JFontChooser extends JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         previewPanel.add(previewLabel, gridBagConstraints);
 
-        previewAreaPanel.setBackground(new java.awt.Color(255, 255, 255));
+        //previewAreaPanel.setBackground(new java.awt.Color(255, 255, 255));
         previewAreaPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         previewAreaPanel.setPreferredSize(new java.awt.Dimension(200, 80));
         previewAreaPanel.setLayout(new java.awt.BorderLayout());

@@ -30,8 +30,7 @@ import com.cburch.logisim.util.CustomAction;
 
 @SuppressWarnings("serial")
 public class ZoomControl extends JPanel {
-    public class SpinnerModel extends AbstractSpinnerModel
-            implements PropertyChangeListener {
+    public class SpinnerModel extends AbstractSpinnerModel implements PropertyChangeListener {
         @Override
         public Object getNextValue() {
             double zoom = model.getZoomFactor();
@@ -89,8 +88,7 @@ public class ZoomControl extends JPanel {
         }
     }
 
-    private class GridIcon extends JComponent
-            implements MouseListener, PropertyChangeListener {
+    private class GridIcon extends JComponent implements MouseListener, PropertyChangeListener {
         boolean state = true;
 
         public GridIcon() {
@@ -168,7 +166,7 @@ public class ZoomControl extends JPanel {
         spinnerModel = new SpinnerModel();
         spinner = new JSpinner();
         spinner.setModel(spinnerModel);
-        
+
         //Zooming with CTRL+/-
         InputMap im = this.getInputMap(ZoomControl.WHEN_IN_FOCUSED_WINDOW);
         ActionMap am = this.getActionMap();

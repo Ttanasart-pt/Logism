@@ -32,8 +32,7 @@ import static com.cburch.logisim.util.LocaleString.getFromLocale;
 
 @SuppressWarnings("serial")
 class VariableTab extends AnalyzerTab implements TabInterface {
-    private static class VariableListModel extends AbstractListModel
-            implements VariableListListener {
+    private static class VariableListModel extends AbstractListModel implements VariableListListener {
         private VariableList list;
         private String[] listCopy;
 
@@ -91,8 +90,7 @@ class VariableTab extends AnalyzerTab implements TabInterface {
         }
     }
 
-    private class MyListener
-            implements ActionListener, DocumentListener, ListSelectionListener {
+    private class MyListener implements ActionListener, DocumentListener, ListSelectionListener {
         @Override
         public void actionPerformed(ActionEvent event) {
             Object src = event.getSource();
@@ -103,8 +101,8 @@ class VariableTab extends AnalyzerTab implements TabInterface {
                     if (data.contains(name)) {
                         list.setSelectedValue(name, true);
                     }
-                    field.setText("");
                     field.grabFocus();
+                    updateField();
                 }
             } else if (src == rename) {
                 String oldName = (String) list.getSelectedValue();
@@ -162,7 +160,9 @@ class VariableTab extends AnalyzerTab implements TabInterface {
     private JButton rename = new JButton();
     private JLabel error = new JLabel(" ");
 
-    VariableTab(VariableList data) {
+    private int index;
+
+    VariableTab(VariableList data, char startChar) {
         this.data = data;
 
         list.setModel(new VariableListModel(data));
@@ -175,6 +175,8 @@ class VariableTab extends AnalyzerTab implements TabInterface {
         rename.addActionListener(myListener);
         field.addActionListener(myListener);
         field.getDocument().addDocumentListener(myListener);
+        index = startChar;
+        updateField();
 
         JScrollPane listPane = new JScrollPane(list,
             ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
@@ -195,29 +197,29 @@ class VariableTab extends AnalyzerTab implements TabInterface {
         setLayout(gb);
         Insets oldInsets = gc.insets;
 
-          gc.insets = new Insets(10, 10, 0, 0);
-          gc.fill = GridBagConstraints.BOTH;
-          gc.weightx = 1.0;
+        gc.insets = new Insets(10, 10, 0, 0);
+        gc.fill = GridBagConstraints.BOTH;
+        gc.weightx = 1.0;
         gb.setConstraints(listPane, gc); add(listPane);
 
-          gc.fill = GridBagConstraints.NONE;
-          gc.anchor = GridBagConstraints.PAGE_START;
-          gc.weightx = 0.0;
+        gc.fill = GridBagConstraints.NONE;
+        gc.anchor = GridBagConstraints.PAGE_START;
+        gc.weightx = 0.0;
         gb.setConstraints(topPanel, gc); add(topPanel);
 
-          gc.insets = new Insets(10, 10, 0, 10);
-          gc.gridwidth = GridBagConstraints.REMAINDER;
-          gc.gridx = 0;
-          gc.gridy = GridBagConstraints.RELATIVE;
-          gc.fill = GridBagConstraints.HORIZONTAL;
+        gc.insets = new Insets(10, 10, 0, 10);
+        gc.gridwidth = GridBagConstraints.REMAINDER;
+        gc.gridx = 0;
+        gc.gridy = GridBagConstraints.RELATIVE;
+        gc.fill = GridBagConstraints.HORIZONTAL;
         gb.setConstraints(field, gc); add(field);
 
-          gc.insets = oldInsets;
-          gc.fill = GridBagConstraints.NONE;
-          gc.anchor = GridBagConstraints.LINE_END;
+        gc.insets = oldInsets;
+        gc.fill = GridBagConstraints.NONE;
+        gc.anchor = GridBagConstraints.LINE_END;
         gb.setConstraints(fieldPanel, gc); add(fieldPanel);
 
-          gc.fill = GridBagConstraints.HORIZONTAL;
+        gc.fill = GridBagConstraints.HORIZONTAL;
         gb.setConstraints(error, gc); add(error);
 
         if (!data.isEmpty()) {
@@ -225,6 +227,11 @@ class VariableTab extends AnalyzerTab implements TabInterface {
         }
 
         computeEnabled();
+    }
+
+    void updateField() {
+        field.setText("" + (char)index);
+        index++;
     }
 
     @Override

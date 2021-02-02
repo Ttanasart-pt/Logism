@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.circuit.CircuitState;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeEvent;
@@ -234,7 +235,7 @@ public class Ram extends Mem {
 
         if (separate) {
             painter.drawPort(WE, getFromLocale("ramWELabel"), Direction.SOUTH);
-            painter.getGraphics().setColor(Color.BLACK);
+            painter.getGraphics().setColor(ColorRegistry.BaseGateBorderColor);
             painter.drawPort(DIN, getFromLocale("ramDataLabel"), Direction.EAST);
         }
     }

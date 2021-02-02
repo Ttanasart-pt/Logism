@@ -14,10 +14,12 @@ import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.analyze.model.Entry;
 import com.cburch.logisim.analyze.model.TruthTable;
 import com.cburch.logisim.analyze.model.TruthTableEvent;
 import com.cburch.logisim.analyze.model.TruthTableListener;
+import com.cburch.logisim.gui.main.Frame;
 import com.cburch.logisim.util.GraphicsUtil;
 import static com.cburch.logisim.util.LocaleString.getFromLocale;
 
@@ -144,7 +146,7 @@ class TableTab extends JPanel implements TruthTablePanel, TabInterface {
             return;
         }
 
-        g.setColor(Color.GRAY);
+        g.setColor(ColorRegistry.GreyLight);
         int lineX = left + (cellWidth + COLUMN_SEP) * inputs
             - COLUMN_SEP / 2;
         if (inputs == 0) lineX = left + cellWidth + COLUMN_SEP / 2;
@@ -152,7 +154,7 @@ class TableTab extends JPanel implements TruthTablePanel, TabInterface {
         g.drawLine(left, lineY, left + tableWidth, lineY);
         g.drawLine(lineX, top, lineX, top + tableHeight);
 
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.GreyBright);
         g.setFont(HEAD_FONT);
         FontMetrics headerMetric = g.getFontMetrics();
         int x = left;
@@ -173,6 +175,7 @@ class TableTab extends JPanel implements TruthTablePanel, TabInterface {
         }
 
         g.setFont(BODY_FONT);
+        g.setColor(ColorRegistry.TextColor);
         FontMetrics bodyMetric = g.getFontMetrics();
         y = top + cellHeight + HEADER_SEP;
         Rectangle clip = g.getClipBounds();
@@ -194,19 +197,17 @@ class TableTab extends JPanel implements TruthTablePanel, TabInterface {
                 if (entry.isError()) {
                     g.setColor(ERROR_COLOR);
                     g.fillRect(x, y, cellWidth, cellHeight);
-                    g.setColor(Color.BLACK);
+                    g.setColor(ColorRegistry.White);
                 }
                 String label = entry.getDescription();
                 int width = bodyMetric.stringWidth(label);
                 if (provisional) {
                     provisional = false;
-                    g.setColor(Color.GREEN);
-                    g.drawString(label, x + (cellWidth - width) / 2,
-                            y + bodyMetric.getAscent());
-                    g.setColor(Color.BLACK);
+                    g.setColor(ColorRegistry.Lime);
+                    g.drawString(label, x + (cellWidth - width) / 2, y + bodyMetric.getAscent());
+                    g.setColor(ColorRegistry.White);
                 } else {
-                    g.drawString(label, x + (cellWidth - width) / 2,
-                            y + bodyMetric.getAscent());
+                    g.drawString(label, x + (cellWidth - width) / 2, y + bodyMetric.getAscent());
                 }
                 x += cellWidth + COLUMN_SEP;
             }

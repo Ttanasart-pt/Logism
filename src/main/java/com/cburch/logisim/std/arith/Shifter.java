@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Arrays;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeOption;
 import com.cburch.logisim.data.Attributes;
@@ -188,7 +189,7 @@ public class Shifter extends InstanceFactory {
         int x = loc.getX() - 15;
         int y = loc.getY();
         Object shift = painter.getAttributeValue(ATTR_SHIFT);
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         if (shift == SHIFT_LOGICAL_RIGHT) {
             g.fillRect(x, y - 1, 8, 3);
             drawArrow(g, x + 10, y, -4);

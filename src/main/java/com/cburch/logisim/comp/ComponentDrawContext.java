@@ -4,6 +4,8 @@
 package com.cburch.logisim.comp;
 
 import java.awt.*;
+
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.CircuitState;
 import com.cburch.logisim.circuit.WireSet;
@@ -112,7 +114,7 @@ public class ComponentDrawContext {
     //
     public void drawBounds(Component comp) {
         GraphicsUtil.switchToWidth(g, 2);
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         Bounds bds = comp.getBounds();
         g.drawRect(bds.getX(), bds.getY(),
                 bds.getWidth(), bds.getHeight());
@@ -188,7 +190,7 @@ public class ComponentDrawContext {
             CircuitState state = getCircuitState();
             g.setColor(state.getValue(pt).getColor());
         } else {
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
         }
 
         g.fillOval(x - PIN_OFFS, y - PIN_OFFS, PIN_RAD, PIN_RAD);
@@ -216,7 +218,7 @@ public class ComponentDrawContext {
             CircuitState state = getCircuitState();
             g.setColor(state.getValue(pt).getColor());
         } else {
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
         }
         g.fillOval(pt.getX() - PIN_OFFS, pt.getY() - PIN_OFFS, PIN_RAD, PIN_RAD);
         g.setColor(curColor);
@@ -230,7 +232,7 @@ public class ComponentDrawContext {
                 CircuitState state = getCircuitState();
                 g.setColor(state.getValue(pt).getColor());
             } else {
-                g.setColor(Color.BLACK);
+                g.setColor(ColorRegistry.BaseGateBorderColor);
             }
             g.fillOval(pt.getX() - PIN_OFFS, pt.getY() - PIN_OFFS, PIN_RAD, PIN_RAD);
         }
@@ -240,7 +242,7 @@ public class ComponentDrawContext {
     public void drawClock(Component comp, int i,
             Direction dir) {
         Color curColor = g.getColor();
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         GraphicsUtil.switchToWidth(g, 2);
 
         EndData e = comp.getEnd(i);
@@ -284,10 +286,8 @@ public class ComponentDrawContext {
     }
 
     public void drawHandle(int x, int y) {
-        g.setColor(Color.white);
-        g.fillRect(x - 3, y - 3, 7, 7);
-        g.setColor(Color.black);
-        g.drawRect(x - 3, y - 3, 7, 7);
+        g.setColor(ColorRegistry.BaseGateBorderAccent);
+        g.fillOval(x - 2, y - 2, 5, 5);
     }
 
 }

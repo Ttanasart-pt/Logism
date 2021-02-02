@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.Font;
 import java.awt.Rectangle;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.comp.TextField;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeOption;
@@ -154,7 +155,7 @@ public class Text extends InstanceFactory {
         int y = loc.getY();
         Graphics g = painter.getGraphics();
         g.translate(x, y);
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         paintGhost(painter);
         g.translate(-x, -y);
     }

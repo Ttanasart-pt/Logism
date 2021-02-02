@@ -26,8 +26,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 @SuppressWarnings("serial")
 public class Popups {
-    private static class ProjectPopup extends JPopupMenu
-            implements ActionListener {
+    private static class ProjectPopup extends JPopupMenu implements ActionListener {
         Project proj;
         JMenuItem add = new JMenuItem(getFromLocale("projectAddCircuitItem"));
         JMenu load = new JMenu(getFromLocale("projectLoadLibraryItem"));
@@ -143,7 +142,7 @@ public class Popups {
                 ProjectCircuitActions.doAnalyze(proj, circuit);
             } else if (source == stats) {
                 JFrame frame = (JFrame) SwingUtilities.getRoot(this);
-                StatisticsDialog.show(frame, proj.getLogisimFile(), circuit);
+                StatisticsDialog.show(proj.getFrame(), proj.getLogisimFile(), circuit);
             } else if (source == main) {
                 ProjectCircuitActions.doSetAsMainCircuit(proj, circuit);
             } else if (source == remove) {

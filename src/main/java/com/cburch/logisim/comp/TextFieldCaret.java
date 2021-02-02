@@ -13,6 +13,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Bounds;
 import com.cburch.logisim.tools.Caret;
 import com.cburch.logisim.tools.CaretEvent;
@@ -72,7 +73,7 @@ class TextFieldCaret implements Caret, TextFieldListener {
         g.setColor(Color.white);
         g.fillRect(bds.getX(), bds.getY(),
                 bds.getWidth(), bds.getHeight());
-        g.setColor(Color.black);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         g.drawRect(bds.getX(), bds.getY(),
                 bds.getWidth(), bds.getHeight());
 

@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.Icon;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.CircuitEvent;
 import com.cburch.logisim.circuit.CircuitListener;
@@ -66,12 +67,10 @@ public class PokeTool extends Tool {
 
             FontMetrics fm = g.getFontMetrics();
             g.setColor(caretColor);
-            g.fillRect(x + 2, y + 2, fm.stringWidth(vStr) + 4,
-                    fm.getAscent() + fm.getDescent() + 4);
-            g.setColor(Color.BLACK);
-            g.drawRect(x + 2, y + 2, fm.stringWidth(vStr) + 4,
-                    fm.getAscent() + fm.getDescent() + 4);
-            g.fillOval(x - 2, y - 2, 5, 5);
+            g.fillRect(x + 2, y + 2, fm.stringWidth(vStr) + 4, fm.getAscent() + fm.getDescent() + 4);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
+            g.drawRect(x + 2, y + 2, fm.stringWidth(vStr) + 4, fm.getAscent() + fm.getDescent() + 4);
+            g.fillOval(x - 2, y - 2, 3, 3);
             g.drawString(vStr, x + 4, y + 4 + fm.getAscent());
         }
     }
@@ -187,10 +186,8 @@ public class PokeTool extends Tool {
                     break;
                 }
 
-
                 if (c instanceof Wire) {
-                    Caret caret = new WireCaret(canvas, (Wire) c, x, y,
-                        canvas.getProject().getOptions().getAttributeSet());
+                    Caret caret = new WireCaret(canvas, (Wire) c, x, y, canvas.getProject().getOptions().getAttributeSet());
                     setPokedComponent(circ, c, caret);
                     canvas.setHighlightedWires(circ.getWireSet((Wire) c));
                 } else {

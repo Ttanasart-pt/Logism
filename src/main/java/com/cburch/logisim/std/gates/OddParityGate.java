@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.analyze.model.Expression;
 import com.cburch.logisim.analyze.model.Expressions;
 import com.cburch.logisim.data.Value;
@@ -33,7 +34,7 @@ class OddParityGate extends AbstractGate {
     @Override
     public void paintIconRectangular(InstancePainter painter) {
         Graphics g = painter.getGraphics();
-        g.setColor(Color.black);
+        g.setColor(ColorRegistry.Creme);
         g.drawRect(1, 2, 16, 16);
         Font old = g.getFont();
         g.setFont(old.deriveFont(9.0f));

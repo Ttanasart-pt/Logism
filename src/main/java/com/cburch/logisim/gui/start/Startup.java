@@ -13,6 +13,7 @@ import java.io.File;
 
 import javax.swing.UIManager;
 
+import com.formdev.flatlaf.FlatDarkLaf;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -309,7 +310,8 @@ public class Startup {
         }
 
         try {
-            UIManager.setLookAndFeel(AppPreferences.LOOK_AND_FEEL.get());
+            //UIManager.setLookAndFeel(AppPreferences.LOOK_AND_FEEL.get());
+            UIManager.setLookAndFeel(new FlatDarkLaf());
         } catch (Exception ex) { }
 
         // parse arguments

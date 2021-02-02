@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.LogisimVersion;
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.CircuitException;
@@ -235,9 +236,9 @@ public class AddTool extends Tool {
         }
 
         if (state == SHOW_GHOST) {
-            source.drawGhost(context, Color.GRAY, x, y, getBaseAttributes());
+            source.drawGhost(context, ColorRegistry.BaseGateBorderColor.darker(), x, y, getBaseAttributes());
         } else if (state == SHOW_ADD) {
-            source.drawGhost(context, Color.BLACK, x, y, getBaseAttributes());
+            source.drawGhost(context, ColorRegistry.BaseGateBorderColor.darker(), x, y, getBaseAttributes());
         }
     }
 

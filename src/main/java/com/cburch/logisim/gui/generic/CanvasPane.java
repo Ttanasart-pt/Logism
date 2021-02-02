@@ -45,8 +45,7 @@ public class CanvasPane extends JScrollPane {
                 double cx = (r.x + r.width / 2) / oldZoom;
                 double cy = (r.y + r.height / 2) / oldZoom;
 
-
-                double newZoom = ((Double) e.getNewValue()).doubleValue();
+                double newZoom = (Double) e.getNewValue();
                 contents.recomputeSize();
                 r = getViewport().getViewRect();
                 int hv = (int) (cx * newZoom) - r.width / 2;

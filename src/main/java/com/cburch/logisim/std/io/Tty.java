@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeSet;
 import com.cburch.logisim.data.Attributes;
@@ -50,7 +51,7 @@ public class Tty extends InstanceFactory {
                 Io.ATTR_COLOR, Io.ATTR_BACKGROUND
             }, new Object[] {
                 Integer.valueOf(8), Integer.valueOf(32), StdAttr.TRIG_RISING,
-                Color.BLACK, DEFAULT_BACKGROUND
+                ColorRegistry.BaseGateBorderColor, DEFAULT_BACKGROUND
             });
         setIconName("tty.svg");
 
@@ -135,7 +136,7 @@ public class Tty extends InstanceFactory {
                     10, 10);
         }
         GraphicsUtil.switchToWidth(g, 2);
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         g.drawRoundRect(bds.getX(), bds.getY(), bds.getWidth(), bds.getHeight(),
                 2 * BORDER, 2 * BORDER);
         GraphicsUtil.switchToWidth(g, 1);

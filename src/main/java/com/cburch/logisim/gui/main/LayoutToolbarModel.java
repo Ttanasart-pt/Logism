@@ -207,7 +207,7 @@ class LayoutToolbarModel extends AbstractToolbarModel {
         for (Tool tool : data.getContents()) {
             ++pos;
             if (tool == null) {
-                newItems.add(new ToolbarSeparator(4));
+                newItems.add(new ToolbarSeparator(2));
             } else {
                 ToolbarItem i = findItem(oldItems, tool);
                 if (i == null) {

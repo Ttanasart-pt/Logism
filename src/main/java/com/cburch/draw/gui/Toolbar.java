@@ -15,6 +15,7 @@ import com.cburch.draw.canvas.Canvas;
 import com.cburch.draw.canvas.CanvasTool;
 import com.cburch.draw.tools.AbstractTool;
 import com.cburch.draw.tools.DrawingAttributeSet;
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.util.GraphicsUtil;
 
 @SuppressWarnings("serial")
@@ -131,13 +132,13 @@ class Toolbar extends JComponent {
 
                 if (tool.equals(current)) {
                     GraphicsUtil.switchToWidth(g, 2);
-                    g.setColor(Color.black);
+                    g.setColor(ColorRegistry.BaseGateBorderColor);
                     g.drawRect(x - 1, y - 1, ICON_WIDTH + 2, ICON_HEIGHT + 2);
                 }
                 y += ICON_HEIGHT + ICON_SEP;
             }
         }
-        g.setColor(Color.black);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         GraphicsUtil.switchToWidth(g, 1);
     }
 }

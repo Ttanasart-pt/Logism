@@ -3,11 +3,10 @@
 
 package com.cburch.logisim.gui.main;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.ContentHandler;
 import java.util.Comparator;
 import java.util.List;
 
@@ -18,25 +17,48 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.file.FileStatistics;
 import com.cburch.logisim.file.LogisimFile;
+import com.cburch.logisim.gui.generic.CardPanel;
 import com.cburch.logisim.tools.Library;
 import com.cburch.logisim.util.TableSorter;
 import static com.cburch.logisim.util.LocaleString.*;
 
 @SuppressWarnings("serial")
-public class StatisticsDialog extends JDialog implements ActionListener {
-    public static void show(JFrame parent, LogisimFile file, Circuit circuit) {
+public class StatisticsDialog extends CardPanel implements ActionListener {
+    private Frame parent;
+    private LogisimFile file;
+    private Circuit circuit;
+    private FileStatistics stats;
+    private StatisticsTableModel model;
+
+    public static void show(Frame parent, LogisimFile file, Circuit circuit) {
         FileStatistics stats = FileStatistics.compute(file, circuit);
-        StatisticsDialog dlog = new StatisticsDialog(parent,
-                circuit.getName(), new StatisticsTableModel(stats));
+        StatisticsDialog dlog = new StatisticsDialog(parent);
+
+        dlog.parent = parent;
+        dlog.file = file;
+        dlog.circuit = circuit;
+        dlog.stats = stats;
+        dlog.model = new StatisticsTableModel(stats);
         dlog.setVisible(true);
     }
 
-    private static class StatisticsTableModel extends AbstractTableModel {
+    public void refreshStatistic() {
+        file = parent.getProject().getLogisimFile();
+        circuit = parent.getProject().getCurrentCircuit();
+
+        stats = FileStatistics.compute(file, circuit);
+        model = new StatisticsTableModel(stats);
+        mySorter = new TableSorter(model, table.getTableHeader());
+        table.setModel(mySorter);
+    }
+
+    public static class StatisticsTableModel extends AbstractTableModel {
         private FileStatistics stats;
 
         StatisticsTableModel(FileStatistics stats) {
@@ -102,9 +124,9 @@ public class StatisticsDialog extends JDialog implements ActionListener {
                 } else {
                     return "";
                 }
-            case 2: return Integer.valueOf(count.getSimpleCount());
-            case 3: return Integer.valueOf(count.getUniqueCount());
-            case 4: return Integer.valueOf(count.getRecursiveCount());
+            case 2: return count.getSimpleCount();
+            case 3: return count.getUniqueCount();
+            case 4: return count.getRecursiveCount();
             // should never happen
             default: return "";
             }
@@ -136,6 +158,13 @@ public class StatisticsDialog extends JDialog implements ActionListener {
             setPreferredColumnWidths(new double[] { 0.45, 0.25, 0.1, 0.1, 0.1 });
         }
 
+        @Override
+        public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+            Component component = super.prepareRenderer(renderer, row, column);
+            component.setBackground(new Color(255, 255, 255, row % 2 * 16));
+            return component;
+        }
+
         protected void setPreferredColumnWidths(double[] percentages) {
             Dimension tableDim = getPreferredSize();
 
@@ -152,41 +181,26 @@ public class StatisticsDialog extends JDialog implements ActionListener {
         }
     }
 
-    private StatisticsDialog(JFrame parent, String circuitName,
-            StatisticsTableModel model) {
-        super(parent, true);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setTitle(getFromLocale("statsDialogTitle", circuitName));
+    JTable table;
+    TableSorter mySorter;
 
-        JTable table = new StatisticsTable();
-        TableSorter mySorter = new TableSorter(model, table.getTableHeader());
-        Comparator<String> comp = new CompareString("",
-                getFromLocale("statsTotalWithout"), getFromLocale("statsTotalWith"));
+    public StatisticsDialog(Frame parent) {
+        this.parent = parent;
+
+        table = new StatisticsTable();
+        mySorter = new TableSorter(model, table.getTableHeader());
+        Comparator<String> comp = new CompareString("", getFromLocale("statsTotalWithout"), getFromLocale("statsTotalWith"));
         mySorter.setColumnComparator(String.class, comp);
         table.setModel(mySorter);
         JScrollPane tablePane = new JScrollPane(table);
 
-        JButton button = new JButton(getFromLocale("statsCloseButton"));
-        button.addActionListener(this);
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.add(button);
-
-        Container contents = this.getContentPane();
-        contents.setLayout(new BorderLayout());
-        contents.add(tablePane, BorderLayout.CENTER);
-        contents.add(buttonPanel, BorderLayout.PAGE_END);
-        this.pack();
-
-        Dimension pref = contents.getPreferredSize();
-        if (pref.width > 750 || pref.height > 550) {
-            if (pref.width > 750) pref.width = 750;
-            if (pref.height > 550) pref.height = 550;
-            this.setSize(pref);
-        }
+        this.setLayout(new BorderLayout());
+        this.add(tablePane, BorderLayout.CENTER);
+        this.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.dispose();
+        //this.dispose();
     }
 }

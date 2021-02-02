@@ -50,13 +50,17 @@ public class Bounds {
         this.wid = wid;
         this.ht = ht;
         if (wid < 0) {
-            { x += wid / 2;
+            {
+                x += wid / 2;
+            }
+            wid = 0;
         }
- wid = 0; }
         if (ht < 0) {
-             { y += ht  / 2;
+            {
+                y += ht  / 2;
+            }
+            ht = 0;
         }
- ht = 0;  }
     }
 
     @Override

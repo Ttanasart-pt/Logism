@@ -138,8 +138,8 @@ public class Analyzer extends LFrame {
     private BuildCircuitButton buildCircuit;
 
     Analyzer() {
-        inputsPanel = new VariableTab(model.getInputs());
-        outputsPanel = new VariableTab(model.getOutputs());
+        inputsPanel = new VariableTab(model.getInputs(), 'a');
+        outputsPanel = new VariableTab(model.getOutputs(), 'y');
         truthTablePanel = new TableTab(model.getTruthTable());
         expressionPanel = new ExpressionTab(model);
         minimizedPanel = new MinimizedTab(model);
@@ -174,9 +174,9 @@ public class Analyzer extends LFrame {
         LocaleManager.addLocaleListener(myListener);
         myListener.localeChanged();
 
-        LogisimMenuBar menubar = new LogisimMenuBar(this, null);
-        setJMenuBar(menubar);
-        editListener.register(menubar);
+        //LogisimMenuBar menubar = new LogisimMenuBar(this, null);
+        //setJMenuBar(menubar);
+        //editListener.register(menubar);
     }
 
     private void addTab(int index, final JComponent comp) {

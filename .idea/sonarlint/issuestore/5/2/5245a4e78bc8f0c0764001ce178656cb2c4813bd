@@ -1,0 +1,59 @@
+
+p
+java:S1871Ğ"MThis branch's code block is the same as the block for the branch on line 334.(¶ç¥Èşÿÿÿÿ8øû¸çõ.
+Ÿ
+java:S1186Ğ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(€ĞÃÀ8ùéäõ.
+p
+java:S3776Î"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ç¼ø8øû¸çõ.
+¤
+java:S1186‚"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ë™êÇúÿÿÿÿ8øû¸çõ.
+^	java:S125Ğ"<This block of commented-out lines of code should be removed.(íâ„ºÿÿÿÿÿ8øû¸çõ.
+Y	java:S125"<This block of commented-out lines of code should be removed.(”«şÁ8øû¸çõ.
+
+java:S11868"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(îŞÉô8¾¿äõ.
+P
+java:S1135"2Complete the task associated to this TODO comment.(”«şÁ8øû¸çõ.
+^
+java:S1117Û";Rename "isWest" which hides the field declared at line 412.(İ†õ¡ıÿÿÿÿ8øû¸çõ.
+s	java:S117ï"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êñó±ùÿÿÿÿ8îÿÇåõ.
+Z
+java:S1117İ"<Rename "isNorth" which hides the field declared at line 410.(¥æ†8ßÕåõ.
+h
+java:S1858å"J"message" is already a string, there's no need to call "toString()" on it.(¨ù²8øû¸çõ.
+9
+java:S3626ª"Remove this redundant jump.(ûÁİ…8øû¸çõ.
+L
+java:S1172¶".Remove this unused method parameter "options".(ÄôÓó8øû¸çõ.
+u
+java:S3776Ÿ"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(’Œ şÿÿÿÿ8øû¸çõ.
+G
+java:S3398«"*Move this method into "MyProjectListener".(Ì¼Ë08øû¸çõ.
+^
+java:S1117Ü";Rename "isEast" which hides the field declared at line 413.(™ÀÖ™øÿÿÿÿ8øû¸çõ.
+g
+java:S4201ú"IRemove this unnecessary null check; "instanceof" returns false for nulls.(¨‚ˆ¨8øû¸çõ.
+J
+java:S1128"/Remove this unused import 'javax.swing.Action'.(›ëÆ­ùÿÿÿÿ
+q	java:S116ÿ"TRename this field "drag_tool" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µÉ8øû¸çõ.
+Y	java:S125î"<This block of commented-out lines of code should be removed.(ÿßš›8øû¸çõ.
+p
+java:S3776ë"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(Çïê8øû¸çõ.
+K	java:S108±")Either remove or fill this block of code.(‚¦¡ûûÿÿÿÿ8øû¸çõ.
+s	java:S117í"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­“µüÿÿÿÿ8øû¸çõ.
+s	java:S1160"RRename this field "menu_on" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ì»…úÿÿÿÿ8ğ—¿âõ.
+¤
+java:S1186ÿ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¾‰Åóıÿÿÿÿ8øû¸çõ.
+p
+java:S3776­"RRefactor this method to reduce its Cognitive Complexity from 38 to the 15 allowed.(²é»è8øû¸çõ.
+n	java:S117ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…»Ãª8øû¸çõ.
+s	java:S117î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è‰Ö¥øÿÿÿÿ8Çó—äõ.
+P
+java:S1135Ï"2Complete the task associated to this TODO comment.(µÂá×8øû¸çõ.
+U
+java:S1135‰"2Complete the task associated to this TODO comment.(†Î¯‰üÿÿÿÿ8øû¸çõ.
+W
+java:S4973¦"9Use the "equals" method if value comparison was intended.(óŒÀ­8øû¸çõ.
+i
+java:S2142±"FEither re-interrupt this method or rethrow the "InterruptedException".(‚¦¡ûûÿÿÿÿ8øû¸çõ.
+Z
+java:S1117Ş"<Rename "isSouth" which hides the field declared at line 411.(î‡Á­8îÿÇåõ.

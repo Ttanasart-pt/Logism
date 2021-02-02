@@ -26,6 +26,7 @@ import com.cburch.draw.model.CanvasModel;
 import com.cburch.draw.model.CanvasObject;
 import com.cburch.draw.model.Handle;
 import com.cburch.draw.model.HandleGesture;
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.Bounds;
 import com.cburch.logisim.data.Location;
@@ -453,9 +454,9 @@ public class SelectTool extends AbstractTool {
                 y = (int) Math.round(zoom * y);
                 int[] xs = { x - offs, x, x + offs, x };
                 int[] ys = { y, y - offs, y, y + offs };
-                gCopy.setColor(Color.WHITE);
+                gCopy.setColor(ColorRegistry.Creme);
                 gCopy.fillPolygon(xs, ys, 4);
-                gCopy.setColor(Color.BLACK);
+                gCopy.setColor(ColorRegistry.GreyBright);
                 gCopy.drawPolygon(xs, ys, 4);
             }
         }
@@ -490,7 +491,7 @@ public class SelectTool extends AbstractTool {
                 g.fillRect(0, y1, w, h - y1);
 
                 // now draw the rectangle
-                g.setColor(Color.GRAY);
+                g.setColor(ColorRegistry.GreyBright);
                 g.drawRect(x0, y0, x1 - x0, y1 - y0);
             }
             break;

@@ -6,6 +6,7 @@ package com.cburch.logisim.std.wiring;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.circuit.RadixOption;
 import com.cburch.logisim.comp.TextField;
 import com.cburch.logisim.data.Attribute;
@@ -105,7 +106,7 @@ public class Probe extends InstanceFactory {
                 bds.getWidth() - 2, bds.getHeight() - 2, 6, 6);
         }
 
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         painter.drawLabel();
 
         if (!painter.getShowState()) {

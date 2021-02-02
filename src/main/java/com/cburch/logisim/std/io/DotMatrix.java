@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Arrays;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeOption;
 import com.cburch.logisim.data.AttributeSet;
@@ -217,7 +218,7 @@ public class DotMatrix extends InstanceFactory {
                 }
             }
         }
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         GraphicsUtil.switchToWidth(g, 2);
         g.drawRect(bds.getX(), bds.getY(), bds.getWidth(), bds.getHeight());
         GraphicsUtil.switchToWidth(g, 1);

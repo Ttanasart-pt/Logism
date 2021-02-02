@@ -23,17 +23,15 @@ public class GraphicsUtil {
     static public void switchToWidth(Graphics g, int width) {
         if (g instanceof Graphics2D) {
             Graphics2D g2 = (Graphics2D) g;
-            g2.setStroke(new BasicStroke(width));
+            g2.setStroke(new BasicStroke((float)width / 2f));
         }
     }
 
-    static public void drawCenteredArc(Graphics g, int x, int y,
-            int r, int start, int dist) {
+    static public void drawCenteredArc(Graphics g, int x, int y, int r, int start, int dist) {
         g.drawArc(x - r, y - r, 2 * r, 2 * r, start, dist);
     }
 
-    static public Rectangle getTextBounds(Graphics g, Font font,
-            String text, int x, int y, int halign, int valign) {
+    static public Rectangle getTextBounds(Graphics g, Font font, String text, int x, int y, int halign, int valign) {
         if (g == null) {
             return new Rectangle(x, y, 0, 0);
         }
@@ -50,8 +48,7 @@ public class GraphicsUtil {
 
         return ret;
     }
-    static public Rectangle getTextBounds(Graphics g, String text,
-            int x, int y, int halign, int valign) {
+    static public Rectangle getTextBounds(Graphics g, String text, int x, int y, int halign, int valign) {
         if (g == null) {
             return new Rectangle(x, y, 0, 0);
         }
@@ -79,8 +76,7 @@ public class GraphicsUtil {
         return ret;
     }
 
-    static public void drawText(Graphics g, Font font,
-            String text, int x, int y, int halign, int valign) {
+    static public void drawText(Graphics g, Font font, String text, int x, int y, int halign, int valign) {
         Font oldfont = g.getFont();
         if (font != null) {
             g.setFont(font);
@@ -92,8 +88,7 @@ public class GraphicsUtil {
         }
 
     }
-    static public void drawText(Graphics g, String text,
-            int x, int y, int halign, int valign) {
+    static public void drawText(Graphics g, String text, int x, int y, int halign, int valign) {
         if (text.length() == 0) {
             return;
         }
@@ -102,13 +97,11 @@ public class GraphicsUtil {
         g.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 10));
         g.drawString(text, bd.x, bd.y + g.getFontMetrics().getAscent());
     }
-    static public void drawCenteredText(Graphics g, String text,
-            int x, int y) {
+    static public void drawCenteredText(Graphics g, String text, int x, int y) {
         drawText(g, text, x, y, H_CENTER, V_CENTER);
     }
 
-    static public void drawArrow(Graphics g, int x0, int y0, int x1, int y1,
-            int headLength, int headAngle) {
+    static public void drawArrow(Graphics g, int x0, int y0, int x1, int y1, int headLength, int headAngle) {
         double offs = headAngle * Math.PI / 180.0;
         double angle = Math.atan2(y0 - y1, x0 - x1);
         int[] xs = { x1 + (int) (headLength * Math.cos(angle + offs)), x1,

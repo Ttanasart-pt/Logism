@@ -124,30 +124,19 @@ public class AppPreferences {
     // saved until the application is closed
     public static final String RECENT_PROJECTS = "recentProjects";
     private static final RecentProjects recentProjects = new RecentProjects();
-    public static final PrefMonitor<Double> TICK_FREQUENCY
-        = create(new PrefMonitorDouble("tickFrequency", 1.0));
-    public static final PrefMonitor<Boolean> LAYOUT_SHOW_GRID
-        = create(new PrefMonitorBoolean("layoutGrid", true));
-    public static final PrefMonitor<Double> LAYOUT_ZOOM
-        = create(new PrefMonitorDouble("layoutZoom", 1.0));
-    public static final PrefMonitor<Boolean> APPEARANCE_SHOW_GRID
-        = create(new PrefMonitorBoolean("appearanceGrid", true));
-    public static final PrefMonitor<Double> APPEARANCE_ZOOM
-        = create(new PrefMonitorDouble("appearanceZoom", 1.0));
-    public static final PrefMonitor<Integer> WINDOW_STATE
-        = create(new PrefMonitorInt("windowState", JFrame.NORMAL));
-    public static final PrefMonitor<Integer> WINDOW_WIDTH
-        = create(new PrefMonitorInt("windowWidth", 640));
-    public static final PrefMonitor<Integer> WINDOW_HEIGHT
-        = create(new PrefMonitorInt("windowHeight", 480));
-    public static final PrefMonitor<String> WINDOW_LOCATION
-        = create(new PrefMonitorString("windowLocation", "0,0"));
-    public static final PrefMonitor<Double> WINDOW_MAIN_SPLIT
-        = create(new PrefMonitorDouble("windowMainSplit", 0.25));
-    public static final PrefMonitor<Double> WINDOW_LEFT_SPLIT
-        = create(new PrefMonitorDouble("windowLeftSplit", 0.5));
-    public static final PrefMonitor<String> DIALOG_DIRECTORY
-        = create(new PrefMonitorString("dialogDirectory", ""));
+    public static final PrefMonitor<Double> TICK_FREQUENCY      = create(new PrefMonitorDouble("tickFrequency", 1.0));
+    public static final PrefMonitor<Boolean> LAYOUT_SHOW_GRID   = create(new PrefMonitorBoolean("layoutGrid", true));
+    public static final PrefMonitor<Double> LAYOUT_ZOOM         = create(new PrefMonitorDouble("layoutZoom", 1.0));
+    public static final PrefMonitor<Boolean> APPEARANCE_SHOW_GRID = create(new PrefMonitorBoolean("appearanceGrid", true));
+    public static final PrefMonitor<Double> APPEARANCE_ZOOM     = create(new PrefMonitorDouble("appearanceZoom", 1.0));
+    public static final PrefMonitor<Integer> WINDOW_STATE       = create(new PrefMonitorInt("windowState", JFrame.NORMAL));
+    public static final PrefMonitor<Integer> WINDOW_WIDTH       = create(new PrefMonitorInt("windowWidth", 640));
+    public static final PrefMonitor<Integer> WINDOW_HEIGHT      = create(new PrefMonitorInt("windowHeight", 480));
+    public static final PrefMonitor<String> WINDOW_LOCATION     = create(new PrefMonitorString("windowLocation", "0,0"));
+    public static final PrefMonitor<Integer> WINDOW_MAIN_SPLIT   = create(new PrefMonitorInt("windowMainSplit", 100));
+    public static final PrefMonitor<Integer> WINDOW_LEFT_SPLIT   = create(new PrefMonitorInt("windowLeftSplit", 100));
+    public static final PrefMonitor<Integer> WINDOW_STAT_SPLIT   = create(new PrefMonitorInt("windowStatSplit", 100));
+    public static final PrefMonitor<String> DIALOG_DIRECTORY    = create(new PrefMonitorString("dialogDirectory", ""));
 
     public static final PrefMonitor<String> LOOK_AND_FEEL = create(new PrefMonitorString("lookAndFeel", UIManager.getSystemLookAndFeelClassName()));
     

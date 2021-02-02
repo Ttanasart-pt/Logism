@@ -3,8 +3,7 @@
 
 package com.cburch.draw.canvas;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JComponent;
@@ -68,7 +67,8 @@ public class Canvas extends JComponent {
 
     public void setModel(CanvasModel value, ActionDispatcher dispatcher) {
         CanvasModel oldValue = model;
-        if (!oldValue.equals(value)) {
+
+        if (model == null || !oldValue.equals(value)) {
             if (oldValue != null) {
                 oldValue.removeCanvasModelListener(listener);
             }
@@ -119,6 +119,7 @@ public class Canvas extends JComponent {
     }
 
     protected void paintBackground(Graphics g) {
+        g.setColor(new Color(48, 50, 52));
         g.clearRect(0, 0, getWidth(), getHeight());
     }
 

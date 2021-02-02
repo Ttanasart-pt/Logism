@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.util.Arrays;
 import java.util.List;
 
+import com.cburch.draw.util.ColorRegistry;
 import org.apache.commons.collections15.list.UnmodifiableList;
 import com.cburch.draw.model.CanvasObject;
 import com.cburch.draw.model.AbstractCanvasObject;
@@ -25,12 +26,10 @@ public class Text extends AbstractCanvasObject {
     private EditableLabel label;
 
     public Text(int x, int y, String text) {
-        this(x, y, EditableLabel.LEFT, EditableLabel.BASELINE, text,
-                DrawAttr.DEFAULT_FONT, Color.BLACK);
+        this(x, y, EditableLabel.LEFT, EditableLabel.BASELINE, text, DrawAttr.DEFAULT_FONT, ColorRegistry.TextColor);
     }
 
-    private Text(int x, int y, int halign, int valign, String text, Font font,
-        Color color) {
+    private Text(int x, int y, int halign, int valign, String text, Font font, Color color) {
         label = new EditableLabel(x, y, text, font);
         label.setColor(color);
         label.setHorizontalAlignment(halign);

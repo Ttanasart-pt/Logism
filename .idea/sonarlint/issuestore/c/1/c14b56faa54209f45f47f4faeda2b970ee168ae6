@@ -1,0 +1,13 @@
+
+]
+java:S2184-"@Cast one of the operands of this integer division to a "double".(ÑàÅÇ8ºþÈçõ.
+A
+java:S1172n"&Remove these unused method parameters.(Ê³ª¦ùÿÿÿÿ
+\
+java:S2184."@Cast one of the operands of this integer division to a "double".(ùí”O8ºþÈçõ.
+œ
+java:S1186%"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ê¡˜Ñüÿÿÿÿ
+œ
+java:S1186#"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ôø½˜üÿÿÿÿ
+œ
+java:S1186!"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŽÁÅ€úÿÿÿÿ

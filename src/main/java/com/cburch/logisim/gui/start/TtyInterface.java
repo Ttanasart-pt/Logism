@@ -184,8 +184,7 @@ public class TtyInterface {
         return found;
     }
 
-    private static boolean prepareForTty(CircuitState circState,
-            ArrayList<InstanceState> keybStates) {
+    private static boolean prepareForTty(CircuitState circState, ArrayList<InstanceState> keybStates) {
         boolean found = false;
         for (Component comp : circState.getCircuit().getNonWires()) {
             Object factory = comp.getFactory();
@@ -206,8 +205,7 @@ public class TtyInterface {
         return found;
     }
 
-    private static int runSimulation(CircuitState circState,
-            ArrayList<Instance> outputPins, Instance haltPin, int format) {
+    private static int runSimulation(CircuitState circState, ArrayList<Instance> outputPins, Instance haltPin, int format) {
         boolean showTable = (format & FORMAT_TABLE) != 0;
         boolean showSpeed = (format & FORMAT_SPEED) != 0;
         boolean showTty = (format & FORMAT_TTY) != 0;
@@ -295,8 +293,7 @@ public class TtyInterface {
         return retCode;
     }
 
-    private static void displayTableRow(ArrayList<Value> prevOutputs,
-            ArrayList<Value> curOutputs) {
+    private static void displayTableRow(ArrayList<Value> prevOutputs, ArrayList<Value> curOutputs) {
         boolean shouldPrint = false;
         if (prevOutputs == null) {
             shouldPrint = true;

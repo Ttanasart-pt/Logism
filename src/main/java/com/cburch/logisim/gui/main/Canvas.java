@@ -15,6 +15,7 @@ import javax.swing.*;
 import javax.swing.Action;
 import javax.swing.event.*;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.circuit.*;
 import com.cburch.logisim.comp.*;
 import com.cburch.logisim.comp.Component;
@@ -28,8 +29,7 @@ import com.cburch.logisim.tools.SelectTool.ComputingMessage;
 import com.cburch.logisim.util.*;
 
 @SuppressWarnings("serial")
-public class Canvas extends JPanel
-        implements LocaleListener, CanvasPaneContents {
+public class Canvas extends JPanel implements LocaleListener, CanvasPaneContents {
 
     public static final Color HALO_COLOR = new Color(192, 255, 255);
 
@@ -45,16 +45,16 @@ public class Canvas extends JPanel
     private static final Color TICK_RATE_COLOR = new Color(0, 0, 92, 92);
     private static final Font TICK_RATE_FONT = new Font("serif", Font.BOLD, 12);
 
-    private class MyListener
-            implements MouseInputListener, KeyListener, PopupMenuListener,
-                PropertyChangeListener, MouseWheelListener {
+    private class MyListener implements MouseInputListener, KeyListener, PopupMenuListener, PropertyChangeListener, MouseWheelListener {
         boolean menu_on = false;
+        int prevx;
+        int prevy;
 
         //
         // MouseListener methods
         //
         @Override
-        public void mouseClicked(MouseEvent e) { }
+        public void mouseClicked(MouseEvent e) {}
 
         @Override
         public void mouseMoved(MouseEvent e) {
@@ -77,6 +77,21 @@ public class Canvas extends JPanel
         public void mouseDragged(MouseEvent e) {
             if (drag_tool != null) {
                 drag_tool.mouseDragged(Canvas.this, getGraphics(), e);
+            }
+
+            if(SwingUtilities.isMiddleMouseButton(e)) {
+                if(prevx != 0 && prevy != 0) {
+                    int deltax = prevx - e.getXOnScreen();
+                    int deltay = prevy - e.getYOnScreen();
+
+                    Rectangle view = viewport.getViewRect();
+                    view.x += deltax;
+                    view.y += deltay;
+
+                    scrollRectToVisible(view);
+                }
+                prevx = e.getXOnScreen();
+                prevy = e.getYOnScreen();
             }
         }
 
@@ -110,9 +125,12 @@ public class Canvas extends JPanel
             proj.setStartupScreen(false);
             Canvas.this.requestFocus();
             drag_tool = getToolFor(e);
-            if (drag_tool != null) {
+            if (drag_tool != null && !SwingUtilities.isMiddleMouseButton(e)) {
                 drag_tool.mousePressed(Canvas.this, getGraphics(), e);
             }
+
+            prevx = e.getXOnScreen();
+            prevy = e.getYOnScreen();
 
             completeAction();
         }
@@ -136,7 +154,6 @@ public class Canvas extends JPanel
             if (menu_on) {
                 return null;
             }
-
 
             Tool ret = mappings.getToolFor(e);
             if (ret == null) {
@@ -203,15 +220,12 @@ public class Canvas extends JPanel
         }
         
         @Override
-    	public void mouseWheelMoved(MouseWheelEvent arg0) {
-    		if(arg0.isControlDown()) {
-    			if(arg0.getPreciseWheelRotation() < 0) {
-    				 ZoomControl.spinnerModel.setValue(ZoomControl.spinnerModel.getNextValue());
-    			} else if(arg0.getPreciseWheelRotation() > 0){
-    				 ZoomControl.spinnerModel.setValue(ZoomControl.spinnerModel.getPreviousValue());
-    			}
-    		}
-    		
+    	public void mouseWheelMoved(MouseWheelEvent e) {
+            if(e.getPreciseWheelRotation() < 0) {
+                 ZoomControl.spinnerModel.setValue(ZoomControl.spinnerModel.getNextValue());
+            } else if(e.getPreciseWheelRotation() > 0){
+                 ZoomControl.spinnerModel.setValue(ZoomControl.spinnerModel.getPreviousValue());
+            }
     	}
     }
 
@@ -248,7 +262,7 @@ public class Canvas extends JPanel
                 }
 
                 else {
-                               setCursor(t.getCursor());
+                    setCursor(t.getCursor());
                 }
 
             } else if (act == ProjectEvent.ACTION_SET_STATE) {
@@ -524,8 +538,7 @@ public class Canvas extends JPanel
             }
 
             GraphicsUtil.switchToWidth(g, 1);
-            g.setColor(Color.BLACK);
-
+            g.setColor(ColorRegistry.BaseGateBorderColor);
         }
 
         private void paintString(Graphics g, String msg) {
@@ -540,6 +553,86 @@ public class Canvas extends JPanel
             g.drawString(msg, x, getHeight() - 23);
             g.setFont(old);
             return;
+        }
+
+        private void computeViewportContents() {
+            Set<WidthIncompatibilityData> exceptions = proj.getCurrentCircuit().getWidthIncompatibilityData();
+            if (exceptions == null || exceptions.isEmpty()) {
+                viewport.setWidthMessage(null);
+                return;
+            }
+
+            Rectangle viewableBase;
+            Rectangle viewable;
+            if (canvasPane != null) {
+                viewableBase = canvasPane.getViewport().getViewRect();
+            } else {
+                Bounds bds = proj.getCurrentCircuit().getBounds();
+                viewableBase = new Rectangle(bds.getX(), bds.getY(), bds.getWidth(), bds.getHeight());
+            }
+            double zoom = getZoomFactor();
+            if (zoom == 1.0) {
+                viewable = viewableBase;
+            } else {
+                viewable = new Rectangle((int) (viewableBase.x / zoom),
+                        (int) (viewableBase.y / zoom),
+                        (int) (viewableBase.width / zoom),
+                        (int) (viewableBase.height / zoom));
+            }
+
+            viewport.setWidthMessage(getFromLocale("canvasWidthError")
+                    + (exceptions.size() == 1 ? "" : " (" + exceptions.size() + ")"));
+            for (WidthIncompatibilityData ex : exceptions) {
+                // See whether any of the points are on the canvas.
+                boolean isWithin = false;
+                for (int i = 0; i < ex.size(); i++) {
+                    Location p = ex.getPoint(i);
+                    int x = p.getX();
+                    int y = p.getY();
+                    if (x >= viewable.x && x < viewable.x + viewable.width
+                            && y >= viewable.y && y < viewable.y + viewable.height) {
+                        isWithin = true;
+                        break;
+                    }
+                }
+
+                // If none are, insert an arrow.
+                if (!isWithin) {
+                    Location p = ex.getPoint(0);
+                    int x = p.getX();
+                    int y = p.getY();
+                    boolean isWest = x < viewable.x;
+                    boolean isEast = x >= viewable.x + viewable.width;
+                    boolean isNorth = y < viewable.y;
+                    boolean isSouth = y >= viewable.y + viewable.height;
+
+                    if (isNorth) {
+                        if (isEast) {
+                            viewport.setNortheast(true);
+                        } else if (isWest) {
+                            viewport.setNorthwest(true);
+                        } else {
+                            viewport.setNorth(true);
+                        }
+                    } else if (isSouth) {
+                        if (isEast) {
+                            viewport.setSoutheast(true);
+                        } else if (isWest) {
+                            viewport.setSouthwest(true);
+                        }
+                        else {
+                            viewport.setSouth(true);
+                        }
+                    } else {
+                        if (isEast) {
+                            viewport.setEast(true);
+                        } else if (isWest) {
+                            viewport.setWest(true);
+                        }
+
+                    }
+                }
+            }
         }
     }
 
@@ -611,12 +704,9 @@ public class Canvas extends JPanel
     public void repaint() {
         if (inPaint) {
             paintDirty = true;
+        } else {
+            super.repaint();
         }
-
-        else {
-                   super.repaint();
-        }
-
     }
 
     public ComputingMessage getErrorMessage() {
@@ -731,8 +821,7 @@ public class Canvas extends JPanel
     @Override
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-            RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
       
         inPaint = true;
         try {
@@ -758,93 +847,6 @@ public class Canvas extends JPanel
             return false;
         } else {
             return true;
-        }
-    }
-
-    private void computeViewportContents() {
-        Set<WidthIncompatibilityData> exceptions = proj.getCurrentCircuit().getWidthIncompatibilityData();
-        if (exceptions == null || exceptions.isEmpty()) {
-            viewport.setWidthMessage(null);
-            return;
-        }
-
-        Rectangle viewableBase;
-        Rectangle viewable;
-        if (canvasPane != null) {
-            viewableBase = canvasPane.getViewport().getViewRect();
-        } else {
-            Bounds bds = proj.getCurrentCircuit().getBounds();
-            viewableBase = new Rectangle(0, 0, bds.getWidth(), bds.getHeight());
-        }
-        double zoom = getZoomFactor();
-        if (zoom == 1.0) {
-            viewable = viewableBase;
-        } else {
-            viewable = new Rectangle((int) (viewableBase.x / zoom),
-                    (int) (viewableBase.y / zoom),
-                    (int) (viewableBase.width / zoom),
-                    (int) (viewableBase.height / zoom));
-        }
-
-        viewport.setWidthMessage(getFromLocale("canvasWidthError")
-                + (exceptions.size() == 1 ? "" : " (" + exceptions.size() + ")"));
-        for (WidthIncompatibilityData ex : exceptions) {
-            // See whether any of the points are on the canvas.
-            boolean isWithin = false;
-            for (int i = 0; i < ex.size(); i++) {
-                Location p = ex.getPoint(i);
-                int x = p.getX();
-                int y = p.getY();
-                if (x >= viewable.x && x < viewable.x + viewable.width
-                        && y >= viewable.y && y < viewable.y + viewable.height) {
-                    isWithin = true;
-                    break;
-                }
-            }
-
-            // If none are, insert an arrow.
-            if (!isWithin) {
-                Location p = ex.getPoint(0);
-                int x = p.getX();
-                int y = p.getY();
-                boolean isWest = x < viewable.x;
-                boolean isEast = x >= viewable.x + viewable.width;
-                boolean isNorth = y < viewable.y;
-                boolean isSouth = y >= viewable.y + viewable.height;
-
-                if (isNorth) {
-                    if (isEast) {
-                            viewport.setNortheast(true);
-                    }
-
-                    else if (isWest) {
-                           viewport.setNorthwest(true);
-                    }
-
-                    else {
-                                   viewport.setNorth(true);
-                    }
-
-                } else if (isSouth) {
-                    if (isEast) {
-                            viewport.setSoutheast(true);
-                    }    else if (isWest) {
-                           viewport.setSouthwest(true);
-                    }
-
-                    else {
-                                   viewport.setSouth(true);
-                    }
-
-                } else {
-                    if (isEast) {
-                            viewport.setEast(true);
-                    }    else if (isWest) {
-                           viewport.setWest(true);
-                    }
-
-                }
-            }
         }
     }
 

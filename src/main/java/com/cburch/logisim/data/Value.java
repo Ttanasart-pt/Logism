@@ -18,13 +18,13 @@ public class Value {
 
     public static final int MAX_WIDTH = 32;
 
-    public static final Color NIL_COLOR = Color.GRAY;
-    public static final Color FALSE_COLOR = new Color(0, 100, 0);
-    public static final Color TRUE_COLOR = new Color(0, 210, 0);
-    public static final Color UNKNOWN_COLOR = new Color(40, 40, 255);
-    public static final Color ERROR_COLOR = new Color(192, 0, 0);
-    public static final Color WIDTH_ERROR_COLOR = new Color(255, 123, 0);
-    public static final Color MULTI_COLOR = Color.BLACK;
+    public static Color NIL_COLOR = Color.GRAY;
+    public static Color FALSE_COLOR = new Color(0, 100, 0);
+    public static Color TRUE_COLOR = new Color(0, 210, 0);
+    public static Color UNKNOWN_COLOR = new Color(40, 40, 255);
+    public static Color ERROR_COLOR = new Color(192, 0, 0);
+    public static Color WIDTH_ERROR_COLOR = new Color(255, 123, 0);
+    public static Color MULTI_COLOR = Color.BLACK;
 
     private static final Cache cache = new Cache();
 
@@ -87,21 +87,14 @@ public class Value {
             return Value.NIL;
         } else if (width == 1) {
             if ((error & 1) != 0) {
-                      return Value.ERROR;
-            }
-
-            else if ((unknown & 1) != 0) {
-                   return Value.UNKNOWN;
-            }
-
-            else if ((value & 1) != 0) {
-                 return Value.TRUE;
-            }
-
-            else {
+                return Value.ERROR;
+            } else if ((unknown & 1) != 0) {
+                return Value.UNKNOWN;
+            } else if ((value & 1) != 0) {
+                return Value.TRUE;
+            } else {
                 return Value.FALSE;
             }
-
         } else {
             int mask = (width == 32 ? -1 : ~(-1 << width));
             error = error & mask;
@@ -278,21 +271,14 @@ public class Value {
         case 0: return "-";
         case 1:
             if (error != 0) {
-                       return "E";
-            }
-
-            else if (unknown != 0) {
+                return "E";
+            } else if (unknown != 0) {
                 return "x";
+            } else if (value != 0) {
+                return "1";
+            } else {
+                return "0";
             }
-
-            else if (value != 0) {
-                  return "1";
-            }
-
-            else {
-                                 return "0";
-            }
-
         default:
             StringBuilder ret = new StringBuilder();
             for (int i = width - 1; i >= 0; i--) {
@@ -320,23 +306,21 @@ public class Value {
                 c[i] = '?';
                 for (int j = last - 1; j >= frst; j--) {
                     if (vals[j] == Value.ERROR) {
-                        { c[i] = 'E';
+                        { c[i] = 'E'; }
+                        break;
                     }
- break; }
                     if (vals[j] == Value.UNKNOWN) {
-                        { c[i] = 'x';
+                        { c[i] = 'x'; }
+                        break;
                     }
- break; }
                     v = 2 * v;
                     if (vals[j] == Value.TRUE) {
                         v++;
                     }
-
                 }
                 if (c[i] == '?') {
                     c[i] = Character.forDigit(v, 8);
                 }
-
             }
             return new String(c);
         }
@@ -356,23 +340,21 @@ public class Value {
                 c[i] = '?';
                 for (int j = last - 1; j >= frst; j--) {
                     if (vals[j] == Value.ERROR) {
-                        { c[i] = 'E';
+                        { c[i] = 'E'; }
+                        break;
                     }
- break; }
                     if (vals[j] == Value.UNKNOWN) {
-                        { c[i] = 'x';
+                        { c[i] = 'x'; }
+                        break;
                     }
- break; }
                     v = 2 * v;
                     if (vals[j] == Value.TRUE) {
                         v++;
                     }
-
                 }
                 if (c[i] == '?') {
                     c[i] = Character.forDigit(v, 16);
                 }
-
             }
             return new String(c);
         }
@@ -430,21 +412,14 @@ public class Value {
         case 0: return "-";
         case 1:
             if (error != 0) {
-                       return getFromLocale("valueErrorSymbol");
-            }
-
-            else if (unknown != 0) {
+                return getFromLocale("valueErrorSymbol");
+            } else if (unknown != 0) {
                 return getFromLocale("valueUnknownSymbol");
+            } else if (value != 0) {
+                return "1";
+            } else {
+                return "0";
             }
-
-            else if (value != 0) {
-                  return "1";
-            }
-
-            else {
-                                 return "0";
-            }
-
         default:
             StringBuilder ret = new StringBuilder();
             for (int i = width - 1; i >= 0; i--) {
@@ -452,38 +427,20 @@ public class Value {
                 if (i % 4 == 0 && i != 0) {
                     ret.append(" ");
                 }
-
             }
             return ret.toString();
         }
     }
 
     public Value combine(Value other) {
-        if (other == null) {
-            return this;
-        }
-
-        if (this == NIL) {
-            return other;
-        }
-
-        if (other == NIL) {
-            return this;
-        }
+        if (other == null) return this;
+        if (this == NIL)   return other;
+        if (other == NIL)  return this;
 
         if (this.width == 1 && other.width == 1) {
-            if (this == other) {
-                return this;
-            }
-
-            if (this == UNKNOWN) {
-                return other;
-            }
-
-            if (other == UNKNOWN) {
-                return this;
-            }
-
+            if (this == other)    return this;
+            if (this == UNKNOWN)  return other;
+            if (other == UNKNOWN) return this;
             return ERROR;
         } else {
             int disagree = (this.value ^ other.value)
@@ -605,16 +562,11 @@ public class Value {
         } else if (width == 1) {
             if (this == UNKNOWN) {
                 return UNKNOWN_COLOR;
-            }
-
-            else if (this == TRUE) {
+            } else if (this == TRUE) {
                 return TRUE_COLOR;
-            }
-
-            else {
+            } else {
                 return FALSE_COLOR;
             }
-
         } else {
             return MULTI_COLOR;
         }

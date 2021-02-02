@@ -1,0 +1,7 @@
+
+t
+java:S2293*"YReplace the type specification in this constructor call with the diamond operator ("<>").(¿ÝÔËüÿÿÿÿ
+d
+java:S18582"N"displayName" is already a string, there's no need to call "toString()" on it.(ÆÒ»õ
+Q
+java:S4838R"6Change "Object" to the type handled by the Collection.(¡¬ÉÅùÿÿÿÿ

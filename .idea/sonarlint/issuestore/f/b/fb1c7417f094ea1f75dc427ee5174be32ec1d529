@@ -1,0 +1,36 @@
+
+O	java:S106ˆ"9Replace this use of System.out or System.err by a logger.(ˆÆ“ß
+T	java:S106Á"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+T	java:S106”"9Replace this use of System.out or System.err by a logger.( Ü¢Ãÿÿÿÿÿ
+T	java:S106"9Replace this use of System.out or System.err by a logger.( Ü¢Ãÿÿÿÿÿ
+T	java:S106œ"9Replace this use of System.out or System.err by a logger.(›é¾şÿÿÿÿ
+T	java:S106¾"9Replace this use of System.out or System.err by a logger.(˜¤È¡ıÿÿÿÿ
+N	java:S1064"9Replace this use of System.out or System.err by a logger.(İ£—é
+t	java:S135î"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ
+i
+java:S3776Ğ"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(ØâòÂ
+=
+java:S1168ï"&Return an empty array instead of null.(¥¹ï
+S	java:S106m"9Replace this use of System.out or System.err by a logger.(ÉåÔ²øÿÿÿÿ
+]
+java:S3457”"AFormat specifiers should be used instead of string concatenation.( Ü¢Ãÿÿÿÿÿ
+O	java:S106º"9Replace this use of System.out or System.err by a logger.(Û‚öà
+T	java:S106İ"9Replace this use of System.out or System.err by a logger.(¨ÿÇÉúÿÿÿÿ
+S	java:S106h"9Replace this use of System.out or System.err by a logger.(ã‘·ıÿÿÿÿ
+n
+java:S2293R"YReplace the type specification in this constructor call with the diamond operator ("<>").(¼—“|
+S	java:S106@"9Replace this use of System.out or System.err by a logger.(©™ùªùÿÿÿÿ
+]
+java:S3457"AFormat specifiers should be used instead of string concatenation.( Ü¢Ãÿÿÿÿÿ
+S	java:S106-"9Replace this use of System.out or System.err by a logger.(–í˜úÿÿÿÿ
+u
+java:S2293ï"YReplace the type specification in this constructor call with the diamond operator ("<>").(òå·ùÿÿÿÿ
+T	java:S106Ÿ"9Replace this use of System.out or System.err by a logger.(®ñ™Æûÿÿÿÿ
+P
+java:S1118!":Add a private constructor to hide the implicit public one.(Ç€ò”
+>	java:S108„")Either remove or fill this block of code.(Éò§+
+u
+java:S2293é"YReplace the type specification in this constructor call with the diamond operator ("<>").(„óâ³øÿÿÿÿ
+p
+java:S2293Ù"YReplace the type specification in this constructor call with the diamond operator ("<>").(æ²©£
+T	java:S106Ş"9Replace this use of System.out or System.err by a logger.(£Â îûÿÿÿÿ

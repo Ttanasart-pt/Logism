@@ -14,6 +14,7 @@ import java.beans.PropertyChangeListener;
 import java.util.Collections;
 import java.util.Set;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.CircuitState;
 import com.cburch.logisim.circuit.WidthIncompatibilityData;
@@ -29,6 +30,7 @@ import com.cburch.logisim.prefs.AppPreferences;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.tools.Tool;
 import com.cburch.logisim.util.GraphicsUtil;
+import com.formdev.flatlaf.FlatDarkLaf;
 
 class CanvasPainter implements PropertyChangeListener {
     private static final Set<Component> NO_COMPONENTS = Collections.emptySet();
@@ -112,11 +114,11 @@ class CanvasPainter implements PropertyChangeListener {
         if (canvas.ifPaintDirtyReset() || clip == null) {
             clip = new Rectangle(0, 0, size.width, size.height);
         }
-        g.setColor(Color.white);
+        g.setColor(new Color(48, 50, 52));
         g.fillRect(clip.x, clip.y, clip.width, clip.height);
 
         grid.paintGrid(g);
-        g.setColor(Color.black);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
 
         Graphics gScaled = g.create();
         if (zoomFactor != 1.0 && gScaled instanceof Graphics2D) {
@@ -130,9 +132,10 @@ class CanvasPainter implements PropertyChangeListener {
         ComponentDrawContext ptContext = new ComponentDrawContext(canvas,
                 circ, circState, g, gScaled);
         ptContext.setHighlightedWires(highlightedWires);
-        gScaled.setColor(Color.RED);
+
+        gScaled.setColor(ColorRegistry.Red);
         circState.drawOscillatingPoints(ptContext);
-        gScaled.setColor(Color.BLUE);
+        gScaled.setColor(ColorRegistry.Blue);
         proj.getSimulator().drawStepPoints(ptContext);
         gScaled.dispose();
     }

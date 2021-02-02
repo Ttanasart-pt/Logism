@@ -234,7 +234,7 @@ public class Attributes {
 
         @Override
         public String toDisplayString(Integer value) {
-            int val = value.intValue();
+            int val = value;
             return "0x" + Integer.toHexString(val);
         }
 
@@ -248,15 +248,15 @@ public class Attributes {
             value = value.toLowerCase();
             if (value.startsWith("0x")) {
                 value = value.substring(2);
-                return Integer.valueOf((int) Long.parseLong(value, 16));
+                return (int) Long.parseLong(value, 16);
             } else if (value.startsWith("0b")) {
                 value = value.substring(2);
-                return Integer.valueOf((int) Long.parseLong(value, 2));
+                return (int) Long.parseLong(value, 2);
             } else if (value.startsWith("0")) {
                 value = value.substring(1);
-                return Integer.valueOf((int) Long.parseLong(value, 8));
+                return (int) Long.parseLong(value, 8);
             } else {
-                return Integer.valueOf((int) Long.parseLong(value, 10));
+                return (int) Long.parseLong(value, 10);
             }
 
         }
@@ -282,7 +282,7 @@ public class Attributes {
 
         @Override
         public String toDisplayString(Boolean value) {
-            if (value.booleanValue()) {
+            if (value) {
                 return getFromLocale("booleanTrueOption");
             }
 
@@ -295,7 +295,7 @@ public class Attributes {
         @Override
         public Boolean parse(String value) {
             Boolean b = Boolean.valueOf(value);
-            return vals[b.booleanValue() ? 0 : 1];
+            return vals[b ? 0 : 1];
         }
     }
 
@@ -319,7 +319,7 @@ public class Attributes {
                 throw new NumberFormatException("integer too large");
             }
 
-            return Integer.valueOf(v);
+            return v;
         }
         @Override
         public java.awt.Component getCellEditor(Integer value) {
@@ -329,7 +329,7 @@ public class Attributes {
                 if (options == null) {
                     options = new Integer[end - start + 1];
                     for (int i = start; i <= end; i++) {
-                        options[i - start] = Integer.valueOf(i);
+                        options[i - start] = i;
                     }
                 }
                 JComboBox combo = new JComboBox(options);

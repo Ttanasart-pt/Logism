@@ -11,6 +11,7 @@ import java.util.Map;
 import javax.swing.Icon;
 
 import com.cburch.draw.tools.SVGIcon;
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.LogisimVersion;
 import com.cburch.logisim.analyze.model.Expression;
 import com.cburch.logisim.analyze.model.Expressions;
@@ -176,7 +177,8 @@ abstract class AbstractGate extends InstanceFactory {
         }
 
         Graphics g = painter.getGraphics();
-        Color baseColor = g.getColor();
+        Color baseColor = ColorRegistry.BaseGateBorderColor;
+
         if (shape == AppPreferences.SHAPE_SHAPED && paintInputLines) {
             PainterShaped.paintInputLines(painter, this);
         } else if (negated != 0) {
@@ -185,8 +187,7 @@ abstract class AbstractGate extends InstanceFactory {
                 if (negatedBit == 1) {
                     Location in = getInputOffset(attrs, i);
                     Location cen = in.translate(facing, 5);
-                    painter.drawDongle(loc.getX() + cen.getX(),
-                            loc.getY() + cen.getY());
+                    painter.drawDongle(loc.getX() + cen.getX(), loc.getY() + cen.getY());
                 }
             }
         }
@@ -286,7 +287,7 @@ abstract class AbstractGate extends InstanceFactory {
     @Override
     public final void paintIcon(InstancePainter painter) {
         Graphics g = painter.getGraphics();
-        g.setColor(Color.black);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         if (painter.getGateShape() == AppPreferences.SHAPE_RECTANGULAR) {
             Icon iconRect = getIconRectangular();
             if (iconRect != null) {
@@ -332,28 +333,22 @@ abstract class AbstractGate extends InstanceFactory {
     //
     protected abstract Value getIdentity();
 
-    protected abstract void paintShape(InstancePainter painter,
-            int width, int height);
+    protected abstract void paintShape(InstancePainter painter, int width, int height);
 
-    protected void paintRectangular(InstancePainter painter,
-            int width, int height) {
+    protected void paintRectangular(InstancePainter painter, int width, int height) {
         int don = negateOutput ? 10 : 0;
         AttributeSet attrs = painter.getAttributeSet();
-        painter.drawRectangle(-width, -height / 2, width - don, height,
-                getRectangularLabel(attrs));
+        painter.drawRectangle(-width, -height / 2, width - don, height, getRectangularLabel(attrs));
         if (negateOutput) {
             painter.drawDongle(-5, 0);
         }
     }
 
-    protected abstract void paintDinShape(InstancePainter painter,
-            int width, int height, int inputs);
+    protected abstract void paintDinShape(InstancePainter painter, int width, int height, int inputs);
 
-    protected abstract Value computeOutput(Value[] inputs, int numInputs,
-            InstanceState state);
+    protected abstract Value computeOutput(Value[] inputs, int numInputs, InstanceState state);
 
-    protected abstract Expression computeExpression(Expression[] inputs,
-            int numInputs);
+    protected abstract Expression computeExpression(Expression[] inputs, int numInputs);
 
     protected boolean shouldRepairWire(Instance instance, WireRepairData data) {
         return false;
@@ -387,7 +382,7 @@ abstract class AbstractGate extends InstanceFactory {
     private void computeLabel(Instance instance) {
         GateAttributes attrs = (GateAttributes) instance.getAttributeSet();
         Direction facing = attrs.facing;
-        int baseWidth = ((Integer) attrs.size.getValue()).intValue();
+        int baseWidth = (Integer) attrs.size.getValue();
 
         int axis = baseWidth / 2 + (negateOutput ? 10 : 0);
         int perp = 0;
@@ -433,8 +428,7 @@ abstract class AbstractGate extends InstanceFactory {
         int inputCount = attrs.inputs;
         int negated = attrs.negated;
         AttributeSet opts = state.getProject().getOptions().getAttributeSet();
-        boolean errorIfUndefined = opts.getValue(Options.ATTR_GATE_UNDEFINED)
-                                    .equals(Options.GATE_UNDEFINED_ERROR);
+        boolean errorIfUndefined = opts.getValue(Options.ATTR_GATE_UNDEFINED).equals(Options.GATE_UNDEFINED_ERROR);
 
         Value[] inputs = new Value[inputCount];
         int numInputs = 0;

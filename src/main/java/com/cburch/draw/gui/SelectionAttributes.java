@@ -183,8 +183,7 @@ public class SelectionAttributes extends AbstractAttributeSet {
         }
     }
 
-    private static Object getSelectionValue(Attribute<?> attr,
-            Set<AttributeSet> sel) {
+    private static Object getSelectionValue(Attribute<?> attr, Set<AttributeSet> sel) {
         Object ret = null;
         for (AttributeSet attrs : sel) {
             if (attrs.containsAttribute(attr)) {

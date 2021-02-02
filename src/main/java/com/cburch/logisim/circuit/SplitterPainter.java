@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.circuit.CircuitState;
 import com.cburch.logisim.circuit.Wire;
 import com.cburch.logisim.comp.ComponentDrawContext;
@@ -168,7 +169,7 @@ class SplitterPainter {
         int fanout = attrs.fanout;
         SplitterParameters parms = attrs.getParameters();
 
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.WireIdle);
         int x0 = origin.getX();
         int y0 = origin.getY();
         int x1 = x0 + parms.getEnd0X();
@@ -192,10 +193,10 @@ class SplitterPainter {
             }
             if (fanout > 3) {
                 GraphicsUtil.switchToWidth(g, SPINE_WIDTH);
-                g.setColor(Color.BLACK);
+                g.setColor(ColorRegistry.WireIdle);
                 g.drawLine(x1 + dx, ySpine, x1 + (fanout - 2) * dx, ySpine);
             } else {
-                g.setColor(Color.BLACK);
+                g.setColor(ColorRegistry.WireIdle);
                 g.fillOval(x0 - SPINE_DOT / 2, ySpine - SPINE_DOT / 2,
                         SPINE_DOT, SPINE_DOT);
             }
@@ -216,10 +217,10 @@ class SplitterPainter {
             }
             if (fanout >= 3) {
                 GraphicsUtil.switchToWidth(g, SPINE_WIDTH);
-                g.setColor(Color.BLACK);
+                g.setColor(ColorRegistry.WireIdle);
                 g.drawLine(xSpine, y1 + dy, xSpine, y1 + (fanout - 2) * dy);
             } else {
-                g.setColor(Color.BLACK);
+                g.setColor(ColorRegistry.WireIdle);
                 g.fillOval(xSpine - SPINE_DOT / 2, y0 - SPINE_DOT / 2,
                         SPINE_DOT, SPINE_DOT);
             }

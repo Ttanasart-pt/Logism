@@ -20,8 +20,7 @@ import com.cburch.logisim.gui.generic.AttrTableSetException;
 import com.cburch.logisim.gui.generic.AttributeSetTableModel;
 import static com.cburch.logisim.util.LocaleString.*;
 
-class AttrTableSelectionModel extends AttributeSetTableModel
-        implements SelectionListener {
+class AttrTableSelectionModel extends AttributeSetTableModel implements SelectionListener {
     private Canvas canvas;
 
     public AttrTableSelectionModel(Canvas canvas) {

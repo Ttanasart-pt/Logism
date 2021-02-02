@@ -213,8 +213,7 @@ public final class Wire implements Component, AttributeSet, CustomHandles,
 
         GraphicsUtil.switchToWidth(g, WIDTH);
         g.setColor(state.getValue(e0).getColor());
-        g.drawLine(e0.getX(), e0.getY(),
-            e1.getX(), e1.getY());
+        g.drawLine(e0.getX(), e0.getY(), e1.getX(), e1.getY());
     }
 
     @Override

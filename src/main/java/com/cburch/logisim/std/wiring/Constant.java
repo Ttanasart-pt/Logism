@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.analyze.model.Expression;
 import com.cburch.logisim.analyze.model.Expressions;
 import com.cburch.logisim.circuit.ExpressionComputer;
@@ -281,7 +282,7 @@ public class Constant extends InstanceFactory {
                 x + bds.getX() + bds.getWidth() / 2,
                 y + bds.getY() + bds.getHeight() / 2 - 2);
         } else {
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
             GraphicsUtil.drawCenteredText(g, v.toHexString(),
                 x + bds.getX() + bds.getWidth() / 2,
                 y + bds.getY() + bds.getHeight() / 2 - 2);

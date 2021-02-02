@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ResourceBundleManager">
+    <file url="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_de.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_el.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_es.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_fr.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_pt.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_ru.properties" />
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_de.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_el.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_es.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_fr.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_pt.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/connectina/JFontChooser_ru.properties" />
+      <base-name>JFontChooser</base-name>
+    </custom-resource-bundle>
+  </component>
+</project>

@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.Icon;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.circuit.CircuitState;
 import com.cburch.logisim.circuit.RadixOption;
 import com.cburch.logisim.comp.Component;
@@ -149,7 +150,7 @@ public class Clock extends InstanceFactory {
         int x = bds.getX();
         int y = bds.getY();
         GraphicsUtil.switchToWidth(g, 2);
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         g.drawRect(x, y, bds.getWidth(), bds.getHeight());
 
         painter.drawLabel();
@@ -160,7 +161,7 @@ public class Clock extends InstanceFactory {
             g.setColor(state.sending.getColor());
             drawUp = state.sending == Value.TRUE;
         } else {
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
             drawUp = true;
         }
         x += 10;

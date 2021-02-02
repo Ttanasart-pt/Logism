@@ -30,12 +30,15 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.util.JDialogOk;
 import com.cburch.logisim.util.JInputComponent;
 import com.cburch.logisim.util.LocaleListener;
 import com.cburch.logisim.util.LocaleManager;
+import com.formdev.flatlaf.FlatDarkLaf;
 
 import java.util.ArrayList;
 import java.util.EventObject;
@@ -107,8 +110,7 @@ public class AttrTable extends JPanel implements LocaleListener {
         }
     }
 
-    private class TableModelAdapter
-            implements TableModel, AttrTableModelListener {
+    private class TableModelAdapter implements TableModel, AttrTableModelListener {
         Window parent;
         LinkedList<TableModelListener> listeners;
         AttrTableModel attrModel;
@@ -159,11 +161,9 @@ public class AttrTable extends JPanel implements LocaleListener {
             if (columnIndex == 0) {
                 return "Attribute";
             }
-
             else {
-                                 return "Value";
+                return "Value";
             }
-
         }
 
         @Override
@@ -421,7 +421,14 @@ public class AttrTable extends JPanel implements LocaleListener {
         title.setHorizontalAlignment(SwingConstants.CENTER);
         title.setVerticalAlignment(SwingConstants.CENTER);
         tableModel = new TableModelAdapter(parent, NULL_ATTR_MODEL);
-        table = new JTable(tableModel);
+        table = new JTable(tableModel) {
+            @Override
+            public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+                Component component = super.prepareRenderer(renderer, row, column);
+                component.setBackground(new Color(255, 255, 255, row % 2 * 16));
+                return component;
+            }
+        };
         table.setDefaultEditor(Object.class, editor);
         table.setTableHeader(null);
         table.setRowHeight(20);
@@ -430,13 +437,7 @@ public class AttrTable extends JPanel implements LocaleListener {
         int titleSize = Math.round(baseFont.getSize() * 1.2f);
         Font titleFont = baseFont.deriveFont((float) titleSize).deriveFont(Font.BOLD);
         title.setFont(titleFont);
-        Color bgColor = new Color(240, 240, 240);
-        setBackground(bgColor);
-        table.setBackground(bgColor);
-        Object renderer = table.getDefaultRenderer(String.class);
-        if (renderer instanceof JComponent) {
-            ((JComponent) renderer).setBackground(Color.WHITE);
-        }
+        setBackground(ColorRegistry.Grey);
 
         JScrollPane tableScroll = new JScrollPane(table);
 

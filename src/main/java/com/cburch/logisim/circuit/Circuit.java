@@ -318,6 +318,7 @@ public class Circuit {
 
         Component first = it.next();
         Bounds firstBounds = first.getBounds();
+        int padding = 64;
         int xMin = firstBounds.getX();
         int yMin = firstBounds.getY();
         int xMax = xMin + firstBounds.getWidth();
@@ -327,23 +328,18 @@ public class Circuit {
             Bounds bds = c.getBounds();
             int x0 = bds.getX(); int x1 = x0 + bds.getWidth();
             int y0 = bds.getY(); int y1 = y0 + bds.getHeight();
-            if (x0 < xMin) {
-                xMin = x0;
-            }
 
-            if (x1 > xMax) {
-                xMax = x1;
-            }
-
-            if (y0 < yMin) {
-                yMin = y0;
-            }
-
-            if (y1 > yMax) {
-                yMax = y1;
-            }
-
+            if (x0 < xMin) { xMin = x0; }
+            if (x1 > xMax) { xMax = x1; }
+            if (y0 < yMin) { yMin = y0; }
+            if (y1 > yMax) { yMax = y1; }
         }
+
+        xMin -= padding;
+        xMax += padding;
+        yMin -= padding;
+        yMax += padding;
+
         Bounds compBounds = Bounds.create(xMin, yMin, xMax - xMin, yMax - yMin);
         if (wireBounds.getWidth() == 0 || wireBounds.getHeight() == 0) {
             return compBounds;

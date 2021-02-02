@@ -6,6 +6,7 @@ package com.cburch.logisim.std.memory;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.BitWidth;
 import com.cburch.logisim.data.Bounds;
@@ -133,7 +134,7 @@ public class Register extends InstanceFactory {
         g.setColor(Color.GRAY);
         painter.drawPort(CLR, "0", Direction.SOUTH);
         painter.drawPort(EN, getFromLocale("memEnableLabel"), Direction.EAST);
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         painter.drawClock(CK, Direction.NORTH);
 
         // draw contents

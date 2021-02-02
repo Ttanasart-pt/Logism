@@ -7,6 +7,7 @@ import java.awt.Color;
 
 import com.cburch.draw.model.CanvasObject;
 import com.cburch.draw.model.AbstractCanvasObject;
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeOption;
 
@@ -19,8 +20,8 @@ abstract class FillableCanvasObject extends AbstractCanvasObject {
     public FillableCanvasObject() {
         paintType = DrawAttr.PAINT_STROKE;
         strokeWidth = 1;
-        strokeColor = Color.BLACK;
-        fillColor = Color.WHITE;
+        strokeColor = ColorRegistry.BaseGateBorderColor;
+        fillColor = ColorRegistry.GreyDark;
     }
 
     @Override

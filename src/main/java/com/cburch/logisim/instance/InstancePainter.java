@@ -23,8 +23,7 @@ public class InstancePainter implements InstanceState {
     private InstanceFactory factory;
     private AttributeSet attrs;
 
-    public InstancePainter(ComponentDrawContext context,
-            InstanceComponent instance) {
+    public InstancePainter(ComponentDrawContext context, InstanceComponent instance) {
         this.context = context;
         this.comp = instance;
     }
@@ -195,12 +194,10 @@ public class InstancePainter implements InstanceState {
     }
 
     public void drawRectangle(Bounds bds, String label) {
-        context.drawRectangle(bds.getX(), bds.getY(),
-                bds.getWidth(), bds.getHeight(), label);
+        context.drawRectangle(bds.getX(), bds.getY(), bds.getWidth(), bds.getHeight(), label);
     }
 
-    public void drawRectangle(int x, int y,
-            int width, int height, String label) {
+    public void drawRectangle(int x, int y, int width, int height, String label) {
         context.drawRectangle(x, y, width, height, label);
     }
 

@@ -1,0 +1,34 @@
+
+V
+java:S1117k"9Rename "grid" which hides the field declared at line 152.(İèº¶8Âì²âõ.
+J	java:S108Q")Either remove or fill this block of code.(¿åÓúÿÿÿÿ8Âì²âõ.
+J
+java:S1128"/Remove this unused import 'javax.swing.Action'.(›ëÆ­ùÿÿÿÿ
+U
+java:S1444—"2Make this "public static spinnerModel" field final(éş¡Íşÿÿÿÿ8Âì²âõ.
+d
+java:S1192²"FDefine a constant instead of duplicating this literal "CTRL-" 6 times.(ìÂÙ³8Âì²âõ.
+Ÿ
+java:S1186ˆ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(İÒî8Âì²âõ.
+{
+java:S1104—"XMake spinnerModel a static final constant or non-public and provide accessors if needed.(éş¡Íşÿÿÿÿ8Âì²âõ.
+T
+java:S1128">Remove this unused import 'java.awt.event.MouseWheelListener'.(ÆÇŒü
+d
+java:S1192®"FDefine a constant instead of duplicating this literal "CTRL+" 6 times.(°²ç8Âì²âõ.
+\
+java:S1874­">Remove this use of "getMenuShortcutKeyMask"; it is deprecated.(Ô›ğ¶8Âì²âõ.
+T
+java:S2696Ê"6Make the enclosing method "static" or remove this set.(Í”ø8Âì²âõ.
+k
+java:S3252«"MUse static access with "javax.swing.JComponent" for "WHEN_IN_FOCUSED_WINDOW".(÷‚Í¡8Âì²âõ.
+Ÿ
+java:S1186„"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ôãƒ8Âì²âõ.
+P
+java:S1128";Remove this unused import 'java.awt.event.MouseWheelEvent'.(Òµär
+Ÿ
+java:S1186‚"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(îŞÉô8Âì²âõ.
+Ÿ
+java:S1186†"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷á›®8Âì²âõ.
+G
+java:S3010¦")Remove this assignment of "spinnerModel".(Í”ø8Âì²âõ.

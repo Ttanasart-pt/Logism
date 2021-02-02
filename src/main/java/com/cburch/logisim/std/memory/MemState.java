@@ -6,6 +6,7 @@ package com.cburch.logisim.std.memory;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.hex.HexModel;
 import com.cburch.hex.HexModelListener;
 import com.cburch.logisim.data.Bounds;
@@ -236,7 +237,7 @@ class MemState implements InstanceData, Cloneable, HexModelListener {
                         x - 2, y + yoffs,
                         GraphicsUtil.H_RIGHT, GraphicsUtil.V_BASELINE);
             }
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
             for (int col = 0; col < columns && isValidAddr(addr); col++) {
                 int val = contents.get(addr);
                 if (addr == curAddr) {
@@ -245,7 +246,7 @@ class MemState implements InstanceData, Cloneable, HexModelListener {
                     GraphicsUtil.drawText(g, StringUtil.toHexString(dataBits, val),
                             x + entryWidth / 2, y + yoffs,
                             GraphicsUtil.H_CENTER, GraphicsUtil.V_BASELINE);
-                    g.setColor(Color.BLACK);
+                    g.setColor(ColorRegistry.BaseGateBorderColor);
                 } else {
                     GraphicsUtil.drawText(g, StringUtil.toHexString(dataBits, val),
                             x + entryWidth / 2, y + yoffs,

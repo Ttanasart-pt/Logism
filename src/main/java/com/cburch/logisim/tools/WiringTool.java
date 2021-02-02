@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.Icon;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.circuit.CircuitMutation;
 import com.cburch.logisim.circuit.Wire;
 import com.cburch.logisim.comp.Component;
@@ -154,7 +155,7 @@ public class WiringTool extends Tool {
             int x1 = e1.getX();
             int y1 = e1.getY();
 
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.White);
             GraphicsUtil.switchToWidth(g, 3);
             if (direction == HORIZONTAL) {
                 if (x0 != x1) {
@@ -339,9 +340,7 @@ public class WiringTool extends Tool {
                 String desc;
                 if (ws.size() == 1) {
                     desc = getFromLocale("addWireAction");
-                }
-
-                else {
+                } else {
                     desc = getFromLocale("addWiresAction");
                 }
 

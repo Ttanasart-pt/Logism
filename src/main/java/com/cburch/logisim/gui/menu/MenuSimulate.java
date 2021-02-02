@@ -219,17 +219,12 @@ public class MenuSimulate extends Menu {
         menubar.registerItem(LogisimMenuBar.TICK_ENABLE, ticksEnabled);
         menubar.registerItem(LogisimMenuBar.TICK_STEP, tickOnce);
 
-        int menuMask = getToolkit().getMenuShortcutKeyMask();
-        run.setAccelerator(KeyStroke.getKeyStroke(
-                KeyEvent.VK_E, menuMask));
-        reset.setAccelerator(KeyStroke.getKeyStroke(
-                KeyEvent.VK_R, menuMask));
-        step.setAccelerator(KeyStroke.getKeyStroke(
-                KeyEvent.VK_I, menuMask));
-        tickOnce.setAccelerator(KeyStroke.getKeyStroke(
-                KeyEvent.VK_T, menuMask));
-        ticksEnabled.setAccelerator(KeyStroke.getKeyStroke(
-                KeyEvent.VK_K, menuMask));
+        int menuMask = getToolkit().getMenuShortcutKeyMaskEx();
+        run.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, menuMask));
+        reset.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, menuMask));
+        step.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, menuMask));
+        tickOnce.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, menuMask));
+        ticksEnabled.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, menuMask));
         InputMap im = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         ActionMap am = this.getActionMap();
         im.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "Space");

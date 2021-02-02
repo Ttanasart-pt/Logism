@@ -28,7 +28,6 @@ public class About {
 	public static JComponent createComponents() {
 		final JPanel panel = new JPanel();
 		panel.add(svgCanvas);
-		panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		panel.setBackground(Color.WHITE);
 		svgCanvas.setURI(About.class.getResource("/logisim/drawing.svg").toString());
 		svgCanvas.addSVGDocumentLoaderListener(new SVGDocumentLoaderAdapter() {});

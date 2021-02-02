@@ -6,6 +6,7 @@ package com.cburch.logisim.std.plexers;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.LogisimVersion;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeSet;
@@ -283,7 +284,7 @@ public class Decoder extends InstanceFactory {
                 halign, GraphicsUtil.V_BASELINE);
 
         // draw trapezoid, "Decd", and ports
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         Plexers.drawTrapezoid(g, bds, facing.reverse(), outputs == 2 ? 10 : 20);
         GraphicsUtil.drawCenteredText(g, "Decd",
                 bds.getX() + bds.getWidth() / 2,

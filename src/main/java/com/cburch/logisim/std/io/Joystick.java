@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.Attributes;
 import com.cburch.logisim.data.BitWidth;
@@ -102,7 +103,7 @@ public class Joystick extends InstanceFactory {
         }
         GraphicsUtil.switchToWidth(g, 1);
         g.fillOval(x - 4, y - 4, 8, 8);
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         g.drawOval(x - 4, y - 4, 8, 8);
     }
 
@@ -180,7 +181,7 @@ public class Joystick extends InstanceFactory {
             g.setColor(Color.WHITE);
             g.fillRect(x - 20, y, 10, 10);
             GraphicsUtil.switchToWidth(g, 3);
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
             int dx = state.xPos;
             int dy = state.yPos;
             int x0 = x - 15 + (dx > 5 ? 1 : dx < -5 ? -1 : 0);

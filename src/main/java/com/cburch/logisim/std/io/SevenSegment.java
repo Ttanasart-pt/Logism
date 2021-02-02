@@ -6,6 +6,7 @@ package com.cburch.logisim.std.io;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.Bounds;
 import com.cburch.logisim.data.Value;
@@ -82,7 +83,7 @@ public class SevenSegment extends InstanceFactory {
         if (painter.shouldDrawColor() && bgColor.getAlpha() != 0) {
             g.setColor(bgColor);
             g.fillRect(bds.getX(), bds.getY(), bds.getWidth(), bds.getHeight());
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
         }
         painter.drawBounds();
         g.setColor(Color.DARK_GRAY);

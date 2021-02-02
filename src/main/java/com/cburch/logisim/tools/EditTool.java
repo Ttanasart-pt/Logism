@@ -15,6 +15,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.LogisimVersion;
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.CircuitEvent;
@@ -156,7 +157,7 @@ public class EditTool extends Tool {
             g.setColor(Value.TRUE_COLOR);
             GraphicsUtil.switchToWidth(g, 2);
             g.drawOval(x - 5, y - 5, 10, 10);
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
             GraphicsUtil.switchToWidth(g, 1);
         }
         current.draw(canvas, context);

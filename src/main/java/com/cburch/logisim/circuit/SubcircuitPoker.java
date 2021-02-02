@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Bounds;
 import com.cburch.logisim.gui.main.Canvas;
 import com.cburch.logisim.instance.InstancePainter;
@@ -47,7 +48,7 @@ public class SubcircuitPoker extends InstancePoker {
                 g.setColor(MAGNIFYING_INTERIOR);
             }
             g.fillOval(cx - 5, cy - 5, 10, 10);
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.WireIdle);
             g.drawOval(cx - 5, cy - 5, 10, 10);
             g.fillPolygon(xp, yp, xp.length);
         }

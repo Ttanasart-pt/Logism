@@ -1,0 +1,26 @@
+
+
+java:S4165º"cRemove this useless assignment; "new_x" already holds the assigned value along all execution paths.(Í““³øÿÿÿÿ
+M
+java:S1444"2Make this "public static EMPTY_BOUNDS" field final(—Ò…šüÿÿÿÿ
+H
+java:S11995"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ
+g	java:S117²"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô÷Û€
+k	java:S117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡À¬ûÿÿÿÿÿ
+z
+java:S4165Á"cRemove this useless assignment; "new_y" already holds the assigned value along all execution paths.(×¹ÃÎ
+l	java:S117‰"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æ³¢äüÿÿÿÿ
+l	java:S117µ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÑÔìâúÿÿÿÿ
+s
+java:S1104"XMake EMPTY_BOUNDS a static final constant or non-public and provide accessors if needed.(—Ò…šüÿÿÿÿ
+f	java:S117³"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òÕài
+o
+java:S2234"XParameters to create have the same names but not the same order as the method arguments.(•š¼—
+g	java:S117Š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìáÌˆ
+f	java:S117´"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìó­u
+r
+java:S3008"WRename this field "EMPTY_BOUNDS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—Ò…šüÿÿÿÿ
+t
+java:S2234”"XParameters to create have the same names but not the same order as the method arguments.(»Ñ‰–ûÿÿÿÿ
+O
+java:S1199;"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8è ‡äõ.

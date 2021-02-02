@@ -6,6 +6,7 @@ package com.cburch.logisim.std.plexers;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.LogisimVersion;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeSet;
@@ -266,7 +267,7 @@ public class Multiplexer extends InstanceFactory {
         GraphicsUtil.drawText(g, "0", x0, y0, halign, GraphicsUtil.V_BASELINE);
 
         // draw the trapezoid, "MUX" string, the individual ports
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         Plexers.drawTrapezoid(g, bds, facing, select.getWidth() == 1 ? 10 : 20);
         GraphicsUtil.drawCenteredText(g, "MUX",
                 bds.getX() + bds.getWidth() / 2,

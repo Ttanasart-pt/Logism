@@ -12,6 +12,7 @@ import java.util.Collections;
 
 import javax.swing.JComponent;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.CircuitState;
 import com.cburch.logisim.circuit.appear.AppearancePort;
@@ -90,7 +91,7 @@ public class LayoutThumbnail extends JComponent {
             }
             gCopy.dispose();
 
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
             GraphicsUtil.switchToWidth(g, 2);
             g.drawRect(0, 0, size.width - 2, size.height - 2);
         }

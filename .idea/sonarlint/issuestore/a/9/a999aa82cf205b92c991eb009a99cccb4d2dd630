@@ -1,0 +1,24 @@
+
+u
+java:S2293Î"YReplace the type specification in this constructor call with the diamond operator ("<>").(¸Œºáùÿÿÿÿ
+U
+java:S1874þ">Remove this use of "getMenuShortcutKeyMask"; it is deprecated.(Ô›ð¶
+˜
+java:S1186’"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜ÕŠÀ
+\
+java:S1192æ"FDefine a constant instead of duplicating this literal "Space" 3 times.(ü‡Ãr
+Q	java:S110M"<This class has 6 parents which is greater than 5 authorized.(ÎÝÏÁ
+W	java:S125"<This block of commented-out lines of code should be removed.(×È†Ëüÿÿÿÿ
+W	java:S125‹"<This block of commented-out lines of code should be removed.(ÏûŸþÿÿÿÿ
+n
+java:S3776¬"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(¼ÕóÚüÿÿÿÿ
+V	java:S110&"<This class has 7 parents which is greater than 5 authorized.(ëÒÔøÿÿÿÿ
+Q	java:S110%"<This class has 8 parents which is greater than 5 authorized.( üê÷
+m
+java:S3776n"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¼ Òþüÿÿÿÿ
+—
+java:S1186”"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÙûÆC
+Z
+java:S1155ü">Use isEmpty() to check whether the collection is empty or not.(ŸÅ´šýÿÿÿÿ
+u
+java:S2293Ë"YReplace the type specification in this constructor call with the diamond operator ("<>").(¸Œºáùÿÿÿÿ

@@ -3,6 +3,8 @@
 
 package com.cburch.draw.toolbar;
 
+import com.cburch.draw.util.ColorRegistry;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -23,23 +25,23 @@ public class ToolbarSeparator implements ToolbarItem {
     @Override
     public void paintIcon(Component destination, Graphics g) {
         Dimension dim = destination.getSize();
-        g.setColor(Color.GRAY);
+        g.setColor(ColorRegistry.GreyLight.brighter());
         int x = 0;
         int y = 0;
         int w = dim.width;
         int h = dim.height;
         // separator is a vertical line in horizontal toolbar
         if (h >= w) {
-            h -= 8;
-            y = 2;
-            x = (w - 2) / 2;
-            w = 2;
+            h -= 0;
+            y = 0;
+            x = (w - 1) / 2;
+            w = 1;
         // separator is a horizontal line in vertical toolbar
         } else {
-            w -= 8;
-            x = 2;
-            y = (h - 2) / 2;
-            h = 2;
+            w -= 0;
+            x = 0;
+            y = (h - 1) / 2;
+            h = 1;
         }
         g.fillRect(x, y, w, h);
     }

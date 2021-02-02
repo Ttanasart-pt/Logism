@@ -1,0 +1,62 @@
+
+T	java:S106ë"9Replace this use of System.out or System.err by a logger.(³Æ Úøÿÿÿÿ
+T	java:S106æ"9Replace this use of System.out or System.err by a logger.(âÉÀÜüÿÿÿÿ
+T	java:S106‹"9Replace this use of System.out or System.err by a logger.(¥¤…üÿÿÿÿ
+X
+java:S3457‘"AFormat specifiers should be used instead of string concatenation.(Ô´´¾
+O	java:S106å"9Replace this use of System.out or System.err by a logger.(ßşü
+T	java:S106Ô"9Replace this use of System.out or System.err by a logger.(·Õ­Çÿÿÿÿÿ
+x
+java:S2629ı"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(€¾ı²ÿÿÿÿÿ
+T	java:S106î"9Replace this use of System.out or System.err by a logger.(”Ä±×şÿÿÿÿ
+;
+java:S2629Æ"$Invoke method(s) only conditionally.(’»¶½
+n	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ
+p
+java:S1192ş"TDefine a constant instead of duplicating this literal "argOneTemplateError" 3 times.(³Õ–Èùÿÿÿÿ
+n	java:S127ï"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ
+T	java:S106ò"9Replace this use of System.out or System.err by a logger.(²¶¿ûÿÿÿÿ
+k
+java:S1192Ä"ODefine a constant instead of duplicating this literal "ttyFormatError" 3 times.(Èş¾§ÿÿÿÿÿ
+;
+java:S2629Â"$Invoke method(s) only conditionally.(’»¶½
+W
+java:S3457X"AFormat specifiers should be used instead of string concatenation.(Áù
+]
+java:S3457ı"AFormat specifiers should be used instead of string concatenation.(€¾ı²ÿÿÿÿÿ
+o
+java:S2293h"YReplace the type specification in this constructor call with the diamond operator ("<>").(¡§‡å
+O	java:S106ç"9Replace this use of System.out or System.err by a logger.(½ôß˜
+o
+java:S3776–"SRefactor this method to reduce its Cognitive Complexity from 106 to the 15 allowed.(ŞËÈ²ıÿÿÿÿ
+T	java:S106ì"9Replace this use of System.out or System.err by a logger.(½ãşÿùÿÿÿÿ
+T	java:S106é"9Replace this use of System.out or System.err by a logger.(Ü•½úøÿÿÿÿ
+i
+java:S3776‹"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(“–ış
+?	java:S108¹")Either remove or fill this block of code.(±•å•
+T	java:S106Ù"9Replace this use of System.out or System.err by a logger.(·Õ­Çÿÿÿÿÿ
+O	java:S106ï"9Replace this use of System.out or System.err by a logger.(ŒºŸ
+n	java:S127¥"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ
+]
+java:S3457Û"AFormat specifiers should be used instead of string concatenation.(æó˜ûùÿÿÿÿ
+O	java:S106è"9Replace this use of System.out or System.err by a logger.(ÜæÛ
+O	java:S106ğ"9Replace this use of System.out or System.err by a logger.(·ôƒ×
+o
+java:S2293q"YReplace the type specification in this constructor call with the diamond operator ("<>").(â¸ç«
+1
+java:S3626Y"Remove this redundant jump.(ûÁİ…
+j
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(šÔ‘Ò
+n	java:S127À"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ
+T	java:S106í"9Replace this use of System.out or System.err by a logger.(æúŒ¬úÿÿÿÿ
+s	java:S127æ"XRefactor the code in order to not assign to this loop counter from within the loop body.( æƒ«ıÿÿÿÿ
+n	java:S127º"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ
+O	java:S106ê"9Replace this use of System.out or System.err by a logger.(â ®ı
+T	java:S106ô"9Replace this use of System.out or System.err by a logger.(ñ‰Çüıÿÿÿÿ
+T	java:S106ó"9Replace this use of System.out or System.err by a logger.(‚ÙïÜûÿÿÿÿ
+n	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ì‚ˆÌ
+t
+java:S2293k"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ôîİ¦ûÿÿÿÿ
+O	java:S106ñ"9Replace this use of System.out or System.err by a logger.(ııŠÇ
+D
+java:S1172‚"-Remove this unused method parameter "loader".(½â²Ç

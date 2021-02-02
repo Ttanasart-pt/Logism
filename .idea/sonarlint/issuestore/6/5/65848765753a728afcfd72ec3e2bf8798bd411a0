@@ -1,0 +1,18 @@
+
+i
+java:S3776Ã"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(¿ƒ„É
+o
+java:S2293¯"YReplace the type specification in this constructor call with the diamond operator ("<>").(äŞĞ\
+w
+java:S4144W"\Update this method so that its implementation is not identical to "toolSelected" on line 80.(ÕÕ”ğøÿÿÿÿ
+o
+java:S2293d"YReplace the type specification in this constructor call with the diamond operator ("<>").(æË¶í
+8	java:S131Ö""Add a default case to this switch.(¼ğ·³
+n
+java:S3776‚"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(×È±Üüÿÿÿÿ
+h
+java:S3776c"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(Ê¶†•
+i
+java:S3776Ê"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(ÊÌè
+b
+java:S1301Ö"KReplace this "switch" statement by "if" statements to increase readability.(¼ğ·³

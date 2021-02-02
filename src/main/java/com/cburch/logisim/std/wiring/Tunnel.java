@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.comp.TextField;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeSet;
@@ -136,7 +137,7 @@ public class Tunnel extends InstanceFactory {
         int y = loc.getY();
         Graphics g = painter.getGraphics();
         g.translate(x, y);
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         paintGhost(painter);
         g.translate(-x, -y);
         painter.drawPorts();

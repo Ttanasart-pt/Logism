@@ -6,6 +6,7 @@ package com.cburch.logisim.std.plexers;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeSet;
 import com.cburch.logisim.data.Attributes;
@@ -146,7 +147,7 @@ public class BitSelector extends InstanceFactory {
 
         Plexers.drawTrapezoid(g, painter.getBounds(), facing, 9);
         Bounds bds = painter.getBounds();
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.BaseGateBorderColor);
         GraphicsUtil.drawCenteredText(g, "Sel",
                 bds.getX() + bds.getWidth() / 2,
                 bds.getY() + bds.getHeight() / 2);

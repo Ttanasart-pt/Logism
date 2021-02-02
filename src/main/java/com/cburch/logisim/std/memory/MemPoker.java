@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.data.Bounds;
 import com.cburch.logisim.instance.InstancePainter;
 import com.cburch.logisim.instance.InstancePoker;
@@ -77,7 +78,7 @@ public class MemPoker extends InstancePoker {
             Graphics g = painter.getGraphics();
             g.setColor(Color.RED);
             g.drawRect(bds.getX(), bds.getY(), bds.getWidth(), bds.getHeight());
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
         }
 
         @Override
@@ -127,7 +128,7 @@ public class MemPoker extends InstancePoker {
             Graphics g = painter.getGraphics();
             g.setColor(Color.RED);
             g.drawRect(bds.getX(), bds.getY(), bds.getWidth(), bds.getHeight());
-            g.setColor(Color.BLACK);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
         }
 
         @Override

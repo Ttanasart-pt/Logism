@@ -1,0 +1,49 @@
+
+o
+java:S2293r"YReplace the type specification in this constructor call with the diamond operator ("<>").(àğ™”
+=
+java:S1452î"&Remove usage of generic wildcard type.(íÙùè
+s	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿßÑÃøÿÿÿÿ8¯‡€ãõ.
+B
+java:S1452ê"&Remove usage of generic wildcard type.(û¬‹ºüÿÿÿÿ
+=
+java:S1452ö"&Remove usage of generic wildcard type.(˜šÎ
+p
+java:S2293Ÿ"YReplace the type specification in this constructor call with the diamond operator ("<>").(û¸ş¯
+C
+java:S1659É" Declare "x1" on a separate line.(ÀŸ®¸ùÿÿÿÿ8ßíÿâõ.
+t
+java:S2293p"YReplace the type specification in this constructor call with the diamond operator ("<>").(±íâìúÿÿÿÿ
+b	java:S112š"FDefine and throw a dedicated exception instead of using a generic one.(‰Æáe8¯‡€ãõ.
+I
+java:S1172”"&Remove these unused method parameters.(š¹Âùÿÿÿÿ8¯‡€ãõ.
+\
+java:S1155ä">Use isEmpty() to check whether the collection is empty or not.(ÿÀ ë8¯‡€ãõ.
+t
+java:S2293u"YReplace the type specification in this constructor call with the diamond operator ("<>").(öÔ¼Ùøÿÿÿÿ
+p
+java:S2293”"YReplace the type specification in this constructor call with the diamond operator ("<>").(û¸ş¯
+u
+java:S3776ß"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(à°ÉÃıÿÿÿÿ8¯‡€ãõ.
+t
+java:S2293~"YReplace the type specification in this constructor call with the diamond operator ("<>").(íàÿåşÿÿÿÿ
+7
+java:S1659Ê" Declare "y1" on a separate line.(óòØŒ
+>
+java:S1659ï" Declare "y1" on a separate line.(óòØŒ8¯‡€ãõ.
+s	java:S117ğ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿßÑÃøÿÿÿÿ8¯‡€ãõ.
+s	java:S117à"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«Ú§¦ûÿÿÿÿ8¯‡€ãõ.
+p
+java:S2293‰"YReplace the type specification in this constructor call with the diamond operator ("<>").(û¸ş¯
+u
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ã §ùÿÿÿÿ
+p
+java:S2293ª"YReplace the type specification in this constructor call with the diamond operator ("<>").(û¸ş¯
+b
+java:S2583–"DChange this condition so that it does not always evaluate to "false"(Äï˜Ï8¯‡€ãõ.
+O
+java:S28648"4Iterate over the "entrySet" instead of the "keySet".(´ß–´ıÿÿÿÿ
+o
+java:S2293U"YReplace the type specification in this constructor call with the diamond operator ("<>").(íşš
+C
+java:S1659î" Declare "x1" on a separate line.(ÀŸ®¸ùÿÿÿÿ8ßíÿâõ.

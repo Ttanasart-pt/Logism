@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
+import com.cburch.draw.util.ColorRegistry;
 import org.apache.commons.collections15.iterators.IteratorChain;
 
 import com.cburch.logisim.comp.Component;
@@ -445,7 +446,7 @@ class CircuitWires {
         boolean showState = context.getShowState();
         CircuitState state = context.getCircuitState();
         Graphics g = context.getGraphics();
-        g.setColor(Color.BLACK);
+        g.setColor(ColorRegistry.WireIdle);
         GraphicsUtil.switchToWidth(g, Wire.WIDTH);
         WireSet highlighted = context.getHighlightedWires();
 
@@ -461,14 +462,11 @@ class CircuitWires {
                 } else if (showState) {
                     if (!isValid) {
                         g.setColor(Value.NIL_COLOR);
+                    } else {
+                        g.setColor(state.getValue(s).getColor());
                     }
-
-                    else {
-                                g.setColor(state.getValue(s).getColor());
-                    }
-
                 } else {
-                    g.setColor(Color.BLACK);
+                    g.setColor(ColorRegistry.WireIdle);
                 }
                 if (highlighted.containsWire(w)) {
                     GraphicsUtil.switchToWidth(g, Wire.WIDTH + 2);
@@ -488,15 +486,13 @@ class CircuitWires {
                         } else if (showState) {
                             if (!isValid) {
                                 g.setColor(Value.NIL_COLOR);
+                            } else {
+                                g.setColor(state.getValue(loc).getColor());
                             }
-
-                            else {
-                                        g.setColor(state.getValue(loc).getColor());
-                            }
-
                         } else {
-                            g.setColor(Color.BLACK);
+                            g.setColor(ColorRegistry.WireIdle);
                         }
+
                         if (highlighted.containsLocation(loc)) {
                             g.fillOval(loc.getX() - 5, loc.getY() - 5, 10, 10);
                         } else {
@@ -516,14 +512,11 @@ class CircuitWires {
                     } else if (showState) {
                         if (!isValid) {
                             g.setColor(Value.NIL_COLOR);
+                        } else {
+                            g.setColor(state.getValue(s).getColor());
                         }
-
-                        else {
-                                    g.setColor(state.getValue(s).getColor());
-                        }
-
                     } else {
-                        g.setColor(Color.BLACK);
+                        g.setColor(ColorRegistry.WireIdle);
                     }
                     if (highlighted.containsWire(w)) {
                         GraphicsUtil.switchToWidth(g, Wire.WIDTH + 2);
@@ -555,14 +548,11 @@ class CircuitWires {
                             } else if (showState) {
                                 if (!isValid) {
                                     g.setColor(Value.NIL_COLOR);
+                                } else {
+                                    g.setColor(state.getValue(loc).getColor());
                                 }
-
-                                else {
-                                            g.setColor(state.getValue(loc).getColor());
-                                }
-
                             } else {
-                                g.setColor(Color.BLACK);
+                                g.setColor(ColorRegistry.WireIdle);
                             }
                             if (highlighted.containsLocation(loc)) {
                                 g.fillOval(loc.getX() - 5, loc.getY() - 5, 10, 10);

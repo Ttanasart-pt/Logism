@@ -8,6 +8,7 @@ import java.awt.Graphics;
 
 import javax.swing.Icon;
 
+import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.LogisimVersion;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeSet;
@@ -83,7 +84,7 @@ public abstract class AbstractComponentFactory implements ComponentFactory {
         if (toolIcon != null) {
             toolIcon.paintIcon(context.getDestination(), g, x + 2, y + 2);
         } else {
-            g.setColor(Color.black);
+            g.setColor(ColorRegistry.BaseGateBorderColor);
             g.drawRect(x + 5, y + 2, 11, 17);
             Value[] v = { Value.TRUE, Value.FALSE };
             for (int i = 0; i < 3; i++) {

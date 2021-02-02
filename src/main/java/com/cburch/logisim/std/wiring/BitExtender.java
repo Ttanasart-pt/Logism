@@ -71,22 +71,13 @@ public class BitExtender extends InstanceFactory {
         String type = getType(painter.getAttributeSet());
         if (type.equals("zero")) {
             s0 = getFromLocale("extenderZeroLabel");
-        }
-
-        else if (type.equals("one")) {
+        } else if (type.equals("one")) {
             s0 = getFromLocale("extenderOneLabel");
-        }
-
-        else if (type.equals("sign")) {
+        } else if (type.equals("sign")) {
             s0 = getFromLocale("extenderSignLabel");
-        }
-
-        else if (type.equals("input")) {
+        } else if (type.equals("input")) {
             s0 = getFromLocale("extenderInputLabel");
-        }
-
-        // should never happen
-        else {
+        } else { // should never happen
             s0 = "???";
         }
 
@@ -95,10 +86,8 @@ public class BitExtender extends InstanceFactory {
         int x = bds.getX() + bds.getWidth() / 2;
         int y0 = bds.getY() + (bds.getHeight() / 2 + asc) / 2;
         int y1 = bds.getY() + (3 * bds.getHeight() / 2 + asc) / 2;
-        GraphicsUtil.drawText(g, s0, x, y0,
-                GraphicsUtil.H_CENTER, GraphicsUtil.V_BASELINE);
-        GraphicsUtil.drawText(g, s1, x, y1,
-                GraphicsUtil.H_CENTER, GraphicsUtil.V_BASELINE);
+        GraphicsUtil.drawText(g, s0, x, y0, GraphicsUtil.H_CENTER, GraphicsUtil.V_BASELINE);
+        GraphicsUtil.drawText(g, s1, x, y1, GraphicsUtil.H_CENTER, GraphicsUtil.V_BASELINE);
 
         BitWidth w0 = painter.getAttributeValue(ATTR_OUT_WIDTH);
         BitWidth w1 = painter.getAttributeValue(ATTR_IN_WIDTH);

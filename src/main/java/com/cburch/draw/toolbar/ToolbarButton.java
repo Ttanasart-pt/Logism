@@ -9,13 +9,16 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
+import com.cburch.draw.util.ColorRegistry;
+import com.cburch.logisim.std.io.Button;
+import com.cburch.logisim.std.io.Keyboard;
 import com.cburch.logisim.util.GraphicsUtil;
 
 @SuppressWarnings("serial")
 class ToolbarButton extends JComponent implements MouseListener {
-    private static final int BORDER = 2;
+    private static final int BORDER = 6;
 
     private Toolbar toolbar;
     private ToolbarItem item;
@@ -37,6 +40,7 @@ class ToolbarButton extends JComponent implements MouseListener {
         Dimension dim = item.getDimension(toolbar.getOrientation());
         dim.width += 2 * BORDER;
         dim.height += 2 * BORDER;
+
         return dim;
     }
 
@@ -47,12 +51,26 @@ class ToolbarButton extends JComponent implements MouseListener {
 
     @Override
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        Dimension dim = item.getDimension(toolbar.getOrientation());
+        GraphicsUtil.switchToWidth(g, 2);
+        g.setColor(ColorRegistry.GreyLight.brighter());
+        g.fillRect(0, 0, dim.width + BORDER * 2, dim.height + BORDER * 2);
+        GraphicsUtil.switchToWidth(g, 1);
+
+        if (toolbar.getToolbarModel().isSelected(item)) {
+            GraphicsUtil.switchToWidth(g, 2);
+            g.setColor(ColorRegistry.GreyLight.brighter());
+            g.fillRect(0, 0, dim.width + BORDER * 2, dim.height + BORDER * 2);
+            GraphicsUtil.switchToWidth(g, 1);
+        }
+
         if (toolbar.getPressed() == this) {
-            Dimension dim = item.getDimension(toolbar.getOrientation());
             Color defaultColor = g.getColor();
             GraphicsUtil.switchToWidth(g, 2);
-            g.setColor(Color.GRAY);
-            g.fillRect(BORDER, BORDER, dim.width, dim.height);
+            g.setColor(ColorRegistry.GreyBright);
+            g.fillRect(0, 0, dim.width + BORDER * 2, dim.height + BORDER * 2);
             GraphicsUtil.switchToWidth(g, 1);
             g.setColor(defaultColor);
         }
@@ -61,15 +79,6 @@ class ToolbarButton extends JComponent implements MouseListener {
         g2.translate(BORDER, BORDER);
         item.paintIcon(this, g2);
         g2.dispose();
-
-        // draw selection indicator
-        if (toolbar.getToolbarModel().isSelected(item)) {
-            Dimension dim = item.getDimension(toolbar.getOrientation());
-            GraphicsUtil.switchToWidth(g, 2);
-            g.setColor(Color.BLACK);
-            g.drawRect(BORDER, BORDER, dim.width, dim.height);
-            GraphicsUtil.switchToWidth(g, 1);
-        }
     }
 
     @Override

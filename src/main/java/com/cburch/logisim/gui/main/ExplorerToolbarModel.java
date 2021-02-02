@@ -35,13 +35,7 @@ class ExplorerToolbarModel extends AbstractToolbarModel
         itemAppearance = new LogisimToolbarItem(menu, "projapp.svg",
                 LogisimMenuBar.EDIT_APPEARANCE, getFromLocale("projectEditAppearanceTip"));
 
-        items = UnmodifiableList.decorate(Arrays.asList(new ToolbarItem[] {
-                itemToolbox,
-                itemSimulation,
-                new ToolbarSeparator(4),
-                itemLayout,
-                itemAppearance,
-            }));
+        items = UnmodifiableList.decorate(Arrays.asList(itemToolbox, itemSimulation, new ToolbarSeparator(2), itemLayout, itemAppearance));
 
         menu.addEnabledListener(this);
     }
