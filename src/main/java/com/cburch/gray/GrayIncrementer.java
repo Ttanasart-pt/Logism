@@ -24,7 +24,7 @@ class GrayIncrementer extends InstanceFactory {
 
     /** The constructor configures the factory. */
     GrayIncrementer() {
-        super("Gray Code Incrementer");
+        super("Gray Code Incrementer", "Grey", "Grey implementer");
 
         /* This is how we can set up the attributes for GrayIncrementers. In
          * this case, there is just one attribute - the width - whose default

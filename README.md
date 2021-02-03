@@ -8,5 +8,5 @@ aimed at improving **my** experience using this software.
 I have no idea what I'm doing, so I did remove, change, update just to make it work on my Intellij IDEA, which includes.
 * Upgrade gradle from 2.2 to 6.8.1
 * Remove Sonar plugin from build.gradle
-* Remove deprecated motiflookandfeel
+* Remove deprecated lookandfeel
 * Add keyboard shortcuts.

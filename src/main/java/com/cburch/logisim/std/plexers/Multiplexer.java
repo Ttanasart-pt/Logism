@@ -28,7 +28,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 public class Multiplexer extends InstanceFactory {
     public Multiplexer() {
-        super("Multiplexer", getFromLocale("multiplexerComponent"));
+        super("Multiplexer", "MUX", getFromLocale("multiplexerComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.FACING, Plexers.ATTR_SELECT_LOC, Plexers.ATTR_SELECT, StdAttr.WIDTH,
                 Plexers.ATTR_DISABLED, Plexers.ATTR_ENABLE

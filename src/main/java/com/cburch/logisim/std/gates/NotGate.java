@@ -37,12 +37,9 @@ import com.cburch.logisim.util.Icons;
 import static com.cburch.logisim.util.LocaleString.*;
 
 class NotGate extends InstanceFactory {
-    public static final AttributeOption SIZE_NARROW
-        = new AttributeOption(Integer.valueOf(20), getFromLocale("gateSizeNarrowOpt"));
-    public static final AttributeOption SIZE_WIDE
-        = new AttributeOption(Integer.valueOf(30), getFromLocale("gateSizeWideOpt"));
-    public static final Attribute<AttributeOption> ATTR_SIZE
-        = Attributes.forOption("size", getFromLocale("gateSizeAttr"),
+    public static final AttributeOption SIZE_NARROW = new AttributeOption(Integer.valueOf(20), getFromLocale("gateSizeNarrowOpt"));
+    public static final AttributeOption SIZE_WIDE = new AttributeOption(Integer.valueOf(30), getFromLocale("gateSizeWideOpt"));
+    public static final Attribute<AttributeOption> ATTR_SIZE = Attributes.forOption("size", getFromLocale("gateSizeAttr"),
             new AttributeOption[] { SIZE_NARROW, SIZE_WIDE });
 
     private static final String RECT_LABEL = "1";
@@ -53,7 +50,7 @@ class NotGate extends InstanceFactory {
     public static InstanceFactory FACTORY = new NotGate();
 
     private NotGate() {
-        super("NOT Gate", getFromLocale("notGateComponent"));
+        super("NOT Gate", "NOT", getFromLocale("notGateComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.FACING, StdAttr.WIDTH, ATTR_SIZE,
                 GateAttributes.ATTR_OUTPUT,

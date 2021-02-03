@@ -3,9 +3,7 @@
 
 package com.cburch.draw.toolbar;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -15,17 +13,24 @@ import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.std.io.Button;
 import com.cburch.logisim.std.io.Keyboard;
 import com.cburch.logisim.util.GraphicsUtil;
+import org.apache.xpath.operations.Bool;
 
 @SuppressWarnings("serial")
 class ToolbarButton extends JButton implements MouseListener {
-    private static final int BORDER = 4;
+    public static final int BORDER = 8;
 
-    private Toolbar toolbar;
-    private ToolbarItem item;
+    private final Toolbar toolbar;
+    private final ToolbarItem item;
+    private boolean isShort = false;
 
+    ToolbarButton(Toolbar toolbar, ToolbarItem item, boolean isShort) {
+        this(toolbar, item);
+        this.isShort = isShort;
+    }
     ToolbarButton(Toolbar toolbar, ToolbarItem item) {
         this.toolbar = toolbar;
         this.item = item;
+
         addMouseListener(this);
         setFocusable(true);
         setToolTipText("");
@@ -38,8 +43,8 @@ class ToolbarButton extends JButton implements MouseListener {
     @Override
     public Dimension getPreferredSize() {
         Dimension dim = item.getDimension(toolbar.getOrientation());
-        dim.width += 2 * BORDER;
-        dim.height += 2 * BORDER;
+        dim.width += 2 * BORDER + (isShort? 4 : 0);
+        dim.height += isShort? 4 : 2 * BORDER;
         return dim;
     }
 
@@ -63,7 +68,7 @@ class ToolbarButton extends JButton implements MouseListener {
             }
 
             Graphics g2 = g.create();
-            g2.translate(BORDER, BORDER);
+            g2.translate(BORDER + (isShort? 2 : 0), isShort? 2 : BORDER);
             item.paintIcon(this, g2);
             g2.dispose();
         }

@@ -31,7 +31,7 @@ public class BitSelector extends InstanceFactory {
         = Attributes.forBitWidth("group", getFromLocale("bitSelectorGroupAttr"));
 
     public BitSelector() {
-        super("BitSelector", getFromLocale("bitSelectorComponent"));
+        super("BitSelector", "Select", getFromLocale("bitSelectorComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.FACING, StdAttr.WIDTH, GROUP_ATTR
             }, new Object[] {

@@ -25,27 +25,21 @@ import com.cburch.logisim.tools.key.BitWidthConfigurator;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class Shifter extends InstanceFactory {
-    static final AttributeOption SHIFT_LOGICAL_LEFT
-        = new AttributeOption("ll", getFromLocale("shiftLogicalLeft"));
-    static final AttributeOption SHIFT_LOGICAL_RIGHT
-        = new AttributeOption("lr", getFromLocale("shiftLogicalRight"));
-    static final AttributeOption SHIFT_ARITHMETIC_RIGHT
-        = new AttributeOption("ar", getFromLocale("shiftArithmeticRight"));
-    static final AttributeOption SHIFT_ROLL_LEFT
-        = new AttributeOption("rl", getFromLocale("shiftRollLeft"));
-    static final AttributeOption SHIFT_ROLL_RIGHT
-        = new AttributeOption("rr", getFromLocale("shiftRollRight"));
+    static final AttributeOption SHIFT_LOGICAL_LEFT = new AttributeOption("ll", getFromLocale("shiftLogicalLeft"));
+    static final AttributeOption SHIFT_LOGICAL_RIGHT = new AttributeOption("lr", getFromLocale("shiftLogicalRight"));
+    static final AttributeOption SHIFT_ARITHMETIC_RIGHT = new AttributeOption("ar", getFromLocale("shiftArithmeticRight"));
+    static final AttributeOption SHIFT_ROLL_LEFT = new AttributeOption("rl", getFromLocale("shiftRollLeft"));
+    static final AttributeOption SHIFT_ROLL_RIGHT = new AttributeOption("rr", getFromLocale("shiftRollRight"));
     static final Attribute<AttributeOption> ATTR_SHIFT
-        = Attributes.forOption("shift", getFromLocale("shifterShiftAttr"),
-                new AttributeOption[] { SHIFT_LOGICAL_LEFT, SHIFT_LOGICAL_RIGHT,
-                    SHIFT_ARITHMETIC_RIGHT, SHIFT_ROLL_LEFT, SHIFT_ROLL_RIGHT });
+            = Attributes.forOption("shift", getFromLocale("shifterShiftAttr"),
+            new AttributeOption[] { SHIFT_LOGICAL_LEFT, SHIFT_LOGICAL_RIGHT, SHIFT_ARITHMETIC_RIGHT, SHIFT_ROLL_LEFT, SHIFT_ROLL_RIGHT });
 
     private static final int IN0   = 0;
     private static final int IN1   = 1;
     private static final int OUT   = 2;
 
     public Shifter() {
-        super("Shifter", getFromLocale("shifterComponent"));
+        super("Shifter", "Shift", getFromLocale("shifterComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.WIDTH, ATTR_SHIFT
             }, new Object[] {

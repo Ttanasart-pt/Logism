@@ -32,7 +32,7 @@ public class Register extends InstanceFactory {
     private static final int EN  = 4;
 
     public Register() {
-        super("Register", getFromLocale("registerComponent"));
+        super("Register", "Register", getFromLocale("registerComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.WIDTH, StdAttr.TRIGGER,
                 StdAttr.LABEL, StdAttr.LABEL_FONT

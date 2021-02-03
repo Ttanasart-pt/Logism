@@ -23,8 +23,8 @@ public class ExplorerToolbarModel extends AbstractToolbarModel implements MenuLi
     public ExplorerToolbarModel(Frame frame, MenuListener menu) {
         this.frame = frame;
 
-        itemLayout = new LogisimToolbarItem(menu, "projlayo.svg", LogisimMenuBar.EDIT_LAYOUT, getFromLocale("projectEditLayoutTip"));
-        itemAppearance = new LogisimToolbarItem(menu, "projapp.svg", LogisimMenuBar.EDIT_APPEARANCE, getFromLocale("projectEditAppearanceTip"));
+        itemLayout = new LogisimToolbarItem(menu, "projlayo.svg", LogisimMenuBar.EDIT_LAYOUT, "Circuit", getFromLocale("projectEditLayoutTip"));
+        itemAppearance = new LogisimToolbarItem(menu, "projapp.svg", LogisimMenuBar.EDIT_APPEARANCE, "Component", getFromLocale("projectEditAppearanceTip"));
 
         items = UnmodifiableList.decorate(Arrays.asList(itemLayout, itemAppearance));
 

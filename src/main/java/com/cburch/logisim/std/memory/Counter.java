@@ -53,7 +53,7 @@ public class Counter extends InstanceFactory {
     private static final int CARRY = 6;
 
     public Counter() {
-        super("Counter", getFromLocale("counterComponent"));
+        super("Counter", "Counter", getFromLocale("counterComponent"));
         setOffsetBounds(Bounds.create(-30, -20, 30, 40));
         setIconName("counter.svg");
         setInstancePoker(RegisterPoker.class);

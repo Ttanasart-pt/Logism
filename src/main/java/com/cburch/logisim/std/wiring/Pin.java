@@ -69,7 +69,7 @@ public class Pin extends InstanceFactory {
     private static final Color ICON_WIDTH_COLOR = Value.WIDTH_ERROR_COLOR.darker();
 
     public Pin() {
-        super("Pin", getFromLocale("pinComponent"));
+        super("Pin", "Pin", getFromLocale("pinComponent"));
         setFacingAttribute(StdAttr.FACING);
         setKeyConfigurator(JoinedConfigurator.create(
             new BitWidthConfigurator(StdAttr.WIDTH),

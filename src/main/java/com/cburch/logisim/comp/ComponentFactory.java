@@ -24,6 +24,7 @@ public interface ComponentFactory extends AttributeDefaultProvider {
     public static final Object FACING_ATTRIBUTE_KEY = new Object();
 
     public String getName();
+    public String getNameShort();
     public String getDisplayName();
     public String getDisplayGetter();
     public Component createComponent(Location loc, AttributeSet attrs);
@@ -33,10 +34,8 @@ public interface ComponentFactory extends AttributeDefaultProvider {
     public boolean isAllDefaultValues(AttributeSet attrs, LogisimVersion ver);
     @Override
     public Object getDefaultAttributeValue(Attribute<?> attr, LogisimVersion ver);
-    public void drawGhost(ComponentDrawContext context, Color color,
-            int x, int y, AttributeSet attrs);
-    public void paintIcon(ComponentDrawContext context,
-            int x, int y, AttributeSet attrs);
+    public void drawGhost(ComponentDrawContext context, Color color, int x, int y, AttributeSet attrs);
+    public void paintIcon(ComponentDrawContext context, int x, int y, AttributeSet attrs);
     /**
      * Retrieves special-purpose features for this factory. This technique
      * allows for future Logisim versions to add new features

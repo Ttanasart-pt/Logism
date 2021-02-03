@@ -8,7 +8,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 public class JKFlipFlop extends AbstractFlipFlop {
     public JKFlipFlop() {
-        super("J-K Flip-Flop", "jkFlipFlop.svg",
+        super("J-K Flip-Flop", "JK", "jkFlipFlop.svg",
                 getFromLocale("jkFlipFlopComponent"), 2, false);
     }
 

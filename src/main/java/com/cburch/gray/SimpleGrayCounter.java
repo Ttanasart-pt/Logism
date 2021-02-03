@@ -25,7 +25,7 @@ class SimpleGrayCounter extends InstanceFactory {
     // instances that appear in any circuits.
 
     public SimpleGrayCounter() {
-        super("Gray Counter (Simple)");
+        super("Gray Counter (Simple)", "Grey", "Grey simple");
         setOffsetBounds(Bounds.create(-30, -15, 30, 30));
         setPorts(new Port[] {
                 new Port(-30, 0, Port.INPUT, 1),

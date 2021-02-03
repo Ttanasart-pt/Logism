@@ -19,7 +19,7 @@ class OrGate extends AbstractGate {
     public static OrGate FACTORY = new OrGate();
 
     private OrGate() {
-        super("OR Gate", getFromLocale("orGateComponent"));
+        super("OR Gate", "OR", getFromLocale("orGateComponent"));
         setRectangularLabel("\u2265" + "1");
         setIconNames("orGate.svg", "orGateRect.svg", "dinOrGate.svg");
         setPaintInputLines(true);

@@ -33,12 +33,9 @@ import com.cburch.logisim.instance.StdAttr;
 import com.cburch.logisim.proj.Project;
 
 public class Ram extends Mem {
-    static final AttributeOption BUS_COMBINED
-        = new AttributeOption("combined", getFromLocale("ramBusSynchCombined"));
-    static final AttributeOption BUS_ASYNCH
-        = new AttributeOption("asynch", getFromLocale("ramBusAsynchCombined"));
-    static final AttributeOption BUS_SEPARATE
-        = new AttributeOption("separate", getFromLocale("ramBusSeparate"));
+    static final AttributeOption BUS_COMBINED = new AttributeOption("combined", getFromLocale("ramBusSynchCombined"));
+    static final AttributeOption BUS_ASYNCH = new AttributeOption("asynch", getFromLocale("ramBusAsynchCombined"));
+    static final AttributeOption BUS_SEPARATE = new AttributeOption("separate", getFromLocale("ramBusSeparate"));
 
     static final Attribute<AttributeOption> ATTR_BUS = Attributes.forOption("bus",
             getFromLocale("ramBusAttr"),
@@ -60,7 +57,7 @@ public class Ram extends Mem {
     private static Object[][] logOptions = new Object[9][];
 
     public Ram() {
-        super("RAM", getFromLocale("ramComponent"), 3);
+        super("RAM", "RAM", getFromLocale("ramComponent"), 3);
         setIconName("ram.svg");
         setInstanceLogger(Logger.class);
     }

@@ -281,7 +281,7 @@ public class ComponentDrawContext {
     }
 
     public void drawHandle(int x, int y) {
-        g.setColor(ColorRegistry.BaseGateBorderAccent);
+        g.setColor(ColorRegistry.HandleColor);
         g.fillOval(x - 2, y - 2, 5, 5);
     }
 

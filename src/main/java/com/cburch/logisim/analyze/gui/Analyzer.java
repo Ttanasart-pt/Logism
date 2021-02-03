@@ -28,7 +28,6 @@ import com.cburch.logisim.util.LocaleListener;
 import com.cburch.logisim.util.LocaleManager;
 import static com.cburch.logisim.util.LocaleString.getFromLocale;
 
-@SuppressWarnings("serial")
 public class Analyzer extends LFrame {
     // used by circuit analysis to select the relevant tab automatically.
     public static final int INPUTS_TAB = 0;
@@ -125,17 +124,16 @@ public class Analyzer extends LFrame {
         }
     }
 
-    private MyListener myListener = new MyListener();
-    private EditListener editListener = new EditListener();
-    private AnalyzerModel model = new AnalyzerModel();
+    private final EditListener editListener = new EditListener();
+    private final AnalyzerModel model = new AnalyzerModel();
     private JTabbedPane tabbedPane = new JTabbedPane();
 
-    private VariableTab inputsPanel;
-    private VariableTab outputsPanel;
-    private TableTab truthTablePanel;
-    private ExpressionTab expressionPanel;
-    private MinimizedTab minimizedPanel;
-    private BuildCircuitButton buildCircuit;
+    private final VariableTab inputsPanel;
+    private final VariableTab outputsPanel;
+    private final TableTab truthTablePanel;
+    private final ExpressionTab expressionPanel;
+    private final MinimizedTab minimizedPanel;
+    private final BuildCircuitButton buildCircuit;
 
     Analyzer() {
         inputsPanel = new VariableTab(model.getInputs(), 'a');
@@ -171,6 +169,7 @@ public class Analyzer extends LFrame {
         outputsPanel.registerDefaultButtons(registry);
         expressionPanel.registerDefaultButtons(registry);
 
+        MyListener myListener = new MyListener();
         LocaleManager.addLocaleListener(myListener);
         myListener.localeChanged();
 

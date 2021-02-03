@@ -20,8 +20,7 @@ import com.cburch.logisim.util.Icons;
  * no-arguments constructor.
  */
 public class FactoryDescription {
-    public static List<Tool> getTools(Class<? extends Library> base,
-            FactoryDescription[] descriptions) {
+    public static List<Tool> getTools(Class<? extends Library> base, FactoryDescription[] descriptions) {
         Tool[] tools = new Tool[descriptions.length];
         for (int i = 0; i < tools.length; i++) {
             tools[i] = new AddTool(base, descriptions[i]);
@@ -29,35 +28,34 @@ public class FactoryDescription {
         return Arrays.asList(tools);
     }
 
-    private String name;
-    private String displayName;
+    private final String name;
+    private final String nameShort;
+    private final String displayName;
     private String iconName;
     private boolean iconLoadAttempted;
     private Icon icon;
-    private String factoryClassName;
+    private final String factoryClassName;
     private boolean factoryLoadAttempted;
     private ComponentFactory factory;
     private String toolTip;
 
-    public FactoryDescription(String name, String displayName,
-            String iconName, String factoryClassName) {
-        this(name, displayName, factoryClassName);
+    public FactoryDescription(String name, String nameShort, String displayName, String iconName, String factoryClassName) {
+        this(name, nameShort, displayName, factoryClassName);
         this.iconName = iconName;
         this.iconLoadAttempted = false;
         this.icon = null;
     }
 
-    public FactoryDescription(String name, String displayName,
-            Icon icon, String factoryClassName) {
-        this(name, displayName, factoryClassName);
+    public FactoryDescription(String name, String nameShort, String displayName, Icon icon, String factoryClassName) {
+        this(name, nameShort, displayName, factoryClassName);
         this.iconName = "???";
         this.iconLoadAttempted = true;
         this.icon = icon;
     }
 
-    public FactoryDescription(String name, String displayName,
-            String factoryClassName) {
+    public FactoryDescription(String name, String nameShort, String displayName, String factoryClassName) {
         this.name = name;
+        this.nameShort = nameShort;
         this.displayName = displayName;
         this.iconName = "???";
         this.iconLoadAttempted = true;
@@ -71,6 +69,8 @@ public class FactoryDescription {
     public String getName() {
         return name;
     }
+
+    public String getNameShort() { return nameShort; }
 
     public String getDisplayName() {
         return displayName.toString();

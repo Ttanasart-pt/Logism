@@ -25,7 +25,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 public class Led extends InstanceFactory {
     public Led() {
-        super("LED", getFromLocale("ledComponent"));
+        super("LED", "LED", getFromLocale("ledComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.FACING, Io.ATTR_ON_COLOR, Io.ATTR_OFF_COLOR,
                 Io.ATTR_ACTIVE,

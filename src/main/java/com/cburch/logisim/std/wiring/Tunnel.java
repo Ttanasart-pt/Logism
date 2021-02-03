@@ -34,7 +34,7 @@ public class Tunnel extends InstanceFactory {
     static final int ARROW_MAX_WIDTH = 20;
 
     public Tunnel() {
-        super("Tunnel", getFromLocale("tunnelComponent"));
+        super("Tunnel", "Tunnel", getFromLocale("tunnelComponent"));
         setIconName("tunnel.svg");
         setFacingAttribute(StdAttr.FACING);
         setKeyConfigurator(new BitWidthConfigurator(StdAttr.WIDTH));

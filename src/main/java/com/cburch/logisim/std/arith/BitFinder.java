@@ -23,20 +23,15 @@ import com.cburch.logisim.util.GraphicsUtil;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class BitFinder extends InstanceFactory {
-    static final AttributeOption LOW_ONE
-        = new AttributeOption("low1", getFromLocale("bitFinderLowOption", "1"));
-    static final AttributeOption HIGH_ONE
-    = new AttributeOption("high1", getFromLocale("bitFinderHighOption", "1"));
-    static final AttributeOption LOW_ZERO
-        = new AttributeOption("low0", getFromLocale("bitFinderLowOption", "0"));
-    static final AttributeOption HIGH_ZERO
-        = new AttributeOption("high0", getFromLocale("bitFinderHighOption", "0"));
-    static final Attribute<AttributeOption> TYPE
-        = Attributes.forOption("type", getFromLocale("bitFinderTypeAttr"),
+    static final AttributeOption LOW_ONE = new AttributeOption("low1", getFromLocale("bitFinderLowOption", "1"));
+    static final AttributeOption HIGH_ONE = new AttributeOption("high1", getFromLocale("bitFinderHighOption", "1"));
+    static final AttributeOption LOW_ZERO = new AttributeOption("low0", getFromLocale("bitFinderLowOption", "0"));
+    static final AttributeOption HIGH_ZERO = new AttributeOption("high0", getFromLocale("bitFinderHighOption", "0"));
+    static final Attribute<AttributeOption> TYPE = Attributes.forOption("type", getFromLocale("bitFinderTypeAttr"),
                 new AttributeOption[] { LOW_ONE, HIGH_ONE, LOW_ZERO, HIGH_ZERO });
 
     public BitFinder() {
-        super("BitFinder", getFromLocale("bitFinderComponent"));
+        super("BitFinder", "Bit find", getFromLocale("bitFinderComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.WIDTH, TYPE
             }, new Object[] {

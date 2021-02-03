@@ -32,9 +32,8 @@ public class Multiplier extends InstanceFactory {
     private static final int C_OUT = 4;
 
     public Multiplier() {
-        super("Multiplier", getFromLocale("multiplierComponent"));
-        setAttributes(new Attribute[] { StdAttr.WIDTH },
-                new Object[] { BitWidth.create(8) });
+        super("Multiplier", "Multiply", getFromLocale("multiplierComponent"));
+        setAttributes(new Attribute[] { StdAttr.WIDTH }, new Object[] { BitWidth.create(8) });
         setKeyConfigurator(new BitWidthConfigurator(StdAttr.WIDTH));
         setOffsetBounds(Bounds.create(-40, -20, 40, 40));
         setIconName("multiplier.svg");

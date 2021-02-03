@@ -21,9 +21,8 @@ public class Negator extends InstanceFactory {
     private static final int OUT   = 1;
 
     public Negator() {
-        super("Negator", getFromLocale("negatorComponent"));
-        setAttributes(new Attribute[] { StdAttr.WIDTH },
-                    new Object[] { BitWidth.create(8) });
+        super("Negator", "Negate", getFromLocale("negatorComponent"));
+        setAttributes(new Attribute[] { StdAttr.WIDTH }, new Object[] { BitWidth.create(8) });
         setKeyConfigurator(new BitWidthConfigurator(StdAttr.WIDTH));
         setOffsetBounds(Bounds.create(-40, -20, 40, 40));
         setIconName("negator.svg");

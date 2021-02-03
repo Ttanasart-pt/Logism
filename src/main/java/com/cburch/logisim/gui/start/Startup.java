@@ -3,34 +3,31 @@
 
 package com.cburch.logisim.gui.start;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.io.File;
-
-import javax.swing.UIManager;
-
-import com.formdev.flatlaf.FlatDarkLaf;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.cburch.logisim.Main;
 import com.cburch.logisim.file.LoadFailedException;
 import com.cburch.logisim.file.Loader;
 import com.cburch.logisim.gui.main.Print;
 import com.cburch.logisim.gui.menu.LogisimMenuBar;
 import com.cburch.logisim.gui.menu.WindowManagers;
-import com.cburch.logisim.gui.start.SplashScreen;
 import com.cburch.logisim.prefs.AppPreferences;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.proj.ProjectActions;
 import com.cburch.logisim.util.LocaleManager;
 import com.cburch.logisim.util.MacCompatibility;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import static com.cburch.logisim.util.LocaleString.*;
+import javax.swing.*;
+import java.io.File;
+import java.util.*;
+
+import static com.cburch.logisim.util.LocaleString.getFromLocale;
+import static com.cburch.logisim.util.LocaleString.getFromLocaleOptions;
+
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatIntelliJLaf;
 
 /**
  * A class to encapsulate the startup process
@@ -143,8 +140,7 @@ public class Startup {
                 TtyInterface.run(this);
                 return;
             } catch (Exception e) {
-                logger.error( "Logisim failed to start.\nException: "
-                    + e.getLocalizedMessage() );
+                logger.error( "Logisim failed to start.\nException: " + e.getLocalizedMessage() );
                 e.printStackTrace();
                 System.exit(-1);
             }
@@ -310,9 +306,14 @@ public class Startup {
         }
 
         try {
-            //UIManager.setLookAndFeel(AppPreferences.LOOK_AND_FEEL.get());
-            UIManager.setLookAndFeel(new FlatDarkLaf());
-        } catch (Exception ex) { }
+            switch (AppPreferences.LOOK_AND_FEEL.get()) {
+                case "Dark" -> UIManager.setLookAndFeel(new FlatDarkLaf());
+                case "Light" -> UIManager.setLookAndFeel(new FlatLightLaf());
+                case "Dracular" -> UIManager.setLookAndFeel(new FlatDarculaLaf());
+                case "Intellij" -> UIManager.setLookAndFeel(new FlatIntelliJLaf());
+            }
+
+        } catch (Exception ignored) { }
 
         // parse arguments
         for (int i = 0; i < args.length; i++) {
@@ -325,21 +326,15 @@ public class Startup {
                         //OK
                         logger.warn(getFromLocale("ttyFormatError"));
                     }
-                    for (int j = 0; j < fmts.length; j++) {
-                        String fmt = fmts[j].trim();
-                        if (fmt.equals("table")) {
-                            ret.ttyFormat |= TtyInterface.FORMAT_TABLE;
-                        } else if (fmt.equals("speed")) {
-                            ret.ttyFormat |= TtyInterface.FORMAT_SPEED;
-                        } else if (fmt.equals("tty")) {
-                            ret.ttyFormat |= TtyInterface.FORMAT_TTY;
-                        } else if (fmt.equals("halt")) {
-                            ret.ttyFormat |= TtyInterface.FORMAT_HALT;
-                        } else if (fmt.equals("stats")) {
-                            ret.ttyFormat |= TtyInterface.FORMAT_STATISTICS;
-                        } else {
-                            //OK
-                            System.err.println(getFromLocale("ttyFormatError"));
+                    for (String s : fmts) {
+                        String fmt = s.trim();
+                        switch (fmt) {
+                            case "table" -> ret.ttyFormat |= TtyInterface.FORMAT_TABLE;
+                            case "speed" -> ret.ttyFormat |= TtyInterface.FORMAT_SPEED;
+                            case "tty" -> ret.ttyFormat |= TtyInterface.FORMAT_TTY;
+                            case "halt" -> ret.ttyFormat |= TtyInterface.FORMAT_HALT;
+                            case "stats" -> ret.ttyFormat |= TtyInterface.FORMAT_STATISTICS;
+                            default -> System.err.println(getFromLocale("ttyFormatError"));
                         }
                     }
                 } else {

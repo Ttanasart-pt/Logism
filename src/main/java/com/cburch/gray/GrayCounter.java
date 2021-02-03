@@ -24,7 +24,7 @@ import com.cburch.logisim.util.StringUtil;
  * several additional features beyond the SimpleGrayCounter class. */
 class GrayCounter extends InstanceFactory {
     public GrayCounter() {
-        super("Gray Counter");
+        super("Gray Counter", "Grey", "Grey");
         setOffsetBounds(Bounds.create(-30, -15, 30, 30));
         setPorts(new Port[] {
                 new Port(-30, 0, Port.INPUT, 1),

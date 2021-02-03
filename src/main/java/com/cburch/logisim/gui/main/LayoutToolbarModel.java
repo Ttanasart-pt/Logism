@@ -28,10 +28,11 @@ import com.cburch.logisim.util.InputEventUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 class LayoutToolbarModel extends AbstractToolbarModel {
     private class ToolItem implements ToolbarItem {
-        private Tool tool;
+        private final Tool tool;
 
         ToolItem(Tool tool) {
             this.tool = tool;
@@ -47,8 +48,7 @@ class LayoutToolbarModel extends AbstractToolbarModel {
             // draw tool icon
             g.setColor(Color.BLACK);
             Graphics g_copy = g.create();
-            ComponentDrawContext c = new ComponentDrawContext(destination,
-                    null, null, g, g_copy);
+            ComponentDrawContext c = new ComponentDrawContext(destination, null, null, g, g_copy);
             tool.paintIcon(c, 2, 2);
             g_copy.dispose();
         }
@@ -61,7 +61,6 @@ class LayoutToolbarModel extends AbstractToolbarModel {
                 if (item == this) {
                     break;
                 }
-
                 if (item instanceof ToolItem) {
                     ++index;
                 }
@@ -72,12 +71,14 @@ class LayoutToolbarModel extends AbstractToolbarModel {
                     index = 0;
                 }
 
-                int mask = frame.getToolkit().getMenuShortcutKeyMask();
-                ret += " (" + InputEventUtil.toKeyDisplayString(mask)
-                    + "-" + index + ")";
+                int mask = frame.getToolkit().getMenuShortcutKeyMaskEx();
+                ret += " (" + InputEventUtil.toKeyDisplayString(mask) + "-" + index + ")";
             }
             return ret;
         }
+
+        @Override
+        public String getNameShort() { return tool.getNameShort(); }
 
         @Override
         public Dimension getDimension(Object orientation) {
@@ -90,8 +91,7 @@ class LayoutToolbarModel extends AbstractToolbarModel {
         }
     }
 
-    private class MyListener implements ProjectListener, AttributeListener,
-                ToolbarData.ToolbarListener, PropertyChangeListener {
+    private class MyListener implements ProjectListener, AttributeListener, ToolbarData.ToolbarListener, PropertyChangeListener {
         //
         // ProjectListener methods
         //
@@ -146,16 +146,15 @@ class LayoutToolbarModel extends AbstractToolbarModel {
         }
     }
 
-    private Frame frame;
-    private Project proj;
-    private MyListener myListener;
+    private final Frame frame;
+    private final Project proj;
     private List<ToolbarItem> items;
     private Tool haloedTool;
 
     public LayoutToolbarModel(Frame frame, Project proj) {
         this.frame = frame;
         this.proj = proj;
-        myListener = new MyListener();
+        MyListener myListener = new MyListener();
         items = Collections.emptyList();
         haloedTool = null;
         buildContents();
@@ -200,20 +199,14 @@ class LayoutToolbarModel extends AbstractToolbarModel {
 
     private void buildContents() {
         List<ToolbarItem> oldItems = items;
-        List<ToolbarItem> newItems = new ArrayList<ToolbarItem>();
-        int pos = -1;
+        List<ToolbarItem> newItems = new ArrayList<>();
         ToolbarData data = proj.getLogisimFile().getOptions().getToolbarData();
         for (Tool tool : data.getContents()) {
-            ++pos;
             if (tool == null) {
                 newItems.add(new ToolbarSeparator(2));
             } else {
                 ToolbarItem i = findItem(oldItems, tool);
-                if (i == null) {
-                    newItems.add(new ToolItem(tool));
-                } else {
-                    newItems.add(i);
-                }
+                newItems.add(Objects.requireNonNullElseGet(i, () -> new ToolItem(tool)));
             }
         }
         items = Collections.unmodifiableList(newItems);

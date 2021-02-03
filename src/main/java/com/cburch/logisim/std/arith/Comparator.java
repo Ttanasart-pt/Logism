@@ -21,12 +21,11 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 public class Comparator extends InstanceFactory {
     private static final AttributeOption SIGNED_OPTION
-        = new AttributeOption("twosComplement", "twosComplement", getFromLocale("twosComplementOption"));
+            = new AttributeOption("twosComplement", "twosComplement", getFromLocale("twosComplementOption"));
     private static final AttributeOption UNSIGNED_OPTION
-        = new AttributeOption("unsigned", "unsigned", getFromLocale("unsignedOption"));
+            = new AttributeOption("unsigned", "unsigned", getFromLocale("unsignedOption"));
     private static final Attribute<AttributeOption> MODE_ATTRIBUTE
-        = Attributes.forOption("mode", getFromLocale("comparatorType"),
-                new AttributeOption[] { SIGNED_OPTION, UNSIGNED_OPTION });
+            = Attributes.forOption("mode", getFromLocale("comparatorType"), new AttributeOption[] { SIGNED_OPTION, UNSIGNED_OPTION });
 
     private static final int IN0   = 0;
     private static final int IN1   = 1;
@@ -35,9 +34,8 @@ public class Comparator extends InstanceFactory {
     private static final int LT    = 4;
 
     public Comparator() {
-        super("Comparator", getFromLocale("comparatorComponent"));
-        setAttributes(new Attribute[] { StdAttr.WIDTH, MODE_ATTRIBUTE },
-                new Object[] { BitWidth.create(8), SIGNED_OPTION });
+        super("Comparator", "Compare", getFromLocale("comparatorComponent"));
+        setAttributes(new Attribute[] { StdAttr.WIDTH, MODE_ATTRIBUTE }, new Object[] { BitWidth.create(8), SIGNED_OPTION });
         setKeyConfigurator(new BitWidthConfigurator(StdAttr.WIDTH));
         setOffsetBounds(Bounds.create(-40, -20, 40, 40));
         setIconName("comparator.svg");

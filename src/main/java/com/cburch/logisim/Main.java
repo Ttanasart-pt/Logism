@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
  * @author Carl Burch
  */
 public class Main {
-    public static final LogisimVersion VERSION = LogisimVersion.get(2, 7, 2);
+    public static final LogisimVersion VERSION = LogisimVersion.get(3, 0, 0);
     public static final String VERSION_NAME = VERSION.toString();
     public static final int COPYRIGHT_YEAR = 2020;
 

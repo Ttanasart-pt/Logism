@@ -82,7 +82,7 @@ public class SubcircuitFactory extends InstanceFactory {
     private Circuit source;
 
     public SubcircuitFactory(Circuit source) {
-        super("", null);
+        super("",  "",null);
         this.source = source;
         setFacingAttribute(StdAttr.FACING);
         setDefaultToolTip(null);

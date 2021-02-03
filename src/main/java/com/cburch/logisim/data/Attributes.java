@@ -473,8 +473,7 @@ public class Attributes {
         }
     }
 
-    private static class ColorChooser extends ColorPicker
-            implements JInputComponent {
+    private static class ColorChooser extends ColorPicker implements JInputComponent {
         ColorChooser(Color initial) {
             if (initial != null) {
                 setColor(initial);

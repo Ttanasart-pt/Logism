@@ -29,7 +29,7 @@ public class Joystick extends InstanceFactory {
             getFromLocale("ioBitWidthAttr"), 2, 5);
 
     public Joystick() {
-        super("Joystick", getFromLocale("joystickComponent"));
+        super("Joystick", "Joy", getFromLocale("joystickComponent"));
         setAttributes(new Attribute[] { ATTR_WIDTH, Io.ATTR_COLOR },
                 new Object[] { BitWidth.create(4), Color.RED });
         setKeyConfigurator(new BitWidthConfigurator(ATTR_WIDTH, 2, 5));

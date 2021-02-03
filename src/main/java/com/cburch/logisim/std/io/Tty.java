@@ -45,7 +45,7 @@ public class Tty extends InstanceFactory {
             getFromLocale("ttyRowsAttr"), 1, 48);
 
     public Tty() {
-        super("TTY", getFromLocale("ttyComponent"));
+        super("TTY", "TTY", getFromLocale("ttyComponent"));
         setAttributes(new Attribute[] {
                 ATTR_ROWS, ATTR_COLUMNS, StdAttr.EDGE_TRIGGER,
                 Io.ATTR_COLOR, Io.ATTR_BACKGROUND

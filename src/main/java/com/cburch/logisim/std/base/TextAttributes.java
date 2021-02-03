@@ -15,9 +15,7 @@ import com.cburch.logisim.instance.StdAttr;
 
 class TextAttributes extends AbstractAttributeSet {
     private static final List<Attribute<?>> ATTRIBUTES
-        = Arrays.asList(new Attribute<?>[] {
-            Text.ATTR_TEXT, Text.ATTR_FONT, Text.ATTR_HALIGN, Text.ATTR_VALIGN
-        });
+        = Arrays.asList(Text.ATTR_TEXT, Text.ATTR_FONT, Text.ATTR_HALIGN, Text.ATTR_VALIGN);
 
     private String text;
     private Font font;
@@ -42,11 +40,11 @@ class TextAttributes extends AbstractAttributeSet {
     }
 
     int getHorizontalAlign() {
-        return ((Integer) halign.getValue()).intValue();
+        return (Integer) halign.getValue();
     }
 
     int getVerticalAlign() {
-        return ((Integer) valign.getValue()).intValue();
+        return (Integer) valign.getValue();
     }
 
     Bounds getOffsetBounds() {

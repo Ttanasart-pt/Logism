@@ -83,6 +83,9 @@ public class WiringTool extends Tool {
     }
 
     @Override
+    public String getNameShort() { return "Wire"; }
+
+    @Override
     public String getDisplayName() {
         return getFromLocale("wiringTool");
     }

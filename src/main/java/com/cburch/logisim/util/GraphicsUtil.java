@@ -23,7 +23,7 @@ public class GraphicsUtil {
     static public void switchToWidth(Graphics g, int width) {
         if (g instanceof Graphics2D) {
             Graphics2D g2 = (Graphics2D) g;
-            g2.setStroke(new BasicStroke((float)width / 2f));
+            g2.setStroke(new BasicStroke((float)width / 3f));
         }
     }
 
@@ -94,7 +94,6 @@ public class GraphicsUtil {
         }
 
         Rectangle bd = getTextBounds(g, text, x, y, halign, valign);
-        g.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 10));
         g.drawString(text, bd.x, bd.y + g.getFontMetrics().getAscent());
     }
     static public void drawCenteredText(Graphics g, String text, int x, int y) {
@@ -104,10 +103,8 @@ public class GraphicsUtil {
     static public void drawArrow(Graphics g, int x0, int y0, int x1, int y1, int headLength, int headAngle) {
         double offs = headAngle * Math.PI / 180.0;
         double angle = Math.atan2(y0 - y1, x0 - x1);
-        int[] xs = { x1 + (int) (headLength * Math.cos(angle + offs)), x1,
-            x1 + (int) (headLength * Math.cos(angle - offs)) };
-        int[] ys = { y1 + (int) (headLength * Math.sin(angle + offs)), y1,
-            y1 + (int) (headLength * Math.sin(angle - offs)) };
+        int[] xs = { x1 + (int) (headLength * Math.cos(angle + offs)), x1, x1 + (int) (headLength * Math.cos(angle - offs)) };
+        int[] ys = { y1 + (int) (headLength * Math.sin(angle + offs)), y1, y1 + (int) (headLength * Math.sin(angle - offs)) };
         g.drawLine(x0, y0, x1, y1);
         g.drawPolyline(xs, ys, 3);
     }

@@ -42,7 +42,7 @@ public class BitExtender extends InstanceFactory {
     public static final BitExtender FACTORY = new BitExtender();
 
     public BitExtender() {
-        super("Bit Extender", getFromLocale("extenderComponent"));
+        super("Bit Extender", "Extend", getFromLocale("extenderComponent"));
         setIconName("extender.svg");
         setAttributes(new Attribute[] {
                 ATTR_IN_WIDTH, ATTR_OUT_WIDTH, ATTR_TYPE

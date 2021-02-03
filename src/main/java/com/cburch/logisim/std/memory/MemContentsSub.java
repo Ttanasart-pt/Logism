@@ -10,17 +10,12 @@ class MemContentsSub {
 
     static ContentsInterface createContents(int size, int bits) {
         if (bits <= 8) {
-                  return new ByteContents(size);
-        }
-
-        else if (bits <= 16) {
+            return new ByteContents(size);
+        } else if (bits <= 16) {
             return new ShortContents(size);
+        } else {
+            return new IntContents(size);
         }
-
-        else {
-                           return new IntContents(size);
-        }
-
     }
 
     static abstract class ContentsInterface implements Cloneable {
@@ -43,7 +38,6 @@ class MemContentsSub {
                 if (get(start + i) != (values[i] & mask)) {
                     return false;
                 }
-
             }
             return true;
         }
@@ -59,7 +53,6 @@ class MemContentsSub {
                 if (get(i) != 0) {
                     return false;
                 }
-
             }
             return true;
         }

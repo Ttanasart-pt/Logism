@@ -32,6 +32,7 @@ public abstract class AbstractTool extends CanvasTool {
     public abstract Icon getIcon();
     public abstract List<Attribute<?>> getAttributes();
     public String getDescription() { return null; }
+    public String getName() { return null; }
 
     //
     // CanvasTool methods

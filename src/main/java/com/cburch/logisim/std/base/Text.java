@@ -52,7 +52,7 @@ public class Text extends InstanceFactory {
     public static final Text FACTORY = new Text();
 
     private Text() {
-        super("Text", getFromLocale("textComponent"));
+        super("Text", "Text", getFromLocale("textComponent"));
         setIconName("text.svg");
         setShouldSnap(false);
     }

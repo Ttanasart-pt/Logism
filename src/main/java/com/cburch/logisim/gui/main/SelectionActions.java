@@ -418,8 +418,7 @@ public class SelectionActions {
         return replMap;
     }
 
-    private static ComponentFactory findComponentFactory(ComponentFactory factory,
-            ArrayList<Library> libs, boolean acceptNameMatch) {
+    private static ComponentFactory findComponentFactory(ComponentFactory factory, ArrayList<Library> libs, boolean acceptNameMatch) {
         String name = factory.getName();
         for (Library lib : libs) {
             for (Tool tool : lib.getTools()) {

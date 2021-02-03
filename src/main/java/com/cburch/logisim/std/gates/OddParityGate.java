@@ -21,7 +21,7 @@ class OddParityGate extends AbstractGate {
     public static OddParityGate FACTORY = new OddParityGate();
 
     private OddParityGate() {
-        super("Odd Parity", getFromLocale("oddParityComponent"));
+        super("Odd Parity", "Odd", getFromLocale("oddParityComponent"));
         setRectangularLabel("2k+1");
         setIconNames("parityOddGate.svg");
     }

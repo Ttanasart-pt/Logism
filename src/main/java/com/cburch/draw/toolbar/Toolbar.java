@@ -3,10 +3,12 @@
 
 package com.cburch.draw.toolbar;
 
-import java.awt.*;
+import com.cburch.draw.util.ColorRegistry;
+import com.cburch.logisim.util.GraphicsUtil;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
+import java.awt.*;
+import java.util.ArrayList;
+
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
@@ -27,16 +29,26 @@ public class Toolbar extends JPanel {
     }
 
     private ToolbarModel model;
-    private Object orientation;
+    private final Object orientation;
     public final MyListener myListener;
     private ToolbarButton curPressed;
+    private boolean showLabel = false;
+    private final ArrayList<ToolbarButton> buttonList;
 
+    public Toolbar(ToolbarModel model, boolean showLabel) {
+        this(model);
+        this.showLabel = showLabel;
+
+        computeContents();
+    }
     public Toolbar(ToolbarModel model) {
-        super(new FlowLayout());
+        super(new GridBagLayout());
         this.model = model;
         this.orientation = HORIZONTAL;
         this.myListener = new MyListener();
         this.curPressed = null;
+
+        buttonList = new ArrayList<>();
 
         computeContents();
         if (model != null) {
@@ -65,11 +77,19 @@ public class Toolbar extends JPanel {
     }
 
     private void computeContents() {
+        buttonList.clear();
+        GridBagConstraints constraints = new GridBagConstraints();
+        if(showLabel)
+            constraints.insets = new Insets(0, 2, 10, 2);
+        else
+            constraints.insets = new Insets(4, 2, 4, 2);
         removeAll();
         ToolbarModel m = model;
         if (m != null) {
             for (ToolbarItem item : m.getItems()) {
-                add(new ToolbarButton(this, item));
+                ToolbarButton button = new ToolbarButton(this, item, showLabel);
+                buttonList.add(button);
+                add(button, constraints);
             }
         }
         revalidate();
@@ -96,5 +116,28 @@ public class Toolbar extends JPanel {
 
     Object getOrientation() {
         return orientation;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if(showLabel) {
+            ToolbarModel m = model;
+            if (m != null) {
+                for (ToolbarButton button : buttonList) {
+                    ToolbarItem item = button.getItem();
+                    if(item.isSeperator()) continue;
+                    String label = item.getNameShort();
+                    if(label == null) continue;
+
+                    FontMetrics metrics = g.getFontMetrics();
+                    int x = button.getX() + button.getWidth() / 2 - metrics.stringWidth(label) / 2 - 1;
+                    int y = button.getY() + button.getHeight() + 12;
+
+                    g.setColor(ColorRegistry.GreyBright);
+                    g.drawString(label, x, y);
+                }
+            }
+        }
     }
 }

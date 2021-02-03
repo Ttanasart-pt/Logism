@@ -37,6 +37,9 @@ public class SplitterFactory extends AbstractComponentFactory {
     public String getName() { return "Splitter"; }
 
     @Override
+    public String getNameShort() { return "Split"; }
+
+    @Override
     public String getDisplayGetter() {
         return getFromLocale("splitterComponent");
     }

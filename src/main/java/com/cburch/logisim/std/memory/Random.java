@@ -25,8 +25,7 @@ import com.cburch.logisim.util.StringUtil;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class Random extends InstanceFactory {
-    private static final Attribute<Integer> ATTR_SEED
-        = Attributes.forInteger("seed", getFromLocale("randomSeedAttr"));
+    private static final Attribute<Integer> ATTR_SEED = Attributes.forInteger("seed", getFromLocale("randomSeedAttr"));
 
     private static final int OUT = 0;
     private static final int CK  = 1;
@@ -34,12 +33,12 @@ public class Random extends InstanceFactory {
     private static final int RST = 3;
 
     public Random() {
-        super("Random", getFromLocale("randomComponent"));
+        super("Random", "Random", getFromLocale("randomComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.WIDTH, ATTR_SEED, StdAttr.EDGE_TRIGGER,
                 StdAttr.LABEL, StdAttr.LABEL_FONT
             }, new Object[] {
-                BitWidth.create(8), Integer.valueOf(0), StdAttr.TRIG_RISING,
+                BitWidth.create(8), 0, StdAttr.TRIG_RISING,
                 "", StdAttr.DEFAULT_LABEL_FONT
             });
         setKeyConfigurator(new BitWidthConfigurator(StdAttr.WIDTH));

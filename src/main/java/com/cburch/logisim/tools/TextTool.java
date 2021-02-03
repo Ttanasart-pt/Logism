@@ -143,6 +143,9 @@ public class TextTool extends Tool {
     }
 
     @Override
+    public String getNameShort() { return "Text"; }
+
+    @Override
     public String getDisplayName() {
         return getFromLocale("textTool");
     }

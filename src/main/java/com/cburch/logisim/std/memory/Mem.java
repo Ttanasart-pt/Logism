@@ -56,8 +56,8 @@ abstract class Mem extends InstanceFactory {
 
     private WeakHashMap<Instance,File> currentInstanceFiles;
 
-    Mem(String name, String desc, int extraPorts) {
-        super(name, desc);
+    Mem(String name, String nameShort, String desc, int extraPorts) {
+        super(name, nameShort, desc);
         currentInstanceFiles = new WeakHashMap<Instance,File>();
         setInstancePoker(MemPoker.class);
         setKeyConfigurator(JoinedConfigurator.create(

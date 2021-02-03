@@ -37,7 +37,7 @@ public class Rom extends Mem {
     private WeakHashMap<Instance,MemListener> memListeners;
 
     public Rom() {
-        super("ROM", getFromLocale("romComponent"), 0);
+        super("ROM", "ROM", getFromLocale("romComponent"), 0);
         setIconName("rom.svg");
         memListeners = new WeakHashMap<Instance,MemListener>();
     }

@@ -27,8 +27,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 @SuppressWarnings("serial")
 public class MenuTool extends Tool {
-    private class MenuComponent extends JPopupMenu
-            implements ActionListener {
+    private class MenuComponent extends JPopupMenu implements ActionListener {
         Project proj;
         Circuit circ;
         Component comp;
@@ -105,6 +104,9 @@ public class MenuTool extends Tool {
 
     @Override
     public String getName() { return "Menu Tool"; }
+
+    @Override
+    public String getNameShort() { return "Menu"; }
 
     @Override
     public String getDisplayName() { return getFromLocale("menuTool"); }

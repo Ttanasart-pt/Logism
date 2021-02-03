@@ -29,11 +29,11 @@ public class BitAdder extends InstanceFactory {
         = Attributes.forIntegerRange("inputs", getFromLocale("gateInputsAttr"), 1, 32);
 
     public BitAdder() {
-        super("BitAdder", getFromLocale("bitAdderComponent"));
+        super("BitAdder", "Bit add", getFromLocale("bitAdderComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.WIDTH, NUM_INPUTS
             }, new Object[] {
-                BitWidth.create(8), Integer.valueOf(1)
+                BitWidth.create(8), 1
             });
         setKeyConfigurator(JoinedConfigurator.create(
                 new IntegerConfigurator(NUM_INPUTS, 1, 32, 0),
@@ -43,7 +43,7 @@ public class BitAdder extends InstanceFactory {
 
     @Override
     public Bounds getOffsetBounds(AttributeSet attrs) {
-        int inputs = attrs.getValue(NUM_INPUTS).intValue();
+        int inputs = attrs.getValue(NUM_INPUTS);
         int h = Math.max(40, 10 * inputs);
         int y = inputs < 4 ? 20 : (((inputs - 1) / 2) * 10 + 5);
         return Bounds.create(-40, -y, 40, h);
@@ -67,16 +67,19 @@ public class BitAdder extends InstanceFactory {
 
     private void configurePorts(Instance instance) {
         BitWidth inWidth = instance.getAttributeValue(StdAttr.WIDTH);
-        int inputs = instance.getAttributeValue(NUM_INPUTS).intValue();
+        int inputs = instance.getAttributeValue(NUM_INPUTS);
         int outWidth = computeOutputBits(inWidth.getWidth(), inputs);
 
         int y;
         int dy = 10;
         switch (inputs) {
-        case 1: y = 0; break;
-        case 2: y = -10; dy = 20; break;
-        case 3: y = -10; break;
-        default: y = ((inputs - 1) / 2) * -10;
+            case 1 -> y = 0;
+            case 2 -> {
+                y = -10;
+                dy = 20;
+            }
+            case 3 -> y = -10;
+            default -> y = ((inputs - 1) / 2) * -10;
         }
 
         Port[] ps = new Port[inputs + 1];
@@ -99,7 +102,7 @@ public class BitAdder extends InstanceFactory {
     @Override
     public void propagate(InstanceState state) {
         int width = state.getAttributeValue(StdAttr.WIDTH).getWidth();
-        int inputs = state.getAttributeValue(NUM_INPUTS).intValue();
+        int inputs = state.getAttributeValue(NUM_INPUTS);
 
         // compute the number of 1 bits
         // number that are definitely 1

@@ -12,14 +12,12 @@ import javax.swing.JCheckBox;
 
 import com.cburch.logisim.prefs.PrefMonitor;
 
-@SuppressWarnings("serial")
-class PrefBoolean extends JCheckBox
-        implements ActionListener, PropertyChangeListener {
-    private PrefMonitor<Boolean> pref;
-    private String title;
+class PrefBoolean extends JCheckBox implements ActionListener, PropertyChangeListener {
+    private final PrefMonitor<Boolean> pref;
+    private final String title;
 
     PrefBoolean(PrefMonitor<Boolean> pref, String title) {
-        super(title.toString());
+        super(title);
         this.pref = pref;
         this.title = title;
 

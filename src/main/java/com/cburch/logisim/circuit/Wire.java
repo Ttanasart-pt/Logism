@@ -131,8 +131,7 @@ public final class Wire implements Component, AttributeSet, CustomHandles, Itera
     public Bounds getBounds() {
         int x0 = e0.getX();
         int y0 = e0.getY();
-        return Bounds.create(x0 - 2, y0 - 2,
-            e1.getX() - x0 + 5, e1.getY() - y0 + 5);
+        return Bounds.create(x0 - 2, y0 - 2, e1.getX() - x0 + 5, e1.getY() - y0 + 5);
     }
 
     @Override

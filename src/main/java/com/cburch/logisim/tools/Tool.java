@@ -21,10 +21,10 @@ import com.cburch.logisim.gui.main.Canvas;
 // DRAWING TOOLS
 //
 public abstract class Tool implements AttributeDefaultProvider {
-    private static Cursor dflt_cursor
-        = Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
+    private static final Cursor dflt_cursor = Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
 
     public abstract String getName();
+    public abstract String getNameShort();
     public abstract String getDisplayName();
     public abstract String getDescription();
     public Tool cloneTool() { return this; }

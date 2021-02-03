@@ -41,13 +41,11 @@ public class Keyboard extends InstanceFactory {
     private static final char FORM_FEED = '\u000c';
 
     private static final Attribute<Integer> ATTR_BUFFER
-        = Attributes.forIntegerRange("buflen",
-                getFromLocale("keybBufferLengthAttr"), 1, 256);
+        = Attributes.forIntegerRange("buflen", getFromLocale("keybBufferLengthAttr"), 1, 256);
 
     public Keyboard() {
-        super("Keyboard", getFromLocale("keyboardComponent"));
-        setAttributes(new Attribute[] { ATTR_BUFFER, StdAttr.EDGE_TRIGGER },
-                new Object[] { Integer.valueOf(32), StdAttr.TRIG_RISING });
+        super("Keyboard", "Keyboard", getFromLocale("keyboardComponent"));
+        setAttributes(new Attribute[] { ATTR_BUFFER, StdAttr.EDGE_TRIGGER }, new Object[] { 32, StdAttr.TRIG_RISING });
         setOffsetBounds(Bounds.create(0, -15, WIDTH, HEIGHT));
         setIconName("keyboard.svg");
         setInstancePoker(Poker.class);
@@ -111,14 +109,14 @@ public class Keyboard extends InstanceFactory {
             String str;
             int dispStart;
             int dispEnd;
-            ArrayList<Integer> specials = new ArrayList<Integer>();
+            ArrayList<Integer> specials = new ArrayList<>();
             FontMetrics fm = null;
             KeyboardData state = getKeyboardState(painter);
             synchronized(state) {
                 str = state.toString();
                 for (int i = state.getNextSpecial(0); i >= 0; i = state.getNextSpecial(i + 1)) {
                     char c = state.getChar(i);
-                    specials.add(Integer.valueOf(c << 16 | i));
+                    specials.add(c << 16 | i);
                 }
                 if (!state.isDisplayValid()) {
                     fm = g.getFontMetrics(DEFAULT_FONT);
@@ -152,8 +150,7 @@ public class Keyboard extends InstanceFactory {
         if (5 * r + 3 * d <= width) g.fillOval(x + 3 * r + 2 * d, y - d, d, d);
     }
 
-    private void drawBuffer(Graphics g, FontMetrics fm, String str,
-            int dispStart, int dispEnd, ArrayList<Integer> specials, Bounds bds) {
+    private void drawBuffer(Graphics g, FontMetrics fm, String str, int dispStart, int dispEnd, ArrayList<Integer> specials, Bounds bds) {
         int x = bds.getX();
         int y = bds.getY();
 
@@ -184,18 +181,16 @@ public class Keyboard extends InstanceFactory {
         }
 
         if (specials.size() > 0) {
-            drawSpecials(specials, x0, xs, ys, asc, g, fm,
-                    str, dispStart, dispEnd);
+            drawSpecials(specials, x0, xs, ys, asc, g, fm, str, dispStart, dispEnd);
         }
     }
 
     private void drawSpecials(ArrayList<Integer> specials, int x0, int xs, int ys,
-            int asc, Graphics g, FontMetrics fm,
-            String str, int dispStart, int dispEnd) {
+            int asc, Graphics g, FontMetrics fm, String str, int dispStart, int dispEnd) {
         int[] px = new int[3];
         int[] py = new int[3];
         for (Integer special : specials) {
-            int code = special.intValue();
+            int code = special;
             int pos = code & 0xFF;
             int w0;
             int w1;
@@ -237,7 +232,7 @@ public class Keyboard extends InstanceFactory {
     }
 
     private static int getBufferLength(Object bufferAttr) {
-        if (bufferAttr instanceof Integer) return ((Integer) bufferAttr).intValue();
+        if (bufferAttr instanceof Integer) return (Integer) bufferAttr;
         else {
             return 32;
         }
@@ -258,8 +253,8 @@ public class Keyboard extends InstanceFactory {
 
     public static void addToBuffer(InstanceState state, char[] newChars) {
         KeyboardData keyboardData = getKeyboardState(state);
-        for (int i = 0; i < newChars.length; i++) {
-            keyboardData.insert(newChars[i]);
+        for (char newChar : newChars) {
+            keyboardData.insert(newChar);
         }
     }
 
@@ -271,12 +266,12 @@ public class Keyboard extends InstanceFactory {
             boolean used = true;
             synchronized(data) {
                 switch (e.getKeyCode()) {
-                case KeyEvent.VK_DELETE: changed = data.delete(); break;
-                case KeyEvent.VK_LEFT:   data.moveCursorBy(-1); break;
-                case KeyEvent.VK_RIGHT:  data.moveCursorBy(1); break;
-                case KeyEvent.VK_HOME:   data.setCursor(0); break;
-                case KeyEvent.VK_END:    data.setCursor(Integer.MAX_VALUE); break;
-                default: used = false;
+                    case KeyEvent.VK_DELETE -> changed = data.delete();
+                    case KeyEvent.VK_LEFT -> data.moveCursorBy(-1);
+                    case KeyEvent.VK_RIGHT -> data.moveCursorBy(1);
+                    case KeyEvent.VK_HOME -> data.setCursor(0);
+                    case KeyEvent.VK_END -> data.setCursor(Integer.MAX_VALUE);
+                    default -> used = false;
                 }
             }
             if (used) e.consume();

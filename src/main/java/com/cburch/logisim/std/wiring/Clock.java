@@ -95,7 +95,7 @@ public class Clock extends InstanceFactory {
     }
 
     public Clock() {
-        super("Clock", getFromLocale("clockComponent"));
+        super("Clock", "CLK", getFromLocale("clockComponent"));
         setAttributes(new Attribute[] {
                     StdAttr.FACING, ATTR_HIGH, ATTR_LOW,
                     StdAttr.LABEL, Pin.ATTR_LABEL_LOC, StdAttr.LABEL_FONT

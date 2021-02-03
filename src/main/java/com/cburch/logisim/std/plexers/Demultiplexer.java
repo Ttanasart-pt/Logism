@@ -28,7 +28,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 public class Demultiplexer extends InstanceFactory {
     public Demultiplexer() {
-        super("Demultiplexer", getFromLocale("demultiplexerComponent"));
+        super("Demultiplexer", "DeMUX", getFromLocale("demultiplexerComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.FACING, Plexers.ATTR_SELECT_LOC, Plexers.ATTR_SELECT, StdAttr.WIDTH,
                 Plexers.ATTR_TRISTATE, Plexers.ATTR_DISABLED, Plexers.ATTR_ENABLE

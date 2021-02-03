@@ -40,20 +40,20 @@ import com.cburch.logisim.util.GraphicsUtil;
 import com.cburch.logisim.util.Icons;
 
 abstract class AbstractGate extends InstanceFactory {
-    private String[] iconNames = new String[3];
-    private SVGIcon[] icons = new SVGIcon[3];
+    private final String[] iconNames = new String[3];
+    private final SVGIcon[] icons = new SVGIcon[3];
     private int bonusWidth = 0;
     private boolean negateOutput = false;
     private boolean isXor = false;
     private String rectLabel = "";
     private boolean paintInputLines;
 
-    protected AbstractGate(String name, String desc) {
-        this(name, desc, false);
+    protected AbstractGate(String name, String nameShort, String desc) {
+        this(name, nameShort, desc, false);
     }
 
-    protected AbstractGate(String name, String desc, boolean isXor) {
-        super(name, desc);
+    protected AbstractGate(String name, String nameShort, String desc, boolean isXor) {
+        super(name, nameShort, desc);
         this.isXor = isXor;
         setFacingAttribute(StdAttr.FACING);
         setKeyConfigurator(JoinedConfigurator.create(
@@ -80,7 +80,7 @@ abstract class AbstractGate extends InstanceFactory {
     public Bounds getOffsetBounds(AttributeSet attrsBase) {
         GateAttributes attrs = (GateAttributes) attrsBase;
         Direction facing = attrs.facing;
-        int size = ((Integer) attrs.size.getValue()).intValue();
+        int size = (Integer) attrs.size.getValue();
         int inputs = attrs.inputs;
         if (inputs % 2 == 0) {
             inputs++;
@@ -525,7 +525,7 @@ abstract class AbstractGate extends InstanceFactory {
     Location getInputOffset(GateAttributes attrs, int index) {
         int inputs = attrs.inputs;
         Direction facing = attrs.facing;
-        int size = ((Integer) attrs.size.getValue()).intValue();
+        int size = (Integer) attrs.size.getValue();
         int axisLength = size + bonusWidth + (negateOutput ? 10 : 0);
         int negated = attrs.negated;
 

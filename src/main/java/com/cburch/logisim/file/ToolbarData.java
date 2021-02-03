@@ -20,14 +20,14 @@ public class ToolbarData {
         public void toolbarChanged();
     }
 
-    private EventSourceWeakSupport<ToolbarListener> listeners;
-    private EventSourceWeakSupport<AttributeListener> toolListeners;
-    private ArrayList<Tool> contents;
+    private final EventSourceWeakSupport<ToolbarListener> listeners;
+    private final EventSourceWeakSupport<AttributeListener> toolListeners;
+    private final ArrayList<Tool> contents;
 
     public ToolbarData() {
-        listeners = new EventSourceWeakSupport<ToolbarListener>();
-        toolListeners = new EventSourceWeakSupport<AttributeListener>();
-        contents = new ArrayList<Tool>();
+        listeners = new EventSourceWeakSupport<>();
+        toolListeners = new EventSourceWeakSupport<>();
+        contents = new ArrayList<>();
     }
 
     //

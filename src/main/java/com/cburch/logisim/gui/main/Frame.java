@@ -3,75 +3,44 @@
 
 package com.cburch.logisim.gui.main;
 
-import static com.cburch.logisim.util.LocaleString.getFromLocale;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.IllegalComponentStateException;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.plaf.SplitPaneUI;
-
 import com.cburch.draw.toolbar.FrameToolbar;
-import com.cburch.logisim.file.FileStatistics;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.cburch.draw.toolbar.Toolbar;
-import com.cburch.draw.toolbar.ToolbarModel;
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.CircuitEvent;
 import com.cburch.logisim.circuit.CircuitListener;
 import com.cburch.logisim.comp.Component;
 import com.cburch.logisim.data.AttributeEvent;
 import com.cburch.logisim.data.AttributeSet;
-import com.cburch.logisim.data.Direction;
 import com.cburch.logisim.file.LibraryEvent;
 import com.cburch.logisim.file.LibraryListener;
 import com.cburch.logisim.gui.appear.AppearanceView;
-import com.cburch.logisim.gui.generic.AttrTable;
-import com.cburch.logisim.gui.generic.AttrTableModel;
-import com.cburch.logisim.gui.generic.BasicZoomModel;
-import com.cburch.logisim.gui.generic.CanvasPane;
-import com.cburch.logisim.gui.generic.CardPanel;
-import com.cburch.logisim.gui.generic.LFrame;
-import com.cburch.logisim.gui.generic.ZoomControl;
-import com.cburch.logisim.gui.generic.ZoomModel;
+import com.cburch.logisim.gui.generic.*;
 import com.cburch.logisim.gui.menu.LogisimMenuBar;
 import com.cburch.logisim.prefs.AppPreferences;
-import com.cburch.logisim.proj.Project;
-import com.cburch.logisim.proj.ProjectActions;
-import com.cburch.logisim.proj.ProjectEvent;
-import com.cburch.logisim.proj.ProjectListener;
-import com.cburch.logisim.proj.Projects;
+import com.cburch.logisim.proj.*;
 import com.cburch.logisim.tools.Tool;
-import com.cburch.logisim.util.HorizontalSplitPane;
 import com.cburch.logisim.util.JFileChoosers;
 import com.cburch.logisim.util.LocaleListener;
 import com.cburch.logisim.util.LocaleManager;
-import com.cburch.logisim.util.VerticalSplitPane;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import static com.cburch.logisim.util.LocaleString.getFromLocale;
 
 @SuppressWarnings("serial")
 public class Frame extends LFrame implements LocaleListener {
+    public static Frame This = null;
     public static final String EDITOR_VIEW = "editorView";
     public static final String EXPLORER_VIEW = "explorerView";
     public static final String EDIT_LAYOUT = "layout";
@@ -200,6 +169,7 @@ public class Frame extends LFrame implements LocaleListener {
 
     public Frame(Project proj) {
         this.proj = proj;
+        This = this;
 
         setBackground(Color.white);
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);

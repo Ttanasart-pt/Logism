@@ -11,27 +11,17 @@ import com.cburch.logisim.tools.Tool;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class Arithmetic extends Library {
-    private static FactoryDescription[] DESCRIPTIONS = {
-        new FactoryDescription("Adder", getFromLocale("adderComponent"),
-                "adder.svg", "Adder"),
-        new FactoryDescription("Subtractor", getFromLocale("subtractorComponent"),
-                "subtractor.svg", "Subtractor"),
-        new FactoryDescription("Multiplier", getFromLocale("multiplierComponent"),
-                "multiplier.svg", "Multiplier"),
-        new FactoryDescription("Divider", getFromLocale("dividerComponent"),
-                "divider.svg", "Divider"),
-        new FactoryDescription("Negator", getFromLocale("negatorComponent"),
-                "negator.svg", "Negator"),
-        new FactoryDescription("Comparator", getFromLocale("comparatorComponent"),
-                "comparator.svg", "Comparator"),
-        new FactoryDescription("Shifter", getFromLocale("shifterComponent"),
-                "shifter.svg", "Shifter"),
-        new FactoryDescription("BitAdder", getFromLocale("bitAdderComponent"),
-                "bitadder.svg", "BitAdder"),
-        new FactoryDescription("BitFinder", getFromLocale("bitFinderComponent"),
-                "bitfindr.svg", "BitFinder"),
-        new FactoryDescription("Pow", getFromLocale("powComponent"),
-                "pow.svg", "Pow"),
+    private static final FactoryDescription[] DESCRIPTIONS = {
+        new FactoryDescription("Adder", "Add", getFromLocale("adderComponent"), "adder.svg", "Adder"),
+        new FactoryDescription("Subtractor", "Substract", getFromLocale("subtractorComponent"), "subtractor.svg", "Subtractor"),
+        new FactoryDescription("Multiplier", "Multiply", getFromLocale("multiplierComponent"), "multiplier.svg", "Multiplier"),
+        new FactoryDescription("Divider", "Divider", getFromLocale("dividerComponent"), "divider.svg", "Divider"),
+        new FactoryDescription("Negator", "Negate", getFromLocale("negatorComponent"), "negator.svg", "Negator"),
+        new FactoryDescription("Comparator", "Compare", getFromLocale("comparatorComponent"), "comparator.svg", "Comparator"),
+        new FactoryDescription("Shifter", "Shift", getFromLocale("shifterComponent"), "shifter.svg", "Shifter"),
+        new FactoryDescription("BitAdder", "bAdd", getFromLocale("bitAdderComponent"), "bitadder.svg", "BitAdder"),
+        new FactoryDescription("BitFinder", "bFind", getFromLocale("bitFinderComponent"), "bitfindr.svg", "BitFinder"),
+        new FactoryDescription("Pow", "Pow", getFromLocale("powComponent"), "pow.svg", "Pow"),
     };
 
     private List<Tool> tools = null;

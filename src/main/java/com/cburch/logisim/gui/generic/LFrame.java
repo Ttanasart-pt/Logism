@@ -16,7 +16,6 @@ import javax.swing.JFrame;
 
 import com.cburch.logisim.util.WindowClosable;
 
-@SuppressWarnings("serial")
 public class LFrame extends JFrame implements WindowClosable {
     private static final String PATH = "logisim/img/logisim-icon-";
     private static final int[] SIZES = { 16, 20, 24, 48, 64, 128 };
@@ -26,7 +25,7 @@ public class LFrame extends JFrame implements WindowClosable {
 
     public static void attachIcon(Window frame) {
         if (ICONS == null) {
-            List<Image> loadedIcons = new ArrayList<Image>();
+            List<Image> loadedIcons = new ArrayList<>();
             ClassLoader loader = LFrame.class.getClassLoader();
             for (int size : SIZES) {
                 URL url = loader.getResource(PATH + size + ".svg");
@@ -43,15 +42,15 @@ public class LFrame extends JFrame implements WindowClosable {
 
         boolean success = false;
         try {
-            if (ICONS != null && !ICONS.isEmpty()) {
+            if (!ICONS.isEmpty()) {
                 Method set = frame.getClass().getMethod("setIconImages", List.class);
                 set.invoke(frame, ICONS);
                 success = true;
             }
-        } catch (Exception e) { }
+        } catch (Exception ignored) { }
 
         if (!success && frame instanceof JFrame && DEFAULT_ICON != null) {
-            ((JFrame) frame).setIconImage(DEFAULT_ICON);
+            frame.setIconImage(DEFAULT_ICON);
         }
     }
 

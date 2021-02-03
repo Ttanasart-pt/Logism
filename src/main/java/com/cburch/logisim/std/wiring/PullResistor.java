@@ -44,7 +44,7 @@ public class PullResistor extends InstanceFactory {
     private static final Icon ICON_RECTANGULAR = Icons.getIcon("pullrect.svg");
 
     public PullResistor() {
-        super("Pull Resistor", getFromLocale("pullComponent"));
+        super("Pull Resistor", "Pull", getFromLocale("pullComponent"));
         setAttributes(new Attribute[] { StdAttr.FACING, ATTR_PULL_TYPE },
                 new Object[] { Direction.SOUTH, ATTR_PULL_TYPE.parse("0") });
         setFacingAttribute(StdAttr.FACING);

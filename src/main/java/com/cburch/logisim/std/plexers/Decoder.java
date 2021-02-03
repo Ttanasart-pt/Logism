@@ -27,7 +27,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 public class Decoder extends InstanceFactory {
     public Decoder() {
-        super("Decoder", getFromLocale("decoderComponent"));
+        super("Decoder", "Decode", getFromLocale("decoderComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.FACING, Plexers.ATTR_SELECT_LOC, Plexers.ATTR_SELECT,
                 Plexers.ATTR_TRISTATE, Plexers.ATTR_DISABLED, Plexers.ATTR_ENABLE
@@ -44,7 +44,7 @@ public class Decoder extends InstanceFactory {
     public Object getDefaultAttributeValue(Attribute<?> attr, LogisimVersion ver) {
         if (attr == Plexers.ATTR_ENABLE) {
             int newer = ver.compareTo(LogisimVersion.get(2, 6, 3, 220));
-            return Boolean.valueOf(newer >= 0);
+            return newer >= 0;
         } else {
             return super.getDefaultAttributeValue(attr, ver);
         }

@@ -4,80 +4,214 @@
 package com.cburch.logisim.gui.prefs;
 
 import javax.swing.*;
-import javax.swing.plaf.metal.MetalLookAndFeel;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
-import com.cburch.logisim.data.Direction;
+
+import com.cburch.draw.util.ColorRegistry;
+import com.cburch.logisim.gui.main.Frame;
 import com.cburch.logisim.prefs.AppPreferences;
+import com.cburch.logisim.prefs.PrefMonitor;
+import com.cburch.logisim.util.GraphicsUtil;
 import com.cburch.logisim.util.TableLayout;
+import org.apache.batik.ext.swing.JGridBagPanel;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.Flow;
+
 import static com.cburch.logisim.util.LocaleString.*;
 
-@SuppressWarnings("serial")
 class WindowOptions extends OptionsPanel {
-    private PrefBoolean[] checks;
-    private PrefOptionList toolbarPlacement;
-    private PrefOptionList lookAndFeel;
+    private final PrefBoolean check;
+    private final ArrayList<styleMenuTab> StylePages;
+    private final JPanel stylePanel;
+    private final GridBagConstraints c;
 
     public WindowOptions(PreferencesFrame window) {
         super(window);
+        setLayout(new CardLayout(8, 8));
 
-        checks = new PrefBoolean[] {
-                new PrefBoolean(AppPreferences.SHOW_TICK_RATE,
-                        getFromLocale("windowTickRate")),
-            };
+        BorderLayout border = new BorderLayout();
+        border.setVgap(4);
+        JPanel content = new JPanel(border);
 
-        toolbarPlacement = new PrefOptionList(AppPreferences.TOOLBAR_PLACEMENT,
-                getFromLocale("windowToolbarLocation"),
-                new PrefOption[] {
-                    new PrefOption(Direction.NORTH.toString(),
-                            Direction.NORTH.getDisplayGetter()),
-                    new PrefOption(Direction.SOUTH.toString(),
-                            Direction.SOUTH.getDisplayGetter()),
-                    new PrefOption(Direction.EAST.toString(),
-                            Direction.EAST.getDisplayGetter()),
-                    new PrefOption(Direction.WEST.toString(),
-                            Direction.WEST.getDisplayGetter()),
-                    new PrefOption(AppPreferences.TOOLBAR_DOWN_MIDDLE,
-                            getFromLocale("windowToolbarDownMiddle")),
-                    new PrefOption(AppPreferences.TOOLBAR_HIDDEN,
-                            getFromLocale("windowToolbarHidden")) });
+        check = new PrefBoolean(AppPreferences.SHOW_TICK_RATE, getFromLocale("windowTickRate"));
 
-        JPanel panel = new JPanel(new TableLayout(2));
-        panel.add(toolbarPlacement.getJLabel());
-        panel.add(toolbarPlacement.getJComboBox());
-        
+        PrefOptionList lookAndFeel = new PrefOptionList(AppPreferences.LOOK_AND_FEEL, getFromLocale("lookAndFeel"),
+            new PrefOption[]{
+                new PrefOption("Dark", getFromLocale("Dark")),
+                new PrefOption("Light", getFromLocale("Light")),
+                new PrefOption("Dracular", getFromLocale("Dracular")),
+                new PrefOption("Intellij", getFromLocale("Intellij")),
+            });
 
-        setLayout(new TableLayout(1));
-        for (int i = 0; i < checks.length; i++) {
-            add(checks[i]);
-        }
-        add(panel);
-        
-        lookAndFeel = new PrefOptionList(AppPreferences.LOOK_AND_FEEL,
-            getFromLocale("lookAndFeel"),
-            new PrefOption[] {
-                new PrefOption(UIManager.getSystemLookAndFeelClassName(), getFromLocale("systemLookAndFeel")),
-                new PrefOption(NimbusLookAndFeel.class.getName(), getFromLocale("nimbusLookAndFeel")),
-                new PrefOption(MetalLookAndFeel.class.getName(), getFromLocale("metalLookAndFeel")),
-                 });
+        JPanel panel = new JPanel();
+        BoxLayout box = new BoxLayout(panel, BoxLayout.LINE_AXIS);
+        panel.setLayout(box);
         panel.add(lookAndFeel.getJLabel());
+        panel.add(Box.createRigidArea(new Dimension(5, 0)));
         panel.add(lookAndFeel.getJComboBox());
-    }
+        content.add(panel, BorderLayout.NORTH);
 
-    @Override
-    public String getTitle() {
-        return getFromLocale("windowTitle");
-    }
+        JPanel centerPanel = new JPanel(new BorderLayout());
 
-    @Override
-    public String getHelpText() {
-        return getFromLocale("windowHelp");
-    }
+        JPanel styleMenuPanel = new JPanel(new GridBagLayout());
+        c = new GridBagConstraints();
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.PAGE_START;
 
-    @Override
-    public void localeChanged() {
-        for (int i = 0; i < checks.length; i++) {
-            checks[i].localeChanged();
+        StylePages = new ArrayList<>();
+        StylePages.add(new styleMenuTab("General", Arrays.asList(
+                new colorPanel("Canvas color", AppPreferences.STYLE_CANVAS_BG),
+                new colorPanel("Grid color", AppPreferences.STYLE_GRID_COLOR),
+                new colorPanel("Text color", AppPreferences.STYLE_TEXT_COLOR),
+                new colorPanel("Gate color", AppPreferences.STYLE_GATE_COLOR),
+                new colorPanel("Handle color", AppPreferences.STYLE_HANDLE_COLOR)
+        )));
+        StylePages.add(new styleMenuTab("Wires", Arrays.asList(
+                new colorPanel("Wire idle", AppPreferences.STYLE_WIRE_IDLE),
+                new colorPanel("Wire nil", AppPreferences.STYLE_WIRE_NIL),
+                new colorPanel("Wire false", AppPreferences.STYLE_WIRE_FALSE),
+                new colorPanel("Wire true", AppPreferences.STYLE_WIRE_TRUE),
+                new colorPanel("Wire unknown", AppPreferences.STYLE_WIRE_UNKNOW),
+                new colorPanel("Wire error", AppPreferences.STYLE_WIRE_ERROR),
+                new colorPanel("Wire width error", AppPreferences.STYLE_WIRE_WIDTH_ERROR),
+                new colorPanel("Wire multi", AppPreferences.STYLE_WIRE_MULTI)
+        )));
+
+        for(int i = 0; i < StylePages.size(); i++) {
+            c.gridy = i;
+            styleMenuPanel.add(StylePages.get(i), c);
         }
-        toolbarPlacement.localeChanged();
+
+        stylePanel = new JPanel(new GridBagLayout());
+        stylePanel.setBackground(ColorRegistry.Grey.darker());
+        setStylePage(0);
+        JPanel styleScroll = new JPanel(new CardLayout(4, 4));
+        styleScroll.add(new JScrollPane(stylePanel));
+
+        centerPanel.add(styleMenuPanel, BorderLayout.WEST);
+        centerPanel.add(styleScroll, BorderLayout.CENTER);
+
+        content.add(centerPanel, BorderLayout.CENTER);
+        content.add(new applyButton(), BorderLayout.SOUTH);
+
+        add(content);
+    }
+
+    void setStylePage(int index) {
+        setStylePage(StylePages.get(index).title);
+    }
+    void setStylePage(String page) {
+        stylePanel.removeAll();
+        for(styleMenuTab menu : StylePages) {
+            menu.isSelecting = false;
+            if(menu.title == page) {
+                menu.isSelecting = true;
+
+                for(int i = 0; i < menu.panels.size(); i++) {
+                    c.gridy = i;
+                    stylePanel.add(menu.panels.get(i), c);
+                }
+            }
+
+            menu.repaint();
+            stylePanel.repaint();
+        }
+    }
+
+    @Override
+    public String getTitle() { return getFromLocale("windowTitle"); }
+
+    @Override
+    public String getHelpText() { return getFromLocale("windowHelp"); }
+
+    @Override
+    public void localeChanged() { check.localeChanged(); }
+
+    static class colorPanel extends JPanel {
+        colorPanel(String name, PrefMonitor<Integer> pref) {
+            setBackground(ColorRegistry.Grey.darker());
+            JLabel nameLabel = new JLabel(name);
+            nameLabel.setPreferredSize(new Dimension(128, 32));
+            add(nameLabel);
+            add(new PrefColor(pref));
+        }
+    }
+
+    static class applyButton extends JButton implements ActionListener {
+        applyButton() {
+            super("Apply");
+            addActionListener(this);
+        }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Frame.This.repaint();
+        }
+    }
+
+
+    class styleMenuTab extends JButton implements ActionListener, MouseListener {
+        public String title;
+        public List<colorPanel> panels;
+        boolean isSelecting;
+        boolean isHovering;
+
+        styleMenuTab(String name, List<colorPanel> panels) {
+            title = name;
+            this.panels = panels;
+            setPreferredSize(new Dimension(128, 48));
+            addActionListener(this);
+            addMouseListener(this);
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            setStylePage(title);
+        }
+
+        @Override
+        public void paint(Graphics g) {
+            if(isHovering) {
+                g.setColor(new Color(48, 50, 52));
+                g.fillRect(0, 0, getWidth(), getHeight());
+            } else if(isSelecting) {
+                g.setColor(new Color(61, 75, 92));
+                g.fillRect(0, 0, getWidth(), getHeight());
+            }
+
+            if(isSelecting) {
+                g.setColor(new Color(74, 136, 199));
+                g.fillRect(getWidth() - 3, 0, 3, getHeight());
+            }
+
+            g.setColor(ColorRegistry.White);
+            GraphicsUtil.drawCenteredText(g, title, getWidth() / 2, getHeight() / 2 - 4);
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {}
+
+        @Override
+        public void mousePressed(MouseEvent e) {}
+
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            isHovering = true;
+            repaint();
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            isHovering = false;
+            repaint();
+        }
     }
 }

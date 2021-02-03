@@ -3,17 +3,6 @@
 
 package com.cburch.logisim.gui.main;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.util.Collections;
-import java.util.Set;
-
 import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.CircuitState;
@@ -30,13 +19,18 @@ import com.cburch.logisim.prefs.AppPreferences;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.tools.Tool;
 import com.cburch.logisim.util.GraphicsUtil;
-import com.formdev.flatlaf.FlatDarkLaf;
+
+import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Collections;
+import java.util.Set;
 
 class CanvasPainter implements PropertyChangeListener {
     private static final Set<Component> NO_COMPONENTS = Collections.emptySet();
 
-    private Canvas canvas;
-    private GridPainter grid;
+    private final Canvas canvas;
+    private final GridPainter grid;
     private Component haloedComponent = null;
     private Circuit haloedCircuit = null;
     private WireSet highlightedWires = WireSet.EMPTY;
@@ -114,7 +108,7 @@ class CanvasPainter implements PropertyChangeListener {
         if (canvas.ifPaintDirtyReset() || clip == null) {
             clip = new Rectangle(0, 0, size.width, size.height);
         }
-        g.setColor(new Color(48, 50, 52));
+        g.setColor(ColorRegistry.CanvasBackground);
         g.fillRect(clip.x, clip.y, clip.width, clip.height);
 
         grid.paintGrid(g);

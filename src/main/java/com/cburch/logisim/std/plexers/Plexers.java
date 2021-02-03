@@ -20,46 +20,32 @@ import com.cburch.logisim.util.GraphicsUtil;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class Plexers extends Library {
-    public static final Attribute<BitWidth> ATTR_SELECT
-        = Attributes.forBitWidth("select", getFromLocale("plexerSelectBitsAttr"), 1, 5);
+    public static final Attribute<BitWidth> ATTR_SELECT = Attributes.forBitWidth("select", getFromLocale("plexerSelectBitsAttr"), 1, 5);
     public static final Object DEFAULT_SELECT = BitWidth.create(1);
 
-    public static final Attribute<Boolean> ATTR_TRISTATE
-        = Attributes.forBoolean("tristate", getFromLocale("plexerThreeStateAttr"));
+    public static final Attribute<Boolean> ATTR_TRISTATE = Attributes.forBoolean("tristate", getFromLocale("plexerThreeStateAttr"));
     public static final Object DEFAULT_TRISTATE = Boolean.FALSE;
 
-    public static final AttributeOption DISABLED_FLOATING
-        = new AttributeOption("Z", getFromLocale("plexerDisabledFloating"));
-    public static final AttributeOption DISABLED_ZERO
-        = new AttributeOption("0", getFromLocale("plexerDisabledZero"));
-    public static final Attribute<AttributeOption> ATTR_DISABLED
-        = Attributes.forOption("disabled", getFromLocale("plexerDisabledAttr"),
-                new AttributeOption[] { DISABLED_FLOATING, DISABLED_ZERO });
+    public static final AttributeOption DISABLED_FLOATING = new AttributeOption("Z", getFromLocale("plexerDisabledFloating"));
+    public static final AttributeOption DISABLED_ZERO = new AttributeOption("0", getFromLocale("plexerDisabledZero"));
+    public static final Attribute<AttributeOption> ATTR_DISABLED = Attributes.forOption("disabled", getFromLocale("plexerDisabledAttr"),
+            new AttributeOption[] { DISABLED_FLOATING, DISABLED_ZERO });
 
-    public static final Attribute<Boolean> ATTR_ENABLE
-        = Attributes.forBoolean("enable", getFromLocale("plexerEnableAttr"));
+    public static final Attribute<Boolean> ATTR_ENABLE = Attributes.forBoolean("enable", getFromLocale("plexerEnableAttr"));
 
-    static final AttributeOption SELECT_BOTTOM_LEFT
-        = new AttributeOption("bl", getFromLocale("plexerSelectBottomLeftOption"));
-    static final AttributeOption SELECT_TOP_RIGHT
-        = new AttributeOption("tr", getFromLocale("plexerSelectTopRightOption"));
-    static final Attribute<AttributeOption> ATTR_SELECT_LOC = Attributes.forOption("selloc",
-            getFromLocale("plexerSelectLocAttr"),
+    static final AttributeOption SELECT_BOTTOM_LEFT = new AttributeOption("bl", getFromLocale("plexerSelectBottomLeftOption"));
+    static final AttributeOption SELECT_TOP_RIGHT = new AttributeOption("tr", getFromLocale("plexerSelectTopRightOption"));
+    static final Attribute<AttributeOption> ATTR_SELECT_LOC = Attributes.forOption("selloc", getFromLocale("plexerSelectLocAttr"),
             new AttributeOption[] { SELECT_BOTTOM_LEFT, SELECT_TOP_RIGHT });
 
     protected static final int DELAY = 3;
 
     private static FactoryDescription[] DESCRIPTIONS = {
-        new FactoryDescription("Multiplexer", getFromLocale("multiplexerComponent"),
-                "multiplexer.svg", "Multiplexer"),
-        new FactoryDescription("Demultiplexer", getFromLocale("demultiplexerComponent"),
-                "demultiplexer.svg", "Demultiplexer"),
-        new FactoryDescription("Decoder", getFromLocale("decoderComponent"),
-                "decoder.svg", "Decoder"),
-        new FactoryDescription("Priority Encoder", getFromLocale("priorityEncoderComponent"),
-                "priencod.svg", "PriorityEncoder"),
-        new FactoryDescription("BitSelector", getFromLocale("bitSelectorComponent"),
-                "bitSelector.svg", "BitSelector"),
+        new FactoryDescription("Multiplexer", "MUX", getFromLocale("multiplexerComponent"), "multiplexer.svg", "Multiplexer"),
+        new FactoryDescription("Demultiplexer", "DeMUX", getFromLocale("demultiplexerComponent"), "demultiplexer.svg", "Demultiplexer"),
+        new FactoryDescription("Decoder", "Decoder", getFromLocale("decoderComponent"), "decoder.svg", "Decoder"),
+        new FactoryDescription("Priority Encoder", "PriEnc", getFromLocale("priorityEncoderComponent"), "priencod.svg", "PriorityEncoder"),
+        new FactoryDescription("BitSelector", "bSelect", getFromLocale("bitSelectorComponent"), "bitSelector.svg", "BitSelector"),
     };
 
     private List<Tool> tools = null;

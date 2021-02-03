@@ -116,6 +116,9 @@ public class PokeTool extends Tool {
     }
 
     @Override
+    public String getNameShort() { return "Poke"; }
+
+    @Override
     public String getDisplayName() {
         return getFromLocale("pokeTool");
     }

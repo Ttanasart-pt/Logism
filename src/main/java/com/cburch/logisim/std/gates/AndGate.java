@@ -18,7 +18,7 @@ class AndGate extends AbstractGate {
     public static AndGate FACTORY = new AndGate();
 
     private AndGate() {
-        super("AND Gate", getFromLocale("andGateComponent"));
+        super("AND Gate", "AND", getFromLocale("andGateComponent"));
         setRectangularLabel("&");
         setIconNames("/logisim/icons/andGate.svg", "/logisim/icons/andGateRect.svg", "/logisim/icons/dinAndGate.svg");
     }
@@ -43,8 +43,7 @@ class AndGate extends AbstractGate {
     }
 
     @Override
-    protected Value computeOutput(Value[] inputs, int numInputs,
-            InstanceState state) {
+    protected Value computeOutput(Value[] inputs, int numInputs, InstanceState state) {
         return GateFunctions.computeAnd(inputs, numInputs);
     }
 

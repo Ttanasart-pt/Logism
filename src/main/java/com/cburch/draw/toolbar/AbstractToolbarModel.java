@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractToolbarModel implements ToolbarModel {
-    private List<ToolbarModelListener> listeners;
+    private final List<ToolbarModelListener> listeners;
 
     public AbstractToolbarModel() {
-        listeners = new ArrayList<ToolbarModelListener>();
+        listeners = new ArrayList<>();
     }
 
     @Override

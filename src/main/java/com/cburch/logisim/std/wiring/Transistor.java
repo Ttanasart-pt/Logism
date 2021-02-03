@@ -52,7 +52,7 @@ public class Transistor extends InstanceFactory {
     private static final Icon ICON_P = Icons.getIcon("trans0.svg");
 
     public Transistor() {
-        super("Transistor", getFromLocale("transistorComponent"));
+        super("Transistor", "Transist", getFromLocale("transistorComponent"));
         setAttributes(
                 new Attribute[] { ATTR_TYPE, StdAttr.FACING,
                         Wiring.ATTR_GATE, StdAttr.WIDTH },

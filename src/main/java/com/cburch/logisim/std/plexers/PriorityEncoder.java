@@ -30,7 +30,7 @@ public class PriorityEncoder extends InstanceFactory {
     private static final int GS = 3;
 
     public PriorityEncoder() {
-        super("Priority Encoder", getFromLocale("priorityEncoderComponent"));
+        super("Priority Encoder", "PriEnc", getFromLocale("priorityEncoderComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.FACING, Plexers.ATTR_SELECT, Plexers.ATTR_DISABLED
             }, new Object[] {

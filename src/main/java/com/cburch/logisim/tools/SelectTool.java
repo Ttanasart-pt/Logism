@@ -95,8 +95,8 @@ public class SelectTool extends Tool {
     private boolean drawConnections;
     private MoveGesture moveGesture;
     private HashMap<Component,KeyConfigurator> keyHandlers;
-    private HashSet<Selection> selectionsAdded;
-    private Listener selListener;
+    private final HashSet<Selection> selectionsAdded;
+    private final Listener selListener;
 
     public SelectTool() {
         start = null;
@@ -120,6 +120,9 @@ public class SelectTool extends Tool {
     public String getName() {
         return "Select Tool";
     }
+
+    @Override
+    public String getNameShort() { return "Select"; }
 
     @Override
     public String getDisplayName() {

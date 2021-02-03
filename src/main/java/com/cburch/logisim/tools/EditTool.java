@@ -107,6 +107,9 @@ public class EditTool extends Tool {
     }
 
     @Override
+    public String getNameShort() { return "Edit"; }
+
+    @Override
     public String getDisplayName() {
         return getFromLocale("editTool");
     }

@@ -13,23 +13,18 @@ import com.cburch.draw.toolbar.ToolbarItem;
 import com.cburch.logisim.gui.menu.LogisimMenuBar;
 import static com.cburch.logisim.util.LocaleString.*;
 
-class ToolboxToolbarModel extends AbstractToolbarModel
-        implements MenuListener.EnabledListener {
-    private LogisimToolbarItem itemAdd;
-    private LogisimToolbarItem itemUp;
-    private LogisimToolbarItem itemDown;
-    private LogisimToolbarItem itemDelete;
-    private List<ToolbarItem> items;
+class ToolboxToolbarModel extends AbstractToolbarModel implements MenuListener.EnabledListener {
+    private final LogisimToolbarItem itemAdd;
+    private final LogisimToolbarItem itemUp;
+    private final LogisimToolbarItem itemDown;
+    private final LogisimToolbarItem itemDelete;
+    private final List<ToolbarItem> items;
 
     public ToolboxToolbarModel(MenuListener menu) {
-        itemAdd = new LogisimToolbarItem(menu, "projadd.svg", LogisimMenuBar.ADD_CIRCUIT,
-                getFromLocale("projectAddCircuitTip"));
-        itemUp = new LogisimToolbarItem(menu, "projup.svg", LogisimMenuBar.MOVE_CIRCUIT_UP,
-                getFromLocale("projectMoveCircuitUpTip"));
-        itemDown = new LogisimToolbarItem(menu, "projdown.svg", LogisimMenuBar.MOVE_CIRCUIT_DOWN,
-                getFromLocale("projectMoveCircuitDownTip"));
-        itemDelete = new LogisimToolbarItem(menu, "projdel.svg", LogisimMenuBar.REMOVE_CIRCUIT,
-                getFromLocale("projectRemoveCircuitTip"));
+        itemAdd = new LogisimToolbarItem(menu, "projadd.svg", LogisimMenuBar.ADD_CIRCUIT, "Add", getFromLocale("projectAddCircuitTip"));
+        itemUp = new LogisimToolbarItem(menu, "projup.svg", LogisimMenuBar.MOVE_CIRCUIT_UP, "Up", getFromLocale("projectMoveCircuitUpTip"));
+        itemDown = new LogisimToolbarItem(menu, "projdown.svg", LogisimMenuBar.MOVE_CIRCUIT_DOWN, "Down", getFromLocale("projectMoveCircuitDownTip"));
+        itemDelete = new LogisimToolbarItem(menu, "projdel.svg", LogisimMenuBar.REMOVE_CIRCUIT, "Delete", getFromLocale("projectRemoveCircuitTip"));
 
         items = UnmodifiableList.decorate(Arrays.asList(new ToolbarItem[] {
                 itemAdd,

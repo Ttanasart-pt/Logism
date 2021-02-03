@@ -29,11 +29,10 @@ import static com.cburch.logisim.util.LocaleString.*;
 abstract class AbstractFlipFlop extends InstanceFactory {
     private static final int STD_PORTS = 6;
 
-    private Attribute<AttributeOption> triggerAttribute;
+    private final Attribute<AttributeOption> triggerAttribute;
 
-    protected AbstractFlipFlop(String name, String iconName, String desc,
-            int numInputs, boolean allowLevelTriggers) {
-        super(name, desc);
+    protected AbstractFlipFlop(String name, String nameShort, String iconName, String desc, int numInputs, boolean allowLevelTriggers) {
+        super(name, nameShort, desc);
         setIconName(iconName);
         triggerAttribute = allowLevelTriggers ? StdAttr.TRIGGER : StdAttr.EDGE_TRIGGER;
         setAttributes(new Attribute[] {

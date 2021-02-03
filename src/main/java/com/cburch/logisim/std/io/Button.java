@@ -31,7 +31,7 @@ public class Button extends InstanceFactory {
     private static final int DEPTH = 3;
 
     public Button() {
-        super("Button", getFromLocale("buttonComponent"));
+        super("Button", "Button", getFromLocale("buttonComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.FACING, Io.ATTR_COLOR,
                 StdAttr.LABEL, Io.ATTR_LABEL_LOC,
@@ -105,8 +105,7 @@ public class Button extends InstanceFactory {
             }
         }
 
-        instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT,
-                x, y, halign, valign);
+        instance.setTextField(StdAttr.LABEL, StdAttr.LABEL_FONT, x, y, halign, valign);
     }
 
     @Override
@@ -168,7 +167,7 @@ public class Button extends InstanceFactory {
 
             g.setColor(color);
             g.fillRect(x, y, w - DEPTH, h - DEPTH);
-            g.setColor(ColorRegistry.BaseGateBorderColor);
+            g.setColor(color.brighter());
             g.drawRect(x, y, w - DEPTH, h - DEPTH);
         } else {
             depress = 0;
@@ -178,10 +177,6 @@ public class Button extends InstanceFactory {
             g.fillPolygon(xp, yp, xp.length);
             g.setColor(color);
             g.fillRect(x, y, w - DEPTH, h - DEPTH);
-            g.setColor(ColorRegistry.BaseGateBorderColor);
-            g.drawRect(x, y, w - DEPTH, h - DEPTH);
-            g.drawLine(x + w - DEPTH, y + h - DEPTH, x + w, y + h);
-            g.drawPolygon(xp, yp, xp.length);
         }
 
         g.translate(depress, depress);

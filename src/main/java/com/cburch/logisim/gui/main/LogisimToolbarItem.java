@@ -19,16 +19,18 @@ import com.cburch.logisim.util.Icons;
 
 public class LogisimToolbarItem implements ToolbarItem {
     private static final int BORDER = 4;
-    private MenuListener menu;
+    private final MenuListener menu;
     private Icon icon;
-    private LogisimMenuItem action;
+    private final LogisimMenuItem action;
+    private String name;
     private String toolTip;
 
-    public LogisimToolbarItem(MenuListener menu, String iconName, LogisimMenuItem action, String toolTip) {
+    public LogisimToolbarItem(MenuListener menu, String iconName, LogisimMenuItem action, String name, String toolTip) {
         this.menu = menu;
         this.icon = Icons.getIcon(iconName);
         this.action = action;
         this.toolTip = toolTip;
+        this.name = name;
     }
 
     public void setIcon(String iconName) {
@@ -77,6 +79,9 @@ public class LogisimToolbarItem implements ToolbarItem {
             return null;
         }
     }
+
+    @Override
+    public String getNameShort() { return name; }
 
     @Override
     public Dimension getDimension(Object orientation) {

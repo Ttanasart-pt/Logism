@@ -53,6 +53,7 @@ class ControlledBuffer extends InstanceFactory {
 
     private ControlledBuffer(boolean isInverter) {
         super(isInverter ? "Controlled Inverter" : "Controlled Buffer",
+            isInverter? "Inverter" : "Buffer",
             isInverter ? getFromLocale("controlledInverterComponent")
                     : getFromLocale("controlledBufferComponent"));
         this.isInverter = isInverter;

@@ -38,8 +38,9 @@ import com.cburch.logisim.util.StringUtil;
  */
 @SuppressWarnings("deprecation")
 public abstract class InstanceFactory extends AbstractComponentFactory {
-    private String name;
-    private String displayName;
+    private final String name;
+    private final String nameShort;
+    private final String displayName;
     private String defaultToolTip;
     private String iconName;
     private Icon icon;
@@ -54,12 +55,9 @@ public abstract class InstanceFactory extends AbstractComponentFactory {
     private Class<? extends InstancePoker> pokerClass;
     private Class<? extends InstanceLogger> loggerClass;
 
-    public InstanceFactory(String name) {
-        this(name, StringUtil.constantGetter(name));
-    }
-
-    public InstanceFactory(String name, String displayName) {
+    public InstanceFactory(String name, String nameShort, String displayName) {
         this.name = name;
+        this.nameShort = nameShort;
         this.displayName = displayName;
         this.iconName = null;
         this.icon = null;
@@ -76,6 +74,8 @@ public abstract class InstanceFactory extends AbstractComponentFactory {
     public String getName() {
         return name;
     }
+
+    public String getNameShort() { return nameShort; }
 
     @Override
     public String getDisplayName() {
@@ -142,8 +142,7 @@ public abstract class InstanceFactory extends AbstractComponentFactory {
     public Bounds getOffsetBounds(AttributeSet attrs) {
         Bounds ret = bounds;
         if (ret == null) {
-            throw new RuntimeException("offset bounds unknown: "
-                    + "use setOffsetBounds or override getOffsetBounds");
+            throw new RuntimeException("offset bounds unknown: " + "use setOffsetBounds or override getOffsetBounds");
         }
         return ret;
     }
@@ -182,8 +181,7 @@ public abstract class InstanceFactory extends AbstractComponentFactory {
     @Override
     public AttributeSet createAttributeSet() {
         Attribute<?>[] as = attrs;
-        AttributeSet ret = as == null ? AttributeSets.EMPTY : AttributeSets.fixedSet(as, defaults);
-        return ret;
+        return as == null ? AttributeSets.EMPTY : AttributeSets.fixedSet(as, defaults);
     }
 
     @Override
@@ -240,7 +238,7 @@ public abstract class InstanceFactory extends AbstractComponentFactory {
     }
 
     public void setShouldSnap(boolean value) {
-        shouldSnap = Boolean.valueOf(value);
+        shouldSnap = value;
     }
 
     private boolean isClassOk(Class<?> sub, Class<?> sup) {
@@ -281,8 +279,7 @@ public abstract class InstanceFactory extends AbstractComponentFactory {
     }
 
     @Override
-    public final void drawGhost(ComponentDrawContext context, Color color,
-            int x, int y, AttributeSet attrs) {
+    public final void drawGhost(ComponentDrawContext context, Color color, int x, int y, AttributeSet attrs) {
         InstancePainter painter = context.getInstancePainter();
         Graphics g = painter.getGraphics();
         g.setColor(color);

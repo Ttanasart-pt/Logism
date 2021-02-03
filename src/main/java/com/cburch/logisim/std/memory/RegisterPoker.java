@@ -17,7 +17,6 @@ import com.cburch.logisim.instance.InstanceState;
 import com.cburch.logisim.instance.StdAttr;
 
 public class RegisterPoker extends InstancePoker {
-    private int initValue;
     private int curValue;
 
     @Override
@@ -27,8 +26,7 @@ public class RegisterPoker extends InstancePoker {
             data = new RegisterData();
             state.setData(data);
         }
-        initValue = data.value;
-        curValue = initValue;
+        curValue = data.value;
         return true;
     }
 
@@ -56,8 +54,6 @@ public class RegisterPoker extends InstancePoker {
         if (val < 0) {
             return;
         }
-
-
         BitWidth dataWidth = state.getAttributeValue(StdAttr.WIDTH);
         if (dataWidth == null) {
             dataWidth = BitWidth.create(8);

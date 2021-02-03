@@ -13,8 +13,8 @@ import javax.swing.Icon;
 import com.cburch.draw.toolbar.ToolbarItem;
 
 public class ToolbarToolItem implements ToolbarItem {
-    private AbstractTool tool;
-    private Icon icon;
+    private final AbstractTool tool;
+    private final Icon icon;
 
     public ToolbarToolItem(AbstractTool tool) {
         this.tool = tool;
@@ -48,6 +48,9 @@ public class ToolbarToolItem implements ToolbarItem {
     public String getToolTip() {
         return tool.getDescription();
     }
+
+    @Override
+    public String getNameShort() { return tool.getName(); }
 
     @Override
     public Dimension getDimension(Object orientation) {

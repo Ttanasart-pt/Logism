@@ -8,8 +8,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 public class TFlipFlop extends AbstractFlipFlop {
     public TFlipFlop() {
-        super("T Flip-Flop", "tFlipFlop.svg",
-                getFromLocale("tFlipFlopComponent"), 1, false);
+        super("T Flip-Flop", "T", "tFlipFlop.svg", getFromLocale("tFlipFlopComponent"), 1, false);
     }
 
     @Override

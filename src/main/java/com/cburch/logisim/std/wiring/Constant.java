@@ -34,17 +34,14 @@ import com.cburch.logisim.util.GraphicsUtil;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class Constant extends InstanceFactory {
-    public static final Attribute<Integer> ATTR_VALUE
-        = Attributes.forHexInteger("value", getFromLocale("constantValueAttr"));
+    public static final Attribute<Integer> ATTR_VALUE = Attributes.forHexInteger("value", getFromLocale("constantValueAttr"));
 
     public static InstanceFactory FACTORY = new Constant();
 
-    private static final Color BACKGROUND_COLOR = new Color(230, 230, 230);
+    private static final Color BACKGROUND_COLOR = ColorRegistry.Grey;
 
     private static final List<Attribute<?>> ATTRIBUTES
-        = Arrays.asList(new Attribute<?>[] {
-                StdAttr.FACING, StdAttr.WIDTH, ATTR_VALUE
-        });
+        = Arrays.asList(StdAttr.FACING, StdAttr.WIDTH, ATTR_VALUE);
 
     private static class ConstantAttributes extends AbstractAttributeSet {
         private Direction facing = Direction.EAST;;
@@ -115,7 +112,7 @@ public class Constant extends InstanceFactory {
     }
 
     public Constant() {
-        super("Constant", getFromLocale("constantComponent"));
+        super("Constant", "Constant", getFromLocale("constantComponent"));
         setFacingAttribute(StdAttr.FACING);
         setKeyConfigurator(JoinedConfigurator.create(
                 new ConstantConfigurator(),

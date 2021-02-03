@@ -31,7 +31,7 @@ public class Pow extends InstanceFactory {
     private static final int OUT   = 2;
 
     public Pow() {
-        super("Pow", getFromLocale("powComponent"));
+        super("Pow", "Power", getFromLocale("powComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.WIDTH
             }, new Object[] {

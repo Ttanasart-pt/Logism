@@ -14,14 +14,10 @@ import com.cburch.logisim.gui.hex.HexFrame;
 import com.cburch.logisim.proj.Project;
 
 class RomAttributes extends AbstractAttributeSet {
-    private static List<Attribute<?>> ATTRIBUTES = Arrays.asList(new Attribute<?>[] {
-            Mem.ADDR_ATTR, Mem.DATA_ATTR, Rom.CONTENTS_ATTR
-        });
+    private static final List<Attribute<?>> ATTRIBUTES = Arrays.asList(Mem.ADDR_ATTR, Mem.DATA_ATTR, Rom.CONTENTS_ATTR);
 
-    private static WeakHashMap<MemContents,RomContentsListener> listenerRegistry
-        = new WeakHashMap<MemContents,RomContentsListener>();
-    private static WeakHashMap<MemContents,HexFrame> windowRegistry
-        = new WeakHashMap<MemContents,HexFrame>();
+    private static final WeakHashMap<MemContents,RomContentsListener> listenerRegistry = new WeakHashMap<>();
+    private static final WeakHashMap<MemContents,HexFrame> windowRegistry = new WeakHashMap<>();
 
     static void register(MemContents value, Project proj) {
         if (proj == null || listenerRegistry.containsKey(value)) return;

@@ -30,9 +30,8 @@ public class Subtractor extends InstanceFactory {
     private static final int B_OUT = 4;
 
     public Subtractor() {
-        super("Subtractor", getFromLocale("subtractorComponent"));
-        setAttributes(new Attribute[] { StdAttr.WIDTH },
-                new Object[] { BitWidth.create(8) });
+        super("Subtractor", "Subtract", getFromLocale("subtractorComponent"));
+        setAttributes(new Attribute[] { StdAttr.WIDTH }, new Object[] { BitWidth.create(8) });
         setKeyConfigurator(new BitWidthConfigurator(StdAttr.WIDTH));
         setOffsetBounds(Bounds.create(-40, -20, 40, 40));
         setIconName("subtractor.svg");

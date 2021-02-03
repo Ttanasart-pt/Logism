@@ -32,16 +32,13 @@ import com.cburch.logisim.gui.generic.CanvasPaneContents;
 import com.cburch.logisim.gui.generic.GridPainter;
 import com.cburch.logisim.proj.Project;
 
-@SuppressWarnings("serial")
-public class AppearanceCanvas extends Canvas
-        implements CanvasPaneContents, ActionDispatcher {
+public class AppearanceCanvas extends Canvas implements CanvasPaneContents, ActionDispatcher {
     private static final int BOUNDS_BUFFER = 70;
         // pixels shown in canvas beyond outermost boundaries
     private static final int THRESH_SIZE_UPDATE = 10;
         // don't bother to update the size if it hasn't changed more than this
 
-    private class Listener
-            implements CanvasModelListener, PropertyChangeListener {
+    private class Listener implements CanvasModelListener, PropertyChangeListener {
         @Override
         public void modelChanged(CanvasModelEvent event) {
             computeSize(false);
@@ -59,11 +56,11 @@ public class AppearanceCanvas extends Canvas
         }
     }
 
-    private CanvasTool selectTool;
+    private final CanvasTool selectTool;
     private Project proj;
     private CircuitState circuitState;
-    private Listener listener;
-    private GridPainter grid;
+    private final Listener listener;
+    private final GridPainter grid;
     private CanvasPane canvasPane;
     private Bounds oldPreferredSize;
     private LayoutPopupManager popupManager;
@@ -147,7 +144,7 @@ public class AppearanceCanvas extends Canvas
             int max = getMaxIndex(getModel());
             ModelReorderAction reorder = (ModelReorderAction) canvasAction;
             List<ReorderRequest> rs = reorder.getReorderRequests();
-            List<ReorderRequest> mod = new ArrayList<ReorderRequest>(rs.size());
+            List<ReorderRequest> mod = new ArrayList<>(rs.size());
             boolean changed = false;
             boolean movedToMax = false;
             for (ReorderRequest r : rs) {

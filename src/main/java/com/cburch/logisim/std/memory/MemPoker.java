@@ -22,8 +22,7 @@ public class MemPoker extends InstancePoker {
     public boolean init(InstanceState state, MouseEvent event) {
         Bounds bds = state.getInstance().getBounds();
         MemState data = (MemState) state.getData();
-        long addr = data.getAddressAt(event.getX() - bds.getX(),
-                event.getY() - bds.getY());
+        long addr = data.getAddressAt(event.getX() - bds.getX(), event.getY() - bds.getY());
 
         // See if outside box
         if (addr < 0) {

@@ -21,14 +21,15 @@ import org.apache.batik.swing.svg.SVGDocumentLoaderAdapter;
 import com.cburch.logisim.Main;
 
 public class About {
-	static final int IMAGE_WIDTH = 200;
-	static final int IMAGE_HEIGHT = 200;
+	static final int IMAGE_WIDTH = 300;
+	static final int IMAGE_HEIGHT = 300;
 	static final Dimension DIMENSION = new Dimension(IMAGE_WIDTH, IMAGE_HEIGHT);
-	protected static JSVGCanvas svgCanvas =new JSVGCanvas();
+	protected static JSVGCanvas svgCanvas = new JSVGCanvas();
 	
 	public static JComponent createComponents() {
 		final JPanel panel = new JPanel();
 		panel.setPreferredSize(DIMENSION);
+		svgCanvas.setPreferredSize(DIMENSION);
 		panel.add(svgCanvas);
 		panel.setBackground(new Color(0,0,0,0));
 		svgCanvas.setURI(About.class.getResource("/logisim/drawing.svg").toString());

@@ -15,18 +15,17 @@ import javax.swing.JPanel;
 import com.cburch.logisim.prefs.PrefMonitor;
 
 class PrefOptionList implements ActionListener, PropertyChangeListener {
-    private PrefMonitor<String> pref;
-    private String labelStr;
+    private final PrefMonitor<String> pref;
+    private final String labelStr;
 
-    private JLabel label;
-    private JComboBox combo;
+    private final JLabel label;
+    private final JComboBox combo;
 
-    public PrefOptionList(PrefMonitor<String> pref, String labelStr,
-            PrefOption[] options) {
+    public PrefOptionList(PrefMonitor<String> pref, String labelStr, PrefOption[] options) {
         this.pref = pref;
         this.labelStr = labelStr;
 
-        label = new JLabel(labelStr.toString() + " ");
+        label = new JLabel(labelStr + " ");
         combo = new JComboBox();
         for (PrefOption opt : options) {
             combo.addItem(opt);

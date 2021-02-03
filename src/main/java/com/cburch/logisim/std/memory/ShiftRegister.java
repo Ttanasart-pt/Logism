@@ -25,10 +25,8 @@ import com.cburch.logisim.util.GraphicsUtil;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class ShiftRegister extends InstanceFactory {
-    static final Attribute<Integer> ATTR_LENGTH = Attributes.forIntegerRange("length",
-            getFromLocale("shiftRegLengthAttr"), 1, 32);
-    static final Attribute<Boolean> ATTR_LOAD = Attributes.forBoolean("parallel",
-            getFromLocale("shiftRegParallelAttr"));
+    static final Attribute<Integer> ATTR_LENGTH = Attributes.forIntegerRange("length", getFromLocale("shiftRegLengthAttr"), 1, 32);
+    static final Attribute<Boolean> ATTR_LOAD = Attributes.forBoolean("parallel", getFromLocale("shiftRegParallelAttr"));
 
     private static final int IN  = 0;
     private static final int SH  = 1;
@@ -38,12 +36,12 @@ public class ShiftRegister extends InstanceFactory {
     private static final int LD  = 5;
 
     public ShiftRegister() {
-        super("Shift Register", getFromLocale("shiftRegisterComponent"));
+        super("Shift Register", "Shift", getFromLocale("shiftRegisterComponent"));
         setAttributes(new Attribute[] {
                 StdAttr.WIDTH, ATTR_LENGTH, ATTR_LOAD, StdAttr.EDGE_TRIGGER,
                 StdAttr.LABEL, StdAttr.LABEL_FONT
             }, new Object[] {
-                BitWidth.ONE, Integer.valueOf(8), Boolean.TRUE,
+                BitWidth.ONE, 8, Boolean.TRUE,
                 StdAttr.TRIG_RISING, "", StdAttr.DEFAULT_LABEL_FONT
             });
         setKeyConfigurator(JoinedConfigurator.create(
@@ -57,9 +55,9 @@ public class ShiftRegister extends InstanceFactory {
 
     @Override
     public Bounds getOffsetBounds(AttributeSet attrs) {
-        Object parallel = attrs.getValue(ATTR_LOAD);
-        if (parallel == null || ((Boolean) parallel).booleanValue()) {
-            int len = attrs.getValue(ATTR_LENGTH).intValue();
+        Boolean parallel = attrs.getValue(ATTR_LOAD);
+        if (parallel == null || parallel) {
+            int len = attrs.getValue(ATTR_LENGTH);
             return Bounds.create(0, -20, 20 + 10 * len, 40);
         } else {
             return Bounds.create(0, -20, 30, 40);
@@ -86,9 +84,9 @@ public class ShiftRegister extends InstanceFactory {
         Boolean parallelObj = instance.getAttributeValue(ATTR_LOAD);
         Bounds bds = instance.getBounds();
         Port[] ps;
-        if (parallelObj == null || parallelObj.booleanValue()) {
+        if (parallelObj == null || parallelObj) {
             Integer lenObj = instance.getAttributeValue(ATTR_LENGTH);
-            int len = lenObj == null ? 8 : lenObj.intValue();
+            int len = lenObj == null ? 8 : lenObj;
             ps = new Port[6 + 2 * len];
             ps[LD] = new Port(10, -20, Port.INPUT, 1);
             ps[LD].setToolTip(getFromLocale("shiftRegLoadTip"));
@@ -120,7 +118,7 @@ public class ShiftRegister extends InstanceFactory {
     private ShiftRegisterData getData(InstanceState state) {
         BitWidth width = state.getAttributeValue(StdAttr.WIDTH);
         Integer lenObj = state.getAttributeValue(ATTR_LENGTH);
-        int length = lenObj == null ? 8 : lenObj.intValue();
+        int length = lenObj == null ? 8 : lenObj;
         ShiftRegisterData data = (ShiftRegisterData) state.getData();
         if (data == null) {
             data = new ShiftRegisterData(width, length);
@@ -134,7 +132,7 @@ public class ShiftRegister extends InstanceFactory {
     @Override
     public void propagate(InstanceState state) {
         Object triggerType = state.getAttributeValue(StdAttr.EDGE_TRIGGER);
-        boolean parallel = state.getAttributeValue(ATTR_LOAD).booleanValue();
+        boolean parallel = state.getAttributeValue(ATTR_LOAD);
         ShiftRegisterData data = getData(state);
         int len = data.getLength();
 
@@ -167,12 +165,12 @@ public class ShiftRegister extends InstanceFactory {
         painter.drawLabel();
 
         // draw state
-        boolean parallel = painter.getAttributeValue(ATTR_LOAD).booleanValue();
+        boolean parallel = painter.getAttributeValue(ATTR_LOAD);
         if (parallel) {
             BitWidth widObj = painter.getAttributeValue(StdAttr.WIDTH);
             int wid = widObj.getWidth();
             Integer lenObj = painter.getAttributeValue(ATTR_LENGTH);
-            int len = lenObj == null ? 8 : lenObj.intValue();
+            int len = lenObj == null ? 8 : lenObj;
             if (painter.getShowState()) {
                 if (wid <= 4) {
                     ShiftRegisterData data = getData(painter);

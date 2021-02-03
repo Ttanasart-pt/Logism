@@ -18,10 +18,7 @@ class ProbeAttributes extends AbstractAttributeSet {
     public static ProbeAttributes instance = new ProbeAttributes();
 
     private static final List<Attribute<?>> ATTRIBUTES
-        = Arrays.asList(new Attribute<?>[] {
-            StdAttr.FACING, RadixOption.ATTRIBUTE,
-            StdAttr.LABEL, Pin.ATTR_LABEL_LOC, StdAttr.LABEL_FONT,
-        });
+        = Arrays.asList(StdAttr.FACING, RadixOption.ATTRIBUTE, StdAttr.LABEL, Pin.ATTR_LABEL_LOC, StdAttr.LABEL_FONT);
 
     Direction facing = Direction.EAST;
     String label = "";

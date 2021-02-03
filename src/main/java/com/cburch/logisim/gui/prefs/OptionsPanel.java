@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 abstract class OptionsPanel extends JPanel{
-    private PreferencesFrame optionsFrame;
+    private final PreferencesFrame optionsFrame;
 
     public OptionsPanel(PreferencesFrame frame) {
         super();

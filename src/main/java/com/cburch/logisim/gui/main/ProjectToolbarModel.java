@@ -14,32 +14,25 @@ import com.cburch.draw.toolbar.ToolbarSeparator;
 import com.cburch.logisim.gui.menu.LogisimMenuBar;
 import static com.cburch.logisim.util.LocaleString.*;
 
-class ProjectToolbarModel extends AbstractToolbarModel
-        implements MenuListener.EnabledListener {
-    private Frame frame;
-    private LogisimToolbarItem itemAdd;
-    private LogisimToolbarItem itemUp;
-    private LogisimToolbarItem itemDown;
-    private LogisimToolbarItem itemDelete;
-    private LogisimToolbarItem itemLayout;
-    private LogisimToolbarItem itemAppearance;
-    private List<ToolbarItem> items;
+class ProjectToolbarModel extends AbstractToolbarModel implements MenuListener.EnabledListener {
+    private final Frame frame;
+    private final LogisimToolbarItem itemAdd;
+    private final LogisimToolbarItem itemUp;
+    private final LogisimToolbarItem itemDown;
+    private final LogisimToolbarItem itemDelete;
+    private final LogisimToolbarItem itemLayout;
+    private final LogisimToolbarItem itemAppearance;
+    private final List<ToolbarItem> items;
 
     public ProjectToolbarModel(Frame frame, MenuListener menu) {
         this.frame = frame;
 
-        itemAdd = new LogisimToolbarItem(menu, "projadd.svg", LogisimMenuBar.ADD_CIRCUIT,
-                getFromLocale("projectAddCircuitTip"));
-        itemUp = new LogisimToolbarItem(menu, "projup.svg", LogisimMenuBar.MOVE_CIRCUIT_UP,
-                getFromLocale("projectMoveCircuitUpTip"));
-        itemDown = new LogisimToolbarItem(menu, "projdown.svg", LogisimMenuBar.MOVE_CIRCUIT_DOWN,
-                getFromLocale("projectMoveCircuitDownTip"));
-        itemDelete = new LogisimToolbarItem(menu, "projdel.svg", LogisimMenuBar.REMOVE_CIRCUIT,
-                getFromLocale("projectRemoveCircuitTip"));
-        itemLayout = new LogisimToolbarItem(menu, "projlayo.svg", LogisimMenuBar.EDIT_LAYOUT,
-                getFromLocale("projectEditLayoutTip"));
-        itemAppearance = new LogisimToolbarItem(menu, "projapp.svg", LogisimMenuBar.EDIT_APPEARANCE,
-                getFromLocale("projectEditAppearanceTip"));
+        itemAdd = new LogisimToolbarItem(menu, "projadd.svg", LogisimMenuBar.ADD_CIRCUIT, "Add", getFromLocale("projectAddCircuitTip"));
+        itemUp = new LogisimToolbarItem(menu, "projup.svg", LogisimMenuBar.MOVE_CIRCUIT_UP, "Up", getFromLocale("projectMoveCircuitUpTip"));
+        itemDown = new LogisimToolbarItem(menu, "projdown.svg", LogisimMenuBar.MOVE_CIRCUIT_DOWN, "Down", getFromLocale("projectMoveCircuitDownTip"));
+        itemDelete = new LogisimToolbarItem(menu, "projdel.svg", LogisimMenuBar.REMOVE_CIRCUIT, "Remove", getFromLocale("projectRemoveCircuitTip"));
+        itemLayout = new LogisimToolbarItem(menu, "projlayo.svg", LogisimMenuBar.EDIT_LAYOUT, "Circuit", getFromLocale("projectEditLayoutTip"));
+        itemAppearance = new LogisimToolbarItem(menu, "projapp.svg", LogisimMenuBar.EDIT_APPEARANCE, "Component", getFromLocale("projectEditAppearanceTip"));
 
         items = UnmodifiableList.decorate(Arrays.asList(itemAdd, itemUp, itemDown, itemDelete, new ToolbarSeparator(2), itemLayout, itemAppearance));
 

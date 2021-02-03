@@ -19,20 +19,20 @@ import com.cburch.logisim.proj.Project;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class SimulationToolbarModel extends AbstractToolbarModel implements ChangeListener {
-    private Project project;
-    private LogisimToolbarItem simEnable;
-    private LogisimToolbarItem simStep;
-    private LogisimToolbarItem tickEnable;
-    private LogisimToolbarItem tickStep;
-    private List<ToolbarItem> items;
+    private final Project project;
+    private final LogisimToolbarItem simEnable;
+    private final LogisimToolbarItem simStep;
+    private final LogisimToolbarItem tickEnable;
+    private final LogisimToolbarItem tickStep;
+    private final List<ToolbarItem> items;
 
     public SimulationToolbarModel(Project project, MenuListener menu, boolean isSmall) {
         this.project = project;
 
-        simEnable = new LogisimToolbarItem(menu, "simplay.svg", LogisimMenuBar.SIMULATE_ENABLE, getFromLocale("simulateEnableStepsTip"));
-        simStep = new LogisimToolbarItem(menu, "simstep.svg", LogisimMenuBar.SIMULATE_STEP, getFromLocale("simulateStepTip"));
-        tickEnable = new LogisimToolbarItem(menu, "simtplay.svg", LogisimMenuBar.TICK_ENABLE, getFromLocale("simulateEnableTicksTip"));
-        tickStep = new LogisimToolbarItem(menu, "simtstep.svg", LogisimMenuBar.TICK_STEP, getFromLocale("simulateTickTip"));
+        simEnable = new LogisimToolbarItem(menu, "simplay.svg", LogisimMenuBar.SIMULATE_ENABLE, "Enable", getFromLocale("simulateEnableStepsTip"));
+        simStep = new LogisimToolbarItem(menu, "simstep.svg", LogisimMenuBar.SIMULATE_STEP, "Step", getFromLocale("simulateStepTip"));
+        tickEnable = new LogisimToolbarItem(menu, "simtplay.svg", LogisimMenuBar.TICK_ENABLE, "Start", getFromLocale("simulateEnableTicksTip"));
+        tickStep = new LogisimToolbarItem(menu, "simtstep.svg", LogisimMenuBar.TICK_STEP, "Step", getFromLocale("simulateTickTip"));
 
         if(isSmall)
             items = UnmodifiableList.decorate(Arrays.asList(new ToolbarItem[] { tickEnable, tickStep }));

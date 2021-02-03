@@ -22,15 +22,13 @@ public class Builtin extends Library {
     private List<Library> libraries = null;
 
     public Builtin() {
-        libraries = Arrays.asList(new Library[] {
-            new Base(),
-            new Gates(),
-            new Wiring(),
-            new Plexers(),
-            new Arithmetic(),
-            new Memory(),
-            new Io(),
-        });
+        libraries = Arrays.asList(new Base(),
+                new Gates(),
+                new Wiring(),
+                new Plexers(),
+                new Arithmetic(),
+                new Memory(),
+                new Io());
     }
 
     @Override

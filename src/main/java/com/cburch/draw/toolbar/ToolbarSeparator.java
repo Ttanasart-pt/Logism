@@ -33,6 +33,9 @@ public class ToolbarSeparator implements ToolbarItem {
     }
 
     @Override
+    public String getNameShort() { return null; }
+
+    @Override
     public Dimension getDimension(Object orientation) {
         return new Dimension(size, size);
     }

@@ -11,6 +11,7 @@ public interface ToolbarItem {
     public boolean isSelectable();
     public void paintIcon(Component destination, Graphics g);
     public String getToolTip();
+    public String getNameShort();
     public Dimension getDimension(Object orientation);
     public boolean isSeperator();
 }

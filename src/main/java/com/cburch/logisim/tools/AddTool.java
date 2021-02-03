@@ -41,14 +41,14 @@ import com.cburch.logisim.tools.key.KeyConfigurationResult;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class AddTool extends Tool {
-    private static int INVALID_COORD = Integer.MIN_VALUE;
+    private static final int INVALID_COORD = Integer.MIN_VALUE;
 
-    private static int SHOW_NONE    = 0;
-    private static int SHOW_GHOST   = 1;
-    private static int SHOW_ADD     = 2;
-    private static int SHOW_ADD_NO  = 3;
+    private static final int SHOW_NONE    = 0;
+    private static final int SHOW_GHOST   = 1;
+    private static final int SHOW_ADD     = 2;
+    private static final int SHOW_ADD_NO  = 3;
 
-    private static Cursor cursor
+    private static final Cursor cursor
         = Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR);
 
     private class MyAttributeListener implements AttributeListener {
@@ -63,10 +63,10 @@ public class AddTool extends Tool {
     }
 
     private Class<? extends Library> descriptionBase;
-    private FactoryDescription description;
+    private final FactoryDescription description;
     private boolean sourceLoadAttempted;
     private ComponentFactory factory;
-    private AttributeSet attrs;
+    private final AttributeSet attrs;
     private Bounds bounds;
     private boolean shouldSnap;
     private int lastX = INVALID_COORD;
@@ -94,7 +94,7 @@ public class AddTool extends Tool {
         this.attrs = new FactoryAttributes(source);
         attrs.addAttributeListener(new MyAttributeListener());
         Boolean value = (Boolean) source.getFeature(ComponentFactory.SHOULD_SNAP, attrs);
-        this.shouldSnap = value == null ? true : value.booleanValue();
+        this.shouldSnap = value == null || value;
     }
 
     private AddTool(AddTool base) {
@@ -159,7 +159,7 @@ public class AddTool extends Tool {
         if (ret != null) {
         	AttributeSet base = getBaseAttributes();
         	Boolean value = (Boolean) ret.getFeature(ComponentFactory.SHOULD_SNAP, base);
-        	shouldSnap = value == null ? true : value.booleanValue();
+        	shouldSnap = value == null || value;
         }
         factory = ret;
         sourceLoadAttempted = true;
@@ -168,8 +168,12 @@ public class AddTool extends Tool {
 
     @Override
     public String getName() {
-        FactoryDescription desc = description;
-        return desc == null ? factory.getName() : desc.getName();
+        return description == null ? factory.getName() : description.getName();
+    }
+
+    @Override
+    public String getNameShort() {
+        return description == null? factory.getNameShort() : description.getNameShort();
     }
 
     @Override

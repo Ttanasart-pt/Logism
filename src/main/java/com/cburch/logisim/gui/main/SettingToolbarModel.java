@@ -14,7 +14,7 @@ public class SettingToolbarModel extends AbstractToolbarModel {
     private final List<ToolbarItem> items;
 
     public SettingToolbarModel(MenuListener menu) {
-        itemAnalysis = new LogisimToolbarItem(menu, "circuit_analy.svg", LogisimMenuBar.ANALYZE_CIRCUIT, "Analyze circuit");
+        itemAnalysis = new LogisimToolbarItem(menu, "circuit_analy.svg", LogisimMenuBar.ANALYZE_CIRCUIT, "Analyze", "Analyze circuit");
 
         items = UnmodifiableList.decorate(Arrays.asList(itemAnalysis));
     }

@@ -58,7 +58,7 @@ public class Probe extends InstanceFactory {
     }
 
     public Probe() {
-        super("Probe", getFromLocale("probeComponent"));
+        super("Probe", "Probe", getFromLocale("probeComponent"));
         setIconName("probe.svg");
         setFacingAttribute(StdAttr.FACING);
         setInstanceLogger(ProbeLogger.class);
@@ -95,24 +95,27 @@ public class Probe extends InstanceFactory {
         Bounds bds = painter.getBounds();
         int x = bds.getX();
         int y = bds.getY();
-        g.setColor(Color.WHITE);
-        g.fillRect(x + 5, y + 5, bds.getWidth() - 10, bds.getHeight() - 10);
-        g.setColor(Color.GRAY);
+
         if (value.getWidth() <= 1) {
-            g.drawOval(x + 1, y + 1,
-                bds.getWidth() - 2, bds.getHeight() - 2);
+            g.setColor(ColorRegistry.Grey);
+            g.fillOval(x + 1, y + 1, bds.getWidth() - 2, bds.getHeight() - 2);
+
+            g.setColor(ColorRegistry.GreyBright.darker());
+            g.drawOval(x + 1, y + 1, bds.getWidth() - 2, bds.getHeight() - 2);
         } else {
-            g.drawRoundRect(x + 1, y + 1,
-                bds.getWidth() - 2, bds.getHeight() - 2, 6, 6);
+            g.setColor(ColorRegistry.Grey);
+            g.fillRoundRect(x + 1, y + 1, bds.getWidth() - 2, bds.getHeight() - 2, 6, 6);
+
+            g.setColor(ColorRegistry.GreyBright.darker());
+            g.drawRoundRect(x + 1, y + 1, bds.getWidth() - 2, bds.getHeight() - 2, 6, 6);
         }
 
-        g.setColor(ColorRegistry.BaseGateBorderColor);
+        g.setColor(ColorRegistry.TextColor);
         painter.drawLabel();
 
         if (!painter.getShowState()) {
             if (value.getWidth() > 0) {
-                GraphicsUtil.drawCenteredText(g, "x" + value.getWidth(),
-                    bds.getX() + bds.getWidth() / 2, bds.getY() + bds.getHeight() / 2);
+                GraphicsUtil.drawCenteredText(g, "x" + value.getWidth(), bds.getX() + bds.getWidth() / 2, bds.getY() + bds.getHeight() / 2);
             }
         } else {
             paintValue(painter, value);

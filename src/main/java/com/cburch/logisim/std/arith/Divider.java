@@ -32,7 +32,7 @@ public class Divider extends InstanceFactory {
     private static final int REM   = 4;
 
     public Divider() {
-        super("Divider", getFromLocale("dividerComponent"));
+        super("Divider", "Divide", getFromLocale("dividerComponent"));
         setAttributes(new Attribute[] { StdAttr.WIDTH },
                 new Object[] { BitWidth.create(8) });
         setKeyConfigurator(new BitWidthConfigurator(StdAttr.WIDTH));

@@ -18,19 +18,24 @@ public class FrameToolbar extends JPanel {
 
     public FrameToolbar(ToolbarModel model, Frame frame, MenuListener menu, Project project) {
         super(new CardLayout(8, 0));
-        setPreferredSize(new Dimension(getWidth(), 64));
+        setPreferredSize(new Dimension(getWidth(), 72));
 
         JPanel content = new JPanel(new BorderLayout());
-        JPanel leftPanel = new JPanel(new GridBagLayout());
-        JPanel centerPanel = new JPanel(new GridBagLayout());
+
+        JPanel leftPanel = new JPanel();
+        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.LINE_AXIS));
+
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.LINE_AXIS));
+
         JPanel rightPanel = new JPanel(new BorderLayout());
-        JPanel rightRightPanel = new JPanel(new GridBagLayout());
+        JPanel rightRightPanel = new JPanel();
+        rightRightPanel.setLayout(new BoxLayout(rightRightPanel, BoxLayout.LINE_AXIS));
 
         toolExplorer = new ExplorerToolbarModel(frame, menu);
         leftPanel.add(new Toolbar(toolExplorer));
-
-        tools = new Toolbar(model);
         leftPanel.add(new JPanel());
+        tools = new Toolbar(model, true);
         leftPanel.add(tools);
 
         toolSimulation = new SimulationToolbarModel(project, menu, true);
