@@ -66,19 +66,18 @@ public class LogisimMenuBar extends JMenuBar {
         }
     }
 
-    private JFrame parent;
-    private MyListener listener;
-    private Project proj;
+    private final JFrame parent;
+    private final MyListener listener;
+    private final Project proj;
     private SimulateListener simulateListener = null;
-    private HashMap<LogisimMenuItem,MenuItem> menuItems
-        = new HashMap<LogisimMenuItem,MenuItem>();
-    private ArrayList<ChangeListener> enableListeners;
+    private final HashMap<LogisimMenuItem,MenuItem> menuItems = new HashMap<LogisimMenuItem,MenuItem>();
+    private final ArrayList<ChangeListener> enableListeners;
 
-    private MenuFile file;
-    private MenuEdit edit;
-    private MenuProject project;
-    private MenuSimulate simulate;
-    private MenuHelp help;
+    protected final MenuFile file;
+    protected final MenuEdit edit;
+    private final MenuProject project;
+    private final MenuSimulate simulate;
+    private final MenuHelp help;
 
     public LogisimMenuBar(JFrame parent, Project proj) {
         this.parent = parent;

@@ -112,15 +112,15 @@ public class AppPreferences {
     // saved until the application is closed
     public static final String RECENT_PROJECTS = "recentProjects";
     private static final RecentProjects recentProjects = new RecentProjects();
-    public static final PrefMonitor<Double> TICK_FREQUENCY      = create(new PrefMonitorDouble("tickFrequency", 1.0));
+    public static final PrefMonitor<Double>  TICK_FREQUENCY      = create(new PrefMonitorDouble("tickFrequency", 1.0));
     public static final PrefMonitor<Boolean> LAYOUT_SHOW_GRID   = create(new PrefMonitorBoolean("layoutGrid", true));
-    public static final PrefMonitor<Double> LAYOUT_ZOOM         = create(new PrefMonitorDouble("layoutZoom", 1.0));
+    public static final PrefMonitor<Double>  LAYOUT_ZOOM         = create(new PrefMonitorDouble("layoutZoom", 1.0));
     public static final PrefMonitor<Boolean> APPEARANCE_SHOW_GRID = create(new PrefMonitorBoolean("appearanceGrid", true));
-    public static final PrefMonitor<Double> APPEARANCE_ZOOM     = create(new PrefMonitorDouble("appearanceZoom", 1.0));
+    public static final PrefMonitor<Double>  APPEARANCE_ZOOM     = create(new PrefMonitorDouble("appearanceZoom", 1.0));
     public static final PrefMonitor<Integer> WINDOW_STATE       = create(new PrefMonitorInt("windowState", JFrame.NORMAL));
     public static final PrefMonitor<Integer> WINDOW_WIDTH       = create(new PrefMonitorInt("windowWidth", 640));
     public static final PrefMonitor<Integer> WINDOW_HEIGHT      = create(new PrefMonitorInt("windowHeight", 480));
-    public static final PrefMonitor<String> WINDOW_LOCATION     = create(new PrefMonitorString("windowLocation", "0,0"));
+    public static final PrefMonitor<String>  WINDOW_LOCATION     = create(new PrefMonitorString("windowLocation", "0,0"));
     public static final PrefMonitor<Integer> WINDOW_MAIN_SPLIT   = create(new PrefMonitorInt("windowMainSplit", 100));
     public static final PrefMonitor<Integer> WINDOW_LEFT_SPLIT   = create(new PrefMonitorInt("windowLeftSplit", 100));
     public static final PrefMonitor<Integer> WINDOW_STAT_SPLIT   = create(new PrefMonitorInt("windowStatSplit", 100));
@@ -134,6 +134,8 @@ public class AppPreferences {
     public static final PrefMonitor<Integer> STYLE_TEXT_COLOR = create(new PrefMonitorInt("TextColor", ColorRegistry.Creme.getRGB()));
     public static final PrefMonitor<Integer> STYLE_HANDLE_COLOR = create(new PrefMonitorInt("HandleColor", ColorRegistry.Creme.getRGB()));
 
+    public static final PrefMonitor<Double>  STYLE_STROKE_THICK = create(new PrefMonitorDouble("WireStrokeThick", 0.3));
+    public static final PrefMonitor<String>  STYLE_FONT = create(new PrefMonitorString("StyleFont", "Helvetica"));
     public static final PrefMonitor<Integer> STYLE_WIRE_IDLE = create(new PrefMonitorInt("WireIdleColor", ColorRegistry.Black.getRGB()));
     public static final PrefMonitor<Integer> STYLE_WIRE_NIL = create(new PrefMonitorInt("WireNilColor", ColorRegistry.Black.getRGB()));
     public static final PrefMonitor<Integer> STYLE_WIRE_FALSE = create(new PrefMonitorInt("WireFalseColor", ColorRegistry.Lime_dark.getRGB()));

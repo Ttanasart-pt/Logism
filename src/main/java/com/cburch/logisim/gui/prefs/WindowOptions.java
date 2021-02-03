@@ -4,13 +4,14 @@
 package com.cburch.logisim.gui.prefs;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.gui.main.Frame;
 import com.cburch.logisim.prefs.AppPreferences;
 import com.cburch.logisim.prefs.PrefMonitor;
 import com.cburch.logisim.util.GraphicsUtil;
-import com.cburch.logisim.util.TableLayout;
 import org.apache.batik.ext.swing.JGridBagPanel;
 
 import java.awt.*;
@@ -21,7 +22,6 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.Flow;
 
 import static com.cburch.logisim.util.LocaleString.*;
 
@@ -44,9 +44,9 @@ class WindowOptions extends OptionsPanel {
         PrefOptionList lookAndFeel = new PrefOptionList(AppPreferences.LOOK_AND_FEEL, getFromLocale("lookAndFeel"),
             new PrefOption[]{
                 new PrefOption("Dark", getFromLocale("Dark")),
-                new PrefOption("Light", getFromLocale("Light")),
+                //new PrefOption("Light", getFromLocale("Light")),
                 new PrefOption("Dracular", getFromLocale("Dracular")),
-                new PrefOption("Intellij", getFromLocale("Intellij")),
+                //new PrefOption("Intellij", getFromLocale("Intellij")),
             });
 
         JPanel panel = new JPanel();
@@ -66,6 +66,8 @@ class WindowOptions extends OptionsPanel {
 
         StylePages = new ArrayList<>();
         StylePages.add(new styleMenuTab("General", Arrays.asList(
+                new doubleSliderPanel("Stroke scale", AppPreferences.STYLE_STROKE_THICK, 10),
+                new fontPanel("Gate font", AppPreferences.STYLE_FONT),
                 new colorPanel("Canvas color", AppPreferences.STYLE_CANVAS_BG),
                 new colorPanel("Grid color", AppPreferences.STYLE_GRID_COLOR),
                 new colorPanel("Text color", AppPreferences.STYLE_TEXT_COLOR),
@@ -110,7 +112,7 @@ class WindowOptions extends OptionsPanel {
         stylePanel.removeAll();
         for(styleMenuTab menu : StylePages) {
             menu.isSelecting = false;
-            if(menu.title == page) {
+            if(menu.title.equals(page)) {
                 menu.isSelecting = true;
 
                 for(int i = 0; i < menu.panels.size(); i++) {
@@ -133,13 +135,54 @@ class WindowOptions extends OptionsPanel {
     @Override
     public void localeChanged() { check.localeChanged(); }
 
-    static class colorPanel extends JPanel {
+    static class propertyPanel extends JPanel {
+
+    }
+
+    static class colorPanel extends propertyPanel {
         colorPanel(String name, PrefMonitor<Integer> pref) {
             setBackground(ColorRegistry.Grey.darker());
             JLabel nameLabel = new JLabel(name);
-            nameLabel.setPreferredSize(new Dimension(128, 32));
+            nameLabel.setPreferredSize(new Dimension(120, 32));
             add(nameLabel);
             add(new PrefColor(pref));
+        }
+    }
+
+    static class fontPanel extends propertyPanel {
+        fontPanel(String name, PrefMonitor<String> pref) {
+            setBackground(ColorRegistry.Grey.darker());
+            JLabel nameLabel = new JLabel(name);
+            nameLabel.setPreferredSize(new Dimension(120, 32));
+            add(nameLabel);
+            add(new PrefFont(pref));
+        }
+    }
+
+    static class doubleSliderPanel extends propertyPanel implements ChangeListener {
+        JLabel valueLabel;
+        PrefDoubleSlider slider;
+
+        doubleSliderPanel(String name, PrefMonitor<Double> pref, int divider) {
+            setBackground(ColorRegistry.Grey.darker());
+            JLabel nameLabel = new JLabel(name);
+            nameLabel.setPreferredSize(new Dimension(120, 32));
+            add(nameLabel);
+
+            slider = new PrefDoubleSlider(pref, divider);
+            slider.setMinimum(1);
+            slider.setMaximum(10);
+            add(slider);
+            slider.addChangeListener(this);
+
+            valueLabel = new JLabel("" + slider.getValueDouble());
+            valueLabel.setPreferredSize(new Dimension(20, 32));
+            add(valueLabel);
+        }
+
+        @Override
+        public void stateChanged(ChangeEvent e) {
+            valueLabel.setText(String.format("%.1f", slider.getValueDouble()));
         }
     }
 
@@ -150,6 +193,8 @@ class WindowOptions extends OptionsPanel {
         }
         @Override
         public void actionPerformed(ActionEvent e) {
+            ColorRegistry.setStyle();
+            GraphicsUtil.setStyle();
             Frame.This.repaint();
         }
     }
@@ -157,11 +202,11 @@ class WindowOptions extends OptionsPanel {
 
     class styleMenuTab extends JButton implements ActionListener, MouseListener {
         public String title;
-        public List<colorPanel> panels;
+        public List<propertyPanel> panels;
         boolean isSelecting;
         boolean isHovering;
 
-        styleMenuTab(String name, List<colorPanel> panels) {
+        styleMenuTab(String name, List<propertyPanel> panels) {
             title = name;
             this.panels = panels;
             setPreferredSize(new Dimension(128, 48));

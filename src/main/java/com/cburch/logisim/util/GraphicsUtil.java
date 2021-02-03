@@ -3,12 +3,9 @@
 
 package com.cburch.logisim.util;
 
-import java.awt.BasicStroke;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
+import com.cburch.logisim.prefs.AppPreferences;
+
+import java.awt.*;
 
 public class GraphicsUtil {
     public static final int H_LEFT = -1;
@@ -19,11 +16,27 @@ public class GraphicsUtil {
     public static final int V_BASELINE = 1;
     public static final int V_BOTTOM = 2;
     public static final int V_CENTER_OVERALL = 3;
+    public static Double STROKE_SCALE = 0.3;
+    public static String FONT_NAME = "Helvetica";
+    public static Font FONT;
+
+    public static void setStyle() {
+        STROKE_SCALE = AppPreferences.STYLE_STROKE_THICK.get();
+
+        FONT_NAME = AppPreferences.STYLE_FONT.get();
+        FONT = new Font(FONT_NAME, Font.PLAIN, 10);
+    }
+
+    public static void GraphicInit() {
+        setStyle();
+        AppPreferences.STYLE_STROKE_THICK.addPropertyChangeListener(evt -> setStyle());
+        AppPreferences.STYLE_FONT.addPropertyChangeListener(evt -> setStyle());
+    }
 
     static public void switchToWidth(Graphics g, int width) {
         if (g instanceof Graphics2D) {
             Graphics2D g2 = (Graphics2D) g;
-            g2.setStroke(new BasicStroke((float)width / 3f));
+            g2.setStroke(new BasicStroke((float) ((float)width * STROKE_SCALE)));
         }
     }
 
@@ -89,10 +102,9 @@ public class GraphicsUtil {
 
     }
     static public void drawText(Graphics g, String text, int x, int y, int halign, int valign) {
-        if (text.length() == 0) {
-            return;
-        }
+        if (text.length() == 0) { return; }
 
+        g.setFont(FONT);
         Rectangle bd = getTextBounds(g, text, x, y, halign, valign);
         g.drawString(text, bd.x, bd.y + g.getFontMetrics().getAscent());
     }

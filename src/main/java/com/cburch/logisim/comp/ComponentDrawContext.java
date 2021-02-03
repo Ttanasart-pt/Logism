@@ -234,8 +234,7 @@ public class ComponentDrawContext {
         g.setColor(curColor);
     }
 
-    public void drawClock(Component comp, int i,
-            Direction dir) {
+    public void drawClock(Component comp, int i, Direction dir) {
         Color curColor = g.getColor();
         g.setColor(ColorRegistry.BaseGateBorderColor);
         GraphicsUtil.switchToWidth(g, 2);
@@ -247,17 +246,21 @@ public class ComponentDrawContext {
         final int CLK_SZ = 4;
         final int CLK_SZD = CLK_SZ - 1;
         if (dir == Direction.NORTH) {
-            g.drawLine(x - CLK_SZD, y - 1, x, y - CLK_SZ);
-            g.drawLine(x + CLK_SZD, y - 1, x, y - CLK_SZ);
+            int[] _x = {x - CLK_SZD - 2, x - CLK_SZD, x, x + CLK_SZD, x + CLK_SZD + 2};
+            int[] _y = {y, y, y - CLK_SZ, y, y};
+            g.drawPolyline(_x, _y, 5);
         } else if (dir == Direction.SOUTH) {
-            g.drawLine(x - CLK_SZD, y + 1, x, y + CLK_SZ);
-            g.drawLine(x + CLK_SZD, y + 1, x, y + CLK_SZ);
+            int[] _x = {x - CLK_SZD - 2, x - CLK_SZD, x, x + CLK_SZD, x + CLK_SZD + 2};
+            int[] _y = {y, y, y + CLK_SZ, y, y};
+            g.drawPolyline(_x, _y, 5);
         } else if (dir == Direction.EAST) {
-            g.drawLine(x + 1, y - CLK_SZD, x + CLK_SZ, y);
-            g.drawLine(x + 1, y + CLK_SZD, x + CLK_SZ, y);
+            int[] _x = {x, x, x + CLK_SZ, x, x};
+            int[] _y = {y - CLK_SZD - 2, y - CLK_SZD, y, y + CLK_SZD, y + CLK_SZD + 2};
+            g.drawPolyline(_x, _y, 5);
         } else if (dir == Direction.WEST) {
-            g.drawLine(x - 1, y - CLK_SZD, x - CLK_SZ, y);
-            g.drawLine(x - 1, y + CLK_SZD, x - CLK_SZ, y);
+            int[] _x = {x, x, x - CLK_SZ, x, x};
+            int[] _y = {y - CLK_SZD - 2, y - CLK_SZD, y, y + CLK_SZD, y + CLK_SZD + 2};
+            g.drawPolyline(_x, _y, 5);
         }
 
         g.setColor(curColor);

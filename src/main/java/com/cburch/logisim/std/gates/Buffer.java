@@ -152,8 +152,8 @@ class Buffer extends InstanceFactory {
         int[] xp = new int[4];
         int[] yp = new int[4];
         xp[0] = 0;   yp[0] =  0;
-        xp[1] = -19; yp[1] = -7;
-        xp[2] = -19; yp[2] =  7;
+        xp[1] = -20; yp[1] = -7;
+        xp[2] = -20; yp[2] =  7;
         xp[3] = 0;   yp[3] =  0;
         g.drawPolyline(xp, yp, 4);
 

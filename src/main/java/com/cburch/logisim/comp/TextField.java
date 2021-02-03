@@ -6,6 +6,7 @@ package com.cburch.logisim.comp;
 import java.awt.Graphics;
 import java.awt.Font;
 import java.awt.FontMetrics;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -34,8 +35,7 @@ public class TextField {
         this(x, y, halign, valign, null);
     }
 
-    public TextField(int x, int y, int halign, int valign,
-            Font font) {
+    public TextField(int x, int y, int halign, int valign, Font font) {
         this.x = x;
         this.y = y;
         this.halign = halign;
@@ -106,9 +106,7 @@ public class TextField {
         this.halign = halign;
     }
 
-    public void setVertAlign(int valign) {
-        this.valign = valign;
-    }
+    public void setVertAlign(int valign) { this.valign = valign; }
 
     public void setFont(Font font) {
         this.font = font;
@@ -126,27 +124,41 @@ public class TextField {
         int y = this.y;
         FontMetrics fm;
         if (font == null) {
-              fm = g.getFontMetrics();
+            fm = g.getFontMetrics();
         }
 
         else {
-                           fm = g.getFontMetrics(font);
+            fm = g.getFontMetrics(font);
         }
 
         int width = fm.stringWidth(text);
         int ascent = fm.getAscent();
         int descent = fm.getDescent();
         switch (halign) {
-        case TextField.H_CENTER:    x -= width / 2; break;
-        case TextField.H_RIGHT:  x -= width; break;
-        default:                    break;
+            case TextField.H_CENTER:
+                x -= width / 2;
+                break;
+            case TextField.H_RIGHT:
+                x -= width;
+                break;
+            default:
+                break;
         }
         switch (valign) {
-        case TextField.V_TOP:      y += ascent; break;
-        case TextField.V_CENTER:    y += ascent/ 2; break;
-        case TextField.V_CENTER_OVERALL: y += (ascent - descent) / 2; break;
-        case TextField.V_BOTTOM:    y -= descent; break;
-        default:                    break;
+            case TextField.V_TOP:
+                y += ascent;
+                break;
+            case TextField.V_CENTER:
+                y += ascent/ 2;
+                break;
+            case TextField.V_CENTER_OVERALL:
+                y += (ascent - descent) / 2;
+                break;
+            case TextField.V_BOTTOM:
+                y -= descent;
+                break;
+            default:
+                break;
         }
         return Bounds.create(x, y - ascent, width, ascent + descent);
     }
@@ -157,24 +169,41 @@ public class TextField {
             g.setFont(font);
         }
 
-
         int x = this.x;
         int y = this.y;
         FontMetrics fm = g.getFontMetrics();
-        int width = fm.stringWidth(text);
+        Rectangle2D rect = fm.getStringBounds(text, g);
+        int width = (int)rect.getWidth();
+        int height = (int)rect.getHeight();
+
         int ascent = fm.getAscent();
         int descent = fm.getDescent();
         switch (halign) {
-        case TextField.H_CENTER:    x -= width / 2; break;
-        case TextField.H_RIGHT:  x -= width; break;
-        default:                    break;
+            case TextField.H_CENTER:
+                x -= width / 2;
+                break;
+            case TextField.H_RIGHT:
+                x -= width;
+                break;
+            default:
+                break;
         }
+
         switch (valign) {
-        case TextField.V_TOP:      y += ascent; break;
-        case TextField.V_CENTER:    y += ascent/ 2; break;
-        case TextField.V_CENTER_OVERALL: y += (ascent - descent) / 2; break;
-        case TextField.V_BOTTOM:    y -= descent; break;
-        default:                    break;
+            case TextField.V_TOP:
+                y += ascent;
+                break;
+            case TextField.V_CENTER:
+                y += ascent/ 2;
+                break;
+            case TextField.V_CENTER_OVERALL:
+                y += (ascent - descent) / 2;
+                break;
+            case TextField.V_BOTTOM:
+                y -= descent;
+                break;
+            default:
+                break;
         }
         g.drawString(text, x, y);
         g.setFont(old);

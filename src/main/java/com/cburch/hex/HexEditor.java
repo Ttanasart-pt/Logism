@@ -19,7 +19,6 @@ import javax.swing.SwingConstants;
  *
  * @author Carl Burch
  */
-@SuppressWarnings("serial")
 public class HexEditor extends JComponent implements Scrollable {
     private class Listener implements HexModelListener {
         @Override
@@ -28,19 +27,16 @@ public class HexEditor extends JComponent implements Scrollable {
             repaint();
         }
         @Override
-        public void bytesChanged(HexModel source, long start, long numBytes,
-                int[] oldValues) {
-            repaint(0, measures.toY(start),
-                    getWidth(), measures.toY(start + numBytes) +
-                        measures.getCellHeight());
+        public void bytesChanged(HexModel source, long start, long numBytes, int[] oldValues) {
+            repaint(0, measures.toY(start), getWidth(), measures.toY(start + numBytes) + measures.getCellHeight());
         }
     }
 
     private HexModel model;
-    private Listener listener;
-    private Measures measures;
-    private Caret caret;
-    private Highlighter highlighter;
+    private final Listener listener;
+    private final Measures measures;
+    private final Caret caret;
+    private final Highlighter highlighter;
 
     /**
      * Constructs a hex editor object, based on a model
@@ -54,10 +50,8 @@ public class HexEditor extends JComponent implements Scrollable {
         this.highlighter = new Highlighter(this);
 
         // Nick A: change the font here
-        this.setFont( new Font( "Dialog", Font.PLAIN, 16 ) );
+        this.setFont( new Font( null, Font.PLAIN, 16 ) );
 
-        setOpaque(true);
-        setBackground(Color.WHITE);
         if (model != null) {
             model.addHexModelListener(listener);
         }

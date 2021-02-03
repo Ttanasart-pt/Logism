@@ -11,16 +11,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
+import com.cburch.logisim.comp.*;
 import org.apache.commons.collections15.list.UnmodifiableList;
 
 import com.cburch.logisim.circuit.CircuitState;
-import com.cburch.logisim.comp.Component;
-import com.cburch.logisim.comp.ComponentDrawContext;
-import com.cburch.logisim.comp.ComponentEvent;
-import com.cburch.logisim.comp.ComponentFactory;
-import com.cburch.logisim.comp.ComponentListener;
-import com.cburch.logisim.comp.ComponentUserEvent;
-import com.cburch.logisim.comp.EndData;
 import com.cburch.logisim.data.Attribute;
 import com.cburch.logisim.data.AttributeEvent;
 import com.cburch.logisim.data.AttributeListener;
@@ -47,8 +41,7 @@ class InstanceComponent implements Component, AttributeListener, ToolTipMaker {
     private boolean attrListenRequested;
     private InstanceTextField textField;
 
-    InstanceComponent(InstanceFactory factory, Location loc,
-            AttributeSet attrs) {
+    InstanceComponent(InstanceFactory factory, Location loc, AttributeSet attrs) {
         this.listeners = null;
         this.factory = factory;
         this.instance = new Instance(this);

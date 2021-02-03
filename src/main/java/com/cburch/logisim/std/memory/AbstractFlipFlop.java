@@ -35,11 +35,8 @@ abstract class AbstractFlipFlop extends InstanceFactory {
         super(name, nameShort, desc);
         setIconName(iconName);
         triggerAttribute = allowLevelTriggers ? StdAttr.TRIGGER : StdAttr.EDGE_TRIGGER;
-        setAttributes(new Attribute[] {
-                triggerAttribute, StdAttr.LABEL, StdAttr.LABEL_FONT
-            }, new Object[] {
-                StdAttr.TRIG_RISING, "", StdAttr.DEFAULT_LABEL_FONT
-            });
+        setAttributes(new Attribute[] { triggerAttribute, StdAttr.LABEL, StdAttr.LABEL_FONT },
+            new Object[] { StdAttr.TRIG_RISING, "", StdAttr.DEFAULT_LABEL_FONT });
         setOffsetBounds(Bounds.create(-40, -10, 40, 40));
         setInstancePoker(Poker.class);
         setInstanceLogger(Logger.class);
@@ -136,15 +133,14 @@ abstract class AbstractFlipFlop extends InstanceFactory {
                 int y = loc.getY();
                 g.setColor(myState.curValue.getColor());
                 g.fillOval(x - 26, y + 4, 13, 13);
-                g.setColor(Color.WHITE);
-                GraphicsUtil.drawCenteredText(g,
-                    myState.curValue.toDisplayString(), x - 19, y + 9);
+                g.setColor(ColorRegistry.TextColor);
+                GraphicsUtil.drawCenteredText(g, myState.curValue.toDisplayString(), x - 19, y + 9);
                 g.setColor(ColorRegistry.BaseGateBorderColor);
             }
         }
 
         int n = getPorts().size() - STD_PORTS;
-        g.setColor(Color.GRAY);
+        g.setColor(ColorRegistry.BaseGateBorderTransparent);
         painter.drawPort(n + 3, "0", Direction.SOUTH);
         painter.drawPort(n + 4, "1", Direction.SOUTH);
         painter.drawPort(n + 5, getFromLocale("memEnableLabel"), Direction.SOUTH);

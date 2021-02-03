@@ -77,7 +77,7 @@ public class PainterShaped {
 
         g.drawPolyline(xp, yp, 4);
         if (height > width) {
-            g.drawLine(-width + 1, -height / 2, -width + 1, height / 2);
+            g.drawLine(-width, -height / 2, -width, height / 2);
         }
     }
 
@@ -106,18 +106,18 @@ public class PainterShaped {
             GraphicsUtil.switchToWidth(g, 2);
             int[] xp = new int[4];
             int[] yp = new int[4];
-            xp[0] =  -6; yp[0] =  0;
-            xp[1] = -19; yp[1] = -6;
-            xp[2] = -19; yp[2] =  6;
-            xp[3] =  -6; yp[3] =  0;
+            xp[0] =  -5; yp[0] =  0;
+            xp[1] = -20; yp[1] = -6;
+            xp[2] = -20; yp[2] =  6;
+            xp[3] =  -5; yp[3] =  0;
             g.drawPolyline(xp, yp, 4);
             g.drawOval(-6, -3, 6, 6);
         } else {
             int[] xp = new int[4];
             int[] yp = new int[4];
             xp[0] = -10; yp[0] = 0;
-            xp[1] = -29; yp[1] = -7;
-            xp[2] = -29; yp[2] = 7;
+            xp[1] = -30; yp[1] = -7;
+            xp[2] = -30; yp[2] = 7;
             xp[3] = -10; yp[3] = 0;
             g.drawPolyline(xp, yp, 4);
             g.drawOval(-9, -4, 9, 9);

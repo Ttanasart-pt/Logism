@@ -5,6 +5,10 @@ package com.cburch.logisim.gui.prefs;
 
 import com.bric.swing.ColorPicker;
 import com.cburch.logisim.prefs.PrefMonitor;
+import com.cburch.logisim.util.GraphicsUtil;
+import com.connectina.swing.fontchooser.DefaultFontSelectionModel;
+import com.connectina.swing.fontchooser.FontSelectionModel;
+import com.connectina.swing.fontchooser.JFontChooser;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,11 +17,11 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-class PrefColor extends JButton implements ActionListener, PropertyChangeListener {
-    private final PrefMonitor<Integer> pref;
+class PrefFont extends JButton implements ActionListener, PropertyChangeListener {
+    private final PrefMonitor<String> pref;
 
-    PrefColor(PrefMonitor<Integer> pref) {
-        super();
+    PrefFont(PrefMonitor<String> pref) {
+        super(pref.get());
         this.pref = pref;
 
         setPreferredSize(new Dimension(140, 24));
@@ -27,19 +31,12 @@ class PrefColor extends JButton implements ActionListener, PropertyChangeListene
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Color c = ColorPicker.showDialog(null, new Color(pref.get()));
-        pref.set(c.getRGB());
+        Font get = JFontChooser.showDialog(SwingUtilities.getWindowAncestor(this), GraphicsUtil.FONT);
+
+        pref.set(get.getFontName());
+        setText(get.getFontName());
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent event) {}
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        int x = 4;
-        int y = 4;
-        g.setColor(new Color(pref.get()));
-        g.fillRect(x, y, getWidth() - x * 2, getHeight() - y * 2);
-    }
 }

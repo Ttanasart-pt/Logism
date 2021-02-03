@@ -25,13 +25,11 @@ import com.cburch.logisim.util.GraphicsUtil;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class Joystick extends InstanceFactory {
-    static final Attribute<BitWidth> ATTR_WIDTH = Attributes.forBitWidth("bits",
-            getFromLocale("ioBitWidthAttr"), 2, 5);
+    static final Attribute<BitWidth> ATTR_WIDTH = Attributes.forBitWidth("bits", getFromLocale("ioBitWidthAttr"), 2, 5);
 
     public Joystick() {
         super("Joystick", "Joy", getFromLocale("joystickComponent"));
-        setAttributes(new Attribute[] { ATTR_WIDTH, Io.ATTR_COLOR },
-                new Object[] { BitWidth.create(4), Color.RED });
+        setAttributes(new Attribute[] { ATTR_WIDTH, Io.ATTR_COLOR }, new Object[] { BitWidth.create(4), Color.RED });
         setKeyConfigurator(new BitWidthConfigurator(ATTR_WIDTH, 2, 5));
         setOffsetBounds(Bounds.create(-30, -10, 30, 30));
         setIconName("joystick.svg");
@@ -49,23 +47,20 @@ public class Joystick extends InstanceFactory {
         int dy;
         State s = (State) state.getData();
         if (s == null) {
-            { dx = 0;
+            dx = 0;
+            dy = 0;
         }
- dy = 0; }
-        else { dx = s.xPos; dy = s.yPos; }
+        else {
+            dx = s.xPos;
+            dy = s.yPos;
+        }
 
         int steps = (1 << bits.getWidth()) - 1;
         dx = (dx + 14) * steps / 29 + 1;
         dy = (dy + 14) * steps / 29 + 1;
         if (bits.getWidth() > 4) {
-            if (dx >= steps / 2) {
-                dx++;
-            }
-
-            if (dy >= steps / 2) {
-                dy++;
-            }
-
+            if (dx >= steps / 2) dx++;
+            if (dy >= steps / 2) dy++;
         }
         state.setPort(0, Value.createKnown(bits, dx), 1);
         state.setPort(1, Value.createKnown(bits, dy), 1);
@@ -86,9 +81,7 @@ public class Joystick extends InstanceFactory {
 
         Graphics g = painter.getGraphics();
         g.drawRoundRect(x - 30, y - 10, 30, 30, 8, 8);
-        g.drawRoundRect(x - 28, y - 8, 26, 26, 4, 4);
-        drawBall(g, x - 15, y + 5, painter.getAttributeValue(Io.ATTR_COLOR),
-                painter.shouldDrawColor());
+        drawBall(g, x - 15, y + 5, painter.getAttributeValue(Io.ATTR_COLOR), painter.shouldDrawColor());
         painter.drawPorts();
     }
 
@@ -178,8 +171,7 @@ public class Joystick extends InstanceFactory {
             int x = loc.getX();
             int y = loc.getY();
             Graphics g = painter.getGraphics();
-            g.setColor(Color.WHITE);
-            g.fillRect(x - 20, y, 10, 10);
+            g.fillOval(x - 20, y, 10, 10);
             GraphicsUtil.switchToWidth(g, 3);
             g.setColor(ColorRegistry.BaseGateBorderColor);
             int dx = state.xPos;

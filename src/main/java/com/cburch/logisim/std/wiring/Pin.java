@@ -44,22 +44,15 @@ import com.cburch.logisim.util.Icons;
 import static com.cburch.logisim.util.LocaleString.*;
 
 public class Pin extends InstanceFactory {
-    public static final Attribute<Boolean> ATTR_TRISTATE
-        = Attributes.forBoolean("tristate", getFromLocale("pinThreeStateAttr"));
-    public static final Attribute<Boolean> ATTR_TYPE
-        = Attributes.forBoolean("output", getFromLocale("pinOutputAttr"));
-    public static final Attribute<Direction> ATTR_LABEL_LOC
-        = Attributes.forDirection("labelloc", getFromLocale("pinLabelLocAttr"));
+    public static final Attribute<Boolean> ATTR_TRISTATE = Attributes.forBoolean("tristate", getFromLocale("pinThreeStateAttr"));
+    public static final Attribute<Boolean> ATTR_TYPE = Attributes.forBoolean("output", getFromLocale("pinOutputAttr"));
+    public static final Attribute<Direction> ATTR_LABEL_LOC = Attributes.forDirection("labelloc", getFromLocale("pinLabelLocAttr"));
 
-    public static final AttributeOption PULL_NONE
-        = new AttributeOption("none", getFromLocale("pinPullNoneOption"));
-    public static final AttributeOption PULL_UP
-        = new AttributeOption("up", getFromLocale("pinPullUpOption"));
-    public static final AttributeOption PULL_DOWN
-        = new AttributeOption("down", getFromLocale("pinPullDownOption"));
+    public static final AttributeOption PULL_NONE = new AttributeOption("none", getFromLocale("pinPullNoneOption"));
+    public static final AttributeOption PULL_UP = new AttributeOption("up", getFromLocale("pinPullUpOption"));
+    public static final AttributeOption PULL_DOWN = new AttributeOption("down", getFromLocale("pinPullDownOption"));
     public static final Attribute<AttributeOption> ATTR_PULL
-        = Attributes.forOption("pull", getFromLocale("pinPullAttr"),
-                new AttributeOption[] { PULL_NONE, PULL_UP, PULL_DOWN });
+        = Attributes.forOption("pull", getFromLocale("pinPullAttr"), new AttributeOption[] { PULL_NONE, PULL_UP, PULL_DOWN });
 
     public static final Pin FACTORY = new Pin();
 
@@ -113,23 +106,26 @@ public class Pin extends InstanceFactory {
         Graphics g = painter.getGraphics();
         if (output) {
             if (ICON_OUT != null) {
-                Icons.paintRotated(g, 2, 2, dir, ICON_OUT,
-                        painter.getDestination());
+                Icons.paintRotated(g, 2, 2, dir, ICON_OUT, painter.getDestination());
                 return;
             }
         } else {
             if (ICON_IN != null) {
-                Icons.paintRotated(g, 2, 2, dir, ICON_IN,
-                        painter.getDestination());
+                Icons.paintRotated(g, 2, 2, dir, ICON_IN, painter.getDestination());
                 return;
             }
         }
         int pinx = 16; int piny = 9;
         // keep defaults
         if (dir == Direction.EAST) {
-        } else if (dir == Direction.WEST) { pinx = 4;
-        } else if (dir == Direction.NORTH) { pinx = 9; piny = 4;
-        } else if (dir == Direction.SOUTH) { pinx = 9; piny = 16;
+        } else if (dir == Direction.WEST) {
+            pinx = 4;
+        } else if (dir == Direction.NORTH) {
+            pinx = 9;
+            piny = 4;
+        } else if (dir == Direction.SOUTH) {
+            pinx = 9;
+            piny = 16;
         }
 
         g.setColor(ColorRegistry.Creme);
@@ -156,15 +152,12 @@ public class Pin extends InstanceFactory {
         if (output) {
             BitWidth width = attrs.getValue(StdAttr.WIDTH);
             if (width == BitWidth.ONE) {
-                g.drawOval(x + bds.getX() + 1, y + bds.getY() + 1,
-                    bds.getWidth() - 1, bds.getHeight() - 1);
+                g.drawOval(x + bds.getX(), y + bds.getY(), bds.getWidth(), bds.getHeight());
             } else {
-                g.drawRoundRect(x + bds.getX() + 1, y + bds.getY() + 1,
-                    bds.getWidth() - 1, bds.getHeight() - 1, 6, 6);
+                g.drawRoundRect(x + bds.getX(), y + bds.getY(), bds.getWidth(), bds.getHeight(), 6, 6);
             }
         } else {
-            g.drawRect(x + bds.getX() + 1, y + bds.getY() + 1,
-                bds.getWidth() - 1, bds.getHeight() - 1);
+            g.drawRect(x + bds.getX(), y + bds.getY(), bds.getWidth(), bds.getHeight());
         }
     }
 
@@ -180,23 +173,19 @@ public class Pin extends InstanceFactory {
         g.setColor(ColorRegistry.Creme);
         if (attrs.type == EndData.OUTPUT_ONLY) {
             if (attrs.width.getWidth() == 1) {
-                g.drawOval(x + 1, y + 1,
-                    bds.getWidth() - 1, bds.getHeight() - 1);
+                g.drawOval(x, y, bds.getWidth(), bds.getHeight());
             } else {
-                g.drawRoundRect(x + 1, y + 1,
-                    bds.getWidth() - 1, bds.getHeight() - 1, 6, 6);
+                g.drawRoundRect(x, y, bds.getWidth(), bds.getHeight(), 6, 6);
             }
         } else {
-            g.drawRect(x + 1, y + 1,
-                bds.getWidth() - 1, bds.getHeight() - 1);
+            g.drawRect(x, y, bds.getWidth(), bds.getHeight());
         }
 
         painter.drawLabel();
 
         if (!painter.getShowState()) {
             g.setColor(ColorRegistry.BaseGateBorderColor);
-            GraphicsUtil.drawCenteredText(g, "x" + attrs.width.getWidth(),
-                    bds.getX() + bds.getWidth() / 2, bds.getY() + bds.getHeight() / 2);
+            GraphicsUtil.drawCenteredText(g, "x" + attrs.width.getWidth(), bds.getX() + bds.getWidth() / 2, bds.getY() + bds.getHeight() / 2);
         } else {
             PinState state = getState(painter);
             if (attrs.width.getWidth() <= 1) {
@@ -206,8 +195,7 @@ public class Pin extends InstanceFactory {
 
                 if (attrs.width.getWidth() == 1) {
                     g.setColor(Color.WHITE);
-                    GraphicsUtil.drawCenteredText(g,
-                        state.intendedValue.toDisplayString(), x + 11, y + 9);
+                    GraphicsUtil.drawCenteredText(g, state.intendedValue.toDisplayString(), x + 11, y + 9);
                 }
             } else {
                 Probe.paintValue(painter, state.intendedValue);

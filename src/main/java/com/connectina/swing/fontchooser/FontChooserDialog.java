@@ -47,7 +47,7 @@ class FontChooserDialog extends javax.swing.JDialog {
 		Locale loc = Locale.getDefault();
 		ResourceBundle ret = bundles.get(loc);
 		if (ret == null) {
-			ret = ResourceBundle.getBundle("resources/connectina/FontChooserDialog");
+			ret = ResourceBundle.getBundle("connectina/FontChooserDialog");
 			bundles.put(loc, ret);
 		}
 		return ret;

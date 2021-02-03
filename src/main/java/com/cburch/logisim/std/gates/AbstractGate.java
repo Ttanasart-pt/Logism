@@ -169,7 +169,9 @@ abstract class AbstractGate extends InstanceFactory {
         int width = bds.getWidth();
         int height = bds.getHeight();
         if (facing == Direction.NORTH || facing == Direction.SOUTH) {
-            int t = width; width = height; height = t;
+            int t = width;
+            width = height;
+            height = t;
         }
         if (negated != 0) {
             width -= 10;

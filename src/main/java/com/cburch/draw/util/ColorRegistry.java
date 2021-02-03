@@ -27,6 +27,7 @@ public class ColorRegistry {
     public static Color Lime_dark = new Color(50, 130, 20);
 
     public static Color BaseGateBorderColor;
+    public static Color BaseGateBorderTransparent;
     public static Color HandleColor;
 
     public static Color CanvasBackground;
@@ -60,6 +61,7 @@ public class ColorRegistry {
 
         TextColor = new Color(AppPreferences.STYLE_TEXT_COLOR.get());
         BaseGateBorderColor = new Color(AppPreferences.STYLE_GATE_COLOR.get());
+        BaseGateBorderTransparent = new Color(BaseGateBorderColor.getRed(), BaseGateBorderColor.getGreen(), BaseGateBorderColor.getBlue(), 64);
         HandleColor = new Color(AppPreferences.STYLE_HANDLE_COLOR.get());
 
         WireIdle = new Color(AppPreferences.STYLE_WIRE_IDLE.get());

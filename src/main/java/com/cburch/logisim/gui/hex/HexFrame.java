@@ -26,6 +26,8 @@ import com.cburch.hex.HexEditor;
 import com.cburch.hex.HexModel;
 import com.cburch.logisim.gui.generic.LFrame;
 import com.cburch.logisim.gui.menu.LogisimMenuBar;
+import com.cburch.logisim.gui.menu.LogisimMenuBar;
+import com.cburch.logisim.gui.menu.SmallMenuBar;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.util.JFileChoosers;
 import com.cburch.logisim.util.LocaleListener;
@@ -33,10 +35,8 @@ import com.cburch.logisim.util.LocaleManager;
 import com.cburch.logisim.util.WindowMenuItemManager;
 import static com.cburch.logisim.util.LocaleString.*;
 
-@SuppressWarnings("serial")
 public class HexFrame extends LFrame {
-    private class WindowMenuManager extends WindowMenuItemManager
-            implements LocaleListener {
+    private class WindowMenuManager extends WindowMenuItemManager implements LocaleListener {
         WindowMenuManager() {
             super(getFromLocale("hexFrameMenuItem"), false);
             LocaleManager.addLocaleListener(this);
@@ -53,8 +53,7 @@ public class HexFrame extends LFrame {
         }
     }
 
-    private class MyListener
-            implements ActionListener, LocaleListener {
+    private class MyListener implements ActionListener, LocaleListener {
         private File lastFile = null;
 
         @Override
@@ -70,8 +69,7 @@ public class HexFrame extends LFrame {
                         HexFile.open(model, f);
                         lastFile = f;
                     } catch (IOException e) {
-                        JOptionPane.showMessageDialog(HexFrame.this, e.getMessage(),
-                                getFromLocale("hexOpenErrorTitle"), JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(HexFrame.this, e.getMessage(), getFromLocale("hexOpenErrorTitle"), JOptionPane.ERROR_MESSAGE);
                     }
                 }
             } else if (src == save) {
@@ -158,19 +156,17 @@ public class HexFrame extends LFrame {
         }
     }
 
-    private WindowMenuManager windowManager = new WindowMenuManager();
-    private EditListener editListener = new EditListener();
-    private MyListener myListener = new MyListener();
-    private HexModel model;
-    private HexEditor editor;
-    private JButton open = new JButton();
-    private JButton save = new JButton();
-    private JButton close = new JButton();
+    private final WindowMenuManager windowManager = new WindowMenuManager();
+    private final HexModel model;
+    private final HexEditor editor;
+    private final JButton open = new JButton();
+    private final JButton save = new JButton();
+    private final JButton close = new JButton();
 
     public HexFrame(Project proj, HexModel model) {
         setDefaultCloseOperation(HIDE_ON_CLOSE);
 
-        LogisimMenuBar menubar = new LogisimMenuBar(this, proj);
+        LogisimMenuBar menubar = new SmallMenuBar(this, proj);
         setJMenuBar(menubar);
 
         this.model = model;
@@ -180,14 +176,13 @@ public class HexFrame extends LFrame {
         buttonPanel.add(open);
         buttonPanel.add(save);
         buttonPanel.add(close);
+        MyListener myListener = new MyListener();
         open.addActionListener(myListener);
         save.addActionListener(myListener);
         close.addActionListener(myListener);
 
         Dimension pref = editor.getPreferredSize();
-        JScrollPane scroll = new JScrollPane(editor,
-                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        JScrollPane scroll = new JScrollPane(editor, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         pref.height = Math.min(pref.height, pref.width * 3 / 2);
         scroll.setPreferredSize(pref);
         scroll.getViewport().setBackground(editor.getBackground());
@@ -208,6 +203,7 @@ public class HexFrame extends LFrame {
             setSize(size);
         }
 
+        EditListener editListener = new EditListener();
         editor.getCaret().addChangeListener(editListener);
         editor.getCaret().setDot(0, false);
         editListener.register(menubar);

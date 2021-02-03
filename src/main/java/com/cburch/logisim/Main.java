@@ -23,6 +23,7 @@ package com.cburch.logisim;
 import com.cburch.draw.util.ColorRegistry;
 import com.cburch.logisim.gui.start.Startup;
 
+import com.cburch.logisim.util.GraphicsUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,6 +52,7 @@ public class Main {
         } else {
             logger.info( "Starting Logisim" );
             ColorRegistry.ColorInit();
+            GraphicsUtil.GraphicInit();
             startup.run();
         }
     }
