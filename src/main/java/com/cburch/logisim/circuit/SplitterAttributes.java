@@ -37,9 +37,7 @@ class SplitterAttributes extends AbstractAttributeSet {
         = Attributes.forIntegerRange("fanout", getFromLocale("splitterFanOutAttr"), 1, 32);
 
     private static final List<Attribute<?>> INIT_ATTRIBUTES
-        = Arrays.asList(new Attribute<?>[] {
-            StdAttr.FACING, ATTR_FANOUT, ATTR_WIDTH, ATTR_APPEARANCE,
-        });
+        = Arrays.asList(StdAttr.FACING, ATTR_FANOUT, ATTR_WIDTH, ATTR_APPEARANCE);
 
     private static final String unchosen_val = "none";
 

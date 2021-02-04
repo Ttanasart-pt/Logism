@@ -7,50 +7,43 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 public class Direction implements AttributeOptionInterface {
     public static final Direction EAST
-        = new Direction("east", getFromLocale("directionEastOption"),
-                getFromLocale("directionEastVertical"), 0);
+        = new Direction("east", getFromLocale("directionEastOption"), getFromLocale("directionEastVertical"), 0, "GUI/dir_E.svg");
     public static final Direction WEST
-        = new Direction("west", getFromLocale("directionWestOption"),
-                getFromLocale("directionWestVertical"), 1);
+        = new Direction("west", getFromLocale("directionWestOption"), getFromLocale("directionWestVertical"), 1, "GUI/dir_W.svg");
     public static final Direction NORTH
-        = new Direction("north", getFromLocale("directionNorthOption"),
-                getFromLocale("directionNorthVertical"), 2);
+        = new Direction("north", getFromLocale("directionNorthOption"), getFromLocale("directionNorthVertical"), 2, "GUI/dir_N.svg");
     public static final Direction SOUTH
-        = new Direction("south", getFromLocale("directionSouthOption"),
-                getFromLocale("directionSouthVertical"), 3);
-    public static final Direction[] cardinals
-        = { NORTH, EAST, SOUTH, WEST };
+        = new Direction("south", getFromLocale("directionSouthOption"), getFromLocale("directionSouthVertical"), 3, "GUI/dir_S.svg");
+    public static final Direction CENTER
+        = new Direction("center", getFromLocale("directionSouthOption"), getFromLocale("directionSouthVertical"), 4, "GUI/dir_CENTER.svg");
+    public static final Direction[] cardinals = { NORTH, EAST, SOUTH, WEST };
 
     public static Direction parse(String str) {
         if (str.equals(EAST.name)) {
              return EAST;
-        }
-
-        if (str.equals(WEST.name)) {
+        } else if (str.equals(WEST.name)) {
              return WEST;
-        }
-
-        if (str.equals(NORTH.name)) {
+        } else if (str.equals(NORTH.name)) {
             return NORTH;
-        }
-
-        if (str.equals(SOUTH.name)) {
+        } else if (str.equals(SOUTH.name)) {
             return SOUTH;
         }
 
         throw new NumberFormatException("illegal direction '" + str + "'");
     }
 
-    private String name;
-    private String disp;
-    private String vert;
-    private int id;
+    private final String name;
+    private final String disp;
+    private final String vert;
+    private final String path;
+    private final int id;
 
-    private Direction(String name, String disp, String vert, int id) {
+    private Direction(String name, String disp, String vert, int id, String path) {
         this.name = name;
         this.disp = disp;
         this.vert = vert;
         this.id = id;
+        this.path = path;
     }
 
     @Override
@@ -61,6 +54,10 @@ public class Direction implements AttributeOptionInterface {
     @Override
     public String toDisplayString() {
         return disp.toString();
+    }
+
+    public String iconPath() {
+        return path;
     }
 
     public String getDisplayGetter() {

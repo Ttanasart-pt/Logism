@@ -31,7 +31,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 public class PullResistor extends InstanceFactory {
     public static final Attribute<AttributeOption> ATTR_PULL_TYPE
-        = Attributes.forOption("pull", getFromLocale("pullTypeAttr"),
+        = Attributes.forOptionButton("pull", getFromLocale("pullTypeAttr"),
                 new AttributeOption[] {
                     new AttributeOption(Value.FALSE, "0", getFromLocale("pullZeroType")),
                     new AttributeOption(Value.TRUE,  "1", getFromLocale("pullOneType")),

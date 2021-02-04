@@ -89,27 +89,29 @@ public class GraphicsUtil {
         return ret;
     }
 
-    static public void drawText(Graphics g, Font font, String text, int x, int y, int halign, int valign) {
+    static public void drawText(Graphics g, String text, int x, int y, int halign, int valign, Font font) {
         Font oldfont = g.getFont();
-        if (font != null) {
-            g.setFont(font);
-        }
+        g.setFont(font);
 
-        drawText(g, text, x, y, halign, valign);
-        if (font != null) {
-            g.setFont(oldfont);
-        }
-
-    }
-    static public void drawText(Graphics g, String text, int x, int y, int halign, int valign) {
-        if (text.length() == 0) { return; }
-
-        g.setFont(FONT);
         Rectangle bd = getTextBounds(g, text, x, y, halign, valign);
         g.drawString(text, bd.x, bd.y + g.getFontMetrics().getAscent());
+
+        g.setFont(oldfont);
     }
+    static public void drawText(Graphics g, String text, int x, int y, int halign, int valign) {
+        drawText(g, text, x, y, halign, valign, FONT);
+    }
+
     static public void drawCenteredText(Graphics g, String text, int x, int y) {
         drawText(g, text, x, y, H_CENTER, V_CENTER);
+    }
+    static public void drawCenteredText(Graphics g, String text, int x, int y, Font font) {
+        Font oldfont = g.getFont();
+        g.setFont(font);
+
+        drawText(g, text, x, y, H_CENTER, V_CENTER, font);
+
+        g.setFont(oldfont);
     }
 
     static public void drawArrow(Graphics g, int x0, int y0, int x1, int y1, int headLength, int headAngle) {

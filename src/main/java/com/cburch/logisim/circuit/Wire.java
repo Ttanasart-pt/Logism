@@ -33,7 +33,7 @@ public final class Wire implements Component, AttributeSet, CustomHandles, Itera
 
     public static final AttributeOption VALUE_HORZ = new AttributeOption("horz", getFromLocale("wireDirectionHorzOption"));
     public static final AttributeOption VALUE_VERT = new AttributeOption("vert", getFromLocale("wireDirectionVertOption"));
-    public static final Attribute<AttributeOption> dir_attr = Attributes.forOption("direction", getFromLocale("wireDirectionAttr"),
+    public static final Attribute<AttributeOption> dir_attr = Attributes.forOptionButton("direction", getFromLocale("wireDirectionAttr"),
             new AttributeOption[] { VALUE_HORZ, VALUE_VERT });
     public static final Attribute<Integer> len_attr = Attributes.forInteger("length", getFromLocale("wireLengthAttr"));
 

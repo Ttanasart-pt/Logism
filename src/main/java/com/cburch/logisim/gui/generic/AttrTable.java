@@ -3,34 +3,15 @@
 
 package com.cburch.logisim.gui.generic;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Window;
-import java.awt.Dialog;
-import java.awt.Frame;
+import java.awt.*;
 import java.awt.event.*;
-import javax.swing.BorderFactory;
-import javax.swing.JComponent;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JPanel;
-import javax.swing.JComboBox;
-import javax.swing.SwingConstants;
-import javax.swing.event.CellEditorListener;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableModel;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
+import com.bric.swing.ColorPicker;
 import com.cburch.draw.util.ColorRegistry;
+import com.cburch.logisim.data.AttributeOptionButtonDrawer;
 import com.cburch.logisim.util.JDialogOk;
 import com.cburch.logisim.util.JInputComponent;
 import com.cburch.logisim.util.LocaleListener;
@@ -186,15 +167,12 @@ public class AttrTable extends JPanel implements LocaleListener {
         }
 
         @Override
-        public void setValueAt(Object value, int rowIndex,
-                int columnIndex) {
+        public void setValueAt(Object value, int rowIndex, int columnIndex) {
             if (columnIndex > 0) {
                 try {
                     attrModel.getRow(rowIndex).setValue(value);
                 } catch (AttrTableSetException e) {
-                    JOptionPane.showMessageDialog(parent, e.getMessage(),
-                            getFromLocale("attributeChangeInvalidTitle"),
-                            JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(parent, e.getMessage(), getFromLocale("attributeChangeInvalidTitle"), JOptionPane.WARNING_MESSAGE);
                 }
             }
         }
@@ -238,6 +216,7 @@ public class AttrTable extends JPanel implements LocaleListener {
             }
             fireTableChanged();
         }
+
     }
 
     private class CellEditor implements TableCellEditor, FocusListener, ActionListener {
@@ -301,6 +280,10 @@ public class AttrTable extends JPanel implements LocaleListener {
                 return ((JTextField) comp).getText();
             } else if (comp instanceof JComboBox) {
                 return ((JComboBox) comp).getSelectedItem();
+            } else if (comp instanceof JCheckBox) {
+                return ((JCheckBox) comp).isSelected();
+            } else if (comp instanceof AttributeOptionButtonDrawer) {
+                return ((AttributeOptionButtonDrawer) comp).getValue();
             } else {
                 return null;
             }
@@ -331,6 +314,9 @@ public class AttrTable extends JPanel implements LocaleListener {
                     currentEditor.transferFocus();
                 }
 
+                JPanel panel = new JPanel();
+                panel.setLayout(new CardLayout(0, 0));
+
                 Component editor = row.getEditor(parent);
                 if (editor instanceof JComboBox) {
                     ((JComboBox) editor).addActionListener(this);
@@ -352,12 +338,18 @@ public class AttrTable extends JPanel implements LocaleListener {
                         JOptionPane.showMessageDialog(parent, e.getMessage(), getFromLocale("attributeChangeInvalidTitle"), JOptionPane.WARNING_MESSAGE);
                     }
                     editor = new JLabel(row.getValue());
+                } else if(editor instanceof JCheckBox) {
+                    ((JCheckBox)editor).addActionListener(this);
+                } else if(editor instanceof AttributeOptionButtonDrawer) {
+                    ((AttributeOptionButtonDrawer)editor).addActionListener(this);
                 } else {
                     editor.addFocusListener(this);
                 }
                 currentRow = row;
                 currentEditor = editor;
-                return editor;
+
+                panel.add(editor);
+                return panel;
             }
         }
 
@@ -394,6 +386,83 @@ public class AttrTable extends JPanel implements LocaleListener {
         }
     }
 
+    private class attributeCellRenderer implements TableCellRenderer {
+
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            AttrTableModel attrModel = tableModel.attrModel;
+            AttrTableModelRow rowModel = attrModel.getRow(row);
+
+            JPanel panel = new JPanel();
+            panel.setBackground(ColorRegistry.GreyLight);
+
+            if(column == 0) {
+                panel.setLayout(new CardLayout(8, 2));
+                panel.add(new JLabel("" + value));
+            } else {
+                panel.setLayout(new CardLayout(0, 0));
+                Component editorUI = rowModel.getEditor(parent);
+                if (editorUI instanceof JComboBox) {
+                    panel.setLayout(new CardLayout(4, 4));
+                    panel.add(new comboDrawer("" + value));
+                } else if(editorUI instanceof JInputComponent) {
+                    if(editorUI instanceof ColorPicker) {
+                        panel.setLayout(new CardLayout(4, 4));
+                        panel.add(new colorDrawer("" + value, Color.decode("" + value)));
+                    } else {
+                        panel.setLayout(new CardLayout(4, 4));
+                        panel.add(new JButton("" + value));
+                    }
+                } else if(editorUI instanceof JCheckBox) {
+                    panel.add(editorUI);
+                } else if(editorUI instanceof AttributeOptionButtonDrawer) {
+                    panel.add(editorUI);
+                } else {
+                    panel.setLayout(new CardLayout(4, 4));
+                    panel.add(new JButton("" + value));
+                }
+            }
+
+            return panel;
+        }
+
+        private class comboDrawer extends JButton {
+            comboDrawer(String label) {
+                super(label);
+            }
+
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                int x1 = getWidth() - 20;
+                int x2 = getWidth() - 10;
+                int y1 = 11;
+                int y2 = getHeight() - 11;
+
+                int[] x = {x1, x2, (x1 + x2) / 2};
+                int[] y = {y1, y1, y2};
+                g.setColor(ColorRegistry.GreyBright);
+                g.fillPolygon(x, y, 3);
+            }
+        }
+
+        private class colorDrawer extends JButton {
+            final Color color;
+
+            colorDrawer(String label, Color value) {
+                super(label);
+                color = value;
+            }
+
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.setColor(color);
+                g.fillRect(4, 4, 24, getHeight() - 8);
+            }
+        }
+    }
+
     private final Window parent;
     private boolean titleEnabled;
     private final JLabel title;
@@ -409,18 +478,15 @@ public class AttrTable extends JPanel implements LocaleListener {
         title = new TitleLabel();
         title.setHorizontalAlignment(SwingConstants.CENTER);
         title.setVerticalAlignment(SwingConstants.CENTER);
+
         tableModel = new TableModelAdapter(parent, NULL_ATTR_MODEL);
-        table = new JTable(tableModel) {
-            @Override
-            public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
-                Component component = super.prepareRenderer(renderer, row, column);
-                component.setBackground(new Color(255, 255, 255, row % 2 * 16));
-                return component;
-            }
-        };
+        table = new JTable(tableModel);
+        table.setDefaultRenderer(Object.class, new attributeCellRenderer());
         table.setDefaultEditor(Object.class, editor);
         table.setTableHeader(null);
-        table.setRowHeight(20);
+        table.setRowHeight(36);
+        table.getColumnModel().getColumn(0).setPreferredWidth(128);
+        table.getColumnModel().getColumn(0).setMaxWidth(160);
 
         Font baseFont = title.getFont();
         int titleSize = Math.round(baseFont.getSize() * 1.2f);
@@ -432,6 +498,7 @@ public class AttrTable extends JPanel implements LocaleListener {
 
         this.add(title, BorderLayout.PAGE_START);
         this.add(tableScroll, BorderLayout.CENTER);
+
         LocaleManager.addLocaleListener(this);
         localeChanged();
     }

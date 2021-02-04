@@ -31,7 +31,7 @@ public class Shifter extends InstanceFactory {
     static final AttributeOption SHIFT_ROLL_LEFT = new AttributeOption("rl", getFromLocale("shiftRollLeft"));
     static final AttributeOption SHIFT_ROLL_RIGHT = new AttributeOption("rr", getFromLocale("shiftRollRight"));
     static final Attribute<AttributeOption> ATTR_SHIFT
-            = Attributes.forOption("shift", getFromLocale("shifterShiftAttr"),
+            = Attributes.forOptionButton("shift", getFromLocale("shifterShiftAttr"),
             new AttributeOption[] { SHIFT_LOGICAL_LEFT, SHIFT_LOGICAL_RIGHT, SHIFT_ARITHMETIC_RIGHT, SHIFT_ROLL_LEFT, SHIFT_ROLL_RIGHT });
 
     private static final int IN0   = 0;

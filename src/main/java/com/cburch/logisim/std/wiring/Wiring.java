@@ -21,7 +21,7 @@ public class Wiring extends Library {
 
     static final AttributeOption GATE_TOP_LEFT = new AttributeOption("tl", getFromLocale("wiringGateTopLeftOption"));
     static final AttributeOption GATE_BOTTOM_RIGHT = new AttributeOption("br", getFromLocale("wiringGateBottomRightOption"));
-    static final Attribute<AttributeOption> ATTR_GATE = Attributes.forOption("gate", getFromLocale("wiringGateAttr"),
+    static final Attribute<AttributeOption> ATTR_GATE = Attributes.forOptionButton("gate", getFromLocale("wiringGateAttr"),
             new AttributeOption[] { GATE_TOP_LEFT, GATE_BOTTOM_RIGHT });
 
     private static final Tool[] ADD_TOOLS = {

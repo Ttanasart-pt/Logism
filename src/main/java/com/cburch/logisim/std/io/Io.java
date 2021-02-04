@@ -22,8 +22,8 @@ public class Io extends Library {
     static final Attribute<Color> ATTR_ON_COLOR = Attributes.forColor("color", getFromLocale("ioOnColor"));
     static final Attribute<Color> ATTR_OFF_COLOR = Attributes.forColor("offcolor", getFromLocale("ioOffColor"));
     static final Attribute<Color> ATTR_BACKGROUND = Attributes.forColor("bg", getFromLocale("ioBackgroundColor"));
-    static final Attribute<Object> ATTR_LABEL_LOC = Attributes.forOption("labelloc", getFromLocale("ioLabelLocAttr"),
-            new Object[] { LABEL_CENTER, Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST });
+    static final Attribute<Object> ATTR_LABEL_LOC = Attributes.forOptionButton("labelloc", getFromLocale("ioLabelLocAttr"),
+            new Object[] { Direction.CENTER, Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST });
     static final Attribute<Color> ATTR_LABEL_COLOR = Attributes.forColor("labelcolor", getFromLocale("ioLabelColorAttr"));
     static final Attribute<Boolean> ATTR_ACTIVE = Attributes.forBoolean("active", getFromLocale("ioActiveAttr"));
 

@@ -9,7 +9,7 @@ import com.cburch.logisim.data.Direction;
 import static com.cburch.logisim.util.LocaleString.*;
 
 class NegateAttribute extends Attribute<Boolean> {
-    private static Attribute<Boolean> BOOLEAN_ATTR = Attributes.forBoolean("negateDummy");
+    private static final Attribute<Boolean> BOOLEAN_ATTR = Attributes.forBoolean("negateDummy");
 
     int index;
     private Direction side;

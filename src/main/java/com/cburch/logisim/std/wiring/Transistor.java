@@ -41,8 +41,7 @@ public class Transistor extends InstanceFactory {
     static final AttributeOption TYPE_N
         = new AttributeOption("n", getFromLocale("transistorTypeN"));
     static final Attribute<AttributeOption> ATTR_TYPE
-        = Attributes.forOption("type", getFromLocale("transistorTypeAttr"),
-                new AttributeOption[] { TYPE_P, TYPE_N });
+        = Attributes.forOptionButton("type", getFromLocale("transistorTypeAttr"), new AttributeOption[] { TYPE_P, TYPE_N });
 
     static final int OUTPUT = 0;
     static final int INPUT = 1;

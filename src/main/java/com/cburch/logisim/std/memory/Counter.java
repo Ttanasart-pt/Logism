@@ -39,9 +39,7 @@ public class Counter extends InstanceFactory {
     static final Attribute<Integer> ATTR_MAX = Attributes.forHexInteger("max",
             getFromLocale("counterMaxAttr"));
     static final Attribute<AttributeOption> ATTR_ON_GOAL = Attributes.forOption("ongoal",
-            getFromLocale("counterGoalAttr"),
-            new AttributeOption[] { ON_GOAL_WRAP, ON_GOAL_STAY, ON_GOAL_CONT,
-                ON_GOAL_LOAD });
+            getFromLocale("counterGoalAttr"), new AttributeOption[] { ON_GOAL_WRAP, ON_GOAL_STAY, ON_GOAL_CONT, ON_GOAL_LOAD });
 
     private static final int DELAY = 8;
     private static final int OUT = 0;

@@ -4,20 +4,30 @@
 package com.cburch.logisim.data;
 
 public class AttributeOption implements AttributeOptionInterface {
-    private Object value;
-    private String name;
-    private String desc;
+    private final Object value;
+    private final String name;
+    private final String desc;
+    public boolean isImage;
+    public String iconPath;
 
     public AttributeOption(Object value, String desc) {
         this.value = value;
         this.name = value.toString();
         this.desc = desc;
+        isImage = false;
     }
 
     public AttributeOption(Object value, String name, String desc) {
         this.value = value;
         this.name = name;
         this.desc = desc;
+        isImage = false;
+    }
+
+    public AttributeOption(Object value, String name, String desc, String iconPath) {
+        this(value, name, desc);
+        this.iconPath = iconPath;
+        isImage = true;
     }
 
     @Override

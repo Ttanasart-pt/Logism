@@ -20,8 +20,7 @@ import static com.cburch.logisim.util.LocaleString.*;
 
 @SuppressWarnings("serial")
 public abstract class JDialogOk extends JDialog {
-    private class MyListener extends WindowAdapter
-            implements ActionListener {
+    private class MyListener extends WindowAdapter implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Object src = e.getSource();
@@ -42,7 +41,7 @@ public abstract class JDialogOk extends JDialog {
         }
     }
 
-    private JPanel contents = new JPanel(new BorderLayout());
+    private final JPanel contents = new JPanel(new BorderLayout());
     protected JButton ok = new JButton(getFromLocale("dlogOkButton"));
     protected JButton cancel = new JButton(getFromLocale("dlogCancelButton"));
 

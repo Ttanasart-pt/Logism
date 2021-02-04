@@ -28,14 +28,14 @@ public class Plexers extends Library {
 
     public static final AttributeOption DISABLED_FLOATING = new AttributeOption("Z", getFromLocale("plexerDisabledFloating"));
     public static final AttributeOption DISABLED_ZERO = new AttributeOption("0", getFromLocale("plexerDisabledZero"));
-    public static final Attribute<AttributeOption> ATTR_DISABLED = Attributes.forOption("disabled", getFromLocale("plexerDisabledAttr"),
+    public static final Attribute<AttributeOption> ATTR_DISABLED = Attributes.forOptionButton("disabled", getFromLocale("plexerDisabledAttr"),
             new AttributeOption[] { DISABLED_FLOATING, DISABLED_ZERO });
 
     public static final Attribute<Boolean> ATTR_ENABLE = Attributes.forBoolean("enable", getFromLocale("plexerEnableAttr"));
 
     static final AttributeOption SELECT_BOTTOM_LEFT = new AttributeOption("bl", getFromLocale("plexerSelectBottomLeftOption"));
     static final AttributeOption SELECT_TOP_RIGHT = new AttributeOption("tr", getFromLocale("plexerSelectTopRightOption"));
-    static final Attribute<AttributeOption> ATTR_SELECT_LOC = Attributes.forOption("selloc", getFromLocale("plexerSelectLocAttr"),
+    static final Attribute<AttributeOption> ATTR_SELECT_LOC = Attributes.forOptionButton("selloc", getFromLocale("plexerSelectLocAttr"),
             new AttributeOption[] { SELECT_BOTTOM_LEFT, SELECT_TOP_RIGHT });
 
     protected static final int DELAY = 3;

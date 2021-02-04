@@ -25,7 +25,7 @@ public class Comparator extends InstanceFactory {
     private static final AttributeOption UNSIGNED_OPTION
             = new AttributeOption("unsigned", "unsigned", getFromLocale("unsignedOption"));
     private static final Attribute<AttributeOption> MODE_ATTRIBUTE
-            = Attributes.forOption("mode", getFromLocale("comparatorType"), new AttributeOption[] { SIGNED_OPTION, UNSIGNED_OPTION });
+            = Attributes.forOptionButton("mode", getFromLocale("comparatorType"), new AttributeOption[] { SIGNED_OPTION, UNSIGNED_OPTION });
 
     private static final int IN0   = 0;
     private static final int IN1   = 1;

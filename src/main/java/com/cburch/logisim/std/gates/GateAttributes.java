@@ -23,7 +23,7 @@ class GateAttributes extends AbstractAttributeSet {
     static final AttributeOption SIZE_MEDIUM = new AttributeOption(50, getFromLocale("gateSizeNormalOpt"));
     static final AttributeOption SIZE_WIDE = new AttributeOption(70, getFromLocale("gateSizeWideOpt"));
     public static final Attribute<AttributeOption> ATTR_SIZE
-            = Attributes.forOption("size", getFromLocale("gateSizeAttr"), new AttributeOption[] { SIZE_NARROW, SIZE_MEDIUM, SIZE_WIDE });
+            = Attributes.forOptionButton("size", getFromLocale("gateSizeAttr"), new AttributeOption[] { SIZE_NARROW, SIZE_MEDIUM, SIZE_WIDE });
 
     public static final Attribute<Integer> ATTR_INPUTS
             = Attributes.forIntegerRange("inputs", getFromLocale("gateInputsAttr"), 2, MAX_INPUTS);
@@ -37,7 +37,7 @@ class GateAttributes extends AbstractAttributeSet {
     static final AttributeOption OUTPUT_0Z = new AttributeOption("0Z", getFromLocale("gateOutput0Z"));
     static final AttributeOption OUTPUT_Z1 = new AttributeOption("Z1", getFromLocale("gateOutputZ1"));
     public static final Attribute<AttributeOption> ATTR_OUTPUT
-            = Attributes.forOption("out", getFromLocale("gateOutputAttr"), new AttributeOption[] { OUTPUT_01, OUTPUT_0Z, OUTPUT_Z1 });
+            = Attributes.forOptionButton("out", getFromLocale("gateOutputAttr"), new AttributeOption[] { OUTPUT_01, OUTPUT_0Z, OUTPUT_Z1 });
 
 
     Direction facing = Direction.EAST;

@@ -3,13 +3,9 @@
 
 package com.cburch.logisim.data;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
+import java.awt.*;
 
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JList;
+import javax.swing.*;
 import javax.swing.plaf.basic.BasicComboBoxRenderer;
 
 import com.bric.swing.ColorPicker;
@@ -44,8 +40,7 @@ public class Attributes {
         return forHexInteger(name, getter(name));
     }
 
-    public static Attribute<Integer> forIntegerRange(String name,
-            int start, int end) {
+    public static Attribute<Integer> forIntegerRange(String name, int start, int end) {
         return forIntegerRange(name, getter(name), start, end);
     }
 
@@ -57,9 +52,7 @@ public class Attributes {
         return forBoolean(name, getter(name));
     }
 
-    public static Attribute<Direction> forDirection(String name) {
-        return forDirection(name, getter(name));
-    }
+    public static Attribute<Direction> forDirection(String name) { return forDirection(name, getter(name)); }
 
     public static Attribute<BitWidth> forBitWidth(String name) {
         return forBitWidth(name, getter(name));
@@ -88,9 +81,11 @@ public class Attributes {
         return new StringAttribute(name, disp);
     }
 
-    public static <V> Attribute<V> forOption(String name, String disp,
-            V[] vals) {
+    public static <V> Attribute<V> forOption(String name, String disp, V[] vals) {
         return new OptionAttribute<V>(name, disp, vals);
+    }
+    public static <V> Attribute<V> forOptionButton(String name, String disp, V[] vals) {
+        return new OptionButtonAttribute<>(name, disp, vals);
     }
 
     public static Attribute<Integer> forInteger(String name, String disp) {
@@ -101,8 +96,7 @@ public class Attributes {
         return new HexIntegerAttribute(name, disp);
     }
 
-    public static Attribute<Integer> forIntegerRange(String name, String disp,
-            int start, int end) {
+    public static Attribute<Integer> forIntegerRange(String name, String disp, int start, int end) {
         return new IntegerRangeAttribute(name, disp, start, end);
     }
 
@@ -149,8 +143,7 @@ public class Attributes {
         }
     }
 
-    private static class OptionComboRenderer<V>
-            extends BasicComboBoxRenderer {
+    private static class OptionComboRenderer<V> extends BasicComboBoxRenderer {
         Attribute<V> attr;
 
         OptionComboRenderer(Attribute<V> attr) {
@@ -158,9 +151,7 @@ public class Attributes {
         }
 
         @Override
-        public Component getListCellRendererComponent(JList list,
-                Object value, int index, boolean isSelected,
-                boolean cellHasFocus) {
+        public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             Component ret = super.getListCellRendererComponent(list,
                 value, index, isSelected, cellHasFocus);
             if (ret instanceof JLabel) {
@@ -173,10 +164,9 @@ public class Attributes {
     }
 
     private static class OptionAttribute<V> extends Attribute<V> {
-        private V[] vals;
+        private final V[] vals;
 
-        private OptionAttribute(String name, String disp,
-                V[] vals) {
+        private OptionAttribute(String name, String disp, V[] vals) {
             super(name, disp);
             this.vals = vals;
         }
@@ -192,9 +182,9 @@ public class Attributes {
 
         @Override
         public V parse(String value) {
-            for (int i = 0; i < vals.length; i++) {
-                if (value.equals(vals[i].toString())) {
-                    return vals[i];
+            for (V val : vals) {
+                if (value.equals(val.toString())) {
+                    return val;
                 }
             }
             throw new NumberFormatException("value not among choices");
@@ -206,15 +196,51 @@ public class Attributes {
             combo.setRenderer(new OptionComboRenderer<V>(this));
             if (value == null) {
                 combo.setSelectedIndex(-1);
-            }
-
-            else {
+            } else {
                 combo.setSelectedItem(value);
             }
 
             return combo;
         }
     }
+
+    private static class OptionButtonAttribute<V> extends Attribute<V> {
+        private final V[] vals;
+
+        private OptionButtonAttribute(String name, String disp, V[] vals) {
+            super(name, disp);
+            this.vals = vals;
+        }
+
+        @Override
+        public String toDisplayString(V value) {
+            if (value instanceof AttributeOptionInterface) {
+                return ((AttributeOptionInterface) value).toDisplayString();
+            } else {
+                return value.toString();
+            }
+        }
+
+        @Override
+        public V parse(String value) {
+            for (V val : vals) {
+                if (value.equals(val.toString())) {
+                    return val;
+                }
+            }
+            throw new NumberFormatException("value not among choices");
+        }
+
+        @Override
+        public Component getCellEditor(Object value) {
+            AttributeOptionButtonDrawer<V> buttonPanel = new AttributeOptionButtonDrawer<V>(vals);
+            if (value != null) {
+                buttonPanel.setSelectedItem((V)value);
+            }
+            return buttonPanel;
+        }
+    }
+
 
     private static class IntegerAttribute extends Attribute<Integer> {
         private IntegerAttribute(String name, String disp) {
@@ -273,11 +299,11 @@ public class Attributes {
         }
     }
 
-    private static class BooleanAttribute extends OptionAttribute<Boolean> {
-        private static Boolean[] vals = { Boolean.TRUE, Boolean.FALSE };
+    private static class BooleanAttribute extends Attribute<Boolean> {
+        private static final Boolean[] vals = { Boolean.TRUE, Boolean.FALSE };
 
         private BooleanAttribute(String name, String disp) {
-            super(name, disp, vals);
+            super(name, disp);
         }
 
         @Override
@@ -294,8 +320,16 @@ public class Attributes {
 
         @Override
         public Boolean parse(String value) {
-            Boolean b = Boolean.valueOf(value);
+            boolean b = Boolean.parseBoolean(value);
             return vals[b ? 0 : 1];
+        }
+
+        @Override
+        protected Component getCellEditor(Boolean value) {
+            JCheckBox checkBox = new JCheckBox("");
+            checkBox.setSelected(value);
+
+            return checkBox;
         }
     }
 
@@ -346,8 +380,8 @@ public class Attributes {
         }
     }
 
-    private static class DirectionAttribute extends OptionAttribute<Direction> {
-        private static Direction[] vals = {
+    private static class DirectionAttribute extends OptionButtonAttribute<Direction> {
+        private static final Direction[] vals = {
             Direction.NORTH,
             Direction.SOUTH,
             Direction.EAST,
@@ -447,12 +481,9 @@ public class Attributes {
         private String hex(int value) {
             if (value >= 16) {
                 return Integer.toHexString(value);
-            }
-
-            else {
+            } else {
                 return "0" + Integer.toHexString(value);
             }
-
         }
         @Override
         public Color parse(String value) {

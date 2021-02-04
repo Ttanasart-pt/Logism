@@ -28,25 +28,19 @@ public class Text extends InstanceFactory {
             getFromLocale("textTextAttr"));
     public static Attribute<Font> ATTR_FONT = Attributes.forFont("font",
         getFromLocale("textFontAttr"));
-    public static Attribute<AttributeOption> ATTR_HALIGN = Attributes.forOption("halign",
+    public static Attribute<AttributeOption> ATTR_HALIGN = Attributes.forOptionButton("halign",
         getFromLocale("textHorzAlignAttr"), new AttributeOption[] {
-            new AttributeOption(Integer.valueOf(TextField.H_LEFT),
-                "left", getFromLocale("textHorzAlignLeftOpt")),
-            new AttributeOption(Integer.valueOf(TextField.H_RIGHT),
-                "right", getFromLocale("textHorzAlignRightOpt")),
-            new AttributeOption(Integer.valueOf(TextField.H_CENTER),
-                "center", getFromLocale("textHorzAlignCenterOpt")),
+            new AttributeOption(TextField.H_LEFT, "left", getFromLocale("textHorzAlignLeftOpt")),
+            new AttributeOption(TextField.H_RIGHT, "right", getFromLocale("textHorzAlignRightOpt")),
+            new AttributeOption(TextField.H_CENTER, "center", getFromLocale("textHorzAlignCenterOpt")),
         });
-    public static Attribute<AttributeOption> ATTR_VALIGN = Attributes.forOption("valign",
+
+    public static Attribute<AttributeOption> ATTR_VALIGN = Attributes.forOptionButton("valign",
         getFromLocale("textVertAlignAttr"), new AttributeOption[] {
-            new AttributeOption(Integer.valueOf(TextField.V_TOP),
-                "top", getFromLocale("textVertAlignTopOpt")),
-            new AttributeOption(Integer.valueOf(TextField.V_BASELINE),
-                "base", getFromLocale("textVertAlignBaseOpt")),
-            new AttributeOption(Integer.valueOf(TextField.V_BOTTOM),
-                "bottom", getFromLocale("textVertAlignBottomOpt")),
-            new AttributeOption(Integer.valueOf(TextField.H_CENTER),
-                "center", getFromLocale("textVertAlignCenterOpt")),
+            new AttributeOption(TextField.V_TOP, "top", getFromLocale("textVertAlignTopOpt")),
+            new AttributeOption(TextField.V_BASELINE, "base", getFromLocale("textVertAlignBaseOpt")),
+            new AttributeOption(TextField.V_BOTTOM, "bottom", getFromLocale("textVertAlignBottomOpt")),
+            new AttributeOption(TextField.H_CENTER, "center", getFromLocale("textVertAlignCenterOpt")),
         });
 
     public static final Text FACTORY = new Text();

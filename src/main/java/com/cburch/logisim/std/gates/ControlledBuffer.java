@@ -40,8 +40,7 @@ class ControlledBuffer extends InstanceFactory {
     private static final AttributeOption LEFT_HANDED
         = new AttributeOption("left", getFromLocale("controlledLeftHanded"));
     private static final Attribute<AttributeOption> ATTR_CONTROL
-        = Attributes.forOption("control", getFromLocale("controlledControlOption"),
-                new AttributeOption[] { RIGHT_HANDED, LEFT_HANDED });
+        = Attributes.forOption("control", getFromLocale("controlledControlOption"), new AttributeOption[] { RIGHT_HANDED, LEFT_HANDED });
 
     public static ComponentFactory FACTORY_BUFFER = new ControlledBuffer(false);
     public static ComponentFactory FACTORY_INVERTER = new ControlledBuffer(true);

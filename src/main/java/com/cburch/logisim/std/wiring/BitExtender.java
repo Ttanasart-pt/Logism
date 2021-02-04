@@ -31,7 +31,7 @@ public class BitExtender extends InstanceFactory {
     private static final Attribute<BitWidth> ATTR_OUT_WIDTH
         = Attributes.forBitWidth("out_width", getFromLocale("extenderOutAttr"));
     private static final Attribute<AttributeOption> ATTR_TYPE
-        = Attributes.forOption("type", getFromLocale("extenderTypeAttr"),
+        = Attributes.forOptionButton("type", getFromLocale("extenderTypeAttr"),
             new AttributeOption[] {
                 new AttributeOption("zero", "zero", getFromLocale("extenderZeroType")),
                 new AttributeOption("one", "one", getFromLocale("extenderOneType")),

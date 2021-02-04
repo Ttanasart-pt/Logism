@@ -52,7 +52,7 @@ public class Pin extends InstanceFactory {
     public static final AttributeOption PULL_UP = new AttributeOption("up", getFromLocale("pinPullUpOption"));
     public static final AttributeOption PULL_DOWN = new AttributeOption("down", getFromLocale("pinPullDownOption"));
     public static final Attribute<AttributeOption> ATTR_PULL
-        = Attributes.forOption("pull", getFromLocale("pinPullAttr"), new AttributeOption[] { PULL_NONE, PULL_UP, PULL_DOWN });
+        = Attributes.forOptionButton("pull", getFromLocale("pinPullAttr"), new AttributeOption[] { PULL_NONE, PULL_UP, PULL_DOWN });
 
     public static final Pin FACTORY = new Pin();
 
