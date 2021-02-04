@@ -25,8 +25,11 @@ class PrefMonitorDouble extends AbstractPrefMonitor<Double> {
     }
 
     @Override
+    public void restore() { value = dflt; }
+
+    @Override
     public void set(Double newValue) {
-        double newVal = newValue.doubleValue();
+        double newVal = newValue;
         if (value != newVal) {
             AppPreferences.getPrefs().putDouble(getIdentifier(), newVal);
         }

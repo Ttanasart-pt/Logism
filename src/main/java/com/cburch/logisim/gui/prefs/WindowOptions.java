@@ -100,7 +100,7 @@ class WindowOptions extends OptionsPanel {
         centerPanel.add(styleScroll, BorderLayout.CENTER);
 
         content.add(centerPanel, BorderLayout.CENTER);
-        content.add(new applyButton(), BorderLayout.SOUTH);
+        content.add(new restoreButton(), BorderLayout.SOUTH);
 
         add(content);
     }
@@ -120,10 +120,9 @@ class WindowOptions extends OptionsPanel {
                     stylePanel.add(menu.panels.get(i), c);
                 }
             }
-
             menu.repaint();
-            stylePanel.repaint();
         }
+        stylePanel.repaint();
     }
 
     @Override
@@ -136,34 +135,58 @@ class WindowOptions extends OptionsPanel {
     public void localeChanged() { check.localeChanged(); }
 
     static class propertyPanel extends JPanel {
-
+        public void restoreValue() {}
     }
 
     static class colorPanel extends propertyPanel {
+        PrefMonitor<Integer> pref;
+        PrefColor disp;
+
         colorPanel(String name, PrefMonitor<Integer> pref) {
+            this.pref = pref;
             setBackground(ColorRegistry.Grey.darker());
             JLabel nameLabel = new JLabel(name);
             nameLabel.setPreferredSize(new Dimension(120, 32));
             add(nameLabel);
-            add(new PrefColor(pref));
+            add(disp = new PrefColor(pref));
+        }
+
+        @Override
+        public void restoreValue() {
+            super.restoreValue();
+            pref.restore();
+            disp.repaint();
         }
     }
 
     static class fontPanel extends propertyPanel {
+        PrefMonitor<String> pref;
+        PrefFont disp;
+
         fontPanel(String name, PrefMonitor<String> pref) {
+            this.pref = pref;
             setBackground(ColorRegistry.Grey.darker());
             JLabel nameLabel = new JLabel(name);
             nameLabel.setPreferredSize(new Dimension(120, 32));
             add(nameLabel);
-            add(new PrefFont(pref));
+            add(disp = new PrefFont(pref));
+        }
+
+        @Override
+        public void restoreValue() {
+            super.restoreValue();
+            pref.restore();
+            disp.repaint();
         }
     }
 
     static class doubleSliderPanel extends propertyPanel implements ChangeListener {
         JLabel valueLabel;
         PrefDoubleSlider slider;
+        PrefMonitor<Double> pref;
 
         doubleSliderPanel(String name, PrefMonitor<Double> pref, int divider) {
+            this.pref = pref;
             setBackground(ColorRegistry.Grey.darker());
             JLabel nameLabel = new JLabel(name);
             nameLabel.setPreferredSize(new Dimension(120, 32));
@@ -181,24 +204,34 @@ class WindowOptions extends OptionsPanel {
         }
 
         @Override
+        public void restoreValue() {
+            super.restoreValue();
+            pref.restore();
+
+            slider.repaint();
+            valueLabel = new JLabel("" + slider.getValueDouble());
+        }
+
+        @Override
         public void stateChanged(ChangeEvent e) {
             valueLabel.setText(String.format("%.1f", slider.getValueDouble()));
         }
     }
 
-    static class applyButton extends JButton implements ActionListener {
-        applyButton() {
-            super("Apply");
+    class restoreButton extends JButton implements ActionListener {
+        restoreButton() {
+            super("Restore default");
             addActionListener(this);
         }
         @Override
         public void actionPerformed(ActionEvent e) {
-            ColorRegistry.setStyle();
-            GraphicsUtil.setStyle();
-            Frame.This.repaint();
+            for(styleMenuTab tab : StylePages) {
+                for(propertyPanel panel : tab.panels) {
+                    panel.restoreValue();
+                }
+            }
         }
     }
-
 
     class styleMenuTab extends JButton implements ActionListener, MouseListener {
         public String title;

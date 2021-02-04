@@ -77,7 +77,6 @@ public abstract class AppearanceElement extends AbstractCanvasObject {
     }
 
     protected Bounds getBounds(int radius) {
-        return Bounds.create(location.getX() - radius, location.getY() - radius,
-                2 * radius, 2 * radius);
+        return Bounds.create(location.getX() - radius, location.getY() - radius, 2 * radius, 2 * radius);
     }
 }

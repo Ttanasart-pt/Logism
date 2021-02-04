@@ -14,14 +14,13 @@ import com.cburch.draw.model.CanvasObject;
 import com.cburch.draw.undo.Action;
 
 
-@SuppressWarnings("serial")
 public class Canvas extends JComponent {
     public static final String TOOL_PROPERTY = "tool";
     public static final String MODEL_PROPERTY = "model";
 
     private CanvasModel model;
     private ActionDispatcher dispatcher;
-    private CanvasListener listener;
+    private final CanvasListener listener;
     private Selection selection;
 
     public Canvas() {

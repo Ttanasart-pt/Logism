@@ -7,9 +7,9 @@ import java.util.prefs.PreferenceChangeEvent;
 import java.util.prefs.Preferences;
 
 class PrefMonitorStringOpts extends AbstractPrefMonitor<String> {
-    private String[] opts;
+    private final String[] opts;
     private String value;
-    private String dflt;
+    private final String dflt;
 
     PrefMonitorStringOpts(String name, String[] opts, String dflt) {
         super(name);
@@ -20,6 +20,9 @@ class PrefMonitorStringOpts extends AbstractPrefMonitor<String> {
         set(prefs.get(name, dflt));
         prefs.addPreferenceChangeListener(this);
     }
+
+    @Override
+    public void restore() { value = dflt; }
 
     @Override
     public String get() {
@@ -43,13 +46,14 @@ class PrefMonitorStringOpts extends AbstractPrefMonitor<String> {
             String oldValue = value;
             String newValue = prefs.get(name, dflt);
             if (!isSame(oldValue, newValue)) {
-                String[] o = opts;
                 String chosen = null;
-                for (int i = 0; i < o.length; i++) {
-                    if (isSame(o[i], newValue)) {
-                        { chosen = o[i];
+                for (String s : opts) {
+                    if (isSame(s, newValue)) {
+                        {
+                            chosen = s;
+                        }
+                        break;
                     }
- break; }
                 }
                 if (chosen == null) {
                     chosen = dflt;

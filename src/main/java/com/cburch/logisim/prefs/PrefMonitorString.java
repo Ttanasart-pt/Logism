@@ -7,7 +7,7 @@ import java.util.prefs.PreferenceChangeEvent;
 import java.util.prefs.Preferences;
 
 class PrefMonitorString extends AbstractPrefMonitor<String> {
-    private String dflt;
+    private final String dflt;
     private String value;
 
     PrefMonitorString(String name, String dflt) {
@@ -17,6 +17,9 @@ class PrefMonitorString extends AbstractPrefMonitor<String> {
         this.value = prefs.get(name, dflt);
         prefs.addPreferenceChangeListener(this);
     }
+
+    @Override
+    public void restore() { value = dflt; }
 
     @Override
     public String get() {

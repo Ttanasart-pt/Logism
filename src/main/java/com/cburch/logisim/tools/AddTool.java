@@ -356,8 +356,7 @@ public class AddTool extends Tool {
     }
 
     @Override
-    public void mouseReleased(Canvas canvas, Graphics g,
-            MouseEvent e) {
+    public void mouseReleased(Canvas canvas, Graphics g, MouseEvent e) {
         Component added = null;
         if (state == SHOW_ADD) {
             Circuit circ = canvas.getCircuit();

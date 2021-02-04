@@ -3,9 +3,7 @@
 
 package com.cburch.logisim.gui.prefs;
 
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -31,7 +29,6 @@ import com.cburch.logisim.prefs.Template;
 import com.cburch.logisim.util.JFileChoosers;
 import static com.cburch.logisim.util.LocaleString.*;
 
-@SuppressWarnings("serial")
 class TemplateOptions extends OptionsPanel {
     private class MyListener implements ActionListener, PropertyChangeListener {
         @Override
@@ -55,7 +52,7 @@ class TemplateOptions extends OptionsPanel {
                         LogisimFile.load(reader2, loader);
                         AppPreferences.setTemplateFile(file, template);
                         AppPreferences.setTemplateType(AppPreferences.TEMPLATE_CUSTOM);
-                    } catch (LoaderException ex) {
+                    } catch (LoaderException ignored) {
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(getPreferencesFrame(),
                                 String.format(getFromLocale("templateErrorMessage"), ex.toString()),
@@ -66,14 +63,14 @@ class TemplateOptions extends OptionsPanel {
                             if (reader != null) {
                                 reader.close();
                             }
-
-                        } catch (IOException ex) { }
+                        } catch (IOException ignored) { }
                         try {
                             if (reader != null) {
+                                assert reader2 != null;
                                 reader2.close();
                             }
 
-                        } catch (IOException ex) { }
+                        } catch (IOException ignored) { }
                     }
                 }
             } else {
@@ -123,13 +120,11 @@ class TemplateOptions extends OptionsPanel {
         }
     }
 
-    private MyListener myListener = new MyListener();
-
-    private JRadioButton plain = new JRadioButton();
-    private JRadioButton empty = new JRadioButton();
-    private JRadioButton custom = new JRadioButton();
-    private JTextField templateField = new JTextField(40);
-    private JButton templateButton = new JButton();
+    private final JRadioButton plain = new JRadioButton();
+    private final JRadioButton empty = new JRadioButton();
+    private final JRadioButton custom = new JRadioButton();
+    private final JTextField templateField = new JTextField(40);
+    private final JButton templateButton = new JButton();
 
     public TemplateOptions(PreferencesFrame window) {
         super(window);
@@ -139,6 +134,7 @@ class TemplateOptions extends OptionsPanel {
         bgroup.add(empty);
         bgroup.add(custom);
 
+        MyListener myListener = new MyListener();
         plain.addActionListener(myListener);
         empty.addActionListener(myListener);
         custom.addActionListener(myListener);
@@ -148,15 +144,22 @@ class TemplateOptions extends OptionsPanel {
 
         GridBagLayout gridbag = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
-        setLayout(gridbag);
+        JPanel content = new JPanel(gridbag);
+        setLayout(new CardLayout(24, 24));
+
         gbc.weightx = 1.0;
         gbc.gridx = 0;
         gbc.gridy = GridBagConstraints.RELATIVE;
         gbc.gridwidth = 3;
         gbc.anchor = GridBagConstraints.LINE_START;
-        gridbag.setConstraints(plain, gbc); add(plain);
-        gridbag.setConstraints(empty, gbc); add(empty);
-        gridbag.setConstraints(custom, gbc); add(custom);
+
+        gridbag.setConstraints(plain, gbc);
+        content.add(plain);
+        gridbag.setConstraints(empty, gbc);
+        content.add(empty);
+        gridbag.setConstraints(custom, gbc);
+        content.add(custom);
+
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = 1;
         gbc.gridy = 3;
@@ -164,16 +167,24 @@ class TemplateOptions extends OptionsPanel {
         JPanel strut = new JPanel();
         strut.setMinimumSize(new Dimension(50, 1));
         strut.setPreferredSize(new Dimension(50, 1));
-        gbc.weightx = 0.0; gridbag.setConstraints(strut, gbc); add(strut);
-        gbc.weightx = 1.0; gridbag.setConstraints(templateField, gbc); add(templateField);
-        gbc.weightx = 0.0; gridbag.setConstraints(templateButton, gbc); add(templateButton);
+
+        gbc.weightx = 0.0; gridbag.setConstraints(strut, gbc);
+        content.add(strut);
+
+        gbc.weightx = 1.0; gridbag.setConstraints(templateField, gbc);
+        content.add(templateField);
+
+        gbc.weightx = 0.0; gridbag.setConstraints(templateButton, gbc);
+        content.add(templateButton);
+
+        add(content);
 
         AppPreferences.addPropertyChangeListener(AppPreferences.TEMPLATE_TYPE, myListener);
         AppPreferences.addPropertyChangeListener(AppPreferences.TEMPLATE_FILE, myListener);
         switch (AppPreferences.getTemplateType()) {
-        case AppPreferences.TEMPLATE_PLAIN: plain.setSelected(true); break;
-        case AppPreferences.TEMPLATE_EMPTY: empty.setSelected(true); break;
-        case AppPreferences.TEMPLATE_CUSTOM: custom.setSelected(true); break;
+            case AppPreferences.TEMPLATE_PLAIN -> plain.setSelected(true);
+            case AppPreferences.TEMPLATE_EMPTY -> empty.setSelected(true);
+            case AppPreferences.TEMPLATE_CUSTOM -> custom.setSelected(true);
         }
         myListener.setTemplateField(AppPreferences.getTemplateFile());
     }

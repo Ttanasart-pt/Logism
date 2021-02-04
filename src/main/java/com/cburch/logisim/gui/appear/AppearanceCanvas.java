@@ -340,8 +340,7 @@ public class AppearanceCanvas extends Canvas implements CanvasPaneContents, Acti
     }
 
     @Override
-    public int getScrollableBlockIncrement(Rectangle visibleRect,
-            int orientation, int direction) {
+    public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction) {
         return canvasPane.supportScrollableBlockIncrement(visibleRect, orientation, direction);
     }
 

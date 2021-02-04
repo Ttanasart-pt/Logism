@@ -14,6 +14,7 @@ public interface PrefMonitor<E> extends PreferenceChangeListener {
     public void addPropertyChangeListener(PropertyChangeListener listener);
     public void removePropertyChangeListener(PropertyChangeListener listener);
     public E get();
+    public void restore();
     public void set(E value);
     public boolean getBoolean();
     public void setBoolean(boolean value);

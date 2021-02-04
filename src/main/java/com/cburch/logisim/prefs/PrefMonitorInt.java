@@ -7,7 +7,7 @@ import java.util.prefs.PreferenceChangeEvent;
 import java.util.prefs.Preferences;
 
 class PrefMonitorInt extends AbstractPrefMonitor<Integer> {
-    private int dflt;
+    private final int dflt;
     private int value;
 
     PrefMonitorInt(String name, int dflt) {
@@ -18,6 +18,9 @@ class PrefMonitorInt extends AbstractPrefMonitor<Integer> {
         set(prefs.getInt(name, dflt));
         prefs.addPreferenceChangeListener(this);
     }
+
+    @Override
+    public void restore() { value = dflt; }
 
     @Override
     public Integer get() {
